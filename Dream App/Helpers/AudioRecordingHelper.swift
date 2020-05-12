@@ -33,15 +33,11 @@ protocol AudioRecorderHelperDelegate: AVAudioRecorderDelegate {
 // Default functions do nothing so users can decide which functions
 // they want to include in their implementation
 extension AudioRecorderHelperDelegate {
-    func audioRecorderHelperDidAskForPermission(grated: Bool) { return }
+    func audioRecorderHelperDidAskForPermission(granted: Bool) { return }
     func audioRecorderHelperWasDeniedMicrophoneAccess() { return }
     func audioRecorderHelperCouldNotStartRecording(_ error: AudioRecorderStartingError) { return }
     func audioRecorderHelperRecordingChanged(_ audioRecorder: AVAudioRecorder?,
                                              isRecording: Bool) { return }
-    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder,
-                                         successfully flag: Bool) { return }
-    func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder,
-                                          error: Error?) { return }
 }
 
 // MARK: - Audio Recorder Starting Error
@@ -65,8 +61,10 @@ extension AudioRecorderStartingError: LocalizedError {
 }
 
 // MARK: - Audio Recorder Helper
+/// Wrapper on AVAudioRecorder to make recording audio easier
+/// - Note: Make sure to add `NSMicrophoneUsageDescription` in your plist
+/// (e.g. `$(PRODUCT_NAME) needs your permission to use your device's microphone to create audio recordings`)
 class AudioRecorderHelper {
-    
     // MARK: Properties
     private var helperDelegate: AudioRecorderHelperDelegate?
     private var audioRecorder: AVAudioRecorder? {
@@ -86,10 +84,11 @@ class AudioRecorderHelper {
     /// How quickly / often the timer will call delegate method
     private var timerInterval: TimeInterval
     
-    // MARK: Init
+    // MARK: Init / Deinit
     init(helperDelegate: AudioRecorderHelperDelegate?,
          sampleRate: Double = 44_100,
          numberOfChannels: Int = 1,
+         // Timers are expensive so default to false
          shouldUpdateUsingTimer: Bool = false,
          timerInterval: TimeInterval = 0.030) {
         
@@ -99,7 +98,6 @@ class AudioRecorderHelper {
         self.shouldUseTimer = shouldUpdateUsingTimer
         self.timerInterval = timerInterval
     }
-    
     deinit {
         cancelTimerIfNeeded()
     }
@@ -174,16 +172,20 @@ class AudioRecorderHelper {
                 break
         }
     }
-    
     func resumeRecording() {
         audioRecorder?.record()
         helperDelegate?.audioRecorderHelperRecordingChanged(audioRecorder, isRecording: isRecording)
         startTimerIfNeeded()
     }
-    
     func pauseRecording() {
         audioRecorder?.pause()
         helperDelegate?.audioRecorderHelperRecordingChanged(audioRecorder, isRecording: isRecording)
+        cancelTimerIfNeeded()
+    }
+    func stopRecording() {
+        // Will call AVAudioPlayerDelegate method (didFinishRecording)
+        // No need to make / call specific AudioHelperDelegate method
+        audioRecorder?.stop()
         cancelTimerIfNeeded()
     }
 }

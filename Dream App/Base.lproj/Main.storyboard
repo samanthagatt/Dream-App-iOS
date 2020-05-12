@@ -1,113 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xyD-Iw-pci">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="ogh-BC-5QI">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Dream_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="xyD-Iw-pci" customClass="ViewController" customModule="Dream_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rvk-ou-LuO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paused" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMO-ty-N4K">
-                                <rect key="frame" x="147.5" y="67" width="80" height="33"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:03:18" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qzh-v1-Tco">
-                                <rect key="frame" x="116.5" y="116" width="142" height="47"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="34"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aqm-dJ-oaR" customClass="RoundedButton" customModule="Dream_App" customModuleProvider="target">
-                                <rect key="frame" x="94" y="221" width="187.5" height="187.5"/>
-                                <color key="backgroundColor" red="0.41802239419999998" green="0.39130377770000002" blue="0.96475499870000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Aqm-dJ-oaR" secondAttribute="height" multiplier="1:1" id="Lpn-n4-61M"/>
-                                </constraints>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="bIX-jq-uiq">
+                                <rect key="frame" x="37.5" y="73.5" width="300" height="520"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="dR8-IP-IJF">
+                                        <rect key="frame" x="79" y="0.0" width="142" height="95.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paused" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWL-OB-0oQ">
+                                                <rect key="frame" x="31" y="0.0" width="80" height="33"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:03:18" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhv-Up-meR">
+                                                <rect key="frame" x="0.0" y="49" width="142" height="46.5"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="34"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAw-fS-f0y" customClass="RoundedButton" customModule="Dream_App" customModuleProvider="target">
+                                        <rect key="frame" x="56.5" y="143.5" width="187.5" height="187.5"/>
+                                        <color key="backgroundColor" name="primaryPurple"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="hAw-fS-f0y" secondAttribute="height" id="IpT-yf-ObY"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="roundingAmount">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="changeRecordingState:" destination="xyD-Iw-pci" eventType="touchUpInside" id="8X1-4p-MOs"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="ou8-WA-KyJ">
+                                        <rect key="frame" x="4" y="379" width="292" height="141"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the above button to continue recording, or the button below if you are done." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIx-U6-CwY">
+                                                <rect key="frame" x="0.0" y="0.0" width="292" height="74"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vtC-4T-XXu" customClass="RoundedButton" customModule="Dream_App" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="92" width="292" height="49"/>
+                                                <color key="backgroundColor" name="primaryPurple"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
+                                                <state key="normal" title="Done">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="roundingAmount">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="saveRecording:" destination="xyD-Iw-pci" eventType="touchUpInside" id="w2z-dg-93A"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="vtC-4T-XXu" firstAttribute="width" secondItem="JIx-U6-CwY" secondAttribute="width" id="Nvm-N1-3Zc"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mic.fill" catalog="system" highlightedImage="pause" translatesAutoresizingMaskIntoConstraints="NO" id="b0i-Za-6Aj">
+                                <rect key="frame" x="147.5" y="270" width="80" height="80.5"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="roundingAmount">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="changeRecordingState:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s9f-1y-Pjz"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="microphone" translatesAutoresizingMaskIntoConstraints="NO" id="83t-PC-4gS">
-                                <rect key="frame" x="147.5" y="274.5" width="80" height="80.5"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="83t-PC-4gS" secondAttribute="height" multiplier="1:1" id="cgE-Gw-6yx"/>
+                                    <constraint firstAttribute="width" secondItem="b0i-Za-6Aj" secondAttribute="height" multiplier="1:1" id="yy5-mU-m5Q"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the above button to continue recording, or the button below if you are done." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMc-IT-WSE">
-                                <rect key="frame" x="37.5" y="466.5" width="300" height="74"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5HM-yN-qzj" customClass="RoundedButton" customModule="Dream_App" customModuleProvider="target">
-                                <rect key="frame" x="37.5" y="564.5" width="300" height="49"/>
-                                <color key="backgroundColor" red="0.41802239419999998" green="0.39130377770000002" blue="0.96475499870000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
-                                <state key="normal" title="Done"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="roundingAmount">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="saveRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7ZB-Sh-8pb"/>
-                                </connections>
-                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="darkBackground"/>
                         <constraints>
-                            <constraint firstItem="Aqm-dJ-oaR" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="1:2" id="1sz-gC-5ox"/>
-                            <constraint firstItem="5HM-yN-qzj" firstAttribute="top" secondItem="BMc-IT-WSE" secondAttribute="bottom" constant="24" id="EHd-rY-OiB"/>
-                            <constraint firstItem="83t-PC-4gS" firstAttribute="centerY" secondItem="Aqm-dJ-oaR" secondAttribute="centerY" id="Ef5-qV-hO4"/>
-                            <constraint firstItem="5HM-yN-qzj" firstAttribute="width" secondItem="BMc-IT-WSE" secondAttribute="width" id="Exs-Uy-jMW"/>
-                            <constraint firstItem="Aqm-dJ-oaR" firstAttribute="top" secondItem="Qzh-v1-Tco" secondAttribute="bottom" constant="58" id="JV4-IN-ass"/>
-                            <constraint firstItem="5HM-yN-qzj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KVM-0F-Hr5"/>
-                            <constraint firstItem="83t-PC-4gS" firstAttribute="height" secondItem="Aqm-dJ-oaR" secondAttribute="height" multiplier="3:7" id="Kuu-EY-e24"/>
-                            <constraint firstItem="Aqm-dJ-oaR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mj4-1x-Vfs"/>
-                            <constraint firstItem="Qzh-v1-Tco" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MpK-PL-Dh7"/>
-                            <constraint firstItem="BMc-IT-WSE" firstAttribute="top" secondItem="Aqm-dJ-oaR" secondAttribute="bottom" constant="58" id="QXR-lR-STl"/>
-                            <constraint firstItem="aMO-ty-N4K" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="1:4" id="Uqo-bB-E1W"/>
-                            <constraint firstItem="BMc-IT-WSE" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="4:5" id="n1G-cd-ffE"/>
-                            <constraint firstItem="BMc-IT-WSE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oJX-r2-wFR"/>
-                            <constraint firstItem="Qzh-v1-Tco" firstAttribute="top" secondItem="aMO-ty-N4K" secondAttribute="bottom" constant="16" id="spD-EV-USn"/>
-                            <constraint firstItem="aMO-ty-N4K" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uem-gw-swV"/>
-                            <constraint firstItem="83t-PC-4gS" firstAttribute="centerX" secondItem="Aqm-dJ-oaR" secondAttribute="centerX" id="v1d-4B-0ds"/>
+                            <constraint firstItem="b0i-Za-6Aj" firstAttribute="centerX" secondItem="hAw-fS-f0y" secondAttribute="centerX" id="7Ml-pi-jM5"/>
+                            <constraint firstItem="bIX-jq-uiq" firstAttribute="centerY" secondItem="Rvk-ou-LuO" secondAttribute="centerY" id="9cU-Dy-euZ"/>
+                            <constraint firstItem="bIX-jq-uiq" firstAttribute="width" secondItem="9X8-g7-S0Y" secondAttribute="width" multiplier="4:5" id="Dlf-yE-UGx"/>
+                            <constraint firstItem="b0i-Za-6Aj" firstAttribute="width" secondItem="hAw-fS-f0y" secondAttribute="width" multiplier="3:7" id="KGh-RM-h2e"/>
+                            <constraint firstItem="hAw-fS-f0y" firstAttribute="width" secondItem="9X8-g7-S0Y" secondAttribute="width" multiplier="1:2" id="QDf-13-h2c"/>
+                            <constraint firstItem="b0i-Za-6Aj" firstAttribute="centerY" secondItem="hAw-fS-f0y" secondAttribute="centerY" id="VMh-Xq-zEH"/>
+                            <constraint firstItem="bIX-jq-uiq" firstAttribute="centerX" secondItem="Rvk-ou-LuO" secondAttribute="centerX" id="Zhr-L1-qzN"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="9X8-g7-S0Y"/>
                     </view>
                     <connections>
-                        <outlet property="buttonImage" destination="83t-PC-4gS" id="HFi-x2-QOK"/>
-                        <outlet property="descriptionLabel" destination="BMc-IT-WSE" id="fFo-Ml-BGM"/>
-                        <outlet property="doneButton" destination="5HM-yN-qzj" id="lSW-Ef-bKS"/>
-                        <outlet property="recordingStateLabel" destination="aMO-ty-N4K" id="ZTD-gT-Z8l"/>
-                        <outlet property="timeLabel" destination="Qzh-v1-Tco" id="S6D-7I-6a1"/>
+                        <outlet property="buttonImage" destination="b0i-Za-6Aj" id="wGg-2q-Bc4"/>
+                        <outlet property="descriptionLabel" destination="JIx-U6-CwY" id="azj-bq-OUv"/>
+                        <outlet property="doneButton" destination="vtC-4T-XXu" id="cVx-aP-d2a"/>
+                        <outlet property="recordButton" destination="hAw-fS-f0y" id="Fsl-Es-mGM"/>
+                        <outlet property="recordingStateLabel" destination="pWL-OB-0oQ" id="iYn-c4-UTP"/>
+                        <outlet property="timeLabel" destination="dhv-Up-meR" id="fzX-bH-1hy"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WCW-wd-wg4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
+            <point key="canvasLocation" x="943" y="126"/>
         </scene>
     </scenes>
     <resources>
-        <image name="microphone" width="22" height="30"/>
+        <image name="mic.fill" catalog="system" width="108" height="128"/>
+        <image name="pause" catalog="system" width="88" height="128"/>
+        <namedColor name="darkBackground">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="primaryPurple">
+            <color red="0.41802239419999998" green="0.39130377770000002" blue="0.96475499870000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
 </document>

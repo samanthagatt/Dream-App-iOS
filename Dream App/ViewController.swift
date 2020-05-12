@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class ViewController: UIViewController, AudioRecorderHelperDelegate {
     
     /// Enum for the possible states of the view controller
     private enum RecordingState {
@@ -18,32 +18,27 @@ final class ViewController: UIViewController {
     }
     
     // MARK: Properties
+    private lazy var audioRecordingHelper: AudioRecorderHelper = {
+        AudioRecorderHelper(helperDelegate: self)
+    }()
     private var recordingState: RecordingState = .initial {
         didSet {
-            updateLabelsAndButtons()
-        }
-    }
-    
-    // MARK: Methods
-    private func updateLabelsAndButtons() {
-        switch recordingState {
-            case .initial:
-                recordingStateLabel.text = ""
-                timeLabel.text = "Record"
-                buttonImage.image = UIImage(named: "microphone")
-                descriptionLabel.text = "Press the above button to begin recording your dream."
-            case .recording:
-                buttonImage.image = UIImage(named: "pause")
-                descriptionLabel.text = "Press the button above to pause recording, a button will appear when you are done."
-            case .paused:
-                buttonImage.image = UIImage(named: "microphone")
-                descriptionLabel.text = "Press the button above to continue recording, or the button below if you are done."
+            updateViewsOnRecordingStateChange()
+            switch oldValue {
+                case .initial:
+                    audioRecordingHelper.requestPermissionAndStartRecording()
+                case .recording:
+                    audioRecordingHelper.pauseRecording()
+                case .paused:
+                    audioRecordingHelper.resumeRecording()
+            }
         }
     }
 
     // MARK: Interface Builder
     @IBOutlet private weak var recordingStateLabel: UILabel!
     @IBOutlet private weak var timeLabel: UILabel!
+    @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var buttonImage: UIImageView!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var doneButton: UIButton!
@@ -57,7 +52,41 @@ final class ViewController: UIViewController {
         }
     }
     @IBAction private func saveRecording(_ sender: UIButton) {
-        
+        recordButton.isEnabled = false
+        audioRecordingHelper.stopRecording()
+    }
+}
+
+// MARK: Methods
+extension ViewController {
+    private func updateViewsOnRecordingStateChange() {
+        switch recordingState {
+            case .initial:
+                recordingStateLabel.text = ""
+                timeLabel.text = "Record"
+                // changes image to mic.fill
+                buttonImage.isHighlighted = false
+                descriptionLabel.text = "Press the above button to begin recording your dream. Press again to pause."
+                doneButton.isEnabled = false
+                // Makes button invisible but keeps it in stack view
+                doneButton.alpha = 0
+            
+            case .recording:
+                // changes image to pause
+                buttonImage.isHighlighted = true
+                descriptionLabel.text = "Press the button above to pause recording, a button will appear when you are done."
+                doneButton.isEnabled = false
+                // Makes button invisible but keeps it in stack view
+                doneButton.alpha = 0
+            
+            case .paused:
+                // changes image to mic.fill
+                buttonImage.isHighlighted = false
+                descriptionLabel.text = "Press the button above to continue recording, or the button below if you are done."
+                doneButton.isEnabled = true
+                // Makes sure button is visible
+                doneButton.alpha = 1
+        }
     }
 }
 
@@ -74,6 +103,6 @@ extension ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         makeLabelFontsAccessible()
-        updateLabelsAndButtons()
+        updateViewsOnRecordingStateChange()
     }
 }
