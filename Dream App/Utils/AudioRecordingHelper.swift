@@ -7,26 +7,40 @@
 //
 
 import AVFoundation
+import os.log
 
 // MARK: - Audio Recorder Helper Delegate
-protocol AudioRecorderHelperDelegate: AVAudioRecorderDelegate {
-    /// Function called after the first time the user tries to record audio
+protocol AudioRecorderHelperDelegate: class {
+    /// Called after the first time the user tries to record audio
     /// and accepts privacy terms
     ///
     /// Can be used to invite the user to tap record again,
     /// since the alert to grant access interrupted them,
     /// and they may not have been ready to record
     func audioRecorderHelperDidAskForPermission(granted: Bool)
-    /// Function called when user tries to record
-    /// but has already denied the app access to the microphone
+    /// Called when user tries to record but has already
+    /// denied the app access to the microphone
     func audioRecorderHelperWasDeniedMicrophoneAccess()
-    /// Function called if an error occurs while starting the audio recording
+    /// Called if an error occurs while starting the audio recording
     func audioRecorderHelperCouldNotStartRecording(_ error: AudioRecorderStartingError)
-    /// Function called when recording is started, paused, resumed, and stopped
+    /// Called when recording is started, paused, resumed, and stopped
     ///
     /// Can be used to update UI to provide visual feedback to user
-    func audioRecorderHelperRecordingChanged(_ audioRecorder: AVAudioRecorder?,
-                                             isRecording: Bool)
+    func audioRecorderHelperRecordingChanged(isRecording: Bool)
+    /// Called when timer is running.
+    ///
+    /// Only called if `AudioRecorderHelper` is initialized with
+    /// `shouldUseTimer` equal to `true`.
+    func audioRecorderHelperTimerCalled(currentTime: TimeInterval)
+    /// Called by the system when a recording is stopped or
+    /// has finished due to reaching its time limit.
+    /// - Parameters:
+    ///     - url: Optional URL where audio recording is stored
+    ///     - successfully: True on successful completion of recording;
+    ///     false if recording stopped because of an audio encoding error.
+    func audioRecorderHelperDidFinishRecording(url: URL, successfully flag: Bool)
+    /// Called when an audio recorder encounters an encoding error during recording.
+    func audioRecorderHelperErrorOccuredWhileRecording(_ error: Error?)
 }
 
 // MARK: Default Implementations for Audio Recorder Helper Delegates
@@ -36,8 +50,10 @@ extension AudioRecorderHelperDelegate {
     func audioRecorderHelperDidAskForPermission(granted: Bool) { return }
     func audioRecorderHelperWasDeniedMicrophoneAccess() { return }
     func audioRecorderHelperCouldNotStartRecording(_ error: AudioRecorderStartingError) { return }
-    func audioRecorderHelperRecordingChanged(_ audioRecorder: AVAudioRecorder?,
-                                             isRecording: Bool) { return }
+    func audioRecorderHelperRecordingChanged(isRecording: Bool) { return }
+    func audioRecorderHelperTimerCalled(currentTime: TimeInterval) { return }
+    func audioRecorderHelperDidFinishRecording(url: URL, successfully flag: Bool) { return }
+    func audioRecorderHelperErrorOccuredWhileRecording(_ error: Error?) { return }
 }
 
 // MARK: - Audio Recorder Starting Error
@@ -64,12 +80,13 @@ extension AudioRecorderStartingError: LocalizedError {
 /// Wrapper on AVAudioRecorder to make recording audio easier
 /// - Note: Make sure to add `NSMicrophoneUsageDescription` in your plist
 /// (e.g. `$(PRODUCT_NAME) needs your permission to use your device's microphone to create audio recordings`)
-class AudioRecorderHelper {
-    // MARK: Properties
-    private var helperDelegate: AudioRecorderHelperDelegate?
+class AudioRecorderHelper: NSObject, AVAudioRecorderDelegate {
+    // MARK: Private Properties
+    // Weak to avoid retain cycle
+    private weak var helperDelegate: AudioRecorderHelperDelegate?
     private var audioRecorder: AVAudioRecorder? {
         didSet {
-            audioRecorder?.delegate = helperDelegate
+            audioRecorder?.delegate = self
         }
     }
     /// URL for the current recording
@@ -83,23 +100,33 @@ class AudioRecorderHelper {
     private var timer: Timer?
     /// How quickly / often the timer will call delegate method
     private var timerInterval: TimeInterval
+    private let shouldLogErrors: Bool
+    private let shouldResumeAfterInterruption: Bool
     
     // MARK: Init / Deinit
     init(helperDelegate: AudioRecorderHelperDelegate?,
          sampleRate: Double = 44_100,
          numberOfChannels: Int = 1,
          // Timers are expensive so default to false
-         shouldUpdateUsingTimer: Bool = false,
-         timerInterval: TimeInterval = 0.030) {
+         useTimer: Bool = false,
+         timerInterval: TimeInterval = 0.030,
+         logErrors: Bool = false,
+         resumeAfterInterruption: Bool = true) {
         
         self.helperDelegate = helperDelegate
         self.sampleRate = sampleRate
         self.numberOfChannels = numberOfChannels
-        self.shouldUseTimer = shouldUpdateUsingTimer
+        shouldUseTimer = useTimer
         self.timerInterval = timerInterval
+        shouldLogErrors = logErrors
+        shouldResumeAfterInterruption = resumeAfterInterruption
+        
+        super.init()
+        setupNotifications()
     }
     deinit {
         cancelTimerIfNeeded()
+        removeNotifications()
     }
     
     // MARK: Internal Methods
@@ -111,9 +138,13 @@ class AudioRecorderHelper {
         // caf extention stands for core audio file
         /// URL of file that will store the recording
         let file = documents?.appendingPathComponent(name, isDirectory: false).appendingPathExtension("caf")
+        
+        #if DEBUG
+            print("Audio Recording URL: \(file, defaultString: "Document Directory was nil")")
+        #endif
+        
         return file
     }
-    
     /// Initializes and starts recording to a file in app's main document directory
     private func startRecording() {
         guard let recordingURL = createNewRecordingURL() else {
@@ -141,21 +172,33 @@ class AudioRecorderHelper {
             timer = Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { [weak self] (_) in
                 // self could be nil if user switches UI screen
                 guard let self = self else { return }
-                self.helperDelegate?.audioRecorderHelperRecordingChanged(self.audioRecorder, isRecording: self.isRecording)
+                self.helperDelegate?.audioRecorderHelperTimerCalled(currentTime: self.audioRecorder?.currentTime ?? 0.0)
             }
         }
     }
-    
     private func cancelTimerIfNeeded() {
         if shouldUseTimer {
             timer?.invalidate()
             timer = nil
         }
     }
-    
-    // MARK: Public Methods
+    private func setupNotifications() {
+        // Get the default notification center instance.
+        let nc = NotificationCenter.default
+        nc.addObserver(self,
+                       selector: #selector(handleInterruption),
+                       name: AVAudioSession.interruptionNotification,
+                       object: nil)
+    }
+    private func removeNotifications() {
+        // Get the default notification center instance.
+        let nc = NotificationCenter.default
+        nc.removeObserver(self,
+                          name: AVAudioSession.interruptionNotification,
+                          object: nil)
+    }
     /// Checks user's permission for app to use device's microphone
-    func requestPermissionAndStartRecording() {
+    private func requestPermissionAndStartRecording() {
         switch AVAudioSession.sharedInstance().recordPermission {
             case .undetermined:
                 // Request recording permission the first time they try to record something
@@ -172,15 +215,65 @@ class AudioRecorderHelper {
                 break
         }
     }
-    func resumeRecording() {
+    private func resumeRecording() {
         audioRecorder?.record()
-        helperDelegate?.audioRecorderHelperRecordingChanged(audioRecorder, isRecording: isRecording)
+        helperDelegate?.audioRecorderHelperRecordingChanged(isRecording: isRecording)
         startTimerIfNeeded()
     }
-    func pauseRecording() {
+    private func pauseRecording() {
         audioRecorder?.pause()
-        helperDelegate?.audioRecorderHelperRecordingChanged(audioRecorder, isRecording: isRecording)
+        helperDelegate?.audioRecorderHelperRecordingChanged(isRecording: isRecording)
         cancelTimerIfNeeded()
+    }
+    private func logErrorIfNeeded(_ error: Error?) {
+        if shouldLogErrors {
+            os_log(
+                "Encoding error occurred while recording\nError: %@\nLocalized Description: %@",
+                log: .audioRecording,
+                type: .error,
+                "\(error, defaultString: "No error")",
+                "\(error?.localizedDescription ?? "No localized description")"
+            )
+        }
+    }
+    @objc private func handleInterruption(notification: Notification) {
+        guard let userInfo = notification.userInfo,
+            let typeValue = userInfo[AVAudioSessionInterruptionTypeKey] as? UInt,
+            let type = AVAudioSession.InterruptionType(rawValue: typeValue) else {
+                return
+        }
+        switch type {
+            case .began:
+                // Recorder is already paused but invalidateTimer
+                // and recording changed delegate method should be called
+                pauseRecording()
+                return
+            case .ended:
+               // An interruption ended. Resume playback, if appropriate.
+                guard let optionsValue = userInfo[AVAudioSessionInterruptionOptionKey] as? UInt else { return }
+                let options = AVAudioSession.InterruptionOptions(rawValue: optionsValue)
+                if options.contains(.shouldResume) {
+                    // Interruption ended. Playback should resume.
+                    if shouldResumeAfterInterruption {
+                        resumeRecording()
+                    }
+                }
+            default: ()
+        }
+    }
+    
+    // MARK: Public Methods
+    /// Requests permission to record on first call of function.
+    /// Toggles pausing and recording on every subsequent call.
+    ///
+    /// Delegate method `recordingChanged` will be called
+    /// when calling this function.
+    func toggleRecording() {
+        guard let _ = audioRecorder else {
+            requestPermissionAndStartRecording()
+            return
+        }
+        isRecording ? pauseRecording() : resumeRecording()
     }
     func stopRecording() {
         // Will call AVAudioPlayerDelegate method (didFinishRecording)
@@ -188,4 +281,24 @@ class AudioRecorderHelper {
         audioRecorder?.stop()
         cancelTimerIfNeeded()
     }
+}
+
+// Mark: AV Audio Recorder Delegate
+// Implemented so the delegate doesn't have to import AVFoundation
+extension AudioRecorderHelper {
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        helperDelegate?.audioRecorderHelperDidFinishRecording(url: recorder.url, successfully: flag)
+    }
+    func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
+        helperDelegate?.audioRecorderHelperErrorOccuredWhileRecording(error)
+        logErrorIfNeeded(error)
+    }
+}
+
+// MARK: - OSLog
+extension OSLog {
+    private static var subsystem = Bundle.main.bundleIdentifier ?? "No bundle identifier"
+
+    /// Logs audio recording
+    static let audioRecording = OSLog(subsystem: subsystem, category: "Audio Recording")
 }

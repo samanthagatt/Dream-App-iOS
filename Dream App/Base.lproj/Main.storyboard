@@ -20,16 +20,16 @@
                                 <rect key="frame" x="37.5" y="73.5" width="300" height="520"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="dR8-IP-IJF">
-                                        <rect key="frame" x="79" y="0.0" width="142" height="95.5"/>
+                                        <rect key="frame" x="104.5" y="0.0" width="91.5" height="95.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paused" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWL-OB-0oQ">
-                                                <rect key="frame" x="31" y="0.0" width="80" height="33"/>
+                                                <rect key="frame" x="5.5" y="0.0" width="80" height="33"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:03:18" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhv-Up-meR">
-                                                <rect key="frame" x="0.0" y="49" width="142" height="46.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03:18" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhv-Up-meR">
+                                                <rect key="frame" x="0.0" y="49" width="91.5" height="46.5"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="34"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -49,7 +49,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="changeRecordingState:" destination="xyD-Iw-pci" eventType="touchUpInside" id="8X1-4p-MOs"/>
+                                            <action selector="toggleRecording:" destination="xyD-Iw-pci" eventType="touchUpInside" id="8X1-4p-MOs"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="ou8-WA-KyJ">
@@ -127,7 +127,7 @@
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="primaryPurple">
-            <color red="0.41802239419999998" green="0.39130377770000002" blue="0.96475499870000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.41800001263618469" green="0.39100000262260437" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

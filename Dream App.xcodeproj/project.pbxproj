@@ -14,6 +14,7 @@
 		D65A2B02242A4F4400E3326E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D65A2B01242A4F4400E3326E /* Assets.xcassets */; };
 		D65A2B05242A4F4400E3326E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65A2B03242A4F4400E3326E /* LaunchScreen.storyboard */; };
 		D6BA52F52469DE8C00166A7B /* AudioRecordingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA52F42469DE8C00166A7B /* AudioRecordingHelper.swift */; };
+		D6D1A737246ADAA800119418 /* CustomStringInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D1A736246ADAA800119418 /* CustomStringInterpolation.swift */; };
 		D6D27CDC2468625F00B7AF8F /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D27CDB2468625F00B7AF8F /* RoundedViews.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		D65A2B04242A4F4400E3326E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D65A2B06242A4F4400E3326E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6BA52F42469DE8C00166A7B /* AudioRecordingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordingHelper.swift; sourceTree = "<group>"; };
+		D6D1A736246ADAA800119418 /* CustomStringInterpolation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStringInterpolation.swift; sourceTree = "<group>"; };
 		D6D27CDB2468625F00B7AF8F /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,8 +64,7 @@
 			children = (
 				D65A2AF8242A4F3E00E3326E /* AppDelegate.swift */,
 				D65A2AFA242A4F3E00E3326E /* SceneDelegate.swift */,
-				D6BA52F32469DE6A00166A7B /* Helpers */,
-				D6D27CD824685FC000B7AF8F /* UI */,
+				D6BA52F32469DE6A00166A7B /* Utils */,
 				D65A2AFC242A4F3E00E3326E /* ViewController.swift */,
 				D65A2AFE242A4F3E00E3326E /* Main.storyboard */,
 				D65A2B01242A4F4400E3326E /* Assets.xcassets */,
@@ -73,12 +74,14 @@
 			path = "Dream App";
 			sourceTree = "<group>";
 		};
-		D6BA52F32469DE6A00166A7B /* Helpers */ = {
+		D6BA52F32469DE6A00166A7B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D6D27CD824685FC000B7AF8F /* UI */,
+				D6D1A736246ADAA800119418 /* CustomStringInterpolation.swift */,
 				D6BA52F42469DE8C00166A7B /* AudioRecordingHelper.swift */,
 			);
-			path = Helpers;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		D6D27CD824685FC000B7AF8F /* UI */ = {
@@ -163,6 +166,7 @@
 				D6D27CDC2468625F00B7AF8F /* RoundedViews.swift in Sources */,
 				D65A2AFD242A4F3E00E3326E /* ViewController.swift in Sources */,
 				D6BA52F52469DE8C00166A7B /* AudioRecordingHelper.swift in Sources */,
+				D6D1A737246ADAA800119418 /* CustomStringInterpolation.swift in Sources */,
 				D65A2AF9242A4F3E00E3326E /* AppDelegate.swift in Sources */,
 				D65A2AFB242A4F3E00E3326E /* SceneDelegate.swift in Sources */,
 			);

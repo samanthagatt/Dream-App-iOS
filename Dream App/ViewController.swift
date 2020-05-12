@@ -18,22 +18,24 @@ final class ViewController: UIViewController, AudioRecorderHelperDelegate {
     }
     
     // MARK: Properties
-    private lazy var audioRecordingHelper: AudioRecorderHelper = {
-        AudioRecorderHelper(helperDelegate: self)
+    private lazy var audioRecorderHelper: AudioRecorderHelper = {
+        AudioRecorderHelper(helperDelegate: self,
+                            useTimer: true,
+                            timerInterval: 0.08,
+                            logErrors: true)
     }()
     private var recordingState: RecordingState = .initial {
         didSet {
             updateViewsOnRecordingStateChange()
-            switch oldValue {
-                case .initial:
-                    audioRecordingHelper.requestPermissionAndStartRecording()
-                case .recording:
-                    audioRecordingHelper.pauseRecording()
-                case .paused:
-                    audioRecordingHelper.resumeRecording()
-            }
         }
     }
+    private lazy var timeIntervalFormatter: DateComponentsFormatter = {
+        let formatting = DateComponentsFormatter()
+        formatting.unitsStyle = .positional // 00:00  mm:ss
+        formatting.zeroFormattingBehavior = .pad
+        formatting.allowedUnits = [.minute, .second]
+        return formatting
+    }()
 
     // MARK: Interface Builder
     @IBOutlet private weak var recordingStateLabel: UILabel!
@@ -43,55 +45,56 @@ final class ViewController: UIViewController, AudioRecorderHelperDelegate {
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var doneButton: UIButton!
     
-    @IBAction private func changeRecordingState(_ sender: UIButton) {
-        switch recordingState {
-            case .initial, .paused:
-                recordingState = .recording
-            case .recording:
-                recordingState = .paused
-        }
+    @IBAction private func toggleRecording(_ sender: UIButton) {
+        audioRecorderHelper.toggleRecording()
     }
     @IBAction private func saveRecording(_ sender: UIButton) {
-        recordButton.isEnabled = false
-        audioRecordingHelper.stopRecording()
+        disableRecordButton()
+        audioRecorderHelper.stopRecording()
     }
 }
 
-// MARK: Methods
+// MARK: UI Methods
 extension ViewController {
+    private func updateViewsForInitial() {
+        // Keeps label in stack view using whitespace
+        recordingStateLabel.text = " "
+        timeLabel.text = "Record"
+        // Changes image to mic.fill
+        buttonImage.isHighlighted = false
+        descriptionLabel.text = "Press the above button to begin recording your dream. Press again to pause."
+        doneButton.isEnabled = false
+        // Makes button invisible but keeps it in stack view
+        doneButton.alpha = 0
+    }
+    private func updateViewsForRecording() {
+        recordingStateLabel.text = "Recording..."
+        // Changes image to pause
+        buttonImage.isHighlighted = true
+        descriptionLabel.text = "Press the button above to pause recording, a button will appear when you are done."
+        doneButton.isEnabled = false
+        // Makes button invisible but keeps it in stack view
+        doneButton.alpha = 0
+    }
+    private func updateViewsForPaused() {
+        recordingStateLabel.text = "Paused"
+        // Changes image to mic.fill
+        buttonImage.isHighlighted = false
+        descriptionLabel.text = "Press the button above to continue recording, or the button below if you are done."
+        doneButton.isEnabled = true
+        // Makes sure button is visible
+        doneButton.alpha = 1
+    }
     private func updateViewsOnRecordingStateChange() {
         switch recordingState {
             case .initial:
-                recordingStateLabel.text = ""
-                timeLabel.text = "Record"
-                // changes image to mic.fill
-                buttonImage.isHighlighted = false
-                descriptionLabel.text = "Press the above button to begin recording your dream. Press again to pause."
-                doneButton.isEnabled = false
-                // Makes button invisible but keeps it in stack view
-                doneButton.alpha = 0
-            
+                updateViewsForInitial()
             case .recording:
-                // changes image to pause
-                buttonImage.isHighlighted = true
-                descriptionLabel.text = "Press the button above to pause recording, a button will appear when you are done."
-                doneButton.isEnabled = false
-                // Makes button invisible but keeps it in stack view
-                doneButton.alpha = 0
-            
+                updateViewsForRecording()
             case .paused:
-                // changes image to mic.fill
-                buttonImage.isHighlighted = false
-                descriptionLabel.text = "Press the button above to continue recording, or the button below if you are done."
-                doneButton.isEnabled = true
-                // Makes sure button is visible
-                doneButton.alpha = 1
+                updateViewsForPaused()
         }
     }
-}
-
-// MARK: Life Cycle
-extension ViewController {
     private func makeLabelFontsAccessible() {
         recordingStateLabel.font = UIFontMetrics(forTextStyle: .title1)
             .scaledFont(for: recordingStateLabel.font)
@@ -100,9 +103,47 @@ extension ViewController {
         descriptionLabel.font = UIFontMetrics(forTextStyle: .body)
             .scaledFont(for: descriptionLabel.font)
     }
+    private func disableRecordButton() {
+        recordButton.isEnabled = false
+        recordButton.alpha = 0.6
+        buttonImage.alpha = 0.6
+    }
+}
+
+// MARK: Life Cycle
+extension ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         makeLabelFontsAccessible()
         updateViewsOnRecordingStateChange()
+    }
+}
+
+// MARK: Audio Recorder Helper Delegate
+extension ViewController {
+    func audioRecorderHelperRecordingChanged(isRecording: Bool) {
+        recordingState = isRecording ? .recording : .paused
+    }
+    func audioRecorderHelperTimerCalled(currentTime: TimeInterval) {
+        timeLabel.text = timeIntervalFormatter.string(from: currentTime) ?? "00:00"
+    }
+    func audioRecorderHelperDidFinishRecording(url: URL?, successfully flag: Bool) {
+        if flag {
+            // TODO: Pass url to new VC and present it
+        } else {
+            // TODO: Present error alert and dismiss VC
+        }
+    }
+    func audioRecorderHelperWasDeniedMicrophoneAccess() {
+        let alertController = UIAlertController(title: "Microphone Access Denied", message: "Please allow this app to use your microphone so you can record your dreams!", preferredStyle: .alert)
+        let openSettingsAction = UIAlertAction(title: "Open Settings",
+                                               style: .default) { (_) in
+            guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
+            UIApplication.shared.open(settingsURL)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+        alertController.addAction(openSettingsAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
     }
 }
