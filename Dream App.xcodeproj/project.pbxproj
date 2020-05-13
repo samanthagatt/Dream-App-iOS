@@ -9,11 +9,18 @@
 /* Begin PBXBuildFile section */
 		D65A2AF9242A4F3E00E3326E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65A2AF8242A4F3E00E3326E /* AppDelegate.swift */; };
 		D65A2AFB242A4F3E00E3326E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65A2AFA242A4F3E00E3326E /* SceneDelegate.swift */; };
-		D65A2AFD242A4F3E00E3326E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65A2AFC242A4F3E00E3326E /* ViewController.swift */; };
+		D65A2AFD242A4F3E00E3326E /* RecordDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65A2AFC242A4F3E00E3326E /* RecordDreamViewController.swift */; };
 		D65A2B00242A4F3E00E3326E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65A2AFE242A4F3E00E3326E /* Main.storyboard */; };
 		D65A2B02242A4F4400E3326E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D65A2B01242A4F4400E3326E /* Assets.xcassets */; };
 		D65A2B05242A4F4400E3326E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65A2B03242A4F4400E3326E /* LaunchScreen.storyboard */; };
-		D6BA52F52469DE8C00166A7B /* AudioRecordingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA52F42469DE8C00166A7B /* AudioRecordingHelper.swift */; };
+		D6701808246B74920029FE3F /* RecordDreamViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6701807246B74920029FE3F /* RecordDreamViewDelegate.swift */; };
+		D69BC4B8246B46FB00C1CBA3 /* AudioRecorderHelperUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69BC4B7246B46FB00C1CBA3 /* AudioRecorderHelperUIDelegate.swift */; };
+		D69BC4BA246B471300C1CBA3 /* AudioRecorderStartingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69BC4B9246B471300C1CBA3 /* AudioRecorderStartingError.swift */; };
+		D69BC4BD246B498B00C1CBA3 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69BC4BC246B498B00C1CBA3 /* Logger.swift */; };
+		D69BC4BF246B4F4000C1CBA3 /* AudioRecorderHelperErrorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69BC4BE246B4F4000C1CBA3 /* AudioRecorderHelperErrorDelegate.swift */; };
+		D69BC4C1246B5F8400C1CBA3 /* DreamRecorderErrorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69BC4C0246B5F8400C1CBA3 /* DreamRecorderErrorDelegate.swift */; };
+		D69BC4C3246B69A700C1CBA3 /* RecordDreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69BC4C2246B69A700C1CBA3 /* RecordDreamView.swift */; };
+		D6BA52F52469DE8C00166A7B /* AudioRecorderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA52F42469DE8C00166A7B /* AudioRecorderHelper.swift */; };
 		D6D1A737246ADAA800119418 /* CustomStringInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D1A736246ADAA800119418 /* CustomStringInterpolation.swift */; };
 		D6D27CDC2468625F00B7AF8F /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D27CDB2468625F00B7AF8F /* RoundedViews.swift */; };
 /* End PBXBuildFile section */
@@ -22,12 +29,19 @@
 		D65A2AF5242A4F3E00E3326E /* Dream App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dream App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65A2AF8242A4F3E00E3326E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D65A2AFA242A4F3E00E3326E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D65A2AFC242A4F3E00E3326E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D65A2AFC242A4F3E00E3326E /* RecordDreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDreamViewController.swift; sourceTree = "<group>"; };
 		D65A2AFF242A4F3E00E3326E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D65A2B01242A4F4400E3326E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D65A2B04242A4F4400E3326E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D65A2B06242A4F4400E3326E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D6BA52F42469DE8C00166A7B /* AudioRecordingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordingHelper.swift; sourceTree = "<group>"; };
+		D6701807246B74920029FE3F /* RecordDreamViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDreamViewDelegate.swift; sourceTree = "<group>"; };
+		D69BC4B7246B46FB00C1CBA3 /* AudioRecorderHelperUIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderHelperUIDelegate.swift; sourceTree = "<group>"; };
+		D69BC4B9246B471300C1CBA3 /* AudioRecorderStartingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderStartingError.swift; sourceTree = "<group>"; };
+		D69BC4BC246B498B00C1CBA3 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		D69BC4BE246B4F4000C1CBA3 /* AudioRecorderHelperErrorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderHelperErrorDelegate.swift; sourceTree = "<group>"; };
+		D69BC4C0246B5F8400C1CBA3 /* DreamRecorderErrorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamRecorderErrorDelegate.swift; sourceTree = "<group>"; };
+		D69BC4C2246B69A700C1CBA3 /* RecordDreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDreamView.swift; sourceTree = "<group>"; };
+		D6BA52F42469DE8C00166A7B /* AudioRecorderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderHelper.swift; sourceTree = "<group>"; };
 		D6D1A736246ADAA800119418 /* CustomStringInterpolation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStringInterpolation.swift; sourceTree = "<group>"; };
 		D6D27CDB2468625F00B7AF8F /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,7 +79,7 @@
 				D65A2AF8242A4F3E00E3326E /* AppDelegate.swift */,
 				D65A2AFA242A4F3E00E3326E /* SceneDelegate.swift */,
 				D6BA52F32469DE6A00166A7B /* Utils */,
-				D65A2AFC242A4F3E00E3326E /* ViewController.swift */,
+				D69BC4C4246B69C100C1CBA3 /* Record Dream */,
 				D65A2AFE242A4F3E00E3326E /* Main.storyboard */,
 				D65A2B01242A4F4400E3326E /* Assets.xcassets */,
 				D65A2B03242A4F4400E3326E /* LaunchScreen.storyboard */,
@@ -74,12 +88,43 @@
 			path = "Dream App";
 			sourceTree = "<group>";
 		};
+		D69BC4B6246B46C400C1CBA3 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA52F42469DE8C00166A7B /* AudioRecorderHelper.swift */,
+				D69BC4B7246B46FB00C1CBA3 /* AudioRecorderHelperUIDelegate.swift */,
+				D69BC4BE246B4F4000C1CBA3 /* AudioRecorderHelperErrorDelegate.swift */,
+				D69BC4B9246B471300C1CBA3 /* AudioRecorderStartingError.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		D69BC4BB246B497E00C1CBA3 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				D69BC4BC246B498B00C1CBA3 /* Logger.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
+		D69BC4C4246B69C100C1CBA3 /* Record Dream */ = {
+			isa = PBXGroup;
+			children = (
+				D65A2AFC242A4F3E00E3326E /* RecordDreamViewController.swift */,
+				D69BC4C2246B69A700C1CBA3 /* RecordDreamView.swift */,
+				D6701807246B74920029FE3F /* RecordDreamViewDelegate.swift */,
+				D69BC4C0246B5F8400C1CBA3 /* DreamRecorderErrorDelegate.swift */,
+			);
+			path = "Record Dream";
+			sourceTree = "<group>";
+		};
 		D6BA52F32469DE6A00166A7B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				D6D27CD824685FC000B7AF8F /* UI */,
 				D6D1A736246ADAA800119418 /* CustomStringInterpolation.swift */,
-				D6BA52F42469DE8C00166A7B /* AudioRecordingHelper.swift */,
+				D69BC4BB246B497E00C1CBA3 /* Logger */,
+				D69BC4B6246B46C400C1CBA3 /* Audio */,
+				D6D27CD824685FC000B7AF8F /* UI */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -164,10 +209,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6D27CDC2468625F00B7AF8F /* RoundedViews.swift in Sources */,
-				D65A2AFD242A4F3E00E3326E /* ViewController.swift in Sources */,
-				D6BA52F52469DE8C00166A7B /* AudioRecordingHelper.swift in Sources */,
+				D69BC4B8246B46FB00C1CBA3 /* AudioRecorderHelperUIDelegate.swift in Sources */,
+				D69BC4C1246B5F8400C1CBA3 /* DreamRecorderErrorDelegate.swift in Sources */,
+				D69BC4BA246B471300C1CBA3 /* AudioRecorderStartingError.swift in Sources */,
+				D65A2AFD242A4F3E00E3326E /* RecordDreamViewController.swift in Sources */,
+				D69BC4BD246B498B00C1CBA3 /* Logger.swift in Sources */,
+				D6BA52F52469DE8C00166A7B /* AudioRecorderHelper.swift in Sources */,
+				D6701808246B74920029FE3F /* RecordDreamViewDelegate.swift in Sources */,
+				D69BC4C3246B69A700C1CBA3 /* RecordDreamView.swift in Sources */,
 				D6D1A737246ADAA800119418 /* CustomStringInterpolation.swift in Sources */,
 				D65A2AF9242A4F3E00E3326E /* AppDelegate.swift in Sources */,
+				D69BC4BF246B4F4000C1CBA3 /* AudioRecorderHelperErrorDelegate.swift in Sources */,
 				D65A2AFB242A4F3E00E3326E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

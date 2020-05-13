@@ -8,8 +8,7 @@
 
 import UIKit
 
-final class ViewController: UIViewController, AudioRecorderHelperDelegate {
-    
+final class RecordDreamViewController: UIViewController, AudioRecorderHelperUIDelegate {
     /// Enum for the possible states of the view controller
     private enum RecordingState {
         case initial
@@ -17,12 +16,12 @@ final class ViewController: UIViewController, AudioRecorderHelperDelegate {
         case paused
     }
     
-    // MARK: Properties
+    // MARK: - Private Properties
     private lazy var audioRecorderHelper: AudioRecorderHelper = {
-        AudioRecorderHelper(helperDelegate: self,
+        AudioRecorderHelper(uiDelegate: self,
+                            errorDelegate: DreamRecorderErrorDelegate(),
                             useTimer: true,
-                            timerInterval: 0.08,
-                            logErrors: true)
+                            timerInterval: 0.08)
     }()
     private var recordingState: RecordingState = .initial {
         didSet {
@@ -37,7 +36,7 @@ final class ViewController: UIViewController, AudioRecorderHelperDelegate {
         return formatting
     }()
 
-    // MARK: Interface Builder
+    // MARK: - Interface Builder
     @IBOutlet private weak var recordingStateLabel: UILabel!
     @IBOutlet private weak var timeLabel: UILabel!
     @IBOutlet weak var recordButton: UIButton!
@@ -54,8 +53,9 @@ final class ViewController: UIViewController, AudioRecorderHelperDelegate {
     }
 }
 
-// MARK: UI Methods
-extension ViewController {
+// MARK: - UI Methods
+extension RecordDreamViewController {
+    // TODO: Make a view with these functions (up to end todo comment)
     private func updateViewsForInitial() {
         // Keeps label in stack view using whitespace
         recordingStateLabel.text = " "
@@ -95,6 +95,7 @@ extension ViewController {
                 updateViewsForPaused()
         }
     }
+    // end todo
     private func makeLabelFontsAccessible() {
         recordingStateLabel.font = UIFontMetrics(forTextStyle: .title1)
             .scaledFont(for: recordingStateLabel.font)
@@ -110,8 +111,8 @@ extension ViewController {
     }
 }
 
-// MARK: Life Cycle
-extension ViewController {
+// MARK: - Life Cycle
+extension RecordDreamViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         makeLabelFontsAccessible()
@@ -119,15 +120,16 @@ extension ViewController {
     }
 }
 
-// MARK: Audio Recorder Helper Delegate
-extension ViewController {
+// MARK: - Audio Recorder Helper Delegate
+extension RecordDreamViewController {
+    func audioRecorderHelperDidAskForPermission(granted: Bool) { }
     func audioRecorderHelperRecordingChanged(isRecording: Bool) {
         recordingState = isRecording ? .recording : .paused
     }
     func audioRecorderHelperTimerCalled(currentTime: TimeInterval) {
         timeLabel.text = timeIntervalFormatter.string(from: currentTime) ?? "00:00"
     }
-    func audioRecorderHelperDidFinishRecording(url: URL?, successfully flag: Bool) {
+    func audioRecorderHelperDidFinishRecording(url: URL, successfully flag: Bool) {
         if flag {
             // TODO: Pass url to new VC and present it
         } else {
