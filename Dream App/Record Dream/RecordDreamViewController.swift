@@ -39,6 +39,13 @@ extension RecordDreamViewController {
         super.viewDidLoad()
         recordDreamView.delegate = self
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showRecordingDetail" {
+            guard let url = sender as? URL,
+                let destVC = segue.destination as? FinishNewDreamViewController else { return }
+            destVC.dreamURL = url
+        }
+    }
 }
 
 // MARK: Audio Recorder Helper Delegate
@@ -51,7 +58,7 @@ extension RecordDreamViewController {
     }
     func audioRecorderHelperDidFinishRecording(url: URL, successfully flag: Bool) {
         if flag {
-            // TODO: Pass url to new VC and present it
+            performSegue(withIdentifier: "showRecordingDetail", sender: url)
         } else {
             // TODO: Present error alert and dismiss VC
         }

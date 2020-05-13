@@ -17,7 +17,8 @@ extension UIView {
     }
 }
 
-@IBDesignable class RoundedView: UIView {
+@IBDesignable
+class RoundedView: UIView {
     @IBInspectable var roundingAmount: CGFloat = 2
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -25,7 +26,8 @@ extension UIView {
     }
 }
 
-@IBDesignable class RoundedButton: UIButton {
+@IBDesignable
+class RoundedButton: UIButton {
     @IBInspectable var roundingAmount: CGFloat = 2
     override func layoutSubviews() {
         super.layoutSubviews()

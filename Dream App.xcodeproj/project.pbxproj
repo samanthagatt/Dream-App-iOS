@@ -14,6 +14,8 @@
 		D65A2B02242A4F4400E3326E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D65A2B01242A4F4400E3326E /* Assets.xcassets */; };
 		D65A2B05242A4F4400E3326E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65A2B03242A4F4400E3326E /* LaunchScreen.storyboard */; };
 		D6701808246B74920029FE3F /* RecordDreamViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6701807246B74920029FE3F /* RecordDreamViewDelegate.swift */; };
+		D670180E246B91C80029FE3F /* FinishNewDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D670180D246B91C80029FE3F /* FinishNewDreamViewController.swift */; };
+		D6701810246C2A210029FE3F /* DreamTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D670180F246C2A210029FE3F /* DreamTextField.swift */; };
 		D69BC4B8246B46FB00C1CBA3 /* AudioRecorderHelperUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69BC4B7246B46FB00C1CBA3 /* AudioRecorderHelperUIDelegate.swift */; };
 		D69BC4BA246B471300C1CBA3 /* AudioRecorderStartingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69BC4B9246B471300C1CBA3 /* AudioRecorderStartingError.swift */; };
 		D69BC4BD246B498B00C1CBA3 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69BC4BC246B498B00C1CBA3 /* Logger.swift */; };
@@ -35,6 +37,8 @@
 		D65A2B04242A4F4400E3326E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D65A2B06242A4F4400E3326E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6701807246B74920029FE3F /* RecordDreamViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDreamViewDelegate.swift; sourceTree = "<group>"; };
+		D670180D246B91C80029FE3F /* FinishNewDreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishNewDreamViewController.swift; sourceTree = "<group>"; };
+		D670180F246C2A210029FE3F /* DreamTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamTextField.swift; sourceTree = "<group>"; };
 		D69BC4B7246B46FB00C1CBA3 /* AudioRecorderHelperUIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderHelperUIDelegate.swift; sourceTree = "<group>"; };
 		D69BC4B9246B471300C1CBA3 /* AudioRecorderStartingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderStartingError.swift; sourceTree = "<group>"; };
 		D69BC4BC246B498B00C1CBA3 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 				D69BC4C2246B69A700C1CBA3 /* RecordDreamView.swift */,
 				D6701807246B74920029FE3F /* RecordDreamViewDelegate.swift */,
 				D69BC4C0246B5F8400C1CBA3 /* DreamRecorderErrorDelegate.swift */,
+				D670180D246B91C80029FE3F /* FinishNewDreamViewController.swift */,
 			);
 			path = "Record Dream";
 			sourceTree = "<group>";
@@ -133,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				D6D27CDB2468625F00B7AF8F /* RoundedViews.swift */,
+				D670180F246C2A210029FE3F /* DreamTextField.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -209,12 +215,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6D27CDC2468625F00B7AF8F /* RoundedViews.swift in Sources */,
+				D6701810246C2A210029FE3F /* DreamTextField.swift in Sources */,
 				D69BC4B8246B46FB00C1CBA3 /* AudioRecorderHelperUIDelegate.swift in Sources */,
 				D69BC4C1246B5F8400C1CBA3 /* DreamRecorderErrorDelegate.swift in Sources */,
 				D69BC4BA246B471300C1CBA3 /* AudioRecorderStartingError.swift in Sources */,
 				D65A2AFD242A4F3E00E3326E /* RecordDreamViewController.swift in Sources */,
 				D69BC4BD246B498B00C1CBA3 /* Logger.swift in Sources */,
 				D6BA52F52469DE8C00166A7B /* AudioRecorderHelper.swift in Sources */,
+				D670180E246B91C80029FE3F /* FinishNewDreamViewController.swift in Sources */,
 				D6701808246B74920029FE3F /* RecordDreamViewDelegate.swift in Sources */,
 				D69BC4C3246B69A700C1CBA3 /* RecordDreamView.swift in Sources */,
 				D6D1A737246ADAA800119418 /* CustomStringInterpolation.swift in Sources */,

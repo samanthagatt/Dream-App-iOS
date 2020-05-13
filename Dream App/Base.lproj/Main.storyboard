@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -116,11 +117,89 @@
                     </view>
                     <connections>
                         <outlet property="recordDreamView" destination="Rvk-ou-LuO" id="693-it-MAV"/>
+                        <segue destination="emR-a6-Zsd" kind="show" identifier="showRecordingDetail" id="Nfb-GD-sOg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WCW-wd-wg4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="943" y="126"/>
+        </scene>
+        <!--Finish New Dream View Controller-->
+        <scene sceneID="bZY-fK-9k2">
+            <objects>
+                <tableViewController modalPresentationStyle="fullScreen" id="emR-a6-Zsd" customClass="FinishNewDreamViewController" customModule="Dream_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nyh-4P-jfJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="darkBackground"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="descriptionCell" id="6df-el-S7z">
+                                <rect key="frame" x="0.0" y="28" width="375" height="106"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6df-el-S7z" id="qJx-Ra-z75">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="106"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add some more details about your dream you think you might want to remember." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q59-Vx-yxl">
+                                            <rect key="frame" x="16" y="16" width="343" height="74"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Q59-Vx-yxl" firstAttribute="centerX" secondItem="qJx-Ra-z75" secondAttribute="centerX" id="MPL-Tv-YpV"/>
+                                        <constraint firstItem="Q59-Vx-yxl" firstAttribute="top" secondItem="qJx-Ra-z75" secondAttribute="top" constant="16" id="SAq-rF-cMm"/>
+                                        <constraint firstItem="Q59-Vx-yxl" firstAttribute="width" secondItem="qJx-Ra-z75" secondAttribute="width" constant="-32" id="lPO-6G-0th"/>
+                                        <constraint firstItem="Q59-Vx-yxl" firstAttribute="height" secondItem="qJx-Ra-z75" secondAttribute="height" constant="-32" id="qwk-c3-K2o"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" name="darkBackground"/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dreamTitleCell" id="nS2-hR-NoH">
+                                <rect key="frame" x="0.0" y="134" width="375" height="83.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nS2-hR-NoH" id="J4D-NZ-tnn">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="83.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rt2-w4-AZH">
+                                            <rect key="frame" x="16" y="8" width="343" height="67.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gI7-dn-QHv">
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="25"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Give your dream a title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BWW-GC-ZaS" customClass="DreamTextField" customModule="Dream_App" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="33" width="343" height="34.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="rt2-w4-AZH" firstAttribute="centerX" secondItem="J4D-NZ-tnn" secondAttribute="centerX" id="ADQ-G9-fDr"/>
+                                        <constraint firstItem="rt2-w4-AZH" firstAttribute="width" secondItem="J4D-NZ-tnn" secondAttribute="width" constant="-32" id="VB5-zO-kxP"/>
+                                        <constraint firstItem="rt2-w4-AZH" firstAttribute="centerY" secondItem="J4D-NZ-tnn" secondAttribute="centerY" id="g5D-zi-CsG"/>
+                                        <constraint firstItem="rt2-w4-AZH" firstAttribute="height" secondItem="J4D-NZ-tnn" secondAttribute="height" constant="-16" id="n8V-cm-Bke"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" name="darkBackground"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="emR-a6-Zsd" id="TpG-7X-wj0"/>
+                            <outlet property="delegate" destination="emR-a6-Zsd" id="uie-n0-jac"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="iqu-cV-1M9"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cIW-pF-Voc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1730.4000000000001" y="125.4872563718141"/>
         </scene>
     </scenes>
     <resources>
