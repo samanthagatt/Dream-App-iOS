@@ -13,9 +13,9 @@
 		D65A2B00242A4F3E00E3326E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65A2AFE242A4F3E00E3326E /* Main.storyboard */; };
 		D65A2B02242A4F4400E3326E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D65A2B01242A4F4400E3326E /* Assets.xcassets */; };
 		D65A2B05242A4F4400E3326E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65A2B03242A4F4400E3326E /* LaunchScreen.storyboard */; };
-		D6701808246B74920029FE3F /* RecordDreamViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6701807246B74920029FE3F /* RecordDreamViewDelegate.swift */; };
-		D670180E246B91C80029FE3F /* FinishNewDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D670180D246B91C80029FE3F /* FinishNewDreamViewController.swift */; };
+		D670180E246B91C80029FE3F /* EditAndReplayDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D670180D246B91C80029FE3F /* EditAndReplayDreamViewController.swift */; };
 		D6701810246C2A210029FE3F /* DreamTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D670180F246C2A210029FE3F /* DreamTextField.swift */; };
+		D6701814246C558A0029FE3F /* AccessibleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6701813246C558A0029FE3F /* AccessibleLabel.swift */; };
 		D69BC4B8246B46FB00C1CBA3 /* AudioRecorderHelperUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69BC4B7246B46FB00C1CBA3 /* AudioRecorderHelperUIDelegate.swift */; };
 		D69BC4BA246B471300C1CBA3 /* AudioRecorderStartingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69BC4B9246B471300C1CBA3 /* AudioRecorderStartingError.swift */; };
 		D69BC4BD246B498B00C1CBA3 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69BC4BC246B498B00C1CBA3 /* Logger.swift */; };
@@ -25,6 +25,9 @@
 		D6BA52F52469DE8C00166A7B /* AudioRecorderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA52F42469DE8C00166A7B /* AudioRecorderHelper.swift */; };
 		D6D1A737246ADAA800119418 /* CustomStringInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D1A736246ADAA800119418 /* CustomStringInterpolation.swift */; };
 		D6D27CDC2468625F00B7AF8F /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D27CDB2468625F00B7AF8F /* RoundedViews.swift */; };
+		D6EBEB02246C760100CC227C /* MonoDigitLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEB01246C760100CC227C /* MonoDigitLabel.swift */; };
+		D6EBEB04246C79B500CC227C /* UIViewController+presentAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEB03246C79B500CC227C /* UIViewController+presentAlert.swift */; };
+		D6EBEB06246CA88000CC227C /* DreamReplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEB05246CA88000CC227C /* DreamReplayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,9 +39,9 @@
 		D65A2B01242A4F4400E3326E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D65A2B04242A4F4400E3326E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D65A2B06242A4F4400E3326E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D6701807246B74920029FE3F /* RecordDreamViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDreamViewDelegate.swift; sourceTree = "<group>"; };
-		D670180D246B91C80029FE3F /* FinishNewDreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishNewDreamViewController.swift; sourceTree = "<group>"; };
+		D670180D246B91C80029FE3F /* EditAndReplayDreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAndReplayDreamViewController.swift; sourceTree = "<group>"; };
 		D670180F246C2A210029FE3F /* DreamTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamTextField.swift; sourceTree = "<group>"; };
+		D6701813246C558A0029FE3F /* AccessibleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibleLabel.swift; sourceTree = "<group>"; };
 		D69BC4B7246B46FB00C1CBA3 /* AudioRecorderHelperUIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderHelperUIDelegate.swift; sourceTree = "<group>"; };
 		D69BC4B9246B471300C1CBA3 /* AudioRecorderStartingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderStartingError.swift; sourceTree = "<group>"; };
 		D69BC4BC246B498B00C1CBA3 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -48,6 +51,9 @@
 		D6BA52F42469DE8C00166A7B /* AudioRecorderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderHelper.swift; sourceTree = "<group>"; };
 		D6D1A736246ADAA800119418 /* CustomStringInterpolation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStringInterpolation.swift; sourceTree = "<group>"; };
 		D6D27CDB2468625F00B7AF8F /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
+		D6EBEB01246C760100CC227C /* MonoDigitLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoDigitLabel.swift; sourceTree = "<group>"; };
+		D6EBEB03246C79B500CC227C /* UIViewController+presentAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+presentAlert.swift"; sourceTree = "<group>"; };
+		D6EBEB05246CA88000CC227C /* DreamReplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamReplayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,13 +89,32 @@
 				D65A2AF8242A4F3E00E3326E /* AppDelegate.swift */,
 				D65A2AFA242A4F3E00E3326E /* SceneDelegate.swift */,
 				D6BA52F32469DE6A00166A7B /* Utils */,
-				D69BC4C4246B69C100C1CBA3 /* Record Dream */,
+				D69BC4C4246B69C100C1CBA3 /* New Dream */,
 				D65A2AFE242A4F3E00E3326E /* Main.storyboard */,
 				D65A2B01242A4F4400E3326E /* Assets.xcassets */,
 				D65A2B03242A4F4400E3326E /* LaunchScreen.storyboard */,
 				D65A2B06242A4F4400E3326E /* Info.plist */,
 			);
 			path = "Dream App";
+			sourceTree = "<group>";
+		};
+		D6701811246C51BB0029FE3F /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				D65A2AFC242A4F3E00E3326E /* RecordDreamViewController.swift */,
+				D69BC4C2246B69A700C1CBA3 /* RecordDreamView.swift */,
+				D69BC4C0246B5F8400C1CBA3 /* DreamRecorderErrorDelegate.swift */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		D6701812246C51C50029FE3F /* Edit and Replay */ = {
+			isa = PBXGroup;
+			children = (
+				D670180D246B91C80029FE3F /* EditAndReplayDreamViewController.swift */,
+				D6EBEB05246CA88000CC227C /* DreamReplayView.swift */,
+			);
+			path = "Edit and Replay";
 			sourceTree = "<group>";
 		};
 		D69BC4B6246B46C400C1CBA3 /* Audio */ = {
@@ -111,16 +136,13 @@
 			path = Logger;
 			sourceTree = "<group>";
 		};
-		D69BC4C4246B69C100C1CBA3 /* Record Dream */ = {
+		D69BC4C4246B69C100C1CBA3 /* New Dream */ = {
 			isa = PBXGroup;
 			children = (
-				D65A2AFC242A4F3E00E3326E /* RecordDreamViewController.swift */,
-				D69BC4C2246B69A700C1CBA3 /* RecordDreamView.swift */,
-				D6701807246B74920029FE3F /* RecordDreamViewDelegate.swift */,
-				D69BC4C0246B5F8400C1CBA3 /* DreamRecorderErrorDelegate.swift */,
-				D670180D246B91C80029FE3F /* FinishNewDreamViewController.swift */,
+				D6701811246C51BB0029FE3F /* Record */,
+				D6701812246C51C50029FE3F /* Edit and Replay */,
 			);
-			path = "Record Dream";
+			path = "New Dream";
 			sourceTree = "<group>";
 		};
 		D6BA52F32469DE6A00166A7B /* Utils */ = {
@@ -139,6 +161,9 @@
 			children = (
 				D6D27CDB2468625F00B7AF8F /* RoundedViews.swift */,
 				D670180F246C2A210029FE3F /* DreamTextField.swift */,
+				D6701813246C558A0029FE3F /* AccessibleLabel.swift */,
+				D6EBEB01246C760100CC227C /* MonoDigitLabel.swift */,
+				D6EBEB03246C79B500CC227C /* UIViewController+presentAlert.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -218,16 +243,19 @@
 				D6701810246C2A210029FE3F /* DreamTextField.swift in Sources */,
 				D69BC4B8246B46FB00C1CBA3 /* AudioRecorderHelperUIDelegate.swift in Sources */,
 				D69BC4C1246B5F8400C1CBA3 /* DreamRecorderErrorDelegate.swift in Sources */,
+				D6701814246C558A0029FE3F /* AccessibleLabel.swift in Sources */,
 				D69BC4BA246B471300C1CBA3 /* AudioRecorderStartingError.swift in Sources */,
+				D6EBEB06246CA88000CC227C /* DreamReplayView.swift in Sources */,
 				D65A2AFD242A4F3E00E3326E /* RecordDreamViewController.swift in Sources */,
 				D69BC4BD246B498B00C1CBA3 /* Logger.swift in Sources */,
 				D6BA52F52469DE8C00166A7B /* AudioRecorderHelper.swift in Sources */,
-				D670180E246B91C80029FE3F /* FinishNewDreamViewController.swift in Sources */,
-				D6701808246B74920029FE3F /* RecordDreamViewDelegate.swift in Sources */,
+				D670180E246B91C80029FE3F /* EditAndReplayDreamViewController.swift in Sources */,
 				D69BC4C3246B69A700C1CBA3 /* RecordDreamView.swift in Sources */,
 				D6D1A737246ADAA800119418 /* CustomStringInterpolation.swift in Sources */,
+				D6EBEB04246C79B500CC227C /* UIViewController+presentAlert.swift in Sources */,
 				D65A2AF9242A4F3E00E3326E /* AppDelegate.swift in Sources */,
 				D69BC4BF246B4F4000C1CBA3 /* AudioRecorderHelperErrorDelegate.swift in Sources */,
+				D6EBEB02246C760100CC227C /* MonoDigitLabel.swift in Sources */,
 				D65A2AFB242A4F3E00E3326E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

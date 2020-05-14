@@ -9,16 +9,8 @@
 import UIKit
 
 class RecordDreamView: UIView {
-    /// Enum for the possible states of the view
-    enum RecordingState {
-        case initial
-        case recording
-        case paused
-        case stopped
-    }
-    
-    // MARK: - Properties
-    weak var delegate: RecordDreamViewDelegate?
+    // MARK: Properties
+    weak var recorderHelper: AudioRecorderHelper?
     var recordingState: RecordingState = .initial {
         didSet {
             updateViewsOnRecordingStateChange()
@@ -32,7 +24,7 @@ class RecordDreamView: UIView {
         return formatting
     }()
     
-    // MARK: - Interface Builder
+    // MARK: Interface Builder
     @IBOutlet private weak var recordingStateLabel: UILabel!
     @IBOutlet private weak var timeLabel: UILabel!
     @IBOutlet weak var recordButton: UIButton!
@@ -41,14 +33,27 @@ class RecordDreamView: UIView {
     @IBOutlet private weak var doneButton: UIButton!
     
     @IBAction private func toggleRecording(_ sender: UIButton) {
-        delegate?.toggleRecording()
+        recorderHelper?.toggleRecording()
     }
     @IBAction private func saveRecording(_ sender: UIButton) {
         recordingState = .stopped
-        delegate?.stopRecording()
+        recorderHelper?.stopRecording()
     }
-    
-    // MARK: - Private Methods
+}
+
+// MARK: RecordingState Enum
+extension RecordDreamView {
+    /// Enum for the possible states of the view
+    enum RecordingState {
+        case initial
+        case recording
+        case paused
+        case stopped
+    }
+}
+ 
+// MARK: Private Methods
+extension RecordDreamView {
     private func updateViewsForRecording() {
         recordingStateLabel.text = "Recording..."
         // Changes image to pause
@@ -83,8 +88,9 @@ class RecordDreamView: UIView {
             default: ()
         }
     }
-    
-    // MARK: - Public Methods
+}
+// MARK: Public Methods
+extension RecordDreamView {
     func updateTimeLabel(currentTime: TimeInterval) {
         timeLabel.text = timeIntervalFormatter.string(from: currentTime) ?? "00:00"
     }

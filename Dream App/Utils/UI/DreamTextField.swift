@@ -33,6 +33,8 @@ class DreamTextField: UITextField {
         layer.borderColor = UIColor.white.cgColor
         layer.borderWidth = 1.3
         layer.cornerRadius = 6
+        let fontToScale = font ?? .preferredFont(forTextStyle: .body)
+        font = UIFontMetrics(forTextStyle: .body).scaledFont(for: fontToScale)
         
         let foregroundAttr = NSAttributedString.Key.foregroundColor
         let foregroundColor = UIColor.white.withAlphaComponent(0.7)

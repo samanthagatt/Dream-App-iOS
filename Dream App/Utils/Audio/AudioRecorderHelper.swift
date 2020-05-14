@@ -24,6 +24,8 @@ class AudioRecorderHelper: NSObject, AVAudioRecorderDelegate {
             audioRecorder?.delegate = self
         }
     }
+    /// Time limit of recording
+    private let timeLimit: TimeInterval?
     /// URL for the current recording
     private var recordingURL: URL?
     /// Computed value to flag if the audio recorder is  recording or not
@@ -31,9 +33,9 @@ class AudioRecorderHelper: NSObject, AVAudioRecorderDelegate {
         audioRecorder?.isRecording ?? false
     }
     /// Sample rate in Hertz to be used when creating audio format
-    private var sampleRate: Double
+    private let sampleRate: Double
     /// Number of channels to be used when creating audio format
-    private var numberOfChannels: AVAudioChannelCount
+    private let numberOfChannels: AVAudioChannelCount
     /// Flag to tell if audio recorder helper should create a timer
     /// and call delegate method or not
     ///
@@ -43,13 +45,14 @@ class AudioRecorderHelper: NSObject, AVAudioRecorderDelegate {
     private var timer: Timer?
     /// How quickly / often the timer will call delegate method if
     /// `shouldUseTimer` is `true`
-    private var timerInterval: TimeInterval
+    private let timerInterval: TimeInterval
     /// Flag to tell if audio recorder helper should log errors
     private let shouldResumeAfterInterruption: Bool
     
     // MARK: - Init / Deinit
     init(uiDelegate: AudioRecorderHelperUIDelegate? = nil,
          errorDelegate: AudioRecorderHelperErrorDelegate? = nil,
+         timeLimit: TimeInterval? = nil,
          sampleRate: Double = 44_100,
          numberOfChannels: AVAudioChannelCount = 1,
          // Timers are expensive so default to false
@@ -59,6 +62,7 @@ class AudioRecorderHelper: NSObject, AVAudioRecorderDelegate {
         
         self.uiDelegate = uiDelegate
         self.errorDelegate = errorDelegate
+        self.timeLimit = timeLimit
         self.sampleRate = sampleRate
         self.numberOfChannels = numberOfChannels
         shouldUseTimer = useTimer
@@ -126,7 +130,11 @@ class AudioRecorderHelper: NSObject, AVAudioRecorderDelegate {
         }
     }
     private func resumeRecording() {
-        audioRecorder?.record()
+        if let duration = timeLimit {
+            audioRecorder?.record(forDuration: duration)
+        } else {
+            audioRecorder?.record()
+        }
         uiDelegate?.audioRecorderHelperRecordingChanged(isRecording: isRecording)
         startTimerIfNeeded()
     }
