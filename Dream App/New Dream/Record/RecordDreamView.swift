@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RecordDreamView: UIView {
+final class RecordDreamView: UIView {
     // MARK: Properties
     weak var recorderHelper: AudioRecorderHelper?
     var recordingState: RecordingState = .initial {

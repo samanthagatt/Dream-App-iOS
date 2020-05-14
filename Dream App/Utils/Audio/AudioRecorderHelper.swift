@@ -11,7 +11,7 @@ import AVFoundation
 /// Wrapper on AVAudioRecorder to make recording audio easier
 /// - Note: Make sure to add `NSMicrophoneUsageDescription` to plist
 /// (e.g. `$(PRODUCT_NAME) needs your permission to use your device's microphone to create audio recordings`)
-class AudioRecorderHelper: NSObject, AVAudioRecorderDelegate {
+final class AudioRecorderHelper: NSObject, AVAudioRecorderDelegate {
     // MARK: - Private Properties
     // Weak to avoid retain cycle
     /// `AudioRecorderHelperUIDelegate` whose methods will be called

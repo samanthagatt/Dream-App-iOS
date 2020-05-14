@@ -8,15 +8,13 @@
 
 import UIKit
 
-class EditAndReplayDreamViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class EditAndReplayDreamViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     /// URL to the recorded dream
     var dreamURL: URL?
 
     @IBOutlet weak var editDreamTableView: UITableView!
-    
-    @IBOutlet weak var dreamReplayView: DreamReplayView!
-    
+        
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }

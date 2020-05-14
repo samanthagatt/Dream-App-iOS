@@ -27,7 +27,7 @@ class RoundedView: UIView {
 }
 
 @IBDesignable
-class RoundedButton: UIButton {
+final class RoundedButton: UIButton {
     @IBInspectable var roundingAmount: CGFloat = 2
     override func layoutSubviews() {
         super.layoutSubviews()

@@ -138,19 +138,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b0n-M3-mhE">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="595"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b0n-M3-mhE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="613"/>
                                 <color key="backgroundColor" name="darkBackground"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="editDreamCell" id="dV6-xw-ffx">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="252"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="251.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dV6-xw-ffx" id="c6u-bV-v2U">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="252"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="251.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="cXx-RW-v4c" userLabel="Main StackView">
-                                                    <rect key="frame" x="24" y="16" width="327" height="220"/>
+                                                    <rect key="frame" x="24" y="16" width="327" height="219.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add some more details about your dream you think you might want to remember." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOe-Ud-Kwc" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="327" height="74"/>
@@ -159,7 +159,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Pns-ex-VJl" userLabel="Title StackView">
-                                                            <rect key="frame" x="0.0" y="98" width="327" height="73"/>
+                                                            <rect key="frame" x="0.0" y="98" width="327" height="72.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xev-xX-OwK" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="327" height="25"/>
@@ -168,14 +168,14 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Give your dream a title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TFd-aL-cMi" customClass="DreamTextField" customModule="Dream_App" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="33" width="327" height="40"/>
+                                                                    <rect key="frame" x="0.0" y="33" width="327" height="39.5"/>
                                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8M2-vm-4mL" userLabel="Description StackView">
-                                                            <rect key="frame" x="0.0" y="195" width="327" height="25"/>
+                                                            <rect key="frame" x="0.0" y="194.5" width="327" height="25"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irc-7n-jqm" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="327" height="25"/>
@@ -204,13 +204,13 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NhV-P2-G8v">
-                                <rect key="frame" x="0.0" y="595" width="375" height="72"/>
+                                <rect key="frame" x="0.0" y="613" width="375" height="54"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5Cn-Ey-OKf">
-                                        <rect key="frame" x="16" y="16" width="343" height="40"/>
+                                        <rect key="frame" x="16" y="16" width="343" height="22"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyK-Mv-nzx" customClass="RoundedButton" customModule="Dream_App" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
                                                 <color key="backgroundColor" name="primaryPurple"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="hyK-Mv-nzx" secondAttribute="height" id="VgZ-oY-iaD"/>
@@ -220,15 +220,18 @@
                                                 <state key="selected" image="pause.fill" catalog="system"/>
                                             </button>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="FQK-V4-7zM">
-                                                <rect key="frame" x="54" y="0.0" width="229" height="41"/>
+                                                <rect key="frame" x="36" y="0.0" width="245.5" height="23"/>
                                                 <color key="minimumTrackTintColor" name="primaryPurple"/>
                                                 <color key="thumbTintColor" name="primaryPurple"/>
                                             </slider>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1I-fM-JJP">
-                                                <rect key="frame" x="297" y="0.0" width="46" height="40"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1I-fM-JJP" customClass="MonoDigitLabel" customModule="Dream_App" customModuleProvider="target">
+                                                <rect key="frame" x="295.5" y="0.0" width="47.5" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="fontWeight" value="regular"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                         </subviews>
                                     </stackView>
@@ -236,7 +239,6 @@
                                 <constraints>
                                     <constraint firstItem="5Cn-Ey-OKf" firstAttribute="centerY" secondItem="NhV-P2-G8v" secondAttribute="centerY" id="5Ph-SO-Hxg"/>
                                     <constraint firstItem="5Cn-Ey-OKf" firstAttribute="centerX" secondItem="NhV-P2-G8v" secondAttribute="centerX" id="BUh-aB-dzT"/>
-                                    <constraint firstAttribute="height" constant="72" id="H0F-L3-jKM"/>
                                     <constraint firstItem="5Cn-Ey-OKf" firstAttribute="height" secondItem="NhV-P2-G8v" secondAttribute="height" constant="-32" id="Rm8-HU-oK7"/>
                                     <constraint firstItem="5Cn-Ey-OKf" firstAttribute="width" secondItem="NhV-P2-G8v" secondAttribute="width" constant="-32" id="ZZc-N8-Sgc"/>
                                 </constraints>

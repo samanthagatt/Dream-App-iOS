@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class DreamTextField: UITextField {
+final class DreamTextField: UITextField {
     
     private let padding = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
     

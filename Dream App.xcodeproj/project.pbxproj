@@ -27,7 +27,6 @@
 		D6D27CDC2468625F00B7AF8F /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D27CDB2468625F00B7AF8F /* RoundedViews.swift */; };
 		D6EBEB02246C760100CC227C /* MonoDigitLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEB01246C760100CC227C /* MonoDigitLabel.swift */; };
 		D6EBEB04246C79B500CC227C /* UIViewController+presentAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEB03246C79B500CC227C /* UIViewController+presentAlert.swift */; };
-		D6EBEB06246CA88000CC227C /* DreamReplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEB05246CA88000CC227C /* DreamReplayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,7 +52,6 @@
 		D6D27CDB2468625F00B7AF8F /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
 		D6EBEB01246C760100CC227C /* MonoDigitLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoDigitLabel.swift; sourceTree = "<group>"; };
 		D6EBEB03246C79B500CC227C /* UIViewController+presentAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+presentAlert.swift"; sourceTree = "<group>"; };
-		D6EBEB05246CA88000CC227C /* DreamReplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamReplayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +110,6 @@
 			isa = PBXGroup;
 			children = (
 				D670180D246B91C80029FE3F /* EditAndReplayDreamViewController.swift */,
-				D6EBEB05246CA88000CC227C /* DreamReplayView.swift */,
 			);
 			path = "Edit and Replay";
 			sourceTree = "<group>";
@@ -245,7 +242,6 @@
 				D69BC4C1246B5F8400C1CBA3 /* DreamRecorderErrorDelegate.swift in Sources */,
 				D6701814246C558A0029FE3F /* AccessibleLabel.swift in Sources */,
 				D69BC4BA246B471300C1CBA3 /* AudioRecorderStartingError.swift in Sources */,
-				D6EBEB06246CA88000CC227C /* DreamReplayView.swift in Sources */,
 				D65A2AFD242A4F3E00E3326E /* RecordDreamViewController.swift in Sources */,
 				D69BC4BD246B498B00C1CBA3 /* Logger.swift in Sources */,
 				D6BA52F52469DE8C00166A7B /* AudioRecorderHelper.swift in Sources */,

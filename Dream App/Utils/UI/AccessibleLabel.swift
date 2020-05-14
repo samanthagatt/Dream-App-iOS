@@ -9,13 +9,12 @@
 import UIKit
 
 class AccessibleLabel: UILabel {
-    private var startingFont: UIFont = .preferredFont(forTextStyle: .body)
-    private var textStyle: UIFont.TextStyle = .body
+    var startingFont: UIFont = .preferredFont(forTextStyle: .body)
+    private var textStyle: AccessibleStyle = .body
     @IBInspectable private var fontTextStyle: String {
         get { textStyle.rawValue }
         set {
-            let style = AccessibleStyle(rawValue: newValue)
-            textStyle = style?.toUIFontTextStyle() ?? .body
+            textStyle = AccessibleStyle(rawValue: newValue) ?? .body
             scaleFont()
         }
     }
@@ -30,7 +29,7 @@ class AccessibleLabel: UILabel {
         scaleFont()
     }
     func scaleFont() {
-        font = UIFontMetrics(forTextStyle: textStyle)
+        font = UIFontMetrics(forTextStyle: textStyle.toUIFontTextStyle())
             .scaledFont(for: startingFont)
     }
 }

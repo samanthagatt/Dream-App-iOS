@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DreamRecorderErrorDelegate: AudioRecorderHelperErrorDelegate {
+final class DreamRecorderErrorDelegate: AudioRecorderHelperErrorDelegate {
     func audioRecorderHelperCouldNotStartRecording(_ error: AudioRecorderStartingError) {
         Logger().logErrorDesc(log: .audioRecording,
                               message: "Error occurred while trying to start recording",
