@@ -9,9 +9,19 @@
 import UIKit
 
 @IBDesignable
-final class DreamTextField: UITextField {
+final class BorderedTextField: UITextField  {
     
-    private let padding = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+    @IBInspectable private var insetTop: CGFloat = 0
+    @IBInspectable private var insetRight: CGFloat = 0
+    @IBInspectable private var insetBottom: CGFloat = 0
+    @IBInspectable private var insetLeft: CGFloat = 0
+    
+    private var padding: UIEdgeInsets {
+        UIEdgeInsets(top: insetTop,
+                     left: insetLeft,
+                     bottom: insetBottom,
+                     right: insetRight)
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,12 +37,6 @@ final class DreamTextField: UITextField {
     }
     
     func setupView() {
-        borderStyle = .none
-        textColor = .white
-        backgroundColor = .clear
-        layer.borderColor = UIColor.white.cgColor
-        layer.borderWidth = 1.3
-        layer.cornerRadius = 6
         let fontToScale = font ?? .preferredFont(forTextStyle: .body)
         font = UIFontMetrics(forTextStyle: .body).scaledFont(for: fontToScale)
         
@@ -41,13 +45,13 @@ final class DreamTextField: UITextField {
         self.attributedPlaceholder = NSAttributedString(string: placeholder ?? "", attributes:[foregroundAttr: foregroundColor])
     }
     
-    override open func textRect(forBounds bounds: CGRect) -> CGRect {
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
     }
-    override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+    override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
     }
-    override open func editingRect(forBounds bounds: CGRect) -> CGRect {
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
     }
 }

@@ -8,17 +8,36 @@
 
 import UIKit
 
-final class EditAndReplayDreamViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class EditAndReplayDreamViewController: UIViewController, UITextViewDelegate {
     
     /// URL to the recorded dream
     var dreamURL: URL?
-
-    @IBOutlet weak var editDreamTableView: UITableView!
-        
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+    private lazy var delegateDataSource = {
+        EditDelegateAndDataSource(textViewDelegate: self)
+    }()
+    
+    // MARK: Interface Builder
+    @IBOutlet private weak var editDreamTableView: UITableView!
+    
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        view.endEditing(true)
     }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: "editDreamCell", for: indexPath)
+}
+
+// MARK: Text View Delegate
+extension EditAndReplayDreamViewController {
+    // Updates multiline text view / description input height while user types
+    func textViewDidChange(_ textView: UITextView) {
+        editDreamTableView.beginUpdates()
+        editDreamTableView.endUpdates()
+    }
+}
+
+// MARK: Life Cycle
+extension EditAndReplayDreamViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        editDreamTableView.delegate = delegateDataSource
+        editDreamTableView.dataSource = delegateDataSource
     }
 }

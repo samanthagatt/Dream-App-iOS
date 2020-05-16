@@ -142,15 +142,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="613"/>
                                 <color key="backgroundColor" name="darkBackground"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="editDreamCell" id="dV6-xw-ffx">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="251.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="editDreamCell" id="dV6-xw-ffx" customClass="EditDreamCell" customModule="Dream_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="371.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dV6-xw-ffx" id="c6u-bV-v2U">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="251.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="371.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="cXx-RW-v4c" userLabel="Main StackView">
-                                                    <rect key="frame" x="24" y="16" width="327" height="219.5"/>
+                                                    <rect key="frame" x="24" y="16" width="327" height="339.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add some more details about your dream you think you might want to remember." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOe-Ud-Kwc" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="327" height="74"/>
@@ -159,7 +159,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Pns-ex-VJl" userLabel="Title StackView">
-                                                            <rect key="frame" x="0.0" y="98" width="327" height="72.5"/>
+                                                            <rect key="frame" x="0.0" y="98" width="327" height="56.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xev-xX-OwK" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="327" height="25"/>
@@ -167,15 +167,39 @@
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Give your dream a title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TFd-aL-cMi" customClass="DreamTextField" customModule="Dream_App" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="33" width="327" height="39.5"/>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Give your dream a title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TFd-aL-cMi" customClass="BorderedTextField" customModule="Dream_App" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="33" width="327" height="23.5"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                                                     <textInputTraits key="textInputTraits"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                            <real key="value" value="1.3"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                            <real key="value" value="6"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="insetTop">
+                                                                            <real key="value" value="8"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="insetRight">
+                                                                            <real key="value" value="12"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="insetBottom">
+                                                                            <real key="value" value="8"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="insetLeft">
+                                                                            <real key="value" value="12"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
                                                                 </textField>
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8M2-vm-4mL" userLabel="Description StackView">
-                                                            <rect key="frame" x="0.0" y="194.5" width="327" height="25"/>
+                                                            <rect key="frame" x="0.0" y="178.5" width="327" height="161"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irc-7n-jqm" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="327" height="25"/>
@@ -183,11 +207,45 @@
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Bco-Y1-Zpb" customClass="MultilineTextField" customModule="Dream_App" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="33" width="327" height="128"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                                            <color key="value" white="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                            <real key="value" value="1.3"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                            <real key="value" value="6"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Describe your dream in text"/>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="insetLeft">
+                                                                            <real key="value" value="8"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="insetRight">
+                                                                            <real key="value" value="8"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="insetTop">
+                                                                            <real key="value" value="8"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="insetBottom">
+                                                                            <real key="value" value="8"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </textView>
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
+                                            <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="cXx-RW-v4c" secondAttribute="bottom" constant="16" id="TOH-tz-Wv6"/>
                                                 <constraint firstItem="cXx-RW-v4c" firstAttribute="top" secondItem="c6u-bV-v2U" secondAttribute="top" constant="16" id="ddc-Lu-FZL"/>
@@ -196,12 +254,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="darkBackground"/>
+                                        <connections>
+                                            <outlet property="descriptionField" destination="Bco-Y1-Zpb" id="WMB-8e-FH0"/>
+                                            <outlet property="titleField" destination="TFd-aL-cMi" id="YWh-jM-CsN"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="34y-i8-tQx" id="TUl-xh-asm"/>
-                                    <outlet property="delegate" destination="34y-i8-tQx" id="lq8-5X-k2v"/>
-                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NhV-P2-G8v">
                                 <rect key="frame" x="0.0" y="613" width="375" height="54"/>
@@ -220,12 +278,12 @@
                                                 <state key="selected" image="pause.fill" catalog="system"/>
                                             </button>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="FQK-V4-7zM">
-                                                <rect key="frame" x="36" y="0.0" width="245.5" height="23"/>
+                                                <rect key="frame" x="36" y="0.0" width="247" height="23"/>
                                                 <color key="minimumTrackTintColor" name="primaryPurple"/>
                                                 <color key="thumbTintColor" name="primaryPurple"/>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1I-fM-JJP" customClass="MonoDigitLabel" customModule="Dream_App" customModuleProvider="target">
-                                                <rect key="frame" x="295.5" y="0.0" width="47.5" height="22"/>
+                                                <rect key="frame" x="297" y="0.0" width="46" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -245,6 +303,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" name="darkBackground"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="b0n-M3-mhE" firstAttribute="top" secondItem="wDw-cj-0Rr" secondAttribute="top" id="6RW-6k-03z"/>
                             <constraint firstItem="NhV-P2-G8v" firstAttribute="bottom" secondItem="wDw-cj-0Rr" secondAttribute="bottom" id="7mg-LB-Y60"/>
@@ -255,6 +314,9 @@
                             <constraint firstItem="b0n-M3-mhE" firstAttribute="width" secondItem="wDw-cj-0Rr" secondAttribute="width" id="zmM-IZ-nzi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wDw-cj-0Rr"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="C6o-mi-9ce" appends="YES" id="UkW-u4-MGe"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="GQy-aU-ghW"/>
                     <connections>
@@ -262,6 +324,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9cJ-tE-bV5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="C6o-mi-9ce">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="34y-i8-tQx" id="bl7-PY-vfp"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1800.8" y="124.58770614692655"/>
         </scene>
