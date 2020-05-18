@@ -1,17 +1,17 @@
 //
-//  AudioRecorderHelperErrorDelegate.swift
+//  AudioPlayerHelperErrorDelegate.swift
 //  Dream App
 //
-//  Created by Samantha Gatt on 5/12/20.
+//  Created by Samantha Gatt on 5/18/20.
 //  Copyright © 2020 Samantha Gatt. All rights reserved.
 //
 
 import Foundation
 
 /// Delegate protocol for AudioRecorderHelper whose methods are called when errors occur.
-protocol AudioRecorderHelperErrorDelegate: class {
+protocol AudioPlayerHelperErrorDelegate: class {
     /// Called if an error occurs while starting the audio recording
-    func audioRecorderHelperCouldNotStartRecording(_ error: AudioRecorderStartingError)
+    func audioPlayerHelperCouldNotStartPlaying(_ error: Error)
     /// Called when an audio recorder encounters an encoding error during recording.
-    func audioRecorderHelperErrorOccuredWhileRecording(_ error: Error?)
+    func audioRecorderHelperDecodeErrorOccuredWhilePlaying(_ error: Error?)
 }

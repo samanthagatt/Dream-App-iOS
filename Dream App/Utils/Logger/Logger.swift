@@ -14,6 +14,7 @@ extension OSLog {
 
     /// Logs audio recording
     static let audioRecording = OSLog(subsystem: subsystem, category: "Audio Recording")
+    static let audioPlayback = OSLog(subsystem: subsystem, category: "Audio Playback")
 }
 
 struct Logger {

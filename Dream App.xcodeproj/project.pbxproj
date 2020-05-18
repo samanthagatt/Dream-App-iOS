@@ -30,6 +30,10 @@
 		D6D76298246EFE1500EF2E17 /* EditDelegateAndDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D76297246EFE1500EF2E17 /* EditDelegateAndDataSource.swift */; };
 		D6D7629C246F5B3600EF2E17 /* UIView+IBBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D7629B246F5B3600EF2E17 /* UIView+IBBorder.swift */; };
 		D6D7629E24703AB800EF2E17 /* UITextView+EdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D7629D24703AB800EF2E17 /* UITextView+EdgeInsets.swift */; };
+		D6D762A32471C53700EF2E17 /* AudioPlayerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D762A22471C53700EF2E17 /* AudioPlayerHelper.swift */; };
+		D6D762A52472E55900EF2E17 /* AudioPlayerHelperUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D762A42472E55900EF2E17 /* AudioPlayerHelperUIDelegate.swift */; };
+		D6D762A92472E76F00EF2E17 /* AudioPlayerHelperErrorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D762A82472E76F00EF2E17 /* AudioPlayerHelperErrorDelegate.swift */; };
+		D6D762AB2472EFD800EF2E17 /* DreamPlayerErrorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D762AA2472EFD800EF2E17 /* DreamPlayerErrorDelegate.swift */; };
 		D6EBEB02246C760100CC227C /* MonoDigitLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEB01246C760100CC227C /* MonoDigitLabel.swift */; };
 		D6EBEB04246C79B500CC227C /* UIViewController+presentAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEB03246C79B500CC227C /* UIViewController+presentAlert.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +64,10 @@
 		D6D76297246EFE1500EF2E17 /* EditDelegateAndDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDelegateAndDataSource.swift; sourceTree = "<group>"; };
 		D6D7629B246F5B3600EF2E17 /* UIView+IBBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IBBorder.swift"; sourceTree = "<group>"; };
 		D6D7629D24703AB800EF2E17 /* UITextView+EdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+EdgeInsets.swift"; sourceTree = "<group>"; };
+		D6D762A22471C53700EF2E17 /* AudioPlayerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerHelper.swift; sourceTree = "<group>"; };
+		D6D762A42472E55900EF2E17 /* AudioPlayerHelperUIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerHelperUIDelegate.swift; sourceTree = "<group>"; };
+		D6D762A82472E76F00EF2E17 /* AudioPlayerHelperErrorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerHelperErrorDelegate.swift; sourceTree = "<group>"; };
+		D6D762AA2472EFD800EF2E17 /* DreamPlayerErrorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamPlayerErrorDelegate.swift; sourceTree = "<group>"; };
 		D6EBEB01246C760100CC227C /* MonoDigitLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoDigitLabel.swift; sourceTree = "<group>"; };
 		D6EBEB03246C79B500CC227C /* UIViewController+presentAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+presentAlert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				D670180D246B91C80029FE3F /* EditAndReplayDreamViewController.swift */,
+				D6D762AA2472EFD800EF2E17 /* DreamPlayerErrorDelegate.swift */,
 				D6D76297246EFE1500EF2E17 /* EditDelegateAndDataSource.swift */,
 				D6D76295246EF80800EF2E17 /* EditDreamCell.swift */,
 			);
@@ -129,10 +138,8 @@
 		D69BC4B6246B46C400C1CBA3 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				D6BA52F42469DE8C00166A7B /* AudioRecorderHelper.swift */,
-				D69BC4B7246B46FB00C1CBA3 /* AudioRecorderHelperUIDelegate.swift */,
-				D69BC4BE246B4F4000C1CBA3 /* AudioRecorderHelperErrorDelegate.swift */,
-				D69BC4B9246B471300C1CBA3 /* AudioRecorderStartingError.swift */,
+				D6D762A12471C52100EF2E17 /* Player */,
+				D6D762A02471C51B00EF2E17 /* Recorder */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -172,12 +179,41 @@
 				D670180F246C2A210029FE3F /* BorderedTextField.swift */,
 				D6701813246C558A0029FE3F /* AccessibleText.swift */,
 				D6EBEB01246C760100CC227C /* MonoDigitLabel.swift */,
-				D6EBEB03246C79B500CC227C /* UIViewController+presentAlert.swift */,
 				D6D76293246DFC5E00EF2E17 /* MultilineTextField.swift */,
+				D6D7629F2471C4C000EF2E17 /* Extensions */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		D6D7629F2471C4C000EF2E17 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D6EBEB03246C79B500CC227C /* UIViewController+presentAlert.swift */,
 				D6D7629B246F5B3600EF2E17 /* UIView+IBBorder.swift */,
 				D6D7629D24703AB800EF2E17 /* UITextView+EdgeInsets.swift */,
 			);
-			path = UI;
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D6D762A02471C51B00EF2E17 /* Recorder */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA52F42469DE8C00166A7B /* AudioRecorderHelper.swift */,
+				D69BC4B7246B46FB00C1CBA3 /* AudioRecorderHelperUIDelegate.swift */,
+				D69BC4BE246B4F4000C1CBA3 /* AudioRecorderHelperErrorDelegate.swift */,
+				D69BC4B9246B471300C1CBA3 /* AudioRecorderStartingError.swift */,
+			);
+			path = Recorder;
+			sourceTree = "<group>";
+		};
+		D6D762A12471C52100EF2E17 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				D6D762A22471C53700EF2E17 /* AudioPlayerHelper.swift */,
+				D6D762A42472E55900EF2E17 /* AudioPlayerHelperUIDelegate.swift */,
+				D6D762A82472E76F00EF2E17 /* AudioPlayerHelperErrorDelegate.swift */,
+			);
+			path = Player;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,12 +289,14 @@
 			files = (
 				D6D27CDC2468625F00B7AF8F /* RoundedViews.swift in Sources */,
 				D6D76298246EFE1500EF2E17 /* EditDelegateAndDataSource.swift in Sources */,
+				D6D762AB2472EFD800EF2E17 /* DreamPlayerErrorDelegate.swift in Sources */,
 				D6701810246C2A210029FE3F /* BorderedTextField.swift in Sources */,
 				D69BC4B8246B46FB00C1CBA3 /* AudioRecorderHelperUIDelegate.swift in Sources */,
 				D69BC4C1246B5F8400C1CBA3 /* DreamRecorderErrorDelegate.swift in Sources */,
 				D6701814246C558A0029FE3F /* AccessibleText.swift in Sources */,
 				D6D7629E24703AB800EF2E17 /* UITextView+EdgeInsets.swift in Sources */,
 				D69BC4BA246B471300C1CBA3 /* AudioRecorderStartingError.swift in Sources */,
+				D6D762A32471C53700EF2E17 /* AudioPlayerHelper.swift in Sources */,
 				D65A2AFD242A4F3E00E3326E /* RecordDreamViewController.swift in Sources */,
 				D69BC4BD246B498B00C1CBA3 /* Logger.swift in Sources */,
 				D6D76296246EF80800EF2E17 /* EditDreamCell.swift in Sources */,
@@ -268,8 +306,10 @@
 				D6D7629C246F5B3600EF2E17 /* UIView+IBBorder.swift in Sources */,
 				D6D1A737246ADAA800119418 /* CustomStringInterpolation.swift in Sources */,
 				D6EBEB04246C79B500CC227C /* UIViewController+presentAlert.swift in Sources */,
+				D6D762A92472E76F00EF2E17 /* AudioPlayerHelperErrorDelegate.swift in Sources */,
 				D65A2AF9242A4F3E00E3326E /* AppDelegate.swift in Sources */,
 				D69BC4BF246B4F4000C1CBA3 /* AudioRecorderHelperErrorDelegate.swift in Sources */,
+				D6D762A52472E55900EF2E17 /* AudioPlayerHelperUIDelegate.swift in Sources */,
 				D6D76294246DFC5E00EF2E17 /* MultilineTextField.swift in Sources */,
 				D6EBEB02246C760100CC227C /* MonoDigitLabel.swift in Sources */,
 				D65A2AFB242A4F3E00E3326E /* SceneDelegate.swift in Sources */,

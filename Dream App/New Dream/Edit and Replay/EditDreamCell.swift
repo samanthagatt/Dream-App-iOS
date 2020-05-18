@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditDreamCell: UITableViewCell {
+final class EditDreamCell: UITableViewCell {
     @IBOutlet weak var titleField: BorderedTextField!
     @IBOutlet weak var descriptionField: MultilineTextField!
 }

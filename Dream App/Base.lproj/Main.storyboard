@@ -143,14 +143,14 @@
                                 <color key="backgroundColor" name="darkBackground"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="editDreamCell" id="dV6-xw-ffx" customClass="EditDreamCell" customModule="Dream_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="371.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="387.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dV6-xw-ffx" id="c6u-bV-v2U">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="371.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="387.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="cXx-RW-v4c" userLabel="Main StackView">
-                                                    <rect key="frame" x="24" y="16" width="327" height="339.5"/>
+                                                    <rect key="frame" x="24" y="16" width="327" height="355.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add some more details about your dream you think you might want to remember." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOe-Ud-Kwc" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="327" height="74"/>
@@ -159,7 +159,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Pns-ex-VJl" userLabel="Title StackView">
-                                                            <rect key="frame" x="0.0" y="98" width="327" height="56.5"/>
+                                                            <rect key="frame" x="0.0" y="98" width="327" height="72.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xev-xX-OwK" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="327" height="25"/>
@@ -168,7 +168,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Give your dream a title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TFd-aL-cMi" customClass="BorderedTextField" customModule="Dream_App" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="33" width="327" height="23.5"/>
+                                                                    <rect key="frame" x="0.0" y="33" width="327" height="39.5"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                                                     <textInputTraits key="textInputTraits"/>
@@ -199,7 +199,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8M2-vm-4mL" userLabel="Description StackView">
-                                                            <rect key="frame" x="0.0" y="178.5" width="327" height="161"/>
+                                                            <rect key="frame" x="0.0" y="194.5" width="327" height="161"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irc-7n-jqm" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="327" height="25"/>
@@ -267,7 +267,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5Cn-Ey-OKf">
                                         <rect key="frame" x="16" y="16" width="343" height="22"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyK-Mv-nzx" customClass="RoundedButton" customModule="Dream_App" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyK-Mv-nzx" customClass="RoundedButton" customModule="Dream_App" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
                                                 <color key="backgroundColor" name="primaryPurple"/>
                                                 <constraints>
@@ -275,15 +275,24 @@
                                                 </constraints>
                                                 <color key="tintColor" name="darkBackground"/>
                                                 <state key="normal" image="play.fill" catalog="system"/>
+                                                <state key="disabled" image="speaker.slash.fill" catalog="system"/>
                                                 <state key="selected" image="pause.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="togglePlaying:" destination="34y-i8-tQx" eventType="touchUpInside" id="SjX-xv-xWt"/>
+                                                </connections>
                                             </button>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="FQK-V4-7zM">
-                                                <rect key="frame" x="36" y="0.0" width="247" height="23"/>
+                                                <rect key="frame" x="36" y="0.0" width="245.5" height="23"/>
                                                 <color key="minimumTrackTintColor" name="primaryPurple"/>
                                                 <color key="thumbTintColor" name="primaryPurple"/>
+                                                <connections>
+                                                    <action selector="playAfterScrubbing:" destination="34y-i8-tQx" eventType="touchUpInside" id="nMQ-dN-UEz"/>
+                                                    <action selector="playAfterScrubbing:" destination="34y-i8-tQx" eventType="touchUpOutside" id="qMk-GR-0CQ"/>
+                                                    <action selector="updateCurrentTime:" destination="34y-i8-tQx" eventType="valueChanged" id="win-Ph-Y0H"/>
+                                                </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1I-fM-JJP" customClass="MonoDigitLabel" customModule="Dream_App" customModuleProvider="target">
-                                                <rect key="frame" x="297" y="0.0" width="46" height="22"/>
+                                                <rect key="frame" x="295.5" y="0.0" width="47.5" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -321,6 +330,9 @@
                     <navigationItem key="navigationItem" id="GQy-aU-ghW"/>
                     <connections>
                         <outlet property="editDreamTableView" destination="b0n-M3-mhE" id="zKT-FN-BZP"/>
+                        <outlet property="playButton" destination="hyK-Mv-nzx" id="0lE-hu-xbq"/>
+                        <outlet property="scrubber" destination="FQK-V4-7zM" id="aJ3-sY-ZRl"/>
+                        <outlet property="timeLabel" destination="D1I-fM-JJP" id="DsD-u4-Mz2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9cJ-tE-bV5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -338,6 +350,7 @@
         <image name="pause" catalog="system" width="88" height="128"/>
         <image name="pause.fill" catalog="system" width="116" height="128"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
+        <image name="speaker.slash.fill" catalog="system" width="128" height="124"/>
         <namedColor name="darkBackground">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

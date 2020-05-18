@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditDelegateAndDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
+final class EditDelegateAndDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     private var dreamCell: EditDreamCell?
     weak var dreamDescriptionFieldDelegate: UITextViewDelegate?

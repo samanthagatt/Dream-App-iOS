@@ -14,7 +14,7 @@ final class DreamRecorderErrorDelegate: AudioRecorderHelperErrorDelegate {
                               message: "Error occurred while trying to start recording",
                               error: error)
     }
-    func audioRecorderHelperErrorOccuredWhileRecording(_ error: Error?) {
+    func audioRecorderHelperEncodeErrorOccuredWhileRecording(_ error: Error?) {
         Logger().logError(log: .audioRecording,
                           message: "Encoding error occurred while recording",
                           error: error)

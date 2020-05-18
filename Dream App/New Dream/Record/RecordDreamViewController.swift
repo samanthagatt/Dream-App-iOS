@@ -67,7 +67,7 @@ extension RecordDreamViewController {
 // MARK: Prepare for Segue
 extension RecordDreamViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "" {
+        if segue.identifier == "showRecordingDetail" {
             guard let url = sender as? URL,
                 let destVC = segue.destination as? EditAndReplayDreamViewController else { return }
             destVC.dreamURL = url

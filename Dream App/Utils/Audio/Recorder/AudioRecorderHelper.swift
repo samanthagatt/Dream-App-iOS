@@ -46,7 +46,7 @@ final class AudioRecorderHelper: NSObject, AVAudioRecorderDelegate {
     /// How quickly / often the timer will call delegate method if
     /// `shouldUseTimer` is `true`
     private let timerInterval: TimeInterval
-    /// Flag to tell if audio recorder helper should log errors
+    /// Flag to tell if audio recorder should resume after being interrupted
     private let shouldResumeAfterInterruption: Bool
     
     // MARK: - Init / Deinit
@@ -58,7 +58,7 @@ final class AudioRecorderHelper: NSObject, AVAudioRecorderDelegate {
          // Timers are expensive so default to false
          useTimer: Bool = false,
          timerInterval: TimeInterval = 0.030,
-         resumeAfterInterruption: Bool = true) {
+         resumeAfterInterruption: Bool = false) {
         
         self.uiDelegate = uiDelegate
         self.errorDelegate = errorDelegate
@@ -191,11 +191,11 @@ final class AudioRecorderHelper: NSObject, AVAudioRecorderDelegate {
                 pauseRecording()
                 return
             case .ended:
-               // An interruption ended. Resume playback, if appropriate.
+               // An interruption ended. Resume recording, if appropriate.
                 guard let optionsValue = userInfo[AVAudioSessionInterruptionOptionKey] as? UInt else { return }
                 let options = AVAudioSession.InterruptionOptions(rawValue: optionsValue)
                 if options.contains(.shouldResume) {
-                    // Interruption ended. Playback should resume.
+                    // Interruption ended. Recording should resume.
                     if shouldResumeAfterInterruption {
                         resumeRecording()
                     }
@@ -229,9 +229,10 @@ final class AudioRecorderHelper: NSObject, AVAudioRecorderDelegate {
 // Implemented so the delegate doesn't have to import AVFoundation
 extension AudioRecorderHelper {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        cancelTimerIfNeeded()
         uiDelegate?.audioRecorderHelperDidFinishRecording(url: recorder.url, successfully: flag)
     }
     func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
-        errorDelegate?.audioRecorderHelperErrorOccuredWhileRecording(error)
+        errorDelegate?.audioRecorderHelperEncodeErrorOccuredWhileRecording(error)
     }
 }
