@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xyD-Iw-pci">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Record Dream View Controller-->
+        <scene sceneID="ogh-BC-5QI">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="xyD-Iw-pci" customClass="RecordDreamViewController" customModule="Dream_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rvk-ou-LuO" customClass="RecordDreamView" customModule="Dream_App" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="bIX-jq-uiq">
+                                <rect key="frame" x="37.5" y="73.5" width="300" height="520"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="dR8-IP-IJF">
+                                        <rect key="frame" x="94.5" y="0.0" width="111" height="95.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWL-OB-0oQ" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
+                                                <rect key="frame" x="52.5" y="0.0" width="6" height="33"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="fontTextStyle" value="title1"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhv-Up-meR" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="49" width="111" height="46.5"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="34"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="fontTextStyle" value="largeTitle"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAw-fS-f0y" customClass="RoundedButton" customModule="Dream_App" customModuleProvider="target">
+                                        <rect key="frame" x="56.5" y="143.5" width="187.5" height="187.5"/>
+                                        <color key="backgroundColor" name="primaryPurple"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="hAw-fS-f0y" secondAttribute="height" id="IpT-yf-ObY"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="roundingAmount">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="toggleRecording:" destination="Rvk-ou-LuO" eventType="touchUpInside" id="fMW-2u-MgE"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="ou8-WA-KyJ">
+                                        <rect key="frame" x="7" y="379" width="286.5" height="141"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the above button to begin recording your dream. Press again to pause." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIx-U6-CwY" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="286.5" height="74"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vtC-4T-XXu" customClass="RoundedButton" customModule="Dream_App" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="92" width="286.5" height="49"/>
+                                                <color key="backgroundColor" name="primaryPurple"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
+                                                <state key="normal" title="Done">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="roundingAmount">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="saveRecording:" destination="Rvk-ou-LuO" eventType="touchUpInside" id="kmU-vg-lrv"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="vtC-4T-XXu" firstAttribute="width" secondItem="JIx-U6-CwY" secondAttribute="width" id="Nvm-N1-3Zc"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mic.fill" catalog="system" highlightedImage="pause" translatesAutoresizingMaskIntoConstraints="NO" id="b0i-Za-6Aj">
+                                <rect key="frame" x="147.5" y="270" width="80" height="80.5"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="b0i-Za-6Aj" secondAttribute="height" multiplier="1:1" id="yy5-mU-m5Q"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="darkBackground"/>
+                        <constraints>
+                            <constraint firstItem="b0i-Za-6Aj" firstAttribute="centerX" secondItem="hAw-fS-f0y" secondAttribute="centerX" id="7Ml-pi-jM5"/>
+                            <constraint firstItem="bIX-jq-uiq" firstAttribute="centerY" secondItem="Rvk-ou-LuO" secondAttribute="centerY" id="9cU-Dy-euZ"/>
+                            <constraint firstItem="bIX-jq-uiq" firstAttribute="width" secondItem="9X8-g7-S0Y" secondAttribute="width" multiplier="4:5" id="Dlf-yE-UGx"/>
+                            <constraint firstItem="b0i-Za-6Aj" firstAttribute="width" secondItem="hAw-fS-f0y" secondAttribute="width" multiplier="3:7" id="KGh-RM-h2e"/>
+                            <constraint firstItem="hAw-fS-f0y" firstAttribute="width" secondItem="9X8-g7-S0Y" secondAttribute="width" multiplier="1:2" id="QDf-13-h2c"/>
+                            <constraint firstItem="b0i-Za-6Aj" firstAttribute="centerY" secondItem="hAw-fS-f0y" secondAttribute="centerY" id="VMh-Xq-zEH"/>
+                            <constraint firstItem="bIX-jq-uiq" firstAttribute="centerX" secondItem="Rvk-ou-LuO" secondAttribute="centerX" id="Zhr-L1-qzN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9X8-g7-S0Y"/>
+                        <connections>
+                            <outlet property="buttonImage" destination="b0i-Za-6Aj" id="rdj-TQ-8uF"/>
+                            <outlet property="descriptionLabel" destination="JIx-U6-CwY" id="joQ-XV-nxE"/>
+                            <outlet property="doneButton" destination="vtC-4T-XXu" id="rV5-zS-epc"/>
+                            <outlet property="recordButton" destination="hAw-fS-f0y" id="GDp-LO-oHz"/>
+                            <outlet property="recordingStateLabel" destination="pWL-OB-0oQ" id="Yn3-0l-oky"/>
+                            <outlet property="timeLabel" destination="dhv-Up-meR" id="IHA-Cp-VEM"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="recordDreamView" destination="Rvk-ou-LuO" id="693-it-MAV"/>
+                        <segue destination="XfW-Sw-cJS" kind="show" identifier="showRecordingDetail" id="9l0-mW-fft"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WCW-wd-wg4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="943" y="126"/>
+        </scene>
+        <!--EditAndReplayDream-->
+        <scene sceneID="ro5-6T-GLB">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EditAndReplayDream" id="XfW-Sw-cJS" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="8oc-hO-bZ4"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hvh-PP-bQM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1492" y="125"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="mic.fill" catalog="system" width="108" height="128"/>
+        <image name="pause" catalog="system" width="88" height="128"/>
+        <namedColor name="darkBackground">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="primaryPurple">
+            <color red="0.41800001263618469" green="0.39100000262260437" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

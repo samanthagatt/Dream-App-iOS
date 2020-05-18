@@ -10,7 +10,7 @@
 		D65A2AF9242A4F3E00E3326E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65A2AF8242A4F3E00E3326E /* AppDelegate.swift */; };
 		D65A2AFB242A4F3E00E3326E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65A2AFA242A4F3E00E3326E /* SceneDelegate.swift */; };
 		D65A2AFD242A4F3E00E3326E /* RecordDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65A2AFC242A4F3E00E3326E /* RecordDreamViewController.swift */; };
-		D65A2B00242A4F3E00E3326E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65A2AFE242A4F3E00E3326E /* Main.storyboard */; };
+		D65A2B00242A4F3E00E3326E /* RecordDream.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65A2AFE242A4F3E00E3326E /* RecordDream.storyboard */; };
 		D65A2B02242A4F4400E3326E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D65A2B01242A4F4400E3326E /* Assets.xcassets */; };
 		D65A2B05242A4F4400E3326E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65A2B03242A4F4400E3326E /* LaunchScreen.storyboard */; };
 		D670180E246B91C80029FE3F /* EditAndReplayDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D670180D246B91C80029FE3F /* EditAndReplayDreamViewController.swift */; };
@@ -34,6 +34,9 @@
 		D6D762A52472E55900EF2E17 /* AudioPlayerHelperUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D762A42472E55900EF2E17 /* AudioPlayerHelperUIDelegate.swift */; };
 		D6D762A92472E76F00EF2E17 /* AudioPlayerHelperErrorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D762A82472E76F00EF2E17 /* AudioPlayerHelperErrorDelegate.swift */; };
 		D6D762AB2472EFD800EF2E17 /* DreamPlayerErrorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D762AA2472EFD800EF2E17 /* DreamPlayerErrorDelegate.swift */; };
+		D6D762AD247339E000EF2E17 /* EditAndReplayDream.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D762AC247339E000EF2E17 /* EditAndReplayDream.storyboard */; };
+		D6D762AF24733AEE00EF2E17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D762AE24733AEE00EF2E17 /* Main.storyboard */; };
+		D6D762B224733CF500EF2E17 /* DreamWall.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D762B124733CF500EF2E17 /* DreamWall.storyboard */; };
 		D6EBEB02246C760100CC227C /* MonoDigitLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEB01246C760100CC227C /* MonoDigitLabel.swift */; };
 		D6EBEB04246C79B500CC227C /* UIViewController+presentAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEB03246C79B500CC227C /* UIViewController+presentAlert.swift */; };
 /* End PBXBuildFile section */
@@ -43,7 +46,7 @@
 		D65A2AF8242A4F3E00E3326E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D65A2AFA242A4F3E00E3326E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D65A2AFC242A4F3E00E3326E /* RecordDreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDreamViewController.swift; sourceTree = "<group>"; };
-		D65A2AFF242A4F3E00E3326E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D65A2AFF242A4F3E00E3326E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/RecordDream.storyboard; sourceTree = "<group>"; };
 		D65A2B01242A4F4400E3326E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D65A2B04242A4F4400E3326E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D65A2B06242A4F4400E3326E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,6 +71,9 @@
 		D6D762A42472E55900EF2E17 /* AudioPlayerHelperUIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerHelperUIDelegate.swift; sourceTree = "<group>"; };
 		D6D762A82472E76F00EF2E17 /* AudioPlayerHelperErrorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerHelperErrorDelegate.swift; sourceTree = "<group>"; };
 		D6D762AA2472EFD800EF2E17 /* DreamPlayerErrorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamPlayerErrorDelegate.swift; sourceTree = "<group>"; };
+		D6D762AC247339E000EF2E17 /* EditAndReplayDream.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditAndReplayDream.storyboard; sourceTree = "<group>"; };
+		D6D762AE24733AEE00EF2E17 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D6D762B124733CF500EF2E17 /* DreamWall.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DreamWall.storyboard; sourceTree = "<group>"; };
 		D6EBEB01246C760100CC227C /* MonoDigitLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoDigitLabel.swift; sourceTree = "<group>"; };
 		D6EBEB03246C79B500CC227C /* UIViewController+presentAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+presentAlert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,8 +111,9 @@
 				D65A2AF8242A4F3E00E3326E /* AppDelegate.swift */,
 				D65A2AFA242A4F3E00E3326E /* SceneDelegate.swift */,
 				D6BA52F32469DE6A00166A7B /* Utils */,
+				D6D762B024733B8500EF2E17 /* Dream Wall */,
 				D69BC4C4246B69C100C1CBA3 /* New Dream */,
-				D65A2AFE242A4F3E00E3326E /* Main.storyboard */,
+				D6D762AE24733AEE00EF2E17 /* Main.storyboard */,
 				D65A2B01242A4F4400E3326E /* Assets.xcassets */,
 				D65A2B03242A4F4400E3326E /* LaunchScreen.storyboard */,
 				D65A2B06242A4F4400E3326E /* Info.plist */,
@@ -120,6 +127,7 @@
 				D65A2AFC242A4F3E00E3326E /* RecordDreamViewController.swift */,
 				D69BC4C2246B69A700C1CBA3 /* RecordDreamView.swift */,
 				D69BC4C0246B5F8400C1CBA3 /* DreamRecorderErrorDelegate.swift */,
+				D65A2AFE242A4F3E00E3326E /* RecordDream.storyboard */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -131,6 +139,7 @@
 				D6D762AA2472EFD800EF2E17 /* DreamPlayerErrorDelegate.swift */,
 				D6D76297246EFE1500EF2E17 /* EditDelegateAndDataSource.swift */,
 				D6D76295246EF80800EF2E17 /* EditDreamCell.swift */,
+				D6D762AC247339E000EF2E17 /* EditAndReplayDream.storyboard */,
 			);
 			path = "Edit and Replay";
 			sourceTree = "<group>";
@@ -216,6 +225,14 @@
 			path = Player;
 			sourceTree = "<group>";
 		};
+		D6D762B024733B8500EF2E17 /* Dream Wall */ = {
+			isa = PBXGroup;
+			children = (
+				D6D762B124733CF500EF2E17 /* DreamWall.storyboard */,
+			);
+			path = "Dream Wall";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -275,8 +292,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D65A2B05242A4F4400E3326E /* LaunchScreen.storyboard in Resources */,
+				D6D762AF24733AEE00EF2E17 /* Main.storyboard in Resources */,
+				D6D762AD247339E000EF2E17 /* EditAndReplayDream.storyboard in Resources */,
 				D65A2B02242A4F4400E3326E /* Assets.xcassets in Resources */,
-				D65A2B00242A4F3E00E3326E /* Main.storyboard in Resources */,
+				D6D762B224733CF500EF2E17 /* DreamWall.storyboard in Resources */,
+				D65A2B00242A4F3E00E3326E /* RecordDream.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,12 +339,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D65A2AFE242A4F3E00E3326E /* Main.storyboard */ = {
+		D65A2AFE242A4F3E00E3326E /* RecordDream.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D65A2AFF242A4F3E00E3326E /* Base */,
 			);
-			name = Main.storyboard;
+			name = RecordDream.storyboard;
 			sourceTree = "<group>";
 		};
 		D65A2B03242A4F4400E3326E /* LaunchScreen.storyboard */ = {
