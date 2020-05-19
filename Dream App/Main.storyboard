@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -10,28 +11,65 @@
         <scene sceneID="Rlh-0f-cHe">
             <objects>
                 <tabBarController id="Z8u-dW-gJD" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xG6-aN-6KA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="xG6-aN-6KA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" name="darkBackground"/>
+                        <color key="selectedImageTintColor" name="primaryPurple"/>
                     </tabBar>
                     <connections>
-                        <segue destination="nkw-ib-SrV" kind="relationship" relationship="viewControllers" id="Gas-wq-c5e"/>
+                        <segue destination="7ip-Bk-SmH" kind="relationship" relationship="viewControllers" id="llo-4D-pBD"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AtQ-rT-Ud6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1096" y="-190"/>
         </scene>
-        <!--DreamWall-->
-        <scene sceneID="Jop-qB-uaB">
+        <!--Navigation Controller-->
+        <scene sceneID="fU8-sw-vB2">
             <objects>
-                <viewControllerPlaceholder storyboardName="DreamWall" id="nkw-ib-SrV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="wlB-30-l18"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UBh-YE-cpJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7ip-Bk-SmH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="house" catalog="system" selectedImage="house.fill" id="g1W-mg-Min"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="6uE-Sg-7ID">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="darkBackground"/>
+                        <color key="tintColor" name="primaryPurple"/>
+                        <color key="barTintColor" name="darkBackground"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9VU-Ws-ASa" kind="relationship" relationship="rootViewController" id="CbC-9j-CBq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="guX-6w-eor" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-416" y="-190"/>
+            <point key="canvasLocation" x="-86" y="-435"/>
+        </scene>
+        <!--DreamWall-->
+        <scene sceneID="c2x-RZ-YbY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DreamWall" id="9VU-Ws-ASa" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="SMR-Pc-Tgk"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="miU-Gs-6il" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="475" y="-435"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="house" catalog="system" width="128" height="110"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <namedColor name="darkBackground">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="primaryPurple">
+            <color red="0.41800001263618469" green="0.39100000262260437" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>
