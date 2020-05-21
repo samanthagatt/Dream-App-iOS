@@ -11,7 +11,7 @@ import Foundation
 /// Delegate protocol for AudioRecorderHelper whose methods are called when errors occur.
 protocol AudioPlayerHelperErrorDelegate: class {
     /// Called if an error occurs while starting the audio recording
-    func audioPlayerHelperCouldNotStartPlaying(_ error: Error)
+    func audioPlayerHelper(_ audioPlayerHelper: AudioPlayerHelper, startPlayingDidFailWith error: Error)
     /// Called when an audio recorder encounters an encoding error during recording.
-    func audioRecorderHelperDecodeErrorOccuredWhilePlaying(_ error: Error?)
+    func audioRecorderHelper(_ audioPlayerHelper: AudioPlayerHelper, decodingWhilePlayingDidFailWith error: Error?)
 }

@@ -77,13 +77,13 @@ extension RecordDreamViewController {
 
 // MARK: Audio Recorder Helper Delegate
 extension RecordDreamViewController {
-    func audioRecorderHelperRecordingChanged(isRecording: Bool) {
+    func audioRecorderHelper(_ audiRecorderHelper: AudioRecorderHelper, recordingChanged isRecording: Bool) {
         recordDreamView.recordingState = isRecording ? .recording : .paused
     }
-    func audioRecorderHelperTimerCalled(currentTime: TimeInterval) {
+    func audioRecorderHelper(_ audiRecorderHelper: AudioRecorderHelper, timerCalled currentTime: TimeInterval) {
         recordDreamView.updateTimeLabel(currentTime: currentTime)
     }
-    func audioRecorderHelperDidFinishRecording(url: URL, successfully flag: Bool) {
+    func audioRecorderHelper(_ audiRecorderHelper: AudioRecorderHelper, didFinishRecording url: URL, successfully flag: Bool) {
         // If unsuccessful
         if !flag {
             presentRecordingErrorAlert()

@@ -96,17 +96,17 @@ final class AudioRecorderHelper: NSObject, AVAudioRecorderDelegate {
     /// Initializes and starts recording to a file in app's main document directory
     private func startRecording() {
         guard let recordingURL = createNewRecordingURL() else {
-            errorDelegate?.audioRecorderHelperCouldNotStartRecording(.nilDocumentsURL)
+            errorDelegate?.audioRecorderHelper(self, startPlayingDidFailWith: .nilDocumentsURL)
             return
         }
         guard let format = AVAudioFormat(standardFormatWithSampleRate: sampleRate, channels: numberOfChannels) else {
-            errorDelegate?.audioRecorderHelperCouldNotStartRecording(.nilAudioFormat)
+            errorDelegate?.audioRecorderHelper(self, startPlayingDidFailWith: .nilAudioFormat)
             return
         }
         do {
             audioRecorder = try AVAudioRecorder(url: recordingURL, format: format)
         } catch {
-            errorDelegate?.audioRecorderHelperCouldNotStartRecording(.startAudioRecordingFailed(error: error))
+            errorDelegate?.audioRecorderHelper(self, startPlayingDidFailWith: .startAudioRecordingFailed(error: error))
             return
         }
         self.recordingURL = recordingURL
@@ -118,7 +118,7 @@ final class AudioRecorderHelper: NSObject, AVAudioRecorderDelegate {
             case .undetermined:
                 // Request recording permission the first time they try to record something
                 AVAudioSession.sharedInstance().requestRecordPermission { granted in
-                    self.uiDelegate?.audioRecorderHelperDidAskForPermission(granted: granted)
+                    self.uiDelegate?.audioRecorderHelper(self, didAskForPermission: granted)
                 }
             case .denied:
                 self.uiDelegate?
@@ -135,12 +135,12 @@ final class AudioRecorderHelper: NSObject, AVAudioRecorderDelegate {
         } else {
             audioRecorder?.record()
         }
-        uiDelegate?.audioRecorderHelperRecordingChanged(isRecording: isRecording)
+        uiDelegate?.audioRecorderHelper(self, recordingChanged: isRecording)
         startTimerIfNeeded()
     }
     private func pauseRecording() {
         audioRecorder?.pause()
-        uiDelegate?.audioRecorderHelperRecordingChanged(isRecording: isRecording)
+        uiDelegate?.audioRecorderHelper(self, recordingChanged: isRecording)
         cancelTimerIfNeeded()
     }
     // MARK: Timer
@@ -152,7 +152,7 @@ final class AudioRecorderHelper: NSObject, AVAudioRecorderDelegate {
             timer = Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { [weak self] (_) in
                 // self could be nil if user switches UI screen
                 guard let self = self else { return }
-                self.uiDelegate?.audioRecorderHelperTimerCalled(currentTime: self.audioRecorder?.currentTime ?? 0.0)
+                self.uiDelegate?.audioRecorderHelper(self, timerCalled: self.audioRecorder?.currentTime ?? 0.0)
             }
         }
     }
@@ -230,9 +230,9 @@ final class AudioRecorderHelper: NSObject, AVAudioRecorderDelegate {
 extension AudioRecorderHelper {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         cancelTimerIfNeeded()
-        uiDelegate?.audioRecorderHelperDidFinishRecording(url: recorder.url, successfully: flag)
+        uiDelegate?.audioRecorderHelper(self, didFinishRecording: recorder.url, successfully: flag)
     }
     func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
-        errorDelegate?.audioRecorderHelperEncodeErrorOccuredWhileRecording(error)
+        errorDelegate?.audioRecorderHelper(self, ecodingWhileRecordingDidFailWith: error)
     }
 }

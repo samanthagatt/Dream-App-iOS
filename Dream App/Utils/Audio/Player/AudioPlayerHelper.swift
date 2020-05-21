@@ -68,13 +68,13 @@ final class AudioPlayerHelper: NSObject, AVAudioPlayerDelegate {
     // MARK: - Internal Methods
     private func resumePlaying() {
         audioPlayer?.play()
-        uiDelegate?.audioPlayerHelperPlayingChanged(isPlaying: isPlaying)
+        uiDelegate?.audioPlayerHelper(self, playingChanged: isPlaying)
         startTimerIfNeeded()
     }
     private func pausePlaying() {
         audioPlayer?.pause()
         cancelTimerIfNeeded()
-        uiDelegate?.audioPlayerHelperPlayingChanged(isPlaying: isPlaying)
+        uiDelegate?.audioPlayerHelper(self, playingChanged: isPlaying)
     }
     // MARK: Timer
     private func startTimerIfNeeded() {
@@ -85,7 +85,7 @@ final class AudioPlayerHelper: NSObject, AVAudioPlayerDelegate {
             timer = Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { [weak self] (_) in
                 // self could be nil if user switches UI screen
                 guard let self = self else { return }
-                self.uiDelegate?.audioPlayerHelperTimerCalled(currentTime: self.audioPlayer?.currentTime ?? 0.0, duration: self.audioPlayer?.duration ?? 0.0)
+                self.uiDelegate?.audioPlayerHelper(self, timerCalledAt: self.audioPlayer?.currentTime ?? 0.0, duration: self.audioPlayer?.duration ?? 0.0)
             }
         }
     }
@@ -146,10 +146,10 @@ final class AudioPlayerHelper: NSObject, AVAudioPlayerDelegate {
         do {
             guard let url = urlToLoad else { return }
             audioPlayer = try AVAudioPlayer(contentsOf: url)
-            uiDelegate?.audioPlayerHelperLoadedURL(duration: audioPlayer?.duration, successfully: true)
+            uiDelegate?.audioPlayerHelper(self, loadedAudio: audioPlayer?.duration, successfully: true)
         } catch {
-            errorDelegate?.audioPlayerHelperCouldNotStartPlaying(error)
-            uiDelegate?.audioPlayerHelperLoadedURL(duration: nil, successfully: false)
+            errorDelegate?.audioPlayerHelper(self, startPlayingDidFailWith: error)
+            uiDelegate?.audioPlayerHelper(self, loadedAudio: nil, successfully: false)
             return
         }
     }
@@ -168,7 +168,7 @@ final class AudioPlayerHelper: NSObject, AVAudioPlayerDelegate {
             shouldResumeAfterScrubbing = true
         }
         audioPlayer?.currentTime = timeInterval
-        uiDelegate?.audioPlayerHelperDidScrub(currentTime: audioPlayer?.currentTime ?? 0, duration: audioPlayer?.duration ?? 0)
+        uiDelegate?.audioPlayerHelper(self, didScrubTo: audioPlayer?.currentTime ?? 0, duration: audioPlayer?.duration ?? 0)
     }
     func playAfterScrubbing() {
         if shouldResumeAfterScrubbing {
@@ -183,10 +183,10 @@ final class AudioPlayerHelper: NSObject, AVAudioPlayerDelegate {
 extension AudioPlayerHelper {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         cancelTimerIfNeeded()
-        uiDelegate?.audioPlayerHelperDidFinishPlaying(duration: audioPlayer?.duration ?? 0)
+        uiDelegate?.audioPlayerHelper(self, didFinishPlaying: audioPlayer?.duration ?? 0)
     }
     func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
-        errorDelegate?.audioRecorderHelperDecodeErrorOccuredWhilePlaying(error)
+        errorDelegate?.audioRecorderHelper(self, decodingWhilePlayingDidFailWith: error)
     }
 }
 

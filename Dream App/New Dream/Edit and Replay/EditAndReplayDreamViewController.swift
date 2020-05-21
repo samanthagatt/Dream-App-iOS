@@ -85,26 +85,26 @@ extension EditAndReplayDreamViewController {
 
 // MARK: Audio Player Helper UI Delegate
 extension EditAndReplayDreamViewController {
-    func audioPlayerHelperLoadedURL(duration: TimeInterval?, successfully flag: Bool) {
+    func audioPlayerHelper(_ audioPlayerHelper: AudioPlayerHelper, loadedAudio duration: TimeInterval?, successfully flag: Bool) {
         loadViewIfNeeded()
         playButton.isEnabled = true
         timeLabel.text = timeIntervalFormatter.string(from: duration ?? 0) ?? "00:00"
         scrubber.minimumValue = 0
         scrubber.maximumValue = Float(duration ?? 0)
     }
-    func audioPlayerHelperPlayingChanged(isPlaying: Bool) {
+    func audioPlayerHelper(_ audioPlayerHelper: AudioPlayerHelper, playingChanged isPlaying: Bool) {
         playButton.isSelected = isPlaying
     }
-    func audioPlayerHelperTimerCalled(currentTime: TimeInterval, duration: TimeInterval) {
+    func audioPlayerHelper(_ audioPlayerHelper: AudioPlayerHelper, timerCalledAt currentTime: TimeInterval, duration: TimeInterval) {
         let timeLeft = round(duration) - currentTime
         timeLabel.text = timeIntervalFormatter.string(from: timeLeft) ?? "00:00"
         scrubber.value = Float(currentTime)
     }
-    func audioPlayerHelperDidScrub(currentTime: TimeInterval, duration: TimeInterval) {
+    func audioPlayerHelper(_ audioPlayerHelper: AudioPlayerHelper, didScrubTo currentTime: TimeInterval, duration: TimeInterval) {
         let timeLeft = round(duration) - currentTime
         timeLabel.text = timeIntervalFormatter.string(from: timeLeft) ?? "00:00"
     }
-    func audioPlayerHelperDidFinishPlaying(duration: TimeInterval) {
+    func audioPlayerHelper(_ audioPlayerHelper: AudioPlayerHelper, didFinishPlaying duration: TimeInterval) {
         playButton.isSelected = false
         timeLabel.text = timeIntervalFormatter.string(from: duration) ?? "00:00"
         scrubber.value = 0

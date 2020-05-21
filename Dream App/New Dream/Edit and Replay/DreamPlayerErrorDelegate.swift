@@ -9,12 +9,12 @@
 import Foundation
 
 final class DreamPlayerErrorDelegate: AudioPlayerHelperErrorDelegate {
-    func audioPlayerHelperCouldNotStartPlaying(_ error: Error) {
+    func audioPlayerHelper(_ audioPlayerHelper: AudioPlayerHelper, startPlayingDidFailWith error: Error) {
         Logger().logErrorDesc(log: .audioPlayback,
                               message: "Error occurred while trying to start playing",
                               error: error)
     }
-    func audioRecorderHelperDecodeErrorOccuredWhilePlaying(_ error: Error?) {
+    func audioRecorderHelper(_ audioPlayerHelper: AudioPlayerHelper, decodingWhilePlayingDidFailWith error: Error?) {
         Logger().logError(log: .audioPlayback,
                           message: "Decoding error occurred while playing",
                           error: error)
