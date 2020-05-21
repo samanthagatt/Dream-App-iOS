@@ -16,4 +16,9 @@ extension String.StringInterpolation {
             appendLiteral(defaultString())
         }
     }
+    mutating func appendInterpolation(_ starting: String, _ value: Optional<Any>) {
+        if let value = value {
+            appendLiteral("\(starting)\(value)")
+        }
+    }
 }

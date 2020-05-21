@@ -39,6 +39,7 @@
 		D6D762B224733CF500EF2E17 /* DreamWall.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D762B124733CF500EF2E17 /* DreamWall.storyboard */; };
 		D6EBEB02246C760100CC227C /* MonoDigitLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEB01246C760100CC227C /* MonoDigitLabel.swift */; };
 		D6EBEB04246C79B500CC227C /* UIViewController+presentAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEB03246C79B500CC227C /* UIViewController+presentAlert.swift */; };
+		D6F49EC52476CDF20037F755 /* SpeechToTextHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F49EC42476CDF20037F755 /* SpeechToTextHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		D6D762B124733CF500EF2E17 /* DreamWall.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DreamWall.storyboard; sourceTree = "<group>"; };
 		D6EBEB01246C760100CC227C /* MonoDigitLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoDigitLabel.swift; sourceTree = "<group>"; };
 		D6EBEB03246C79B500CC227C /* UIViewController+presentAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+presentAlert.swift"; sourceTree = "<group>"; };
+		D6F49EC42476CDF20037F755 /* SpeechToTextHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToTextHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 		D69BC4B6246B46C400C1CBA3 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				D6F49EC42476CDF20037F755 /* SpeechToTextHelper.swift */,
 				D6D762A12471C52100EF2E17 /* Player */,
 				D6D762A02471C51B00EF2E17 /* Recorder */,
 			);
@@ -307,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6F49EC52476CDF20037F755 /* SpeechToTextHelper.swift in Sources */,
 				D6D27CDC2468625F00B7AF8F /* RoundedViews.swift in Sources */,
 				D6D76298246EFE1500EF2E17 /* EditDelegateAndDataSource.swift in Sources */,
 				D6D762AB2472EFD800EF2E17 /* DreamPlayerErrorDelegate.swift in Sources */,

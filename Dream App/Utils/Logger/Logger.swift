@@ -20,18 +20,12 @@ extension OSLog {
 struct Logger {
     /// Logs an optional error
     func logError(log: OSLog, message: String, error: Error?) {
-        var errorString = ""
-        if let error = error {
-            errorString = "\nError: \(error)"
-        }
+        let errorString = "\("\nError: ", error)"
         os_log("%@%@", log: log, type: .error, message, errorString)
     }
     /// Logs an optional error's localized description
     func logErrorDesc(log: OSLog, message: String, error: Error?) {
-        var errorString = ""
-        if let error = error {
-            errorString = "\nLocalized Description: \(error.localizedDescription)"
-        }
+        let errorString = "\("\nLocalized Description: ", error?.localizedDescription)"
         os_log("%@%@", log: log, type: .error, message, errorString)
     }
 }
