@@ -15,7 +15,111 @@
                     <view key="view" contentMode="scaleToFill" id="Ps6-Fk-qJq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnT-qS-I98">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <color key="barTintColor" name="darkBackground"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2mM-sf-aQg">
+                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                                <color key="backgroundColor" name="darkBackground"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dreamCell" id="PiA-81-7zC">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="110"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PiA-81-7zC" id="LNF-PS-vzt">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gwW-07-05Z" customClass="RoundedView" customModule="Dream_App" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="16" width="382" height="78"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Lga-fL-edU">
+                                                            <rect key="frame" x="16" y="16" width="350" height="46"/>
+                                                            <subviews>
+                                                                <view contentMode="scaleToFill" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ksN-hU-7P9" customClass="RoundedView" customModule="Dream_App" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="4" width="38" height="38"/>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moon.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="n9b-yW-AyQ">
+                                                                            <rect key="frame" x="8" y="9" width="22" height="20.5"/>
+                                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" secondItem="n9b-yW-AyQ" secondAttribute="height" multiplier="1:1" id="SAi-mD-L9x"/>
+                                                                            </constraints>
+                                                                        </imageView>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" name="primaryPurple"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="n9b-yW-AyQ" firstAttribute="width" secondItem="ksN-hU-7P9" secondAttribute="width" multiplier="4:7" id="Jz0-ci-bDG"/>
+                                                                        <constraint firstItem="n9b-yW-AyQ" firstAttribute="centerY" secondItem="ksN-hU-7P9" secondAttribute="centerY" id="Pd5-wO-eNS"/>
+                                                                        <constraint firstAttribute="width" secondItem="ksN-hU-7P9" secondAttribute="height" multiplier="1:1" id="gx6-E3-jAl"/>
+                                                                        <constraint firstItem="n9b-yW-AyQ" firstAttribute="centerX" secondItem="ksN-hU-7P9" secondAttribute="centerX" id="vg1-8T-pHA"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="753" verticalCompressionResistancePriority="754" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="WKI-tb-3PK">
+                                                                    <rect key="frame" x="54" y="0.5" width="296" height="45.5"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1B-uT-6y6" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="296" height="25"/>
+                                                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="string" keyPath="fontTextStyle" value="title1"/>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="753" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYW-Rc-qkZ" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
+                                                                            <rect key="frame" x="0.0" y="25" width="296" height="20.5"/>
+                                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="string" keyPath="fontTextStyle" value="title2"/>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="dreamCellBackground"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="Lga-fL-edU" secondAttribute="bottom" constant="16" id="1ZN-jH-vdY"/>
+                                                        <constraint firstItem="Lga-fL-edU" firstAttribute="leading" secondItem="gwW-07-05Z" secondAttribute="leading" constant="16" id="EcF-l8-gdf"/>
+                                                        <constraint firstItem="Lga-fL-edU" firstAttribute="top" secondItem="gwW-07-05Z" secondAttribute="top" constant="16" id="LiH-7K-kzD"/>
+                                                        <constraint firstItem="ksN-hU-7P9" firstAttribute="width" secondItem="gwW-07-05Z" secondAttribute="width" multiplier="1:10" id="P3p-7K-9PA"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Lga-fL-edU" secondAttribute="trailing" constant="16" id="ldn-zn-8A9"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="roundingAmount">
+                                                            <real key="value" value="12"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" name="darkBackground"/>
+                                            <constraints>
+                                                <constraint firstItem="gwW-07-05Z" firstAttribute="top" secondItem="LNF-PS-vzt" secondAttribute="top" constant="16" id="GD6-9f-e1m"/>
+                                                <constraint firstAttribute="bottom" secondItem="gwW-07-05Z" secondAttribute="bottom" constant="16" id="OCZ-54-q8I"/>
+                                                <constraint firstItem="gwW-07-05Z" firstAttribute="leading" secondItem="LNF-PS-vzt" secondAttribute="leading" constant="16" id="bVW-2M-4Q1"/>
+                                                <constraint firstAttribute="trailing" secondItem="gwW-07-05Z" secondAttribute="trailing" constant="16" id="rBH-Nv-kQs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" name="darkBackground"/>
+                        <constraints>
+                            <constraint firstItem="jnT-qS-I98" firstAttribute="leading" secondItem="aiz-on-YMq" secondAttribute="leading" id="AYT-GC-b1X"/>
+                            <constraint firstItem="aiz-on-YMq" firstAttribute="trailing" secondItem="2mM-sf-aQg" secondAttribute="trailing" id="CZt-9Q-iLz"/>
+                            <constraint firstItem="jnT-qS-I98" firstAttribute="trailing" secondItem="aiz-on-YMq" secondAttribute="trailing" id="E7p-uh-uHe"/>
+                            <constraint firstItem="jnT-qS-I98" firstAttribute="top" secondItem="aiz-on-YMq" secondAttribute="top" id="J3x-IY-iI3"/>
+                            <constraint firstItem="2mM-sf-aQg" firstAttribute="leading" secondItem="aiz-on-YMq" secondAttribute="leading" id="Kxi-hi-qnM"/>
+                            <constraint firstItem="aiz-on-YMq" firstAttribute="bottom" secondItem="2mM-sf-aQg" secondAttribute="bottom" id="LRj-xx-ZM5"/>
+                            <constraint firstItem="2mM-sf-aQg" firstAttribute="top" secondItem="jnT-qS-I98" secondAttribute="bottom" id="wwr-Tm-nxq"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="aiz-on-YMq"/>
                     </view>
                     <navigationItem key="navigationItem" title="Dream Wall" id="TqZ-gB-t5k">
@@ -42,8 +146,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="moon.fill" catalog="system" width="128" height="121"/>
         <namedColor name="darkBackground">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="dreamCellBackground">
+            <color red="0.1338992715" green="0.14394626020000001" blue="0.20785045620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="primaryPurple">
+            <color red="0.41800001263618469" green="0.39100000262260437" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

@@ -233,6 +233,7 @@ extension AudioRecorderHelper {
         uiDelegate?.audioRecorderHelper(self, didFinishRecording: recorder.url, successfully: flag)
     }
     func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
+        // Don't have to call uiDelegate method because audioRecorderDidFinishRecording(_:, successfully:) will be called afterwards
         errorDelegate?.audioRecorderHelper(self, ecodingWhileRecordingDidFailWith: error)
     }
 }

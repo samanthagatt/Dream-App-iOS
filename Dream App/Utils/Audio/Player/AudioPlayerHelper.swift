@@ -186,6 +186,7 @@ extension AudioPlayerHelper {
         uiDelegate?.audioPlayerHelper(self, didFinishPlaying: audioPlayer?.duration ?? 0)
     }
     func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
+        // Don't have to call uiDelegate method because audioPlayerDidFinishPlaying(_:, successfully:) will be called afterwards
         errorDelegate?.audioRecorderHelper(self, decodingWhilePlayingDidFailWith: error)
     }
 }
