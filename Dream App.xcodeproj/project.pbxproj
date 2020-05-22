@@ -26,8 +26,7 @@
 		D6D1A737246ADAA800119418 /* CustomStringInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D1A736246ADAA800119418 /* CustomStringInterpolation.swift */; };
 		D6D27CDC2468625F00B7AF8F /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D27CDB2468625F00B7AF8F /* RoundedViews.swift */; };
 		D6D76294246DFC5E00EF2E17 /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D76293246DFC5E00EF2E17 /* MultilineTextField.swift */; };
-		D6D76296246EF80800EF2E17 /* EditDreamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D76295246EF80800EF2E17 /* EditDreamCell.swift */; };
-		D6D76298246EFE1500EF2E17 /* EditDelegateAndDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D76297246EFE1500EF2E17 /* EditDelegateAndDataSource.swift */; };
+		D6D76296246EF80800EF2E17 /* EditAndReplayDreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D76295246EF80800EF2E17 /* EditAndReplayDreamView.swift */; };
 		D6D7629C246F5B3600EF2E17 /* UIView+IBBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D7629B246F5B3600EF2E17 /* UIView+IBBorder.swift */; };
 		D6D7629E24703AB800EF2E17 /* UITextView+EdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D7629D24703AB800EF2E17 /* UITextView+EdgeInsets.swift */; };
 		D6D762A32471C53700EF2E17 /* AudioPlayerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D762A22471C53700EF2E17 /* AudioPlayerHelper.swift */; };
@@ -65,8 +64,7 @@
 		D6D1A736246ADAA800119418 /* CustomStringInterpolation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStringInterpolation.swift; sourceTree = "<group>"; };
 		D6D27CDB2468625F00B7AF8F /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
 		D6D76293246DFC5E00EF2E17 /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
-		D6D76295246EF80800EF2E17 /* EditDreamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDreamCell.swift; sourceTree = "<group>"; };
-		D6D76297246EFE1500EF2E17 /* EditDelegateAndDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDelegateAndDataSource.swift; sourceTree = "<group>"; };
+		D6D76295246EF80800EF2E17 /* EditAndReplayDreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAndReplayDreamView.swift; sourceTree = "<group>"; };
 		D6D7629B246F5B3600EF2E17 /* UIView+IBBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IBBorder.swift"; sourceTree = "<group>"; };
 		D6D7629D24703AB800EF2E17 /* UITextView+EdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+EdgeInsets.swift"; sourceTree = "<group>"; };
 		D6D762A22471C53700EF2E17 /* AudioPlayerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerHelper.swift; sourceTree = "<group>"; };
@@ -141,8 +139,7 @@
 			children = (
 				D670180D246B91C80029FE3F /* EditAndReplayDreamViewController.swift */,
 				D6D762AA2472EFD800EF2E17 /* DreamPlayerErrorDelegate.swift */,
-				D6D76297246EFE1500EF2E17 /* EditDelegateAndDataSource.swift */,
-				D6D76295246EF80800EF2E17 /* EditDreamCell.swift */,
+				D6D76295246EF80800EF2E17 /* EditAndReplayDreamView.swift */,
 				D6D762AC247339E000EF2E17 /* EditAndReplayDream.storyboard */,
 			);
 			path = "Edit and Replay";
@@ -315,7 +312,6 @@
 			files = (
 				D6F49EC52476CDF20037F755 /* SpeechToTextHelper.swift in Sources */,
 				D6D27CDC2468625F00B7AF8F /* RoundedViews.swift in Sources */,
-				D6D76298246EFE1500EF2E17 /* EditDelegateAndDataSource.swift in Sources */,
 				D6D762AB2472EFD800EF2E17 /* DreamPlayerErrorDelegate.swift in Sources */,
 				D6701810246C2A210029FE3F /* BorderedTextField.swift in Sources */,
 				D69BC4B8246B46FB00C1CBA3 /* AudioRecorderHelperUIDelegate.swift in Sources */,
@@ -327,7 +323,7 @@
 				D6F49A68247827E500BD351B /* KeyboardStuff.swift in Sources */,
 				D65A2AFD242A4F3E00E3326E /* RecordDreamViewController.swift in Sources */,
 				D69BC4BD246B498B00C1CBA3 /* Logger.swift in Sources */,
-				D6D76296246EF80800EF2E17 /* EditDreamCell.swift in Sources */,
+				D6D76296246EF80800EF2E17 /* EditAndReplayDreamView.swift in Sources */,
 				D6BA52F52469DE8C00166A7B /* AudioRecorderHelper.swift in Sources */,
 				D670180E246B91C80029FE3F /* EditAndReplayDreamViewController.swift in Sources */,
 				D69BC4C3246B69A700C1CBA3 /* RecordDreamView.swift in Sources */,

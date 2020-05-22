@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yaT-P6-rpd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="thi-I0-Vty">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -10,167 +10,154 @@
     </dependencies>
     <scenes>
         <!--Edit And Replay Dream View Controller-->
-        <scene sceneID="CED-05-dQJ">
+        <scene sceneID="zcM-HN-Ca9">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="yaT-P6-rpd" customClass="EditAndReplayDreamViewController" customModule="Dream_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="YZx-DT-Acc">
+                <viewController modalPresentationStyle="fullScreen" id="thi-I0-Vty" customClass="EditAndReplayDreamViewController" customModule="Dream_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gyM-Xu-6eb" customClass="EditAndReplayDreamView" customModule="Dream_App" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HmR-hL-WJW">
-                                <rect key="frame" x="0.0" y="44" width="414" height="764"/>
-                                <color key="backgroundColor" name="darkBackground"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="editDreamCell" id="QYQ-zo-f5J" customClass="EditDreamCell" customModule="Dream_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="363"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QYQ-zo-f5J" id="9Eh-1Q-hcb">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="363"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="eo4-Ii-hgY" userLabel="Main StackView">
-                                                    <rect key="frame" x="24" y="16" width="366" height="331"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add some more details about your dream you think you might want to remember." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3d-XB-mRK" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="366" height="49.5"/>
-                                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aSa-7S-pSW" userLabel="Title StackView">
-                                                            <rect key="frame" x="0.0" y="73.5" width="366" height="72.5"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r75-9d-v9g" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="366" height="25"/>
-                                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Give your dream a title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p3o-WT-GIQ" customClass="BorderedTextField" customModule="Dream_App" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="33" width="366" height="39.5"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
-                                                                    <textInputTraits key="textInputTraits"/>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                            <real key="value" value="1.3"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                            <real key="value" value="6"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="insetTop">
-                                                                            <real key="value" value="8"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="insetRight">
-                                                                            <real key="value" value="12"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="insetBottom">
-                                                                            <real key="value" value="8"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="insetLeft">
-                                                                            <real key="value" value="12"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                    </userDefinedRuntimeAttributes>
-                                                                </textField>
-                                                            </subviews>
-                                                        </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="RYY-hM-Oce" userLabel="Description StackView">
-                                                            <rect key="frame" x="0.0" y="170" width="366" height="161"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ap-VQ-mio" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="366" height="25"/>
-                                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KQg-Ir-KwT" customClass="MultilineTextField" customModule="Dream_App" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="33" width="366" height="128"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                                                            <color key="value" white="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                            <real key="value" value="1.3"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                            <real key="value" value="6"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Describe your dream in text"/>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="insetLeft">
-                                                                            <real key="value" value="8"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="insetRight">
-                                                                            <real key="value" value="8"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="insetTop">
-                                                                            <real key="value" value="8"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="insetBottom">
-                                                                            <real key="value" value="8"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                    </userDefinedRuntimeAttributes>
-                                                                </textView>
-                                                            </subviews>
-                                                        </stackView>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                            <gestureRecognizers/>
-                                            <constraints>
-                                                <constraint firstItem="eo4-Ii-hgY" firstAttribute="top" secondItem="9Eh-1Q-hcb" secondAttribute="top" constant="16" id="Lyj-ES-n0A"/>
-                                                <constraint firstItem="eo4-Ii-hgY" firstAttribute="centerX" secondItem="9Eh-1Q-hcb" secondAttribute="centerX" id="rlk-yz-4CW"/>
-                                                <constraint firstItem="eo4-Ii-hgY" firstAttribute="width" secondItem="9Eh-1Q-hcb" secondAttribute="width" constant="-48" id="sHN-Dk-Fsc"/>
-                                                <constraint firstAttribute="bottom" secondItem="eo4-Ii-hgY" secondAttribute="bottom" constant="16" id="ybc-Ie-Cfq"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" name="darkBackground"/>
-                                        <connections>
-                                            <outlet property="descriptionField" destination="KQg-Ir-KwT" id="fCo-od-kis"/>
-                                            <outlet property="titleField" destination="p3o-WT-GIQ" id="JQV-Da-Ww4"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RGx-mn-nOZ">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bqY-qs-fMJ">
+                                <rect key="frame" x="20" y="64" width="374" height="744"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="V7Z-CR-llx">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="331"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add some more details about your dream you think you might want to remember." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsj-Ma-yHr" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="49.5"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0u5-Su-zf3" userLabel="Title StackView">
+                                                <rect key="frame" x="0.0" y="73.5" width="374" height="72.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLv-6p-ueh" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="25"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Give your dream a title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vh2-Wp-lve" customClass="BorderedTextField" customModule="Dream_App" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="33" width="374" height="39.5"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1.3"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="insetTop">
+                                                                <real key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="insetRight">
+                                                                <real key="value" value="12"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="insetBottom">
+                                                                <real key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="insetLeft">
+                                                                <real key="value" value="12"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="azJ-Wf-nl7" userLabel="Description StackView">
+                                                <rect key="frame" x="0.0" y="170" width="374" height="161"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4h-GZ-Mye" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="25"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KJO-Ge-lxO" customClass="MultilineTextField" customModule="Dream_App" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="33" width="374" height="128"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                                <color key="value" white="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1.3"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Describe your dream in text"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="insetLeft">
+                                                                <real key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="insetRight">
+                                                                <real key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="insetTop">
+                                                                <real key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="insetBottom">
+                                                                <real key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="V7Z-CR-llx" firstAttribute="width" secondItem="mqU-KJ-MHh" secondAttribute="width" id="8YB-uF-rp5"/>
+                                    <constraint firstItem="V7Z-CR-llx" firstAttribute="bottom" secondItem="9Vm-bw-Jyg" secondAttribute="bottom" id="L9T-20-xnr"/>
+                                    <constraint firstItem="V7Z-CR-llx" firstAttribute="trailing" secondItem="9Vm-bw-Jyg" secondAttribute="trailing" id="XPE-T3-1D3"/>
+                                    <constraint firstItem="V7Z-CR-llx" firstAttribute="top" secondItem="9Vm-bw-Jyg" secondAttribute="top" id="Xon-VM-hqA"/>
+                                    <constraint firstItem="V7Z-CR-llx" firstAttribute="leading" secondItem="9Vm-bw-Jyg" secondAttribute="leading" id="qxy-eW-pml"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="9Vm-bw-Jyg"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="mqU-KJ-MHh"/>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NKw-VT-HNm">
                                 <rect key="frame" x="0.0" y="808" width="414" height="54"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="yxa-KF-tqq">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="v6X-YM-QtD">
                                         <rect key="frame" x="16" y="16" width="382" height="22"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Zc-V6-7Ve" customClass="RoundedButton" customModule="Dream_App" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNc-8R-7T4" customClass="RoundedButton" customModule="Dream_App" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
                                                 <color key="backgroundColor" name="primaryPurple"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="1Zc-V6-7Ve" secondAttribute="height" id="wQC-JU-Db4"/>
+                                                    <constraint firstAttribute="width" secondItem="aNc-8R-7T4" secondAttribute="height" id="Tet-nG-5ma"/>
                                                 </constraints>
                                                 <color key="tintColor" name="darkBackground"/>
                                                 <state key="normal" image="play.fill" catalog="system"/>
                                                 <state key="disabled" image="speaker.slash.fill" catalog="system"/>
                                                 <state key="selected" image="pause.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="togglePlaying:" destination="yaT-P6-rpd" eventType="touchUpInside" id="Hgz-5E-MWK"/>
+                                                    <action selector="togglePlaying:" destination="gyM-Xu-6eb" eventType="touchUpInside" id="C9w-pR-kpU"/>
                                                 </connections>
                                             </button>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="r9P-0W-Lzk">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="5wF-LZ-zZh">
                                                 <rect key="frame" x="36" y="0.0" width="284.5" height="23"/>
                                                 <color key="minimumTrackTintColor" name="primaryPurple"/>
                                                 <color key="thumbTintColor" name="primaryPurple"/>
                                                 <connections>
-                                                    <action selector="playAfterScrubbing:" destination="yaT-P6-rpd" eventType="touchUpOutside" id="Vbk-OK-zj7"/>
-                                                    <action selector="playAfterScrubbing:" destination="yaT-P6-rpd" eventType="touchUpInside" id="eO6-WU-RTg"/>
-                                                    <action selector="updateCurrentTime:" destination="yaT-P6-rpd" eventType="valueChanged" id="LsW-vT-GFm"/>
+                                                    <action selector="playAfterScrubbing:" destination="gyM-Xu-6eb" eventType="touchUpInside" id="IIr-Dr-KWi"/>
+                                                    <action selector="playAfterScrubbing:" destination="gyM-Xu-6eb" eventType="touchUpOutside" id="oIX-8Q-TDK"/>
+                                                    <action selector="updateCurrentTime:" destination="gyM-Xu-6eb" eventType="valueChanged" id="l1X-pi-DI7"/>
                                                 </connections>
                                             </slider>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4c-sk-kwo" customClass="MonoDigitLabel" customModule="Dream_App" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kV-9F-x1D" customClass="MonoDigitLabel" customModule="Dream_App" customModuleProvider="target">
                                                 <rect key="frame" x="334.5" y="0.0" width="47.5" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -182,46 +169,49 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstItem="yxa-KF-tqq" firstAttribute="height" secondItem="RGx-mn-nOZ" secondAttribute="height" constant="-32" id="JaK-nv-O1T"/>
-                                    <constraint firstItem="yxa-KF-tqq" firstAttribute="width" secondItem="RGx-mn-nOZ" secondAttribute="width" constant="-32" id="N3a-5g-1ps"/>
-                                    <constraint firstItem="yxa-KF-tqq" firstAttribute="centerY" secondItem="RGx-mn-nOZ" secondAttribute="centerY" id="Sv2-qW-ejB"/>
-                                    <constraint firstItem="yxa-KF-tqq" firstAttribute="centerX" secondItem="RGx-mn-nOZ" secondAttribute="centerX" id="cSU-hF-mkK"/>
+                                    <constraint firstItem="v6X-YM-QtD" firstAttribute="centerY" secondItem="NKw-VT-HNm" secondAttribute="centerY" id="Ng8-eQ-Tpj"/>
+                                    <constraint firstItem="v6X-YM-QtD" firstAttribute="centerX" secondItem="NKw-VT-HNm" secondAttribute="centerX" id="ROF-3F-Dcf"/>
+                                    <constraint firstItem="v6X-YM-QtD" firstAttribute="width" secondItem="NKw-VT-HNm" secondAttribute="width" constant="-32" id="Vw4-di-gZg"/>
+                                    <constraint firstItem="v6X-YM-QtD" firstAttribute="height" secondItem="NKw-VT-HNm" secondAttribute="height" constant="-32" id="vU3-td-SCx"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" name="darkBackground"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="HmR-hL-WJW" firstAttribute="width" secondItem="QMK-3b-fRL" secondAttribute="width" id="Gy2-3x-0c3"/>
-                            <constraint firstItem="RGx-mn-nOZ" firstAttribute="trailing" secondItem="QMK-3b-fRL" secondAttribute="trailing" id="Hjx-wY-Sy5"/>
-                            <constraint firstItem="RGx-mn-nOZ" firstAttribute="bottom" secondItem="QMK-3b-fRL" secondAttribute="bottom" id="OyR-vH-kkn"/>
-                            <constraint firstItem="HmR-hL-WJW" firstAttribute="bottom" secondItem="RGx-mn-nOZ" secondAttribute="top" id="PFy-VA-1ew"/>
-                            <constraint firstItem="RGx-mn-nOZ" firstAttribute="leading" secondItem="QMK-3b-fRL" secondAttribute="leading" id="ZOs-kU-u7A"/>
-                            <constraint firstItem="HmR-hL-WJW" firstAttribute="top" secondItem="QMK-3b-fRL" secondAttribute="top" id="avC-ix-cnE"/>
-                            <constraint firstItem="HmR-hL-WJW" firstAttribute="centerX" secondItem="YZx-DT-Acc" secondAttribute="centerX" id="h8I-S3-pxk"/>
+                            <constraint firstItem="bqY-qs-fMJ" firstAttribute="leading" secondItem="cUD-RY-wbi" secondAttribute="leading" constant="20" id="BT4-9o-7Un"/>
+                            <constraint firstItem="NKw-VT-HNm" firstAttribute="leading" secondItem="cUD-RY-wbi" secondAttribute="leading" id="FKb-Ke-c11"/>
+                            <constraint firstItem="cUD-RY-wbi" firstAttribute="bottom" secondItem="NKw-VT-HNm" secondAttribute="bottom" id="JEI-15-Zzi"/>
+                            <constraint firstItem="NKw-VT-HNm" firstAttribute="top" secondItem="bqY-qs-fMJ" secondAttribute="bottom" id="Rgc-ci-cVR"/>
+                            <constraint firstItem="bqY-qs-fMJ" firstAttribute="top" secondItem="cUD-RY-wbi" secondAttribute="top" constant="20" id="bOH-gd-OMp"/>
+                            <constraint firstItem="cUD-RY-wbi" firstAttribute="trailing" secondItem="bqY-qs-fMJ" secondAttribute="trailing" constant="20" id="fIa-G3-RtT"/>
+                            <constraint firstItem="NKw-VT-HNm" firstAttribute="trailing" secondItem="cUD-RY-wbi" secondAttribute="trailing" id="rBJ-BY-GSH"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="QMK-3b-fRL"/>
+                        <viewLayoutGuide key="safeArea" id="cUD-RY-wbi"/>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="iex-Pu-u7I" appends="YES" id="wcC-72-xy7"/>
+                            <outlet property="descriptionField" destination="KJO-Ge-lxO" id="JXO-kp-9cN"/>
+                            <outlet property="playButton" destination="aNc-8R-7T4" id="eRx-c6-kX4"/>
+                            <outlet property="scrollView" destination="bqY-qs-fMJ" id="n3P-go-hMV"/>
+                            <outlet property="scrubber" destination="5wF-LZ-zZh" id="TBy-zD-JjM"/>
+                            <outlet property="timeLabel" destination="5kV-9F-x1D" id="kom-oP-jr4"/>
+                            <outlet property="titleField" destination="Vh2-Wp-lve" id="ecc-LZ-Y5r"/>
+                            <outletCollection property="gestureRecognizers" destination="GKN-Bu-KNS" appends="YES" id="BgG-6c-lDU"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="hoN-Wt-klZ"/>
                     <connections>
-                        <outlet property="editDreamTableView" destination="HmR-hL-WJW" id="eUS-Kv-8i8"/>
-                        <outlet property="playButton" destination="1Zc-V6-7Ve" id="cxc-Of-GB4"/>
-                        <outlet property="scrubber" destination="r9P-0W-Lzk" id="Uzh-Wv-7W3"/>
-                        <outlet property="timeLabel" destination="m4c-sk-kwo" id="yOa-xu-xCN"/>
+                        <outlet property="editAndReplayDreamView" destination="gyM-Xu-6eb" id="o2c-d5-UUm"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QHt-rZ-12s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="iex-Pu-u7I">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BpT-bI-g8l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="GKN-Bu-KNS">
                     <connections>
-                        <action selector="dismissKeyboard:" destination="yaT-P6-rpd" id="lF6-a0-rHc"/>
+                        <action selector="dismissKeyboard:" destination="thi-I0-Vty" id="Ouh-7F-jjr"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1800.8" y="124.58770614692655"/>
+            <point key="canvasLocation" x="2718.840579710145" y="124.55357142857142"/>
         </scene>
     </scenes>
     <resources>
