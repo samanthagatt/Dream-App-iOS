@@ -12,11 +12,7 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
     /// URL to the recorded dream
     var dreamURL: URL? {
         didSet {
-            guard let url = dreamURL else {
-                #if DEBUG
-                    fatalError("Dream recording url was set to nil!")
-                #endif
-            }
+            guard let url = dreamURL else { return }
             audioPlayerHelper.load(url: url)
         }
     }
@@ -46,6 +42,70 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
     @IBOutlet weak var playButton: RoundedButton!
     @IBOutlet weak var scrubber: UISlider!
     @IBOutlet weak var timeLabel: MonoDigitLabel!
+    
+    
+    var keyboardFrame: CGRect? {
+        didSet {
+            scrollIfNeeded()
+        }
+    }
+    var cursorFrame: CGRect? {
+        didSet {
+            scrollIfNeeded()
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // UIResponder.
+        // keyboardWillShowNotification
+        // keyboardDidShowNotification
+        // keyboardWillHideNotification
+        // keyboardDidHideNotification
+        // keyboardDidChangeFrameNotification
+        // keyboardWillChangeFrameNotification
+        
+        let nc = NotificationCenter.default
+        nc.addObserver(self,
+                       selector: #selector(updateKeyboardFrame),
+                       name: UIResponder.keyboardWillChangeFrameNotification,
+                       object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func updateKeyboardFrame(_ notification: Notification) {
+        if let frame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue{
+            keyboardFrame = frame.cgRectValue
+        }
+    }
+    
+    private func scrollIfNeeded() {
+        // Keyboard is visible
+        if let keyboardFrame = keyboardFrame {
+            // Cursor should be visible (why would the keyboard be up if not?)
+            guard var cursorFrame = cursorFrame else { return }
+            guard let window = view.window else { return }
+            // cursor frame in window coordinate space
+            cursorFrame = view.convert(cursorFrame, to: window.coordinateSpace)
+            // if cursor frame in inside keyboard frame
+            if keyboardFrame.contains(cursorFrame) {
+                // Then calculate how far it should scroll up
+                /// Highest point of keyboard
+                let keyboardY = keyboardFrame.maxY
+                /// Lowest point of cursor
+                let cursorY = cursorFrame.minY
+                // Gotta get lowest point of cursor to be above highest point of keyboard
+                let distance = keyboardY - cursorY
+                editDreamTableView.setContentOffset(CGPoint(x: 0, y: distance), animated: true)
+            }
+        }
+        // Keyboard is not visible
+        // Need to go back to default
+    }
 }
 
 // MARK: Interface Builder Actions
@@ -72,6 +132,10 @@ extension EditAndReplayDreamViewController {
     func textViewDidChange(_ textView: UITextView) {
         editDreamTableView.beginUpdates()
         editDreamTableView.endUpdates()
+        if let selectedRange = textView.selectedTextRange {
+            let frame = textView.caretRect(for: selectedRange.start)
+            cursorFrame = textView.convert(frame, to: view.coordinateSpace)
+        }
     }
     func textViewDidBeginEditing(_ textView: UITextView) {
         editDreamTableView.beginUpdates()
