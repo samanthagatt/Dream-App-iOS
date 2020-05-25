@@ -37,86 +37,57 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
         formatting.allowedUnits = [.minute, .second]
         return formatting
     }()
-    var keyboardFrame: CGRect? {
-        didSet { scrollIfNeeded() }
-    }
-    var cursorFrame: CGRect? {
-        didSet {
-            if cursorFrame?.origin.y != oldValue?.origin.y {
-                scrollIfNeeded()
-            }
-        }
-    }
-    
+    private var kbSize: CGSize?
+    private lazy var originalContentInsets: UIEdgeInsets = {
+        editAndReplayDreamView.scrollView.contentInset
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         editAndReplayDreamView.descriptionField.multilineDelegate = self
+        // So the lazy var is forced to load while the correct content inset is set (without keyboard showing)
+        // Hacky way to avoid optional
+        _ = originalContentInsets
+        
         let nc = NotificationCenter.default
         nc.addObserver(self,
-                       selector: #selector(updateKeyboardFrame),
-                       name: UIResponder.keyboardWillChangeFrameNotification,
+                       selector: #selector(addKeyboardContentInset(_:)),
+                       name: UIResponder.keyboardDidShowNotification,
+                       object: nil)
+        nc.addObserver(self,
+                       selector: #selector(removeKeyboardContentInset(_:)),
+                       name: UIResponder.keyboardWillHideNotification,
                        object: nil)
     }
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
-    @objc func updateKeyboardFrame(_ notification: Notification) {
-        if let frame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            guard let windowY = view.window?.frame.maxY else { return }
-            let frameY = frame.cgRectValue.origin.y
-            print(windowY, frameY)
-            keyboardFrame = windowY > frameY ? frame.cgRectValue : nil
-            // TODO: Make it be able to overscroll when keyboard is up but remove the extra padding after it's gone
-            // let contentHeight = editAndReplayDreamView.scrollView.contentSize.height
-            // editAndReplayDreamView.scrollView.contentSize.height = windowY > frameY ? contentHeight + frame.cgRectValue.height : contentHeight - frame.cgRectValue.height
+    @objc func addKeyboardContentInset(_ notification: Notification) {
+        if let frameValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            
+            kbSize = frameValue.cgRectValue.size
+            guard let kbSize = kbSize else { return }
+            editAndReplayDreamView.scrollView.contentInset = UIEdgeInsets(top: originalContentInsets.top, left: originalContentInsets.left, bottom: kbSize.height, right: originalContentInsets.right)
+            // if you have the scroll indicator visible you can update its insets too
         }
     }
     
-    private func scrollIfNeeded() {
-        if let keyboardFrame = keyboardFrame {
-            // Cursor frame will only be nil if the user hasn't started typing for the first time yet
-            guard var cursorFrame = cursorFrame,
-                let window = view.window else { return }
-            // cursor frame in window coordinate space so it's the same as keyboard coordinates
-            cursorFrame = view.convert(cursorFrame, to: window.coordinateSpace)
-            /// Highest point of keyboard
-            let keyboardTop = keyboardFrame.origin.y
-            /// Lowest point of cursor
-            let cursorBottom = cursorFrame.origin.y + cursorFrame.height
-            // if cursor frame in inside keyboard frame
-            // Cursor frame origin y and x are infinity when user creates a new line
-            if cursorFrame.origin.y != .infinity && keyboardTop <= cursorBottom {
-                // Then calculate how far it should scroll up
-                // Gotta get lowest point of cursor to be above highest point of keyboard
-                let distance = cursorBottom - keyboardTop
-                // Old offset
-                let offset = editAndReplayDreamView.scrollView.contentOffset
-                // Add distance to old offset y
-                editAndReplayDreamView.scrollView.setContentOffset(CGPoint(x: 0, y: distance + offset.y), animated: false)
-            }
-            // Keyboard is not visible
-            // Need to go back to default
-        } else { // Keyboard has been dismissed
-            print("No more keyboard!")
-        }
+    @objc func removeKeyboardContentInset(_ notification: Notification) {
+        kbSize = nil
+        editAndReplayDreamView.scrollView.contentInset = originalContentInsets
+        // if you have the scroll indicator visible you can reset its insets too
     }
 }
 
 // MARK: Text View Delegate
 extension EditAndReplayDreamViewController {
-    func setCursorFrame(_ textView: UITextView) {
-        if let selectedRange = textView.selectedTextRange {
-            let frame = textView.caretRect(for: selectedRange.start)
-            cursorFrame = textView.convert(frame, to: view.coordinateSpace)
-        }
-    }
-    // Updates multiline text view / description input height while user types
-    func textViewDidChangeSelection(_ textView: UITextView) {
-        setCursorFrame(textView)
-    }
+//    func textViewDidBeginEditing(_ textView: UITextView) {
+//        if let selection = textView.selectedTextRange {
+//            let cursorFrame = textView.caretRect(for: selection.start)
+//        }
+//    }
 }
 
 // MARK: Audio Player Helper UI Delegate
