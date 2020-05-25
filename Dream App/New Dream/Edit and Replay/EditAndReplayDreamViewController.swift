@@ -35,6 +35,10 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
         formatting.allowedUnits = [.minute, .second]
         return formatting
     }()
+    private var kbSize: CGSize?
+    private lazy var originalContentInsets: UIEdgeInsets = {
+        editDreamTableView.contentInset
+    }()
     
     // MARK: Interface Builder Properties
     @IBOutlet private weak var editDreamTableView: UITableView! {
@@ -43,9 +47,56 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
             editDreamTableView.dataSource = delegateDataSource
         }
     }
+    @IBOutlet weak var replayView: UIView!
     @IBOutlet weak var playButton: RoundedButton!
     @IBOutlet weak var scrubber: UISlider!
     @IBOutlet weak var timeLabel: MonoDigitLabel!
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+}
+
+// MARK: Life Cycle
+extension EditAndReplayDreamViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // So the lazy var is forced to load while the correct content inset is set (without keyboard showing)
+        // Hacky way to avoid optional
+        _ = originalContentInsets
+        
+        let nc = NotificationCenter.default
+        nc.addObserver(self,
+                       selector: #selector(addKeyboardContentInset(_:)),
+                       name: UIResponder.keyboardWillShowNotification,
+                       object: nil)
+        nc.addObserver(self,
+                       selector: #selector(removeKeyboardContentInset(_:)),
+                       name: UIResponder.keyboardWillHideNotification,
+                       object: nil)
+    }
+}
+
+// MARK: Keyboard Handling
+extension EditAndReplayDreamViewController {
+    @objc func addKeyboardContentInset(_ notification: Notification) {
+        if let frameValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            
+            kbSize = frameValue.cgRectValue.size
+            guard let kbSize = kbSize else { return }
+            // Adds 16 points of padding plus the keyboard height minus the height of the view below the textfield
+            let bottomPadding = kbSize.height - replayView.frame.size.height + 16
+            editDreamTableView.contentInset = UIEdgeInsets(top: originalContentInsets.top, left: originalContentInsets.left, bottom: bottomPadding, right: originalContentInsets.right)
+            // if you have the scroll indicator visible you can update its insets too
+        }
+    }
+    
+    @objc func removeKeyboardContentInset(_ notification: Notification) {
+        kbSize = nil
+        editDreamTableView.contentInset = originalContentInsets
+        // if you have the scroll indicator visible you can reset its insets too
+    }
 }
 
 // MARK: Interface Builder Actions
