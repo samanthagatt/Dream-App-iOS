@@ -53,7 +53,7 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
         let nc = NotificationCenter.default
         nc.addObserver(self,
                        selector: #selector(addKeyboardContentInset(_:)),
-                       name: UIResponder.keyboardDidShowNotification,
+                       name: UIResponder.keyboardWillShowNotification,
                        object: nil)
         nc.addObserver(self,
                        selector: #selector(removeKeyboardContentInset(_:)),
@@ -79,15 +79,6 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
         editAndReplayDreamView.scrollView.contentInset = originalContentInsets
         // if you have the scroll indicator visible you can reset its insets too
     }
-}
-
-// MARK: Text View Delegate
-extension EditAndReplayDreamViewController {
-//    func textViewDidBeginEditing(_ textView: UITextView) {
-//        if let selection = textView.selectedTextRange {
-//            let cursorFrame = textView.caretRect(for: selection.start)
-//        }
-//    }
 }
 
 // MARK: Audio Player Helper UI Delegate
