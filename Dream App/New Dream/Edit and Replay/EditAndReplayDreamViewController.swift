@@ -18,8 +18,18 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
                 #endif
             }
             audioPlayerHelper.load(url: url)
+            speechToTextHelper.transcribe(audio: url) { result in
+                
+                switch result {
+                case .success(let text):
+                    print("Text", text)
+                case .failure(let error):
+                    print("Error:", error)
+                }
+            }
         }
     }
+    let speechToTextHelper = SpeechToTextHelper()
     private lazy var delegateDataSource = {
         EditDelegateAndDataSource(textViewDelegate: self)
     }()
