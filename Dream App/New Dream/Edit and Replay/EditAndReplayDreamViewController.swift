@@ -66,10 +66,12 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
     
     @objc func addKeyboardContentInset(_ notification: Notification) {
         if let frameValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            
+
             kbSize = frameValue.cgRectValue.size
             guard let kbSize = kbSize else { return }
-            editAndReplayDreamView.scrollView.contentInset = UIEdgeInsets(top: originalContentInsets.top, left: originalContentInsets.left, bottom: kbSize.height, right: originalContentInsets.right)
+            // Adds 16 points of padding plus the keyboard height minus the height of the view below the textfield
+            let bottomPadding = kbSize.height - editAndReplayDreamView.replayView.frame.size.height + 16
+            editAndReplayDreamView.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bottomPadding, right: 0)
             // if you have the scroll indicator visible you can update its insets too
         }
     }

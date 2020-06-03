@@ -193,6 +193,7 @@
                         <connections>
                             <outlet property="descriptionField" destination="KJO-Ge-lxO" id="JXO-kp-9cN"/>
                             <outlet property="playButton" destination="aNc-8R-7T4" id="eRx-c6-kX4"/>
+                            <outlet property="replayView" destination="NKw-VT-HNm" id="QCG-jt-K6F"/>
                             <outlet property="scrollView" destination="bqY-qs-fMJ" id="n3P-go-hMV"/>
                             <outlet property="scrubber" destination="5wF-LZ-zZh" id="TBy-zD-JjM"/>
                             <outlet property="timeLabel" destination="5kV-9F-x1D" id="kom-oP-jr4"/>

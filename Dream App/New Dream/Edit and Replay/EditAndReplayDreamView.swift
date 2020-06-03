@@ -13,6 +13,7 @@ final class EditAndReplayDreamView: UIView {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleField: BorderedTextField!
     @IBOutlet weak var descriptionField: MultilineTextField!
+    @IBOutlet weak var replayView: UIView!
     @IBOutlet weak var playButton: RoundedButton!
     @IBOutlet weak var scrubber: UISlider!
     @IBOutlet weak var timeLabel: MonoDigitLabel!
