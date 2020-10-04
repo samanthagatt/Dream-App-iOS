@@ -9,7 +9,7 @@
 import UIKit
 
 class OnboardingViewController: UIViewController, UIScrollViewDelegate {
-
+    
     @IBOutlet weak var getStartedButton: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -19,6 +19,28 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        var pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
+        pageControl.currentPage = Int(pageNumber)
+        
+        if pageControl.currentPage == 2{
+            getStartedButton.backgroundColor = #colorLiteral(red: 0.4439858198, green: 0.362395227, blue: 1, alpha: 1)
+            getStartedButton.setTitle("Get Started", for: .normal)
+            getStartedButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        } else {
+            getStartedButton.backgroundColor = #colorLiteral(red: 0.9003701806, green: 0.9098797441, blue: 0.9270738959, alpha: 1)
+            getStartedButton.setTitle("Skip", for: .normal)
+            getStartedButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+        }
+    }
+    
+    private func setup(){
+        getStartedButton.backgroundColor = #colorLiteral(red: 0.9003701806, green: 0.9098797441, blue: 0.9270738959, alpha: 1)
+        getStartedButton.setTitle("Skip", for: .normal)
+        getStartedButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
         getStartedButton.layer.cornerRadius = 6
         pageControl.numberOfPages = images.count
         for index in 0..<images.count {
@@ -34,9 +56,4 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
         scrollView.delegate = self
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        var pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
-        pageControl.currentPage = Int(pageNumber)
-    }
-
 }
