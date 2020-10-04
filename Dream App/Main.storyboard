@@ -48,12 +48,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yjS-Jy-YeV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2428.985507246377" y="-496.875"/>
+            <point key="canvasLocation" x="-1965" y="-190"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Rlh-0f-cHe">
             <objects>
-                <tabBarController id="Z8u-dW-gJD" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBar" id="Z8u-dW-gJD" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="zxF-4L-2pf"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="xG6-aN-6KA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -41,6 +41,7 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
         getStartedButton.backgroundColor = #colorLiteral(red: 0.9003701806, green: 0.9098797441, blue: 0.9270738959, alpha: 1)
         getStartedButton.setTitle("Skip", for: .normal)
         getStartedButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+        getStartedButton.addTarget(self, action: #selector(OnboardingViewController.handleButton(_:)), for: .touchUpInside)
         getStartedButton.layer.cornerRadius = 6
         pageControl.numberOfPages = images.count
         for index in 0..<images.count {
@@ -56,4 +57,10 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
         scrollView.delegate = self
     }
     
+    @objc func handleButton(_ sender: AnyObject) {
+        if let tabbar = (storyboard?.instantiateViewController(withIdentifier: "tabBar") as? UITabBarController) {
+            tabbar.modalPresentationStyle = .fullScreen
+            self.present(tabbar, animated: true, completion: nil)
+        }
+    }
 }
