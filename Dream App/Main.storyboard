@@ -37,7 +37,7 @@
                                 </state>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.082630120220000006" green="0.093662269409999999" blue="0.1176503226" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="ih2-gN-yG7"/>
                     </view>
                     <connections>
@@ -63,17 +63,52 @@
                     </tabBar>
                     <connections>
                         <segue destination="7ip-Bk-SmH" kind="relationship" relationship="viewControllers" id="llo-4D-pBD"/>
+                        <segue destination="0Uq-jo-mqy" kind="relationship" relationship="viewControllers" id="1Pq-nk-B1K"/>
+                        <segue destination="ZuD-KY-Cho" kind="relationship" relationship="viewControllers" id="rBX-Ba-1tB"/>
+                        <segue destination="2gU-LY-NIL" kind="relationship" relationship="viewControllers" id="c49-FD-pah"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AtQ-rT-Ud6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1096" y="-190"/>
+            <point key="canvasLocation" x="-1159" y="-190"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Record-->
+        <scene sceneID="d8o-yy-rwN">
+            <objects>
+                <viewController id="0Uq-jo-mqy" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pC9-Dw-8RN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="gZM-gR-TrI"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Record" image="mic" catalog="system" selectedImage="mic.fill" id="7TJ-W6-VYO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J0m-lT-Yjp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-88" y="1017"/>
+        </scene>
+        <!--Alarm-->
+        <scene sceneID="ymz-8R-cFF">
+            <objects>
+                <viewController id="2gU-LY-NIL" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zra-10-2is">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="iX5-AD-SYo"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Alarm" image="alarm" catalog="system" selectedImage="alarm.fill" id="pI8-ea-ZMg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mVT-kl-Zp5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-61" y="249"/>
+        </scene>
+        <!--Dreams-->
         <scene sceneID="fU8-sw-vB2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7ip-Bk-SmH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="house" catalog="system" selectedImage="house.fill" id="g1W-mg-Min"/>
+                    <tabBarItem key="tabBarItem" title="Dreams" image="moon" catalog="system" selectedImage="moon.fill" id="g1W-mg-Min"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="6uE-Sg-7ID">
@@ -105,10 +140,52 @@
             </objects>
             <point key="canvasLocation" x="475" y="-435"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="i6L-ms-D3k">
+            <objects>
+                <viewController id="gSS-KT-9jz" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tC5-HM-hpm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="darkBackground"/>
+                        <viewLayoutGuide key="safeArea" id="rXV-bo-eaP"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9yn-ar-mRr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GIm-Sc-BWz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="821.73913043478262" y="-1138.3928571428571"/>
+        </scene>
+        <!--Calendar-->
+        <scene sceneID="R1d-OJ-WzS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZuD-KY-Cho" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Calendar" image="calendar" catalog="system" selectedImage="calendar" id="gUG-Z7-T69"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SnM-g8-FzP">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="darkBackground"/>
+                        <color key="barTintColor" name="darkBackground"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gSS-KT-9jz" kind="relationship" relationship="rootViewController" id="jQo-pL-X9N"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="61g-7S-s7T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-88.405797101449281" y="-1138.3928571428571"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="house" catalog="system" width="128" height="110"/>
-        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="alarm" catalog="system" width="124" height="128"/>
+        <image name="alarm.fill" catalog="system" width="124" height="128"/>
+        <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="mic" catalog="system" width="108" height="128"/>
+        <image name="mic.fill" catalog="system" width="108" height="128"/>
+        <image name="moon" catalog="system" width="128" height="121"/>
+        <image name="moon.fill" catalog="system" width="128" height="121"/>
         <namedColor name="darkBackground">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
