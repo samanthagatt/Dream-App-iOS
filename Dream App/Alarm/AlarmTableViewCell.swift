@@ -29,7 +29,7 @@ class AlarmTableViewCell: UITableViewCell {
     }
     
     func constrainViews(){
-        cellView.layer.cornerRadius = 10
+        cellView.layer.cornerRadius = 12
         switchToggle.onTintColor = #colorLiteral(red: 0.4238958359, green: 0.3873499036, blue: 0.9998773932, alpha: 1)
     }
  

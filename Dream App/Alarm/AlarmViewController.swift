@@ -21,7 +21,10 @@ class AlarmViewController: UIViewController {
     }
     
     @IBAction func newAlarmButtonTapped(_ sender: Any) {
-        
+        let vc = SetAlarmViewController()
+        vc.modalTransitionStyle   = .crossDissolve;
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: true, completion: nil)
     }
 }
 
