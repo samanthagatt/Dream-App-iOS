@@ -25,12 +25,43 @@ class AlarmTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+    }
+    
+    var alarm: Alarm? {
+        didSet {
+            guard let alarm = alarm else { return }
+            let date = alarm.date
+            let dateFormmatter = DateFormatter()
+            dateFormmatter.dateFormat = "h:mm"
+            let hour = dateFormmatter.string(from: date)
+            dateFormmatter.dateFormat = "a"
+            let symbol = dateFormmatter.string(from: date)
+            timeLabel.text = hour
+            amLabel.text = symbol
+        }
+    }
+    
+    func removeNotification(){
+        guard let alarm = alarm else { return }
+        AlarmNotofications.shared.removeNotification(with: alarm.identifier)
+    }
+    
+    func addNotification(){
+        guard let alarm = alarm else { return }
+        AlarmNotofications.shared.sendNotification(with: alarm.date, id: alarm.identifier)
     }
     
     func constrainViews(){
         cellView.layer.cornerRadius = 12
         switchToggle.onTintColor = #colorLiteral(red: 0.4238958359, green: 0.3873499036, blue: 0.9998773932, alpha: 1)
+        switchToggle.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
     }
- 
+    
+    @objc func switchChanged(mySwitch: UISwitch) {
+        if mySwitch.isOn {
+            addNotification()
+        } else {
+            removeNotification()
+        }
+    }
 }

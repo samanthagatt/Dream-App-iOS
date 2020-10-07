@@ -21,6 +21,8 @@ class SetAlarmViewController: UIViewController {
         saveButton.backgroundColor = #colorLiteral(red: 0.128567189, green: 0.1434672177, blue: 0.2099123597, alpha: 0.3)
     }
     
+    public var completion: ((Date, String) -> Void)?
+    
     func setupViews(){
         view.addSubview(alarmView)
         alarmView.addSubview(alarmName)
@@ -77,10 +79,16 @@ class SetAlarmViewController: UIViewController {
     
     @objc func datePickerChanged(sender: UIDatePicker){
         saveButton.backgroundColor = #colorLiteral(red: 0.4251345992, green: 0.3874737918, blue: 0.9996901155, alpha: 1)
+        let date = datePicker.date
     }
     
     @objc func saveButtonTapped(sender: UIDatePicker){
          self.dismiss(animated: true, completion: nil)
+         let targetTime = datePicker.date
+         let identifier = UUID().uuidString
+         let alarm = Alarm(date: targetTime, identifier: identifier )
+         alarmArray.append(alarm)
+         completion?(targetTime, identifier)
     }
     
     func constrainViews(){

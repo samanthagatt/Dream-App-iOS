@@ -43,6 +43,8 @@
 		D841E892252B9863003B3456 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841E891252B9863003B3456 /* AlarmViewController.swift */; };
 		D841E894252BA023003B3456 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841E893252BA023003B3456 /* AlarmTableViewCell.swift */; };
 		D841E896252BBBAD003B3456 /* SetAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841E895252BBBAD003B3456 /* SetAlarmViewController.swift */; };
+		D841E898252CC883003B3456 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841E897252CC883003B3456 /* Alarm.swift */; };
+		D841E89B252D1185003B3456 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841E89A252D1185003B3456 /* NotificationManager.swift */; };
 		D84A5892252A6527006FDE19 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84A5891252A6527006FDE19 /* OnboardingViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +87,8 @@
 		D841E891252B9863003B3456 /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		D841E893252BA023003B3456 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
 		D841E895252BBBAD003B3456 /* SetAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlarmViewController.swift; sourceTree = "<group>"; };
+		D841E897252CC883003B3456 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		D841E89A252D1185003B3456 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		D84A5891252A6527006FDE19 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,6 +190,7 @@
 		D6BA52F32469DE6A00166A7B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D841E899252D1167003B3456 /* Managers */,
 				D6D1A736246ADAA800119418 /* CustomStringInterpolation.swift */,
 				D69BC4BB246B497E00C1CBA3 /* Logger */,
 				D69BC4B6246B46C400C1CBA3 /* Audio */,
@@ -252,8 +257,17 @@
 				D841E891252B9863003B3456 /* AlarmViewController.swift */,
 				D841E895252BBBAD003B3456 /* SetAlarmViewController.swift */,
 				D841E893252BA023003B3456 /* AlarmTableViewCell.swift */,
+				D841E897252CC883003B3456 /* Alarm.swift */,
 			);
 			path = Alarm;
+			sourceTree = "<group>";
+		};
+		D841E899252D1167003B3456 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				D841E89A252D1185003B3456 /* NotificationManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,10 +359,12 @@
 				D841E892252B9863003B3456 /* AlarmViewController.swift in Sources */,
 				D84A5892252A6527006FDE19 /* OnboardingViewController.swift in Sources */,
 				D65A2AFD242A4F3E00E3326E /* RecordDreamViewController.swift in Sources */,
+				D841E89B252D1185003B3456 /* NotificationManager.swift in Sources */,
 				D69BC4BD246B498B00C1CBA3 /* Logger.swift in Sources */,
 				D6D76296246EF80800EF2E17 /* EditDreamCell.swift in Sources */,
 				D6BA52F52469DE8C00166A7B /* AudioRecorderHelper.swift in Sources */,
 				D670180E246B91C80029FE3F /* EditAndReplayDreamViewController.swift in Sources */,
+				D841E898252CC883003B3456 /* Alarm.swift in Sources */,
 				D69BC4C3246B69A700C1CBA3 /* RecordDreamView.swift in Sources */,
 				D6D7629C246F5B3600EF2E17 /* UIView+IBBorder.swift in Sources */,
 				D6D1A737246ADAA800119418 /* CustomStringInterpolation.swift in Sources */,

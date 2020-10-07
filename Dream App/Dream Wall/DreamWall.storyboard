@@ -122,13 +122,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aiz-on-YMq"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Dream Wall" id="TqZ-gB-t5k">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="kLr-Uf-v29">
-                            <connections>
-                                <segue destination="9y1-j4-yIv" kind="presentation" id="WJZ-Lz-cxh"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Dream Wall" id="TqZ-gB-t5k"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uuz-8Z-phx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
