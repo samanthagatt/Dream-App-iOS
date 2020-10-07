@@ -9,7 +9,7 @@
 import UIKit
 
 class AlarmViewController: UIViewController {
-
+    
     @IBOutlet weak var alarmTableView: UITableView!
     
     override func viewDidLoad() {
@@ -18,6 +18,15 @@ class AlarmViewController: UIViewController {
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         alarmTableView.separatorStyle = .none
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setupView()
+    }
+    
+    private func setupView(){
+        AlarmViewModel.shared.loadFromPersistence()
     }
     
     @IBAction func newAlarmButtonTapped(_ sender: Any) {
@@ -33,28 +42,26 @@ class AlarmViewController: UIViewController {
         }
         self.present(vc, animated: true, completion: nil)
     }
-    
-    
 }
 
 extension AlarmViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return alarmArray.count
+        return AlarmViewModel.shared.alarmArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "alarmcell", for: indexPath) as? AlarmTableViewCell else { return UITableViewCell() }
         cell.selectionStyle = .none
-        cell.alarm = alarmArray[indexPath.row]
+        cell.alarm = AlarmViewModel.shared.alarmArray[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let alarm = alarmArray[indexPath.row]
+            let alarm = AlarmViewModel.shared.alarmArray[indexPath.row]
             AlarmNotofications.shared.removeNotification(with: alarm.identifier)
             //objects.remove(at: indexPath.row)
-            alarmArray.remove(at: indexPath.row)
+            AlarmViewModel.shared.deleteAlarm(alarm: alarm)
             tableView.deleteRows(at: [indexPath], with: .fade)
             alarmTableView.reloadData()
         }

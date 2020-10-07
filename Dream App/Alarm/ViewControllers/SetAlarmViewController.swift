@@ -79,15 +79,14 @@ class SetAlarmViewController: UIViewController {
     
     @objc func datePickerChanged(sender: UIDatePicker){
         saveButton.backgroundColor = #colorLiteral(red: 0.4251345992, green: 0.3874737918, blue: 0.9996901155, alpha: 1)
-        let date = datePicker.date
     }
     
     @objc func saveButtonTapped(sender: UIDatePicker){
          self.dismiss(animated: true, completion: nil)
          let targetTime = datePicker.date
          let identifier = UUID().uuidString
-         let alarm = Alarm(date: targetTime, identifier: identifier )
-         alarmArray.append(alarm)
+         let alarm = Alarm(date: targetTime, identifier: identifier)
+         AlarmViewModel.shared.saveAlarm(alarm: alarm)
          completion?(targetTime, identifier)
     }
     

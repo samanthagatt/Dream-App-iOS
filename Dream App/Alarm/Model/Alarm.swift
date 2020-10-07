@@ -8,9 +8,10 @@
 
 import Foundation
 
-struct Alarm {
+struct Alarm : Codable, Equatable {
     let date : Date
+    var isOn : Bool = true
     let identifier : String
 }
 
-var alarmArray = [Alarm]()
+
