@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cc6-Ps-Mng">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z8u-dW-gJD">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -262,7 +262,6 @@
         <!--Record-->
         <scene sceneID="Yo6-VK-hLn">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hXP-Ie-1Ux" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UGH-ce-TMY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Record" image="mic" catalog="system" selectedImage="mic.fill" id="7TJ-W6-VYO"/>
                     <toolbarItems/>
@@ -276,6 +275,7 @@
                         <segue destination="wUr-yw-51E" kind="relationship" relationship="rootViewController" id="Nw3-62-RGs"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hXP-Ie-1Ux" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-88.405797101449281" y="1016.5178571428571"/>
         </scene>
