@@ -38,6 +38,7 @@ class AlarmTableViewCell: UITableViewCell {
             let symbol = dateFormmatter.string(from: date)
             timeLabel.text = hour
             amLabel.text = symbol
+            switchToggle.isOn = alarm.isOn
         }
     }
     
@@ -58,6 +59,8 @@ class AlarmTableViewCell: UITableViewCell {
     }
     
     @objc func switchChanged(mySwitch: UISwitch) {
+        guard let alarm = alarm else { return }
+        AlarmViewModel.shared.updateAlarm(alarm: alarm)
         if mySwitch.isOn {
             addNotification()
         } else {
