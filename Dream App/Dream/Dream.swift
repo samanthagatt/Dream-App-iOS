@@ -13,5 +13,5 @@ struct Dream {
     var description : String
     var date : String
     var identifier : String
-    var recording : Data
+   // var recording : Data
 }

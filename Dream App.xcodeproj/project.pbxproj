@@ -47,6 +47,10 @@
 		D841E89B252D1185003B3456 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841E89A252D1185003B3456 /* NotificationManager.swift */; };
 		D84A5892252A6527006FDE19 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84A5891252A6527006FDE19 /* OnboardingViewController.swift */; };
 		D84BB95C252EB625001BAC53 /* Dream.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB95B252EB625001BAC53 /* Dream.swift */; };
+		D84BB95E252F8E69001BAC53 /* DreamWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB95D252F8E69001BAC53 /* DreamWallViewController.swift */; };
+		D84BB960252F8E8E001BAC53 /* DreamDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB95F252F8E8E001BAC53 /* DreamDetailViewController.swift */; };
+		D84BB962252F8EE8001BAC53 /* DreamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB961252F8EE8001BAC53 /* DreamTableViewCell.swift */; };
+		D84BB966252F9161001BAC53 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB965252F9161001BAC53 /* DummyData.swift */; };
 		D87C144B252E1648008B3871 /* AlarmVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87C144A252E1648008B3871 /* AlarmVM.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +97,10 @@
 		D841E89A252D1185003B3456 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		D84A5891252A6527006FDE19 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		D84BB95B252EB625001BAC53 /* Dream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dream.swift; sourceTree = "<group>"; };
+		D84BB95D252F8E69001BAC53 /* DreamWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamWallViewController.swift; sourceTree = "<group>"; };
+		D84BB95F252F8E8E001BAC53 /* DreamDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamDetailViewController.swift; sourceTree = "<group>"; };
+		D84BB961252F8EE8001BAC53 /* DreamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamTableViewCell.swift; sourceTree = "<group>"; };
+		D84BB965252F9161001BAC53 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		D87C144A252E1648008B3871 /* AlarmVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,11 +134,11 @@
 		D65A2AF7242A4F3E00E3326E /* Dream App */ = {
 			isa = PBXGroup;
 			children = (
-				D84BB95A252EB608001BAC53 /* Dream */,
 				D65A2AF8242A4F3E00E3326E /* AppDelegate.swift */,
 				D65A2AFA242A4F3E00E3326E /* SceneDelegate.swift */,
 				D84A5891252A6527006FDE19 /* OnboardingViewController.swift */,
 				D6BA52F32469DE6A00166A7B /* Utils */,
+				D84BB95A252EB608001BAC53 /* Dream */,
 				D6D762B024733B8500EF2E17 /* Dream Wall */,
 				D69BC4C4246B69C100C1CBA3 /* New Dream */,
 				D841E890252B983E003B3456 /* Alarm */,
@@ -252,6 +260,9 @@
 			isa = PBXGroup;
 			children = (
 				D6D762B124733CF500EF2E17 /* DreamWall.storyboard */,
+				D84BB963252F8EF1001BAC53 /* Views */,
+				D84BB964252F8EFE001BAC53 /* TableViewCell */,
+				D84BB965252F9161001BAC53 /* DummyData.swift */,
 			);
 			path = "Dream Wall";
 			sourceTree = "<group>";
@@ -281,6 +292,23 @@
 				D84BB95B252EB625001BAC53 /* Dream.swift */,
 			);
 			path = Dream;
+			sourceTree = "<group>";
+		};
+		D84BB963252F8EF1001BAC53 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D84BB95D252F8E69001BAC53 /* DreamWallViewController.swift */,
+				D84BB95F252F8E8E001BAC53 /* DreamDetailViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D84BB964252F8EFE001BAC53 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D84BB961252F8EE8001BAC53 /* DreamTableViewCell.swift */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		D87C1446252E15BC008B3871 /* Model */ = {
@@ -390,6 +418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D84BB960252F8E8E001BAC53 /* DreamDetailViewController.swift in Sources */,
 				D6F49EC52476CDF20037F755 /* SpeechToTextHelper.swift in Sources */,
 				D6D27CDC2468625F00B7AF8F /* RoundedViews.swift in Sources */,
 				D6D76298246EFE1500EF2E17 /* EditDelegateAndDataSource.swift in Sources */,
@@ -410,7 +439,10 @@
 				D69BC4BD246B498B00C1CBA3 /* Logger.swift in Sources */,
 				D6D76296246EF80800EF2E17 /* EditDreamCell.swift in Sources */,
 				D6BA52F52469DE8C00166A7B /* AudioRecorderHelper.swift in Sources */,
+				D84BB95E252F8E69001BAC53 /* DreamWallViewController.swift in Sources */,
 				D670180E246B91C80029FE3F /* EditAndReplayDreamViewController.swift in Sources */,
+				D84BB962252F8EE8001BAC53 /* DreamTableViewCell.swift in Sources */,
+				D84BB966252F9161001BAC53 /* DummyData.swift in Sources */,
 				D841E898252CC883003B3456 /* Alarm.swift in Sources */,
 				D69BC4C3246B69A700C1CBA3 /* RecordDreamView.swift in Sources */,
 				D6D7629C246F5B3600EF2E17 /* UIView+IBBorder.swift in Sources */,
