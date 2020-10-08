@@ -46,6 +46,7 @@
 		D841E898252CC883003B3456 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841E897252CC883003B3456 /* Alarm.swift */; };
 		D841E89B252D1185003B3456 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841E89A252D1185003B3456 /* NotificationManager.swift */; };
 		D84A5892252A6527006FDE19 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84A5891252A6527006FDE19 /* OnboardingViewController.swift */; };
+		D84BB95C252EB625001BAC53 /* Dream.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB95B252EB625001BAC53 /* Dream.swift */; };
 		D87C144B252E1648008B3871 /* AlarmVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87C144A252E1648008B3871 /* AlarmVM.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		D841E897252CC883003B3456 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		D841E89A252D1185003B3456 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		D84A5891252A6527006FDE19 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		D84BB95B252EB625001BAC53 /* Dream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dream.swift; sourceTree = "<group>"; };
 		D87C144A252E1648008B3871 /* AlarmVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +126,7 @@
 		D65A2AF7242A4F3E00E3326E /* Dream App */ = {
 			isa = PBXGroup;
 			children = (
+				D84BB95A252EB608001BAC53 /* Dream */,
 				D65A2AF8242A4F3E00E3326E /* AppDelegate.swift */,
 				D65A2AFA242A4F3E00E3326E /* SceneDelegate.swift */,
 				D84A5891252A6527006FDE19 /* OnboardingViewController.swift */,
@@ -272,6 +275,14 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		D84BB95A252EB608001BAC53 /* Dream */ = {
+			isa = PBXGroup;
+			children = (
+				D84BB95B252EB625001BAC53 /* Dream.swift */,
+			);
+			path = Dream;
+			sourceTree = "<group>";
+		};
 		D87C1446252E15BC008B3871 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,6 +418,7 @@
 				D6EBEB04246C79B500CC227C /* UIViewController+presentAlert.swift in Sources */,
 				D841E896252BBBAD003B3456 /* SetAlarmViewController.swift in Sources */,
 				D6D762A92472E76F00EF2E17 /* AudioPlayerHelperErrorDelegate.swift in Sources */,
+				D84BB95C252EB625001BAC53 /* Dream.swift in Sources */,
 				D65A2AF9242A4F3E00E3326E /* AppDelegate.swift in Sources */,
 				D69BC4BF246B4F4000C1CBA3 /* AudioRecorderHelperErrorDelegate.swift in Sources */,
 				D6D762A52472E55900EF2E17 /* AudioPlayerHelperUIDelegate.swift in Sources */,
