@@ -44,7 +44,7 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAw-fS-f0y" customClass="RoundedButton" customModule="Dream_App" customModuleProvider="target">
                                         <rect key="frame" x="56.5" y="143.5" width="187.5" height="187.5"/>
-                                        <color key="backgroundColor" name="primaryPurple"/>
+                                        <color key="backgroundColor" red="0.41960784313725491" green="0.39215686274509803" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="hAw-fS-f0y" secondAttribute="height" id="IpT-yf-ObY"/>
                                         </constraints>
