@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="bIX-jq-uiq">
-                                <rect key="frame" x="37.5" y="43.5" width="300" height="520"/>
+                                <rect key="frame" x="37.5" y="53.5" width="300" height="520"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="dR8-IP-IJF">
                                         <rect key="frame" x="94.5" y="0.0" width="111" height="95.5"/>
@@ -93,7 +93,7 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mic.fill" catalog="system" highlightedImage="pause" translatesAutoresizingMaskIntoConstraints="NO" id="b0i-Za-6Aj">
-                                <rect key="frame" x="147.5" y="240" width="80" height="80.5"/>
+                                <rect key="frame" x="147.5" y="250" width="80" height="80.5"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="b0i-Za-6Aj" secondAttribute="height" multiplier="1:1" id="yy5-mU-m5Q"/>
@@ -103,7 +103,7 @@
                         <color key="backgroundColor" name="darkBackground"/>
                         <constraints>
                             <constraint firstItem="b0i-Za-6Aj" firstAttribute="centerX" secondItem="hAw-fS-f0y" secondAttribute="centerX" id="7Ml-pi-jM5"/>
-                            <constraint firstItem="bIX-jq-uiq" firstAttribute="centerY" secondItem="Rvk-ou-LuO" secondAttribute="centerY" constant="-30" id="9cU-Dy-euZ"/>
+                            <constraint firstItem="bIX-jq-uiq" firstAttribute="centerY" secondItem="Rvk-ou-LuO" secondAttribute="centerY" constant="-20" id="9cU-Dy-euZ"/>
                             <constraint firstItem="bIX-jq-uiq" firstAttribute="width" secondItem="9X8-g7-S0Y" secondAttribute="width" multiplier="4:5" id="Dlf-yE-UGx"/>
                             <constraint firstItem="b0i-Za-6Aj" firstAttribute="width" secondItem="hAw-fS-f0y" secondAttribute="width" multiplier="3:7" id="KGh-RM-h2e"/>
                             <constraint firstItem="hAw-fS-f0y" firstAttribute="width" secondItem="9X8-g7-S0Y" secondAttribute="width" multiplier="1:2" id="QDf-13-h2c"/>

@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Edit And Replay Dream View Controller-->
+        <!--Title-->
         <scene sceneID="CED-05-dQJ">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="yaT-P6-rpd" customClass="EditAndReplayDreamViewController" customModule="Dream_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -206,7 +206,11 @@
                             <outletCollection property="gestureRecognizers" destination="iex-Pu-u7I" appends="YES" id="wcC-72-xy7"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="hoN-Wt-klZ"/>
+                    <navigationItem key="navigationItem" title="Title" id="gjh-Rn-jPe">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ddJ-ws-tAk">
+                            <color key="tintColor" name="primaryPurple"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="editDreamTableView" destination="HmR-hL-WJW" id="eUS-Kv-8i8"/>
                         <outlet property="playButton" destination="1Zc-V6-7Ve" id="cxc-Of-GB4"/>
@@ -225,6 +229,7 @@
             <point key="canvasLocation" x="1800.8" y="124.58770614692655"/>
         </scene>
     </scenes>
+    <color key="tintColor" name="primaryPurple"/>
     <resources>
         <image name="pause.fill" catalog="system" width="116" height="128"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>

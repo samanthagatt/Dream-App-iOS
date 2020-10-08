@@ -302,6 +302,7 @@
             <point key="canvasLocation" x="724" y="1065"/>
         </scene>
     </scenes>
+    <color key="tintColor" name="primaryPurple"/>
     <resources>
         <image name="alarm" catalog="system" width="124" height="128"/>
         <image name="alarm.fill" catalog="system" width="124" height="128"/>
