@@ -80,7 +80,7 @@ class AlarmTableViewCell: UITableViewCell {
             
             // Toggle
             switchToggle.centerYAnchor.constraint(equalTo: cellView.centerYAnchor),
-            switchToggle.trailingAnchor.constraint(equalTo: cellView.trailingAnchor, constant: -10),
+            switchToggle.trailingAnchor.constraint(equalTo: cellView.trailingAnchor, constant: -15),
             
             // PM
             amLabel.leadingAnchor.constraint(equalTo: timeLabel.trailingAnchor),

@@ -20,10 +20,11 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        consstrainViews()
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        var pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
+        let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
         pageControl.currentPage = Int(pageNumber)
         
         if pageControl.currentPage == 2{
@@ -55,6 +56,14 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
         }
         scrollView.contentSize = CGSize(width: scrollView.frame.size.width * CGFloat(images.count), height: scrollView.frame.size.height)
         scrollView.delegate = self
+    }
+    
+    func consstrainViews(){
+        view.addSubview(scrollView)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            //scrollView.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 0),
+        ])
     }
     
     @objc func handleButton(_ sender: AnyObject) {
