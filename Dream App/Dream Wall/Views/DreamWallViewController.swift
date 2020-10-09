@@ -36,10 +36,6 @@ extension DreamWallViewController: UITableViewDelegate, UITableViewDataSource {
         cell.dateLabel.text = dream.date
         return cell
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        95
-//    }
 }
 
 

@@ -29,6 +29,7 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
             }
         }
     }
+    
     let speechToTextHelper = SpeechToTextHelper()
     private lazy var delegateDataSource = {
         EditDelegateAndDataSource(textViewDelegate: self)
