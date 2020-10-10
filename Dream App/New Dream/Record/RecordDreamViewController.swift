@@ -11,7 +11,7 @@ import UIKit
 final class RecordDreamViewController: UIViewController, AudioRecorderHelperUIDelegate {
     
     /// How long an audio recording can be
-    private let timeLimit = 10.0
+    private let timeLimit = 300.0
     lazy var audioRecorderHelper: AudioRecorderHelper = {
         AudioRecorderHelper(uiDelegate: self,
                             errorDelegate: DreamRecorderErrorDelegate(),
