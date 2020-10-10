@@ -31,6 +31,14 @@ final class RecordDreamViewController: UIViewController, AudioRecorderHelperUIDe
     }
 }
 
+//// MARK: Life Cycle
+//extension RecordDreamViewController {
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        navigationController?.setNavigationBarHidden(true, animated: false)
+//    }
+//}
+
 // MARK: Alert Controllers
 extension RecordDreamViewController {
     private func presentMicDeniedAlert() {
