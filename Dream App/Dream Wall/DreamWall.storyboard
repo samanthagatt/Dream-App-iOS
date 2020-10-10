@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mdf-on-lY1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mdf-on-lY1">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,12 +12,12 @@
         <!--Dream Wall-->
         <scene sceneID="CFm-Ga-Hx2">
             <objects>
-                <viewController id="Mdf-on-lY1" sceneMemberID="viewController">
+                <viewController id="Mdf-on-lY1" customClass="DreamWallViewController" customModule="Dream_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ps6-Fk-qJq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Search" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnT-qS-I98">
+                            <searchBar contentMode="redraw" text="" placeholder="Title, Date, Description and more" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnT-qS-I98">
                                 <rect key="frame" x="0.0" y="44" width="414" height="56"/>
                                 <color key="barTintColor" name="darkBackground"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -25,24 +26,24 @@
                                 <rect key="frame" x="0.0" y="100" width="414" height="762"/>
                                 <color key="backgroundColor" name="darkBackground"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dreamCell" id="PiA-81-7zC">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="110"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dreamCell" id="PiA-81-7zC" customClass="DreamTableViewCell" customModule="Dream_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="86.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PiA-81-7zC" id="LNF-PS-vzt">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="86.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gwW-07-05Z" customClass="RoundedView" customModule="Dream_App" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="16" width="382" height="78"/>
+                                                    <rect key="frame" x="16" y="4" width="382" height="70.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Lga-fL-edU">
-                                                            <rect key="frame" x="16" y="16" width="350" height="46"/>
+                                                            <rect key="frame" x="16" y="16" width="350" height="38.5"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ksN-hU-7P9" customClass="RoundedView" customModule="Dream_App" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="4" width="38" height="38"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="38" height="38.5"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moon.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="n9b-yW-AyQ">
-                                                                            <rect key="frame" x="8" y="9" width="22" height="20.5"/>
+                                                                            <rect key="frame" x="8" y="9.5" width="22" height="20"/>
                                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="n9b-yW-AyQ" secondAttribute="height" multiplier="1:1" id="SAi-mD-L9x"/>
@@ -58,11 +59,11 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="753" verticalCompressionResistancePriority="754" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="WKI-tb-3PK">
-                                                                    <rect key="frame" x="54" y="0.5" width="296" height="45.5"/>
+                                                                    <rect key="frame" x="54" y="1" width="296" height="37"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1B-uT-6y6" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="296" height="25"/>
-                                                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="296" height="20.5"/>
+                                                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                             <userDefinedRuntimeAttributes>
@@ -70,8 +71,8 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="753" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYW-Rc-qkZ" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="25" width="296" height="20.5"/>
-                                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                                            <rect key="frame" x="0.0" y="20.5" width="296" height="16.5"/>
+                                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                             <userDefinedRuntimeAttributes>
@@ -100,16 +101,26 @@
                                             </subviews>
                                             <color key="backgroundColor" name="darkBackground"/>
                                             <constraints>
-                                                <constraint firstItem="gwW-07-05Z" firstAttribute="top" secondItem="LNF-PS-vzt" secondAttribute="top" constant="16" id="GD6-9f-e1m"/>
-                                                <constraint firstAttribute="bottom" secondItem="gwW-07-05Z" secondAttribute="bottom" constant="16" id="OCZ-54-q8I"/>
+                                                <constraint firstItem="gwW-07-05Z" firstAttribute="top" secondItem="LNF-PS-vzt" secondAttribute="top" constant="4" id="GD6-9f-e1m"/>
+                                                <constraint firstAttribute="bottom" secondItem="gwW-07-05Z" secondAttribute="bottom" constant="12" id="OCZ-54-q8I"/>
                                                 <constraint firstItem="gwW-07-05Z" firstAttribute="leading" secondItem="LNF-PS-vzt" secondAttribute="leading" constant="16" id="bVW-2M-4Q1"/>
                                                 <constraint firstAttribute="trailing" secondItem="gwW-07-05Z" secondAttribute="trailing" constant="16" id="rBH-Nv-kQs"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cellView" destination="gwW-07-05Z" id="nLy-3s-Twu"/>
+                                            <outlet property="dateLabel" destination="XYW-Rc-qkZ" id="QbD-fJ-TZB"/>
+                                            <outlet property="titleLabel" destination="d1B-uT-6y6" id="6L3-HU-Foh"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Mdf-on-lY1" id="GGI-5X-RME"/>
+                                    <outlet property="delegate" destination="Mdf-on-lY1" id="1A6-jn-UeV"/>
+                                </connections>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="aiz-on-YMq"/>
                         <color key="backgroundColor" name="darkBackground"/>
                         <constraints>
                             <constraint firstItem="jnT-qS-I98" firstAttribute="leading" secondItem="aiz-on-YMq" secondAttribute="leading" id="AYT-GC-b1X"/>
@@ -120,29 +131,15 @@
                             <constraint firstItem="aiz-on-YMq" firstAttribute="bottom" secondItem="2mM-sf-aQg" secondAttribute="bottom" id="LRj-xx-ZM5"/>
                             <constraint firstItem="2mM-sf-aQg" firstAttribute="top" secondItem="jnT-qS-I98" secondAttribute="bottom" id="wwr-Tm-nxq"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="aiz-on-YMq"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Dream Wall" id="TqZ-gB-t5k">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="kLr-Uf-v29">
-                            <connections>
-                                <segue destination="9y1-j4-yIv" kind="presentation" id="WJZ-Lz-cxh"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Dream Wall" id="TqZ-gB-t5k"/>
+                    <connections>
+                        <outlet property="dreamWallTableView" destination="2mM-sf-aQg" id="L0G-DZ-jE1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uuz-8Z-phx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="984.05797101449286" y="81.696428571428569"/>
-        </scene>
-        <!--RecordDream-->
-        <scene sceneID="xag-sz-1d1">
-            <objects>
-                <viewControllerPlaceholder storyboardName="RecordDream" id="9y1-j4-yIv" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="JaL-iQ-BVo"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jmo-U9-iJZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1582" y="82"/>
         </scene>
     </scenes>
     <resources>
@@ -151,7 +148,7 @@
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="dreamCellBackground">
-            <color red="0.1338992715" green="0.14394626020000001" blue="0.20785045620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.13400000333786011" green="0.14399999380111694" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="primaryPurple">
             <color red="0.41800001263618469" green="0.39100000262260437" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
