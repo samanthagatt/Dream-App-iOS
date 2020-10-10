@@ -29,8 +29,6 @@ class MultilineTextField: AccessibleTextView, UITextViewDelegate {
         }
     }
 
-    
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupView()

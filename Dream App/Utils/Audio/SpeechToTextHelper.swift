@@ -22,7 +22,7 @@ extension TranscriptionError: LocalizedError {
         case .deviceRestricted:
             return NSLocalizedString("Description of device restriction", comment: "Your device is restsricted from transcribing speech to text.")
         case .unknownAuthorization:
-            return NSLocalizedString("Description of unknown authorization", comment: "Transcription from speech to text is not authorized.")
+            return NSLocalizedString("Description of unknown authorization", comment: "Transcription from speech to text has not been authorized.")
         case .errorOccurred(error: let error):
             return NSLocalizedString("Description of transcription error", comment: "An error occurred while transcribing audio file.\("\nError: ", error?.localizedDescription)")
         }

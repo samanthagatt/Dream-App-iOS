@@ -28,7 +28,7 @@ class AlarmViewModel {
     }
     
     func updateAlarm(alarm : Alarm){
-        guard var oldAlarm = savedAlarms[alarm.identifier] else { return }
+        guard let oldAlarm = savedAlarms[alarm.identifier] else { return }
         oldAlarm.isOn.toggle()
         saveToPersistence()
     }

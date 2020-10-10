@@ -9,14 +9,19 @@
 import UIKit
 
 final class EditAndReplayDreamViewController: UIViewController, UITextViewDelegate, AudioPlayerHelperUIDelegate {
+    
+    // MARK: Interface Builder
+    @IBOutlet var editAndReplayDreamView: EditAndReplayDreamView!
+    
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        editAndReplayDreamView.endEditing(true)
+    }
+    
+    // MARK: Properties
     /// URL to the recorded dream
     var dreamURL: URL? {
         didSet {
-            guard let url = dreamURL else {
-                #if DEBUG
-                    fatalError("Dream recording url was set to nil!")
-                #endif
-            }
+            guard let url = dreamURL else { return }
             audioPlayerHelper.load(url: url)
             speechToTextHelper.transcribe(audio: url) { result in
                 
@@ -31,9 +36,6 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
     }
     
     let speechToTextHelper = SpeechToTextHelper()
-    private lazy var delegateDataSource = {
-        EditDelegateAndDataSource(textViewDelegate: self)
-    }()
     private lazy var audioPlayerHelper: AudioPlayerHelper = {
         AudioPlayerHelper(uiDelegate: self,
                           errorDelegate: DreamPlayerErrorDelegate(),
@@ -48,31 +50,13 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
     }()
     private var kbSize: CGSize?
     private lazy var originalContentInsets: UIEdgeInsets = {
-        editDreamTableView.contentInset
+        editAndReplayDreamView.scrollView.contentInset
     }()
     
-    // MARK: Interface Builder Properties
-    @IBOutlet private weak var editDreamTableView: UITableView! {
-        didSet {
-            editDreamTableView.delegate = delegateDataSource
-            editDreamTableView.dataSource = delegateDataSource
-        }
-    }
-    @IBOutlet weak var replayView: UIView!
-    @IBOutlet weak var playButton: RoundedButton!
-    @IBOutlet weak var scrubber: UISlider!
-    @IBOutlet weak var timeLabel: MonoDigitLabel!
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-}
-
-// MARK: Life Cycle
-extension EditAndReplayDreamViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        editAndReplayDreamView.descriptionField.multilineDelegate = self
         // So the lazy var is forced to load while the correct content inset is set (without keyboard showing)
         // Hacky way to avoid optional
         _ = originalContentInsets
@@ -87,61 +71,26 @@ extension EditAndReplayDreamViewController {
                        name: UIResponder.keyboardWillHideNotification,
                        object: nil)
     }
-}
-
-// MARK: Keyboard Handling
-extension EditAndReplayDreamViewController {
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     @objc func addKeyboardContentInset(_ notification: Notification) {
         if let frameValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            
+
             kbSize = frameValue.cgRectValue.size
             guard let kbSize = kbSize else { return }
             // Adds 16 points of padding plus the keyboard height minus the height of the view below the textfield
-            let bottomPadding = kbSize.height - replayView.frame.size.height + 16
-            editDreamTableView.contentInset = UIEdgeInsets(top: originalContentInsets.top, left: originalContentInsets.left, bottom: bottomPadding, right: originalContentInsets.right)
+            let bottomPadding = kbSize.height - editAndReplayDreamView.replayView.frame.size.height + 16
+            editAndReplayDreamView.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bottomPadding, right: 0)
             // if you have the scroll indicator visible you can update its insets too
         }
     }
     
     @objc func removeKeyboardContentInset(_ notification: Notification) {
         kbSize = nil
-        editDreamTableView.contentInset = originalContentInsets
+        editAndReplayDreamView.scrollView.contentInset = originalContentInsets
         // if you have the scroll indicator visible you can reset its insets too
-    }
-}
-
-// MARK: Interface Builder Actions
-extension EditAndReplayDreamViewController {
-    @IBAction func dismissKeyboard(_ sender: Any) {
-        view.endEditing(true)
-    }
-    @IBAction func togglePlaying(_ sender: Any) {
-        audioPlayerHelper.togglePlaying()
-    }
-    @IBAction func updateCurrentTime(_ sender: UISlider) {
-        let time = TimeInterval(sender.value)
-        audioPlayerHelper.scrub(to: time)
-    }
-    
-    @IBAction func playAfterScrubbing(_ sender: Any) {
-        audioPlayerHelper.playAfterScrubbing()
-    }
-}
-
-// MARK: Text View Delegate
-extension EditAndReplayDreamViewController {
-    // Updates multiline text view / description input height while user types
-    func textViewDidChange(_ textView: UITextView) {
-        editDreamTableView.beginUpdates()
-        editDreamTableView.endUpdates()
-    }
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        editDreamTableView.beginUpdates()
-        editDreamTableView.endUpdates()
-    }
-    func textViewDidEndEditing(_ textView: UITextView) {
-        editDreamTableView.beginUpdates()
-        editDreamTableView.endUpdates()
     }
 }
 
@@ -149,26 +98,26 @@ extension EditAndReplayDreamViewController {
 extension EditAndReplayDreamViewController {
     func audioPlayerHelper(_ audioPlayerHelper: AudioPlayerHelper, loadedAudio duration: TimeInterval?, successfully flag: Bool) {
         loadViewIfNeeded()
-        playButton.isEnabled = true
-        timeLabel.text = timeIntervalFormatter.string(from: duration ?? 0) ?? "00:00"
-        scrubber.minimumValue = 0
-        scrubber.maximumValue = Float(duration ?? 0)
+        editAndReplayDreamView.playButton.isEnabled = true
+        editAndReplayDreamView.timeLabel.text = timeIntervalFormatter.string(from: duration ?? 0) ?? "00:00"
+        editAndReplayDreamView.scrubber.minimumValue = 0
+        editAndReplayDreamView.scrubber.maximumValue = Float(duration ?? 0)
     }
     func audioPlayerHelper(_ audioPlayerHelper: AudioPlayerHelper, playingChanged isPlaying: Bool) {
-        playButton.isSelected = isPlaying
+        editAndReplayDreamView.playButton.isSelected = isPlaying
     }
     func audioPlayerHelper(_ audioPlayerHelper: AudioPlayerHelper, timerCalledAt currentTime: TimeInterval, duration: TimeInterval) {
         let timeLeft = round(duration) - currentTime
-        timeLabel.text = timeIntervalFormatter.string(from: timeLeft) ?? "00:00"
-        scrubber.value = Float(currentTime)
+        editAndReplayDreamView.timeLabel.text = timeIntervalFormatter.string(from: timeLeft) ?? "00:00"
+        editAndReplayDreamView.scrubber.value = Float(currentTime)
     }
     func audioPlayerHelper(_ audioPlayerHelper: AudioPlayerHelper, didScrubTo currentTime: TimeInterval, duration: TimeInterval) {
         let timeLeft = round(duration) - currentTime
-        timeLabel.text = timeIntervalFormatter.string(from: timeLeft) ?? "00:00"
+        editAndReplayDreamView.timeLabel.text = timeIntervalFormatter.string(from: timeLeft) ?? "00:00"
     }
     func audioPlayerHelper(_ audioPlayerHelper: AudioPlayerHelper, didFinishPlaying duration: TimeInterval) {
-        playButton.isSelected = false
-        timeLabel.text = timeIntervalFormatter.string(from: duration) ?? "00:00"
-        scrubber.value = 0
+        editAndReplayDreamView.playButton.isSelected = false
+        editAndReplayDreamView.timeLabel.text = timeIntervalFormatter.string(from: duration) ?? "00:00"
+        editAndReplayDreamView.scrubber.value = 0
     }
 }
