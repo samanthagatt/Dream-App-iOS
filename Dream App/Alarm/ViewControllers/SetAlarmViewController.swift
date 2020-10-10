@@ -17,10 +17,6 @@ class SetAlarmViewController: UIViewController {
         setupViews()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        saveButton.backgroundColor = #colorLiteral(red: 0.128567189, green: 0.1434672177, blue: 0.2099123597, alpha: 0.3)
-    }
-    
     public var completion: ((Date, String) -> Void)?
     
     func setupViews(){
@@ -56,30 +52,22 @@ class SetAlarmViewController: UIViewController {
         let datePicker = UIDatePicker()
         datePicker.setValue(UIColor.white, forKeyPath: "textColor")
         datePicker.datePickerMode = .time
-        datePicker.subviews[0].subviews[1].backgroundColor = UIColor.white
-        datePicker.subviews[0].subviews[2].backgroundColor = UIColor.white
+//        datePicker.subviews[0].subviews[1].backgroundColor = UIColor.white
+//        datePicker.subviews[0].subviews[2].backgroundColor = UIColor.white
         datePicker.translatesAutoresizingMaskIntoConstraints = false
-        datePicker.addTarget(self, action: #selector(datePickerChanged), for: .valueChanged)
-        //datePicker.backgroundColor = .red
         return datePicker
     }()
     
     var saveButton : UIButton = {
         let button = UIButton()
         button.setTitle("Save", for: .normal)
-        button.titleLabel?.font = UIFont(name: "AvenirNext",
-                                         size: 15.0)
-        button.backgroundColor = #colorLiteral(red: 0.128567189, green: 0.1434672177, blue: 0.2099123597, alpha: 0.3)
-        
+        button.titleLabel?.font = UIFont(name: "AvenirNext", size: 15.0)
+        button.backgroundColor = #colorLiteral(red: 0.4251345992, green: 0.3874737918, blue: 0.9996901155, alpha: 1)
         button.layer.cornerRadius = 6
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         return button
     }()
-    
-    @objc func datePickerChanged(sender: UIDatePicker){
-        saveButton.backgroundColor = #colorLiteral(red: 0.4251345992, green: 0.3874737918, blue: 0.9996901155, alpha: 1)
-    }
     
     @objc func saveButtonTapped(sender: UIDatePicker){
          self.dismiss(animated: true, completion: nil)
