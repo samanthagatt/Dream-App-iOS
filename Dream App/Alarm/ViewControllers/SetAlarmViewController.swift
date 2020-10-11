@@ -50,10 +50,11 @@ class SetAlarmViewController: UIViewController {
     
     lazy var datePicker : UIDatePicker = {
         let datePicker = UIDatePicker()
+        if #available(iOS 14, *) {
+            datePicker.preferredDatePickerStyle = .wheels
+        }
         datePicker.setValue(UIColor.white, forKeyPath: "textColor")
         datePicker.datePickerMode = .time
-//        datePicker.subviews[0].subviews[1].backgroundColor = UIColor.white
-//        datePicker.subviews[0].subviews[2].backgroundColor = UIColor.white
         datePicker.translatesAutoresizingMaskIntoConstraints = false
         return datePicker
     }()
@@ -69,6 +70,7 @@ class SetAlarmViewController: UIViewController {
         return button
     }()
     
+    
     @objc func saveButtonTapped(sender: UIDatePicker){
          self.dismiss(animated: true, completion: nil)
          let targetTime = datePicker.date
@@ -78,6 +80,13 @@ class SetAlarmViewController: UIViewController {
          completion?(targetTime, identifier)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch : UITouch? = touches.first
+        if touch?.view != alarmView {
+             self.dismiss(animated: true, completion: nil)
+        }
+    }
+        
     func constrainViews(){
         NSLayoutConstraint.activate([
             // AlarmView

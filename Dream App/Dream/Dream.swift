@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct Dream {
+struct Dream : Codable, Equatable{
     var title : String
     var description : String
     var date : String
     var identifier : String
-   // var recording : Data
+    var recording : URL?
 }
