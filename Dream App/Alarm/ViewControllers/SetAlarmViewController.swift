@@ -9,7 +9,44 @@
 import UIKit
 
 class SetAlarmViewController: UIViewController {
+    // MARK: - Public Properties -
+    public var completion: ((Date, String) -> Void)?
     
+    // MARK: - Subviews -
+    private let alarmView = UIView().addStyling(
+        backgroundColor: .darkBackground,
+        cornerRadius: 10,
+        borderWidth: 0.3,
+        borderColor: .lightText
+    )
+    private let alarmName = UILabel().style(
+        text: "Set Alarm",
+        font: .avenirNext(ofSize: 17, isBold: true),
+        textColor: .white,
+        textAlignment: .center
+    )
+    private let datePicker: UIDatePicker = {
+        let datePicker = UIDatePicker()
+        if #available(iOS 14, *) {
+            datePicker.preferredDatePickerStyle = .wheels
+        }
+        datePicker.setValue(UIColor.white, forKeyPath: "textColor")
+        datePicker.datePickerMode = .time
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        return datePicker
+    }()
+    private let saveButton = UIButton().style(
+        titlesForStates: [("Save", for: .normal)],
+        font: .avenirNext(ofSize: 15),
+        targets: [(self, action: #selector(saveButtonTapped), for: .touchUpInside)]
+    ).addStyling(
+        backgroundColor: .primaryPurple,
+        cornerRadius: 6
+    )
+}
+
+// MARK: - Life Cycle -
+extension SetAlarmViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: true)
@@ -20,102 +57,48 @@ class SetAlarmViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
          self.dismiss(animated: true, completion: nil)
     }
-    
-    public var completion: ((Date, String) -> Void)?
-    
-    func setupViews(){
-        view.addSubview(alarmView)
-        alarmView.addSubview(alarmName)
-        alarmView.addSubview(saveButton)
-        alarmView.addSubview(datePicker)
-        constrainViews()
-    }
-    
-    var alarmView : UIView = {
-        let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        view.layer.cornerRadius = 10
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.borderWidth = 0.3
-        view.layer.borderColor = #colorLiteral(red: 0.9008167386, green: 0.9078553915, blue: 0.924911201, alpha: 1)
-        return view
-    }()
-    
-    var alarmName : UILabel = {
-        let label = UILabel()
-        label.text = "Set Alarm"
-        label.font = UIFont(name: "AvenirNext-Bold",
-        size: 17.0)
-        label.textColor = .white
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    lazy var datePicker : UIDatePicker = {
-        let datePicker = UIDatePicker()
-        if #available(iOS 14, *) {
-            datePicker.preferredDatePickerStyle = .wheels
-        }
-        datePicker.setValue(UIColor.white, forKeyPath: "textColor")
-        datePicker.datePickerMode = .time
-        datePicker.translatesAutoresizingMaskIntoConstraints = false
-        return datePicker
-    }()
-    
-    var saveButton : UIButton = {
-        let button = UIButton()
-        button.setTitle("Save", for: .normal)
-        button.titleLabel?.font = UIFont(name: "AvenirNext", size: 15.0)
-        button.backgroundColor = #colorLiteral(red: 0.4251345992, green: 0.3874737918, blue: 0.9996901155, alpha: 1)
-        button.layer.cornerRadius = 6
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
-        return button
-    }()
-    
-    
-    @objc func saveButtonTapped(sender: UIDatePicker){
-         self.dismiss(animated: true, completion: nil)
-         let targetTime = datePicker.date
-         let identifier = UUID().uuidString
-         let alarm = Alarm(date: targetTime, identifier: identifier)
-         AlarmViewModel.shared.saveAlarm(alarm: alarm)
-         completion?(targetTime, identifier)
-    }
-    
+}
+
+// MARK: - Even Handling -
+extension SetAlarmViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch : UITouch? = touches.first
         if touch?.view != alarmView {
              self.dismiss(animated: true, completion: nil)
         }
     }
-        
-    func constrainViews(){
-        NSLayoutConstraint.activate([
-            // AlarmView
-            alarmView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            alarmView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            alarmView.heightAnchor.constraint(equalToConstant: 350),
-            alarmView.widthAnchor.constraint(equalToConstant: 300),
-            
-            // AlarmName
-            alarmName.centerXAnchor.constraint(equalTo: alarmView.centerXAnchor),
-            alarmName.topAnchor.constraint(equalTo: alarmView.topAnchor, constant: 30),
-            
-            // DatePicker
-            datePicker.centerYAnchor.constraint(equalTo: alarmView.centerYAnchor),
-            datePicker.centerXAnchor.constraint(equalTo: alarmView.centerXAnchor),
-            datePicker.widthAnchor.constraint(equalToConstant: 250),
-            //datePicker.heightAnchor.constraint(equalToConstant: 250),
-            datePicker.topAnchor.constraint(equalTo: alarmName.bottomAnchor),
-            datePicker.bottomAnchor.constraint(equalTo: saveButton.topAnchor),
-            
-            // SaveButton
-            saveButton.centerXAnchor.constraint(equalTo: alarmView.centerXAnchor),
-            saveButton.bottomAnchor.constraint(equalTo: alarmView.bottomAnchor, constant: -30),
-            saveButton.heightAnchor.constraint(equalToConstant: 40),
-            saveButton.widthAnchor.constraint(equalToConstant: 200),
-        ])
+}
+
+// MARK: - Private Methods -
+private extension SetAlarmViewController {
+    func constrainViews() {
+        // alarmView
+        alarmView.constrainCenter(to: view)
+        alarmView.constrainSize(width: 350, height: 300)
+        // alarmName
+        alarmName.constrainCenterX(to: alarmView)
+        alarmName.constrainTop(toTopOf: alarmView, offset: 30)
+        // datePicker
+        datePicker.constrainCenter(to: alarmView)
+        datePicker.constrainWidth(to: 250)
+        datePicker.constrainTop(toBottomOf: alarmName)
+        datePicker.constrainBottom(toTopOf: saveButton)
+        // saveButton
+        saveButton.constrainCenterX(to: alarmView)
+        saveButton.constrainBottom(toBottomOf: alarmView, offset: -30)
+        saveButton.constrainSize(width: 200, height: 40)
+    }
+    func setupViews() {
+        view.addSubview(alarmView)
+        alarmView.addSubviews(alarmName, saveButton, datePicker)
+        constrainViews()
+    }
+    @objc func saveButtonTapped(sender: UIDatePicker) {
+         self.dismiss(animated: true, completion: nil)
+         let targetTime = datePicker.date
+         let identifier = UUID().uuidString
+         let alarm = Alarm(date: targetTime, identifier: identifier)
+         AlarmViewModel.shared.saveAlarm(alarm: alarm)
+         completion?(targetTime, identifier)
     }
 }

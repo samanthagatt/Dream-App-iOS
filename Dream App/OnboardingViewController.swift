@@ -28,20 +28,20 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
         pageControl.currentPage = Int(pageNumber)
         
         if pageControl.currentPage == 2{
-            getStartedButton.backgroundColor = #colorLiteral(red: 0.4439858198, green: 0.362395227, blue: 1, alpha: 1)
+            getStartedButton.backgroundColor = .primaryPurple
             getStartedButton.setTitle("Get Started", for: .normal)
-            getStartedButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+            getStartedButton.setTitleColor(.lightText, for: .normal)
         } else {
-            getStartedButton.backgroundColor = #colorLiteral(red: 0.9003701806, green: 0.9098797441, blue: 0.9270738959, alpha: 1)
+            getStartedButton.backgroundColor = .lightText
             getStartedButton.setTitle("Skip", for: .normal)
-            getStartedButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+            getStartedButton.setTitleColor(.darkBackground, for: .normal)
         }
     }
     
     private func setup(){
-        getStartedButton.backgroundColor = #colorLiteral(red: 0.9003701806, green: 0.9098797441, blue: 0.9270738959, alpha: 1)
+        getStartedButton.backgroundColor = .lightText
         getStartedButton.setTitle("Skip", for: .normal)
-        getStartedButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+        getStartedButton.setTitleColor(.darkBackground, for: .normal)
         getStartedButton.addTarget(self, action: #selector(OnboardingViewController.handleButton(_:)), for: .touchUpInside)
         getStartedButton.layer.cornerRadius = 6
         pageControl.numberOfPages = images.count

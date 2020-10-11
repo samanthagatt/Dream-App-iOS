@@ -13,5 +13,5 @@ struct Dream : Codable, Equatable{
     var description : String
     var date : String
     var identifier : String
-    var recording : URL?
+    var recordingURL : URL?
 }

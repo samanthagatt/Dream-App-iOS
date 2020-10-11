@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A021C0825328ADB0052AB7C /* UIView+addStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A021C0725328ADB0052AB7C /* UIView+addStyling.swift */; };
+		6A021C0B25328B140052AB7C /* UIView+addSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A021C0A25328B140052AB7C /* UIView+addSubviews.swift */; };
+		6A021C0F25328B400052AB7C /* UILabel+style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A021C0E25328B400052AB7C /* UILabel+style.swift */; };
+		6A021C1225328BBA0052AB7C /* UITextField+style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A021C1125328BBA0052AB7C /* UITextField+style.swift */; };
+		6A021C1725328D230052AB7C /* UIButton+style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A021C1625328D230052AB7C /* UIButton+style.swift */; };
+		6A021C2F25329DB00052AB7C /* UITextView+style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A021C2E25329DB00052AB7C /* UITextView+style.swift */; };
+		6A021C32253337550052AB7C /* UIView+constrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A021C31253337550052AB7C /* UIView+constrain.swift */; };
+		6A2A76F92533B0950023000E /* UIColor+themeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2A76F82533B0950023000E /* UIColor+themeColors.swift */; };
+		6A2A76FD2533B0AA0023000E /* UIFont+themeFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2A76FC2533B0AA0023000E /* UIFont+themeFonts.swift */; };
 		D65A2AF9242A4F3E00E3326E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65A2AF8242A4F3E00E3326E /* AppDelegate.swift */; };
 		D65A2AFB242A4F3E00E3326E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65A2AFA242A4F3E00E3326E /* SceneDelegate.swift */; };
 		D65A2AFD242A4F3E00E3326E /* RecordDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65A2AFC242A4F3E00E3326E /* RecordDreamViewController.swift */; };
@@ -38,7 +47,6 @@
 		D6D762B224733CF500EF2E17 /* DreamWall.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D762B124733CF500EF2E17 /* DreamWall.storyboard */; };
 		D6EBEB02246C760100CC227C /* MonoDigitLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEB01246C760100CC227C /* MonoDigitLabel.swift */; };
 		D6EBEB04246C79B500CC227C /* UIViewController+presentAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EBEB03246C79B500CC227C /* UIViewController+presentAlert.swift */; };
-		D6F49A68247827E500BD351B /* KeyboardStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F49A67247827E500BD351B /* KeyboardStuff.swift */; };
 		D6F49EC52476CDF20037F755 /* SpeechToTextHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F49EC42476CDF20037F755 /* SpeechToTextHelper.swift */; };
 		D841E892252B9863003B3456 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841E891252B9863003B3456 /* AlarmViewController.swift */; };
 		D841E894252BA023003B3456 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841E893252BA023003B3456 /* AlarmTableViewCell.swift */; };
@@ -57,6 +65,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A021C0725328ADB0052AB7C /* UIView+addStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addStyling.swift"; sourceTree = "<group>"; };
+		6A021C0A25328B140052AB7C /* UIView+addSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addSubviews.swift"; sourceTree = "<group>"; };
+		6A021C0E25328B400052AB7C /* UILabel+style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+style.swift"; sourceTree = "<group>"; };
+		6A021C1125328BBA0052AB7C /* UITextField+style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+style.swift"; sourceTree = "<group>"; };
+		6A021C1625328D230052AB7C /* UIButton+style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+style.swift"; sourceTree = "<group>"; };
+		6A021C2E25329DB00052AB7C /* UITextView+style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+style.swift"; sourceTree = "<group>"; };
+		6A021C31253337550052AB7C /* UIView+constrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+constrain.swift"; sourceTree = "<group>"; };
+		6A2A76F82533B0950023000E /* UIColor+themeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+themeColors.swift"; sourceTree = "<group>"; };
+		6A2A76FC2533B0AA0023000E /* UIFont+themeFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+themeFonts.swift"; sourceTree = "<group>"; };
 		D65A2AF5242A4F3E00E3326E /* Dream App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dream App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65A2AF8242A4F3E00E3326E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D65A2AFA242A4F3E00E3326E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,7 +107,6 @@
 		D6D762B124733CF500EF2E17 /* DreamWall.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DreamWall.storyboard; sourceTree = "<group>"; };
 		D6EBEB01246C760100CC227C /* MonoDigitLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoDigitLabel.swift; sourceTree = "<group>"; };
 		D6EBEB03246C79B500CC227C /* UIViewController+presentAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+presentAlert.swift"; sourceTree = "<group>"; };
-		D6F49A67247827E500BD351B /* KeyboardStuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardStuff.swift; sourceTree = "<group>"; };
 		D6F49EC42476CDF20037F755 /* SpeechToTextHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToTextHelper.swift; sourceTree = "<group>"; };
 		D841E891252B9863003B3456 /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		D841E893252BA023003B3456 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
@@ -119,6 +135,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A021C3725339DCA0052AB7C /* Styling */ = {
+			isa = PBXGroup;
+			children = (
+				6A021C0725328ADB0052AB7C /* UIView+addStyling.swift */,
+				6A021C0E25328B400052AB7C /* UILabel+style.swift */,
+				6A021C1125328BBA0052AB7C /* UITextField+style.swift */,
+				6A021C2E25329DB00052AB7C /* UITextView+style.swift */,
+				6A021C1625328D230052AB7C /* UIButton+style.swift */,
+				6A2A76F82533B0950023000E /* UIColor+themeColors.swift */,
+				6A2A76FC2533B0AA0023000E /* UIFont+themeFonts.swift */,
+			);
+			path = Styling;
+			sourceTree = "<group>";
+		};
 		D65A2AEC242A4F3E00E3326E = {
 			isa = PBXGroup;
 			children = (
@@ -207,7 +237,7 @@
 		D6BA52F32469DE6A00166A7B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				D841E899252D1167003B3456 /* Managers */,
+				D841E89A252D1185003B3456 /* NotificationManager.swift */,
 				D6D1A736246ADAA800119418 /* CustomStringInterpolation.swift */,
 				D69BC4BB246B497E00C1CBA3 /* Logger */,
 				D69BC4B6246B46C400C1CBA3 /* Audio */,
@@ -225,7 +255,6 @@
 				D6EBEB01246C760100CC227C /* MonoDigitLabel.swift */,
 				D6D76293246DFC5E00EF2E17 /* MultilineTextField.swift */,
 				D6D7629F2471C4C000EF2E17 /* Extensions */,
-				D6F49A67247827E500BD351B /* KeyboardStuff.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -233,6 +262,9 @@
 		D6D7629F2471C4C000EF2E17 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				6A021C3725339DCA0052AB7C /* Styling */,
+				6A021C0A25328B140052AB7C /* UIView+addSubviews.swift */,
+				6A021C31253337550052AB7C /* UIView+constrain.swift */,
 				D6EBEB03246C79B500CC227C /* UIViewController+presentAlert.swift */,
 				D6D7629B246F5B3600EF2E17 /* UIView+IBBorder.swift */,
 				D6D7629D24703AB800EF2E17 /* UITextView+EdgeInsets.swift */,
@@ -281,14 +313,6 @@
 				D87C1446252E15BC008B3871 /* Model */,
 			);
 			path = Alarm;
-			sourceTree = "<group>";
-		};
-		D841E899252D1167003B3456 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				D841E89A252D1185003B3456 /* NotificationManager.swift */,
-			);
-			path = Managers;
 			sourceTree = "<group>";
 		};
 		D84BB95A252EB608001BAC53 /* Dream */ = {
@@ -425,8 +449,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A021C0B25328B140052AB7C /* UIView+addSubviews.swift in Sources */,
 				D84BB960252F8E8E001BAC53 /* DreamDetailViewController.swift in Sources */,
 				D6F49EC52476CDF20037F755 /* SpeechToTextHelper.swift in Sources */,
+				6A021C0825328ADB0052AB7C /* UIView+addStyling.swift in Sources */,
 				D6D27CDC2468625F00B7AF8F /* RoundedViews.swift in Sources */,
 				D6D762AB2472EFD800EF2E17 /* DreamPlayerErrorDelegate.swift in Sources */,
 				D6701810246C2A210029FE3F /* BorderedTextField.swift in Sources */,
@@ -438,16 +464,21 @@
 				D69BC4BA246B471300C1CBA3 /* AudioRecorderStartingError.swift in Sources */,
 				D6D762A32471C53700EF2E17 /* AudioPlayerHelper.swift in Sources */,
 				D84BB968253295DC001BAC53 /* DreamVM.swift in Sources */,
+				6A2A76FD2533B0AA0023000E /* UIFont+themeFonts.swift in Sources */,
 				D841E892252B9863003B3456 /* AlarmViewController.swift in Sources */,
 				D84A5892252A6527006FDE19 /* OnboardingViewController.swift in Sources */,
 				D87C144B252E1648008B3871 /* AlarmVM.swift in Sources */,
-				D6F49A68247827E500BD351B /* KeyboardStuff.swift in Sources */,
 				D65A2AFD242A4F3E00E3326E /* RecordDreamViewController.swift in Sources */,
+				6A021C0F25328B400052AB7C /* UILabel+style.swift in Sources */,
 				D841E89B252D1185003B3456 /* NotificationManager.swift in Sources */,
+				6A021C32253337550052AB7C /* UIView+constrain.swift in Sources */,
 				D69BC4BD246B498B00C1CBA3 /* Logger.swift in Sources */,
 				D6D76296246EF80800EF2E17 /* EditAndReplayDreamView.swift in Sources */,
 				D6BA52F52469DE8C00166A7B /* AudioRecorderHelper.swift in Sources */,
 				D84BB95E252F8E69001BAC53 /* DreamWallViewController.swift in Sources */,
+				6A021C1725328D230052AB7C /* UIButton+style.swift in Sources */,
+				6A2A76F92533B0950023000E /* UIColor+themeColors.swift in Sources */,
+				6A021C1225328BBA0052AB7C /* UITextField+style.swift in Sources */,
 				D670180E246B91C80029FE3F /* EditAndReplayDreamViewController.swift in Sources */,
 				D84BB962252F8EE8001BAC53 /* DreamTableViewCell.swift in Sources */,
 				D84BB966252F9161001BAC53 /* DummyData.swift in Sources */,
@@ -465,6 +496,7 @@
 				D6D76294246DFC5E00EF2E17 /* MultilineTextField.swift in Sources */,
 				D6EBEB02246C760100CC227C /* MonoDigitLabel.swift in Sources */,
 				D65A2AFB242A4F3E00E3326E /* SceneDelegate.swift in Sources */,
+				6A021C2F25329DB00052AB7C /* UITextView+style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
