@@ -53,7 +53,7 @@ class AlarmTableViewCell: UITableViewCell {
     
     func setupViews(){
         cellView.layer.cornerRadius = 12
-        switchToggle.onTintColor = #colorLiteral(red: 0.4238958359, green: 0.3873499036, blue: 0.9998773932, alpha: 1)
+        switchToggle.onTintColor = .primaryPurple
         switchToggle.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
         cellView.translatesAutoresizingMaskIntoConstraints = false
         timeLabel.translatesAutoresizingMaskIntoConstraints = false

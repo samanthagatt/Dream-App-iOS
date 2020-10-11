@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z8u-dW-gJD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z8u-dW-gJD">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -44,7 +42,6 @@
                                 </state>
                             </button>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="ih2-gN-yG7"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="7c7-vx-aQb" firstAttribute="top" secondItem="RKu-3J-20p" secondAttribute="bottom" constant="50" id="2m0-el-kpd"/>
@@ -53,6 +50,7 @@
                             <constraint firstItem="ih2-gN-yG7" firstAttribute="bottom" secondItem="7c7-vx-aQb" secondAttribute="bottom" constant="45" id="RcW-Ve-4Hd"/>
                             <constraint firstItem="7c7-vx-aQb" firstAttribute="leading" secondItem="ih2-gN-yG7" secondAttribute="leading" constant="20" id="d3i-jb-JsZ"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="ih2-gN-yG7"/>
                     </view>
                     <connections>
                         <outlet property="getStartedButton" destination="7c7-vx-aQb" id="EPC-dz-fLf"/>
@@ -78,7 +76,6 @@
                     <connections>
                         <segue destination="7ip-Bk-SmH" kind="relationship" relationship="viewControllers" id="llo-4D-pBD"/>
                         <segue destination="UGH-ce-TMY" kind="relationship" relationship="viewControllers" id="1Pq-nk-B1K"/>
-                        <segue destination="ZuD-KY-Cho" kind="relationship" relationship="viewControllers" id="rBX-Ba-1tB"/>
                         <segue destination="LEv-iw-w5b" kind="relationship" relationship="viewControllers" id="c49-FD-pah"/>
                     </connections>
                 </tabBarController>
@@ -147,7 +144,6 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="iX5-AD-SYo"/>
                         <color key="backgroundColor" name="darkBackground"/>
                         <constraints>
                             <constraint firstItem="iX5-AD-SYo" firstAttribute="trailing" secondItem="7PJ-79-mdn" secondAttribute="trailing" id="5lI-mK-hHf"/>
@@ -155,6 +151,7 @@
                             <constraint firstItem="iX5-AD-SYo" firstAttribute="bottom" secondItem="7PJ-79-mdn" secondAttribute="bottom" id="W1b-Xg-pdM"/>
                             <constraint firstItem="7PJ-79-mdn" firstAttribute="top" secondItem="iX5-AD-SYo" secondAttribute="top" id="qkt-dx-Xox"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="iX5-AD-SYo"/>
                     </view>
                     <navigationItem key="navigationItem" title="Alarm" id="QTt-JU-UHx">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="gcM-kg-6bb">
@@ -215,8 +212,8 @@
                     <view key="view" contentMode="scaleToFill" id="tC5-HM-hpm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="rXV-bo-eaP"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="rXV-bo-eaP"/>
                     </view>
                     <navigationItem key="navigationItem" title="Calendar" id="9yn-ar-mRr"/>
                 </viewController>
@@ -236,7 +233,7 @@
                         <color key="backgroundColor" name="darkBackground"/>
                         <color key="barTintColor" name="darkBackground"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" systemColor="labelColor"/>
+                            <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -261,7 +258,7 @@
                         <color key="barTintColor" name="darkBackground"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
-                            <color key="textColor" systemColor="labelColor"/>
+                            <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -322,8 +319,5 @@
         <namedColor name="primaryPurple">
             <color red="0.41800001263618469" green="0.39100000262260437" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
