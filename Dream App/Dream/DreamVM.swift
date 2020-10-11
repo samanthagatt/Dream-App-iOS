@@ -16,6 +16,23 @@ class DreamViewModel {
         return Array(savedDreams.values)
     }
     
+    func saveDream(dream: Dream){
+        savedDreams[dream.identifier] = dream
+        saveToPersistence()
+    }
+    
+    func deleteDream(dream : Dream){
+        savedDreams.removeValue(forKey: dream.identifier)
+        saveToPersistence()
+    }
+    
+    func updateDream(dream : Dream){
+        guard var oldDream = savedDreams[dream.identifier] else { return }
+        oldDream.title = dream.title
+        oldDream.description = dream.description
+        saveToPersistence()
+    }
+    
     var savedDreamURL : URL?{
         guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
         let fileName = "Dream(Persistence).plist"
