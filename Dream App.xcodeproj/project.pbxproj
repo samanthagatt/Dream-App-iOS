@@ -51,6 +51,7 @@
 		D84BB960252F8E8E001BAC53 /* DreamDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB95F252F8E8E001BAC53 /* DreamDetailViewController.swift */; };
 		D84BB962252F8EE8001BAC53 /* DreamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB961252F8EE8001BAC53 /* DreamTableViewCell.swift */; };
 		D84BB966252F9161001BAC53 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB965252F9161001BAC53 /* DummyData.swift */; };
+		D84BB968253295DC001BAC53 /* DreamVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB967253295DC001BAC53 /* DreamVM.swift */; };
 		D87C144B252E1648008B3871 /* AlarmVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87C144A252E1648008B3871 /* AlarmVM.swift */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,7 @@
 		D84BB95F252F8E8E001BAC53 /* DreamDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamDetailViewController.swift; sourceTree = "<group>"; };
 		D84BB961252F8EE8001BAC53 /* DreamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamTableViewCell.swift; sourceTree = "<group>"; };
 		D84BB965252F9161001BAC53 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
+		D84BB967253295DC001BAC53 /* DreamVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamVM.swift; sourceTree = "<group>"; };
 		D87C144A252E1648008B3871 /* AlarmVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -290,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				D84BB95B252EB625001BAC53 /* Dream.swift */,
+				D84BB967253295DC001BAC53 /* DreamVM.swift */,
 			);
 			path = Dream;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				D6D7629E24703AB800EF2E17 /* UITextView+EdgeInsets.swift in Sources */,
 				D69BC4BA246B471300C1CBA3 /* AudioRecorderStartingError.swift in Sources */,
 				D6D762A32471C53700EF2E17 /* AudioPlayerHelper.swift in Sources */,
+				D84BB968253295DC001BAC53 /* DreamVM.swift in Sources */,
 				D841E892252B9863003B3456 /* AlarmViewController.swift in Sources */,
 				D84A5892252A6527006FDE19 /* OnboardingViewController.swift in Sources */,
 				D87C144B252E1648008B3871 /* AlarmVM.swift in Sources */,
