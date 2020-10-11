@@ -60,7 +60,6 @@ extension AlarmViewController: UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete {
             let alarm = AlarmViewModel.shared.alarmArray[indexPath.row]
             AlarmNotofications.shared.removeNotification(with: alarm.identifier)
-            //objects.remove(at: indexPath.row)
             AlarmViewModel.shared.deleteAlarm(alarm: alarm)
             tableView.deleteRows(at: [indexPath], with: .fade)
             alarmTableView.reloadData()

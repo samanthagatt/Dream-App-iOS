@@ -52,6 +52,7 @@
 		D84BB962252F8EE8001BAC53 /* DreamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB961252F8EE8001BAC53 /* DreamTableViewCell.swift */; };
 		D84BB966252F9161001BAC53 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB965252F9161001BAC53 /* DummyData.swift */; };
 		D84BB968253295DC001BAC53 /* DreamVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB967253295DC001BAC53 /* DreamVM.swift */; };
+		D84BB96A2532BEE0001BAC53 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D84BB9692532BEE0001BAC53 /* alarm.mp3 */; };
 		D87C144B252E1648008B3871 /* AlarmVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87C144A252E1648008B3871 /* AlarmVM.swift */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +104,7 @@
 		D84BB961252F8EE8001BAC53 /* DreamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamTableViewCell.swift; sourceTree = "<group>"; };
 		D84BB965252F9161001BAC53 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		D84BB967253295DC001BAC53 /* DreamVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamVM.swift; sourceTree = "<group>"; };
+		D84BB9692532BEE0001BAC53 /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
 		D87C144A252E1648008B3871 /* AlarmVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +138,7 @@
 		D65A2AF7242A4F3E00E3326E /* Dream App */ = {
 			isa = PBXGroup;
 			children = (
+				D84BB9692532BEE0001BAC53 /* alarm.mp3 */,
 				D65A2AF8242A4F3E00E3326E /* AppDelegate.swift */,
 				D65A2AFA242A4F3E00E3326E /* SceneDelegate.swift */,
 				D84A5891252A6527006FDE19 /* OnboardingViewController.swift */,
@@ -410,6 +413,7 @@
 				D6D762AD247339E000EF2E17 /* EditAndReplayDream.storyboard in Resources */,
 				D65A2B02242A4F4400E3326E /* Assets.xcassets in Resources */,
 				D6D762B224733CF500EF2E17 /* DreamWall.storyboard in Resources */,
+				D84BB96A2532BEE0001BAC53 /* alarm.mp3 in Resources */,
 				D65A2B00242A4F3E00E3326E /* RecordDream.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

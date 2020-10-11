@@ -15,7 +15,7 @@ class AlarmNotofications {
     func sendNotification(with date: Date, id: String){
          let content = UNMutableNotificationContent()
         content.title = "RECORD YOUR DREAM!"
-        content.sound = .default
+        content.sound  = UNNotificationSound(named: UNNotificationSoundName(rawValue: "alarm.mp3"))
         content.body = "You set an alarm to record your dream. If you don't record, you have a 90% chance of forgetting."
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date), repeats: false)
