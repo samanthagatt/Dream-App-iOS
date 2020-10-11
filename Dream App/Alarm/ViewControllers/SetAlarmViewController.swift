@@ -17,6 +17,10 @@ class SetAlarmViewController: UIViewController {
         setupViews()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+         self.dismiss(animated: true, completion: nil)
+    }
+    
     public var completion: ((Date, String) -> Void)?
     
     func setupViews(){
