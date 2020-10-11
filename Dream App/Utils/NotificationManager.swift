@@ -13,7 +13,7 @@ class AlarmNotofications {
     static let shared = AlarmNotofications()
     
     func sendNotification(with date: Date, id: String){
-         let content = UNMutableNotificationContent()
+        let content = UNMutableNotificationContent()
         content.title = "RECORD YOUR DREAM!"
         content.sound = .default
         content.body = "You set an alarm to record your dream. If you don't record, you have a 90% chance of forgetting."
@@ -29,11 +29,11 @@ class AlarmNotofications {
     
     func removeNotification(with id: String){
         UNUserNotificationCenter.current().getPendingNotificationRequests { (requests) in
-          for request in requests {
-            if request.identifier == id {
-              UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
+            for request in requests {
+                if request.identifier == id {
+                    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
+                }
             }
-          }
         }
     }
     
