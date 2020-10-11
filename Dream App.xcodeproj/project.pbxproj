@@ -13,6 +13,7 @@
 		6A021C1225328BBA0052AB7C /* UITextField+style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A021C1125328BBA0052AB7C /* UITextField+style.swift */; };
 		6A021C1725328D230052AB7C /* UIButton+style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A021C1625328D230052AB7C /* UIButton+style.swift */; };
 		6A021C2F25329DB00052AB7C /* UITextView+style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A021C2E25329DB00052AB7C /* UITextView+style.swift */; };
+		6A021C32253337550052AB7C /* UIView+constrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A021C31253337550052AB7C /* UIView+constrain.swift */; };
 		D65A2AF9242A4F3E00E3326E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65A2AF8242A4F3E00E3326E /* AppDelegate.swift */; };
 		D65A2AFB242A4F3E00E3326E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65A2AFA242A4F3E00E3326E /* SceneDelegate.swift */; };
 		D65A2AFD242A4F3E00E3326E /* RecordDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65A2AFC242A4F3E00E3326E /* RecordDreamViewController.swift */; };
@@ -66,6 +67,7 @@
 		6A021C1125328BBA0052AB7C /* UITextField+style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+style.swift"; sourceTree = "<group>"; };
 		6A021C1625328D230052AB7C /* UIButton+style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+style.swift"; sourceTree = "<group>"; };
 		6A021C2E25329DB00052AB7C /* UITextView+style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+style.swift"; sourceTree = "<group>"; };
+		6A021C31253337550052AB7C /* UIView+constrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+constrain.swift"; sourceTree = "<group>"; };
 		D65A2AF5242A4F3E00E3326E /* Dream App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dream App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65A2AF8242A4F3E00E3326E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D65A2AFA242A4F3E00E3326E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A021C3725339DCA0052AB7C /* Styling */ = {
+			isa = PBXGroup;
+			children = (
+				6A021C0725328ADB0052AB7C /* UIView+addStyling.swift */,
+				6A021C0E25328B400052AB7C /* UILabel+style.swift */,
+				6A021C1125328BBA0052AB7C /* UITextField+style.swift */,
+				6A021C2E25329DB00052AB7C /* UITextView+style.swift */,
+				6A021C1625328D230052AB7C /* UIButton+style.swift */,
+			);
+			path = Styling;
+			sourceTree = "<group>";
+		};
 		D65A2AEC242A4F3E00E3326E = {
 			isa = PBXGroup;
 			children = (
@@ -237,14 +251,11 @@
 		D6D7629F2471C4C000EF2E17 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				6A021C3725339DCA0052AB7C /* Styling */,
 				6A021C0A25328B140052AB7C /* UIView+addSubviews.swift */,
+				6A021C31253337550052AB7C /* UIView+constrain.swift */,
 				D6EBEB03246C79B500CC227C /* UIViewController+presentAlert.swift */,
 				D6D7629B246F5B3600EF2E17 /* UIView+IBBorder.swift */,
-				6A021C0725328ADB0052AB7C /* UIView+addStyling.swift */,
-				6A021C0E25328B400052AB7C /* UILabel+style.swift */,
-				6A021C1125328BBA0052AB7C /* UITextField+style.swift */,
-				6A021C2E25329DB00052AB7C /* UITextView+style.swift */,
-				6A021C1625328D230052AB7C /* UIButton+style.swift */,
 				D6D7629D24703AB800EF2E17 /* UITextView+EdgeInsets.swift */,
 			);
 			path = Extensions;
@@ -445,6 +456,7 @@
 				D65A2AFD242A4F3E00E3326E /* RecordDreamViewController.swift in Sources */,
 				6A021C0F25328B400052AB7C /* UILabel+style.swift in Sources */,
 				D841E89B252D1185003B3456 /* NotificationManager.swift in Sources */,
+				6A021C32253337550052AB7C /* UIView+constrain.swift in Sources */,
 				D69BC4BD246B498B00C1CBA3 /* Logger.swift in Sources */,
 				D6D76296246EF80800EF2E17 /* EditAndReplayDreamView.swift in Sources */,
 				D6BA52F52469DE8C00166A7B /* AudioRecorderHelper.swift in Sources */,

@@ -39,37 +39,65 @@ extension UITextField {
         text: String? = nil,
         attributedText: NSAttributedString? = nil,
         placeholder: String? = nil,
-        font: UIFont = .preferredFont(forTextStyle: .body),
-        textColor: UIColor = .black,
-        textAlignment: NSTextAlignment = .natural,
-        borderStyle: UITextField.BorderStyle = .none,
+        font: UIFont? = nil,
+        textColor: UIColor? = nil,
+        textAlignment: NSTextAlignment? = nil,
+        borderStyle: UITextField.BorderStyle? = nil,
         textContentType: UITextContentType? = nil,
-        keyboardType: UIKeyboardType = .default,
-        returnKeyType: UIReturnKeyType = .default,
-        isSecureTextEntry: Bool = false,
-        autocapitalizationType: UITextAutocapitalizationType = .sentences,
-        autocorrectionType: UITextAutocorrectionType = .default,
-        spellCheckingType: UITextSpellCheckingType = .default,
+        keyboardType: UIKeyboardType? = nil,
+        returnKeyType: UIReturnKeyType? = nil,
+        isSecureTextEntry: Bool? = nil,
+        autocapitalizationType: UITextAutocapitalizationType? = nil,
+        autocorrectionType: UITextAutocorrectionType? = nil,
+        spellCheckingType: UITextSpellCheckingType? = nil,
         delegate: UITextFieldDelegate? = nil,
         translatesMask: Bool = false
     ) -> Self {
-        self.text = text
+        if let text = text {
+            self.text = text
+        }
         if let attributedText = attributedText {
             self.attributedText = attributedText
         }
-        self.placeholder = placeholder
-        self.font = font
-        self.textColor = textColor
-        self.textAlignment = textAlignment
-        self.borderStyle = borderStyle
-        self.keyboardType = keyboardType
-        self.returnKeyType = returnKeyType
-        self.textContentType = textContentType
-        self.isSecureTextEntry = isSecureTextEntry
-        self.autocapitalizationType = autocapitalizationType
-        self.autocorrectionType = autocorrectionType
-        self.spellCheckingType = spellCheckingType
-        self.delegate = delegate
+        if let placeholder = placeholder {
+            self.placeholder = placeholder
+        }
+        if let font = font {
+            self.font = font
+        }
+        if let textColor = textColor {
+            self.textColor = textColor
+        }
+        if let textAlignment = textAlignment {
+            self.textAlignment = textAlignment
+        }
+        if let borderStyle = borderStyle {
+            self.borderStyle = borderStyle
+        }
+        if let textContentType = textContentType {
+            self.textContentType = textContentType
+        }
+        if let keyboardType = keyboardType {
+            self.keyboardType = keyboardType
+        }
+        if let returnKeyType = returnKeyType {
+            self.returnKeyType = returnKeyType
+        }
+        if let isSecureTextEntry = isSecureTextEntry {
+            self.isSecureTextEntry = isSecureTextEntry
+        }
+        if let autocapitalizationType = autocapitalizationType {
+            self.autocapitalizationType = autocapitalizationType
+        }
+        if let autocorrectionType = autocorrectionType {
+            self.autocorrectionType = autocorrectionType
+        }
+        if let spellCheckingType = spellCheckingType {
+            self.spellCheckingType = spellCheckingType
+        }
+        if let delegate = delegate {
+            self.delegate = delegate
+        }
         self.translatesAutoresizingMaskIntoConstraints = translatesMask
         return self
     }

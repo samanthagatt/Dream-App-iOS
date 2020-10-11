@@ -12,7 +12,7 @@ extension UITextView {
     /**
      Customizes the style of the UITextView
      
-     Use this function when creating a new text field
+     Use this function when creating a new text view
      - Note: Chain `addStyling` `UIView` instance method to customize 'UIView' properties as well
      - Author: Samantha Gatt
      - Parameters:
@@ -40,36 +40,62 @@ extension UITextView {
     func style(
         text: String? = nil,
         attributedText: NSAttributedString? = nil,
-        font: UIFont = .preferredFont(forTextStyle: .body),
-        textColor: UIColor = .black,
-        textAlignment: NSTextAlignment = .natural,
+        font: UIFont? = nil,
+        textColor: UIColor? = nil,
+        textAlignment: NSTextAlignment? = nil,
         textContentType: UITextContentType? = nil,
-        keyboardType: UIKeyboardType = .default,
-        returnKeyType: UIReturnKeyType = .default,
-        isSecureTextEntry: Bool = false,
-        isSelectable: Bool = true,
-        autocapitalizationType: UITextAutocapitalizationType = .sentences,
-        autocorrectionType: UITextAutocorrectionType = .default,
-        spellCheckingType: UITextSpellCheckingType = .default,
-        allowsEditingTextAttributes: Bool = false,
+        keyboardType: UIKeyboardType? = nil,
+        returnKeyType: UIReturnKeyType? = nil,
+        isSecureTextEntry: Bool? = nil,
+        isSelectable: Bool? = nil,
+        autocapitalizationType: UITextAutocapitalizationType? = nil,
+        autocorrectionType: UITextAutocorrectionType? = nil,
+        spellCheckingType: UITextSpellCheckingType? = nil,
+        allowsEditingTextAttributes: Bool? = nil,
         translatesMask: Bool = false
     ) -> Self {
-        self.text = text
+        if let text = text {
+            self.text = text
+        }
         if let attributedText = attributedText {
             self.attributedText = attributedText
         }
-        self.font = font
-        self.textColor = textColor
-        self.textAlignment = textAlignment
-        self.keyboardType = keyboardType
-        self.returnKeyType = returnKeyType
-        self.textContentType = textContentType
-        self.isSecureTextEntry = isSecureTextEntry
-        self.isSelectable = isSelectable
-        self.autocapitalizationType = autocapitalizationType
-        self.autocorrectionType = autocorrectionType
-        self.spellCheckingType = spellCheckingType
-        self.allowsEditingTextAttributes = allowsEditingTextAttributes
+        if let font = font {
+            self.font = font
+        }
+        if let textColor = textColor {
+            self.textColor = textColor
+        }
+        if let textAlignment = textAlignment {
+            self.textAlignment = textAlignment
+        }
+        if let textContentType = textContentType {
+            self.textContentType = textContentType
+        }
+        if let keyboardType = keyboardType {
+            self.keyboardType = keyboardType
+        }
+        if let returnKeyType = returnKeyType {
+            self.returnKeyType = returnKeyType
+        }
+        if let isSecureTextEntry = isSecureTextEntry {
+            self.isSecureTextEntry = isSecureTextEntry
+        }
+        if let isSelectable = isSelectable {
+            self.isSelectable = isSelectable
+        }
+        if let autocapitalizationType = autocapitalizationType {
+            self.autocapitalizationType = autocapitalizationType
+        }
+        if let autocorrectionType = autocorrectionType {
+            self.autocorrectionType = autocorrectionType
+        }
+        if let spellCheckingType = spellCheckingType {
+            self.spellCheckingType = spellCheckingType
+        }
+        if let allowsEditingTextAttributes = allowsEditingTextAttributes {
+            self.allowsEditingTextAttributes = allowsEditingTextAttributes
+        }
         self.translatesAutoresizingMaskIntoConstraints = translatesMask
         return self
     }
