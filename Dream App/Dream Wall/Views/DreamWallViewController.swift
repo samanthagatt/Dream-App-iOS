@@ -11,10 +11,6 @@ import UIKit
 
 
 class DreamWallViewController: UIViewController {
-    
-    // DummyData
-    
-    
     @IBOutlet weak var dreamWallTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +28,7 @@ class DreamWallViewController: UIViewController {
     }
 }
 
+// TableView
 extension DreamWallViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,6 +38,15 @@ extension DreamWallViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "dreamCell", for: indexPath) as? DreamTableViewCell else { return UITableViewCell() }
         cell.dream = DreamViewModel.shared.dreamArray[indexPath.row];        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let dream = DreamViewModel.shared.dreamArray[indexPath.row]
+            DreamViewModel.shared.deleteDream(dream: dream)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            dreamWallTableView.reloadData()
+        }
     }
 }
 
