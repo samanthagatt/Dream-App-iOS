@@ -30,15 +30,13 @@ final class RecordDreamViewController: UIViewController, AudioRecorderHelperUIDe
         performSegue(withIdentifier: "showRecordingDetail", sender: url)
     }
     
+  // MARK: Life Cycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        recordDreamView.recordingState = .initial
+    }
+    
 }
-
-//// MARK: Life Cycle
-//extension RecordDreamViewController {
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        navigationController?.setNavigationBarHidden(true, animated: false)
-//    }
-//}
 
 // MARK: Alert Controllers
 extension RecordDreamViewController {

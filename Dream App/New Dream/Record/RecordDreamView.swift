@@ -51,9 +51,20 @@ extension RecordDreamView {
         case stopped
     }
 }
- 
+
 // MARK: Private Methods
 extension RecordDreamView {
+    
+    private func updateForNewRecord() {
+        buttonImage.isHighlighted = false
+        descriptionLabel.text = "Press the above button to begin recording your dream. Press again to pause."
+        doneButton.isEnabled = false
+        doneButton.alpha = 0
+        recordingStateLabel.text = ""
+        timeLabel.text = "Record"
+        recordButton.isEnabled = true
+        recordButton.alpha = 1
+    }
     private func updateViewsForRecording() {
         recordingStateLabel.text = "Recording..."
         // Changes image to pause
@@ -79,13 +90,14 @@ extension RecordDreamView {
     }
     private func updateViewsOnRecordingStateChange() {
         switch recordingState {
-            case .recording:
-                updateViewsForRecording()
-            case .paused:
-                updateViewsForPaused()
-            case .stopped:
-                disableRecordButton()
-            default: ()
+        case .recording:
+            updateViewsForRecording()
+        case .paused:
+            updateViewsForPaused()
+        case .stopped:
+            disableRecordButton()
+        default:
+            updateForNewRecord()
         }
     }
 }
