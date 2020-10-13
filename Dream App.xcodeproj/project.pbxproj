@@ -58,7 +58,6 @@
 		D84BB95E252F8E69001BAC53 /* DreamWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB95D252F8E69001BAC53 /* DreamWallViewController.swift */; };
 		D84BB960252F8E8E001BAC53 /* DreamDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB95F252F8E8E001BAC53 /* DreamDetailViewController.swift */; };
 		D84BB962252F8EE8001BAC53 /* DreamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB961252F8EE8001BAC53 /* DreamTableViewCell.swift */; };
-		D84BB966252F9161001BAC53 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB965252F9161001BAC53 /* DummyData.swift */; };
 		D84BB968253295DC001BAC53 /* DreamVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB967253295DC001BAC53 /* DreamVM.swift */; };
 		D84BB96A2532BEE0001BAC53 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D84BB9692532BEE0001BAC53 /* alarm.mp3 */; };
 		D87C144B252E1648008B3871 /* AlarmVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87C144A252E1648008B3871 /* AlarmVM.swift */; };
@@ -118,7 +117,6 @@
 		D84BB95D252F8E69001BAC53 /* DreamWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamWallViewController.swift; sourceTree = "<group>"; };
 		D84BB95F252F8E8E001BAC53 /* DreamDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamDetailViewController.swift; sourceTree = "<group>"; };
 		D84BB961252F8EE8001BAC53 /* DreamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamTableViewCell.swift; sourceTree = "<group>"; };
-		D84BB965252F9161001BAC53 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		D84BB967253295DC001BAC53 /* DreamVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamVM.swift; sourceTree = "<group>"; };
 		D84BB9692532BEE0001BAC53 /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
 		D87C144A252E1648008B3871 /* AlarmVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVM.swift; sourceTree = "<group>"; };
@@ -299,7 +297,6 @@
 				D6D762B124733CF500EF2E17 /* DreamWall.storyboard */,
 				D84BB963252F8EF1001BAC53 /* Views */,
 				D84BB964252F8EFE001BAC53 /* TableViewCell */,
-				D84BB965252F9161001BAC53 /* DummyData.swift */,
 			);
 			path = "Dream Wall";
 			sourceTree = "<group>";
@@ -481,7 +478,6 @@
 				6A021C1225328BBA0052AB7C /* UITextField+style.swift in Sources */,
 				D670180E246B91C80029FE3F /* EditAndReplayDreamViewController.swift in Sources */,
 				D84BB962252F8EE8001BAC53 /* DreamTableViewCell.swift in Sources */,
-				D84BB966252F9161001BAC53 /* DummyData.swift in Sources */,
 				D841E898252CC883003B3456 /* Alarm.swift in Sources */,
 				D69BC4C3246B69A700C1CBA3 /* RecordDreamView.swift in Sources */,
 				D6D7629C246F5B3600EF2E17 /* UIView+IBBorder.swift in Sources */,

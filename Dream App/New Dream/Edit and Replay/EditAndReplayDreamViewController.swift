@@ -23,11 +23,13 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         if let title = editAndReplayDreamView.titleField.text, !title.isEmpty {
-            // string is not nil and not empty...
+            let dream = Dream(title: title, description: editAndReplayDreamView.descriptionField.text, date: Date(), identifier: UUID().uuidString, recordingURL: dreamURL)
+            DreamViewModel.shared.saveDream(dream: dream)
              _ = self.tabBarController?.selectedIndex = 0
+        } else {
+            presentRecordingErrorAlert()
         }
-        presentRecordingErrorAlert()
-        // TO DD: - Show alert
+        
     }
     
     // MARK: Properties

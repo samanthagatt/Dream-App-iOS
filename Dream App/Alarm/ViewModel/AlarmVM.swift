@@ -14,7 +14,7 @@ class AlarmViewModel {
     var savedAlarms : [String : Alarm] = [:]
     
     var alarmArray : [Alarm] {
-        return Array(savedAlarms.values)
+    return Array(savedAlarms.values).sorted { $0.date > $1.date }
     }
     
     func saveAlarm(alarm: Alarm){

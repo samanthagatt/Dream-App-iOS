@@ -13,28 +13,34 @@ import UIKit
 class DreamWallViewController: UIViewController {
     
     // DummyData
-    let arrayOfDreams = [first, second, third, fourth, fifth, sixth, seventh, eighth]
+    
     
     @IBOutlet weak var dreamWallTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         dreamWallTableView.separatorStyle = .none
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setupView()
+    }
+    
+    private func setupView(){
+        DreamViewModel.shared.loadFromPersistence()
+        dreamWallTableView.reloadData()
     }
 }
 
 extension DreamWallViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayOfDreams.count
+        return DreamViewModel.shared.dreamArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "dreamCell", for: indexPath) as? DreamTableViewCell else { return UITableViewCell() }
-        let dream = arrayOfDreams[indexPath.row]
-        cell.titleLabel.text = dream.title
-        cell.dateLabel.text = dream.date
-        return cell
+        cell.dream = DreamViewModel.shared.dreamArray[indexPath.row];        return cell
     }
 }
 
