@@ -52,7 +52,7 @@ extension UILabel {
         highlightedTextColor: UIColor? = nil,
         shadowColor: UIColor? = nil,
         shadowOffset: CGSize? = nil,
-        lineBreakStrategy: NSParagraphStyle.LineBreakStrategy? = nil,
+        //lineBreakStrategy: NSParagraphStyle.LineBreakStrategy? = nil,
         translatesMask: Bool = false
     ) -> Self {
         if let text = text {
@@ -97,9 +97,9 @@ extension UILabel {
         if let shadowOffset = shadowOffset {
             self.shadowOffset = shadowOffset
         }
-        if let lineBreakStrategy = lineBreakStrategy {
-            self.lineBreakStrategy = lineBreakStrategy
-        }
+//        if let lineBreakStrategy = lineBreakStrategy {
+//            self.lineBreakStrategy = lineBreakStrategy
+//        }
         self.translatesAutoresizingMaskIntoConstraints = translatesMask
         return self
     }

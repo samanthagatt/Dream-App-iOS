@@ -29,6 +29,7 @@ final class RecordDreamViewController: UIViewController, AudioRecorderHelperUIDe
     private func performShowRecordingDetailSegue(url: URL) {
         performSegue(withIdentifier: "showRecordingDetail", sender: url)
     }
+    
 }
 
 //// MARK: Life Cycle
