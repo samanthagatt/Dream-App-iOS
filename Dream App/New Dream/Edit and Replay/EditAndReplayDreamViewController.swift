@@ -18,6 +18,9 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
     }
     
     @IBAction func deleteButtonTapped(_ sender: Any) {
+        if let dream = dream {
+            DreamViewModel.shared.deleteDream(dream: dream)
+        }
         navigationController?.popViewController(animated: true)
     }
     
@@ -32,7 +35,15 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
         
     }
     
+    
     // MARK: Properties
+    
+    // This dream object is passed when the user selects dream from dreamWallVC
+    var dream : Dream? {
+        didSet {
+            
+        }
+    }
     /// URL to the recorded dream
     var dreamURL: URL? {
         didSet {

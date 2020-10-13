@@ -126,8 +126,7 @@ private extension RecordDreamViewController {
         view.addSubviews(recordDreamView.circleView)
         view.sendSubviewToBack(recordDreamView.circleView)
         recordDreamView.circleView.constrainCenter(to: recordDreamView.recordButton)
-       // recordDreamView.circleView.constrainSize(width: 350, height: 300)
-        recordDreamView.circleView.constrainWidth(to: recordDreamView.recordButton, constant: 32)
-        recordDreamView.circleView.constrainHeight(to: recordDreamView.recordButton, constant: 32)
+        recordDreamView.circleView.constrainWidth(to: recordDreamView.recordButton, constant: 40)
+        recordDreamView.circleView.constrainHeight(to: recordDreamView.recordButton, constant: 40)
     }
 }
