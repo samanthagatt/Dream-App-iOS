@@ -17,7 +17,33 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
         editAndReplayDreamView.endEditing(true)
     }
     
+    @IBAction func deleteButtonTapped(_ sender: Any) {
+        if let dream = dream {
+            DreamViewModel.shared.deleteDream(dream: dream)
+        }
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        if let title = editAndReplayDreamView.titleField.text, !title.isEmpty {
+            let dream = Dream(title: title, description: editAndReplayDreamView.descriptionField.text, date: Date(), identifier: UUID().uuidString, recordingURL: dreamURL)
+            DreamViewModel.shared.saveDream(dream: dream)
+             _ = self.tabBarController?.selectedIndex = 0
+        } else {
+            presentRecordingErrorAlert()
+        }
+        
+    }
+    
+    
     // MARK: Properties
+    
+    // This dream object is passed when the user selects dream from dreamWallVC
+    var dream : Dream? {
+        didSet {
+            
+        }
+    }
     /// URL to the recorded dream
     var dreamURL: URL? {
         didSet {
@@ -41,6 +67,7 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
                           errorDelegate: DreamPlayerErrorDelegate(),
                           useTimer: true)
     }()
+    
     private lazy var timeIntervalFormatter: DateComponentsFormatter = {
         let formatting = DateComponentsFormatter()
         formatting.unitsStyle = .positional // 00:00  mm:ss
@@ -52,6 +79,11 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
     private lazy var originalContentInsets: UIEdgeInsets = {
         editAndReplayDreamView.scrollView.contentInset
     }()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +103,11 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
                        name: UIResponder.keyboardWillHideNotification,
                        object: nil)
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+         navigationController?.popViewController(animated: true)
+    }
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -91,6 +128,18 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
         kbSize = nil
         editAndReplayDreamView.scrollView.contentInset = originalContentInsets
         // if you have the scroll indicator visible you can reset its insets too
+    }
+}
+
+extension EditAndReplayDreamViewController {
+    private func presentRecordingErrorAlert() {
+        let dismissAction = UIAlertAction(title: "Dismiss",
+                                          style: .destructive) { _ in
+            self.dismiss(animated: true)
+        }
+        presentAlert(for: "Missing Dream Title",
+                     message: "Please add title to save dream",
+                     actions: dismissAction)
     }
 }
 

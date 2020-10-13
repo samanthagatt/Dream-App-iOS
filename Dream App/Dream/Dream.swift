@@ -11,7 +11,7 @@ import Foundation
 struct Dream : Codable, Equatable{
     var title : String
     var description : String
-    var date : String
+    var date : Date
     var identifier : String
     var recordingURL : URL?
 }

@@ -39,6 +39,14 @@ final class RecordDreamView: UIView {
         recordingState = .stopped
         recorderHelper?.stopRecording()
     }
+    
+    // MARK: Subviews
+    let circleView = UIView().addStyling(
+        backgroundColor: .darkBackground,
+        cornerRadius: 10,
+        borderWidth: 1,
+        borderColor: .primaryPurple
+    )
 }
 
 // MARK: RecordingState Enum
@@ -51,9 +59,22 @@ extension RecordDreamView {
         case stopped
     }
 }
- 
+
 // MARK: Private Methods
 extension RecordDreamView {
+    
+    private func updateForNewRecord() {
+        buttonImage.isHighlighted = false
+        descriptionLabel.text = "Press the above button to begin recording your dream. Press again to pause."
+        doneButton.isEnabled = false
+        doneButton.alpha = 0
+        recordingStateLabel.text = ""
+        timeLabel.text = "Record"
+        recordButton.isEnabled = true
+        recordButton.alpha = 1
+        buttonImage.alpha = 1
+        circleView.layer.removeAllAnimations()
+    }
     private func updateViewsForRecording() {
         recordingStateLabel.text = "Recording..."
         // Changes image to pause
@@ -62,6 +83,7 @@ extension RecordDreamView {
         doneButton.isEnabled = false
         // Makes button invisible but keeps it in stack view
         doneButton.alpha = 0
+        circleView.pulsate()
     }
     private func updateViewsForPaused() {
         recordingStateLabel.text = "Paused"
@@ -71,21 +93,24 @@ extension RecordDreamView {
         doneButton.isEnabled = true
         // Makes sure button is visible
         doneButton.alpha = 1
+        circleView.layer.removeAllAnimations()
     }
     private func disableRecordButton() {
         recordButton.isEnabled = false
         recordButton.alpha = 0.6
         buttonImage.alpha = 0.6
+        circleView.layer.removeAllAnimations()
     }
     private func updateViewsOnRecordingStateChange() {
         switch recordingState {
-            case .recording:
-                updateViewsForRecording()
-            case .paused:
-                updateViewsForPaused()
-            case .stopped:
-                disableRecordButton()
-            default: ()
+        case .recording:
+            updateViewsForRecording()
+        case .paused:
+            updateViewsForPaused()
+        case .stopped:
+            disableRecordButton()
+        default:
+            updateForNewRecord()
         }
     }
 }

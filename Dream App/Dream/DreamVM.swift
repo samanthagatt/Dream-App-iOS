@@ -10,10 +10,11 @@ import Foundation
 
 class DreamViewModel {
     
+    static let shared = DreamViewModel()
     var savedDreams : [String: Dream] = [:]
     
     var dreamArray : [Dream] {
-        return Array(savedDreams.values)
+        return Array(savedDreams.values).sorted { $0.date > $1.date }
     }
     
     func saveDream(dream: Dream){

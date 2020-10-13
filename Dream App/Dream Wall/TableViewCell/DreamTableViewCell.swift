@@ -9,7 +9,7 @@
 import UIKit
 
 class DreamTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var titleLabel: AccessibleLabel!
     @IBOutlet weak var dateLabel: AccessibleLabel!
@@ -18,11 +18,21 @@ class DreamTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
-
+    
+    var dream: Dream? {
+        didSet {
+            guard let dream = dream else { return }
+            titleLabel.text = dream.title
+            let dateFormmatter = DateFormatter()
+            dateFormmatter.dateStyle = .medium
+            dateFormmatter.timeStyle = .short
+            dateLabel.text = (dateFormmatter.string(from: dream.date))
+        }
+    }
+    
 }

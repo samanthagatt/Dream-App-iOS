@@ -29,15 +29,23 @@ final class RecordDreamViewController: UIViewController, AudioRecorderHelperUIDe
     private func performShowRecordingDetailSegue(url: URL) {
         performSegue(withIdentifier: "showRecordingDetail", sender: url)
     }
+    
+  // MARK: Life Cycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        recordDreamView.recordingState = .initial
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupView()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        recordDreamView.circleView.layer.cornerRadius = recordDreamView.circleView.frame.height * 0.50
+    }
+    
 }
-
-//// MARK: Life Cycle
-//extension RecordDreamViewController {
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        navigationController?.setNavigationBarHidden(true, animated: false)
-//    }
-//}
 
 // MARK: Alert Controllers
 extension RecordDreamViewController {
@@ -109,5 +117,16 @@ extension RecordDreamViewController {
     }
     func audioRecorderHelperWasDeniedMicrophoneAccess() {
         presentMicDeniedAlert()
+    }
+}
+
+// MARK: Audio Recorder Helper Delegate
+private extension RecordDreamViewController {
+    func setupView(){
+        view.addSubviews(recordDreamView.circleView)
+        view.sendSubviewToBack(recordDreamView.circleView)
+        recordDreamView.circleView.constrainCenter(to: recordDreamView.recordButton)
+        recordDreamView.circleView.constrainWidth(to: recordDreamView.recordButton, constant: 40)
+        recordDreamView.circleView.constrainHeight(to: recordDreamView.recordButton, constant: 40)
     }
 }
