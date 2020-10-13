@@ -12,19 +12,17 @@ import UIKit
 
 class DreamWallViewController: UIViewController {
     @IBOutlet weak var dreamWallTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    // Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        dreamWallTableView.separatorStyle = .none
+        setupView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        setupView()
-    }
-    
-    private func setupView(){
-        DreamViewModel.shared.loadFromPersistence()
-        dreamWallTableView.reloadData()
+        reloadData()
     }
 }
 
@@ -47,6 +45,20 @@ extension DreamWallViewController: UITableViewDelegate, UITableViewDataSource {
             tableView.deleteRows(at: [indexPath], with: .fade)
             dreamWallTableView.reloadData()
         }
+    }
+}
+
+private extension DreamWallViewController {
+    func reloadData(){
+        DreamViewModel.shared.loadFromPersistence()
+        dreamWallTableView.reloadData()
+    }
+    
+    func setupView(){
+        dreamWallTableView.separatorStyle = .none
+        searchBar.tintColor = #colorLiteral(red: 0.4254588485, green: 0.3910192549, blue: 0.9995513558, alpha: 1)
+        let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBar?.textColor = .white
     }
 }
 
