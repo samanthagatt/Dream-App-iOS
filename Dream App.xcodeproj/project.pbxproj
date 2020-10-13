@@ -60,6 +60,7 @@
 		D84BB962252F8EE8001BAC53 /* DreamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB961252F8EE8001BAC53 /* DreamTableViewCell.swift */; };
 		D84BB968253295DC001BAC53 /* DreamVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB967253295DC001BAC53 /* DreamVM.swift */; };
 		D84BB96A2532BEE0001BAC53 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D84BB9692532BEE0001BAC53 /* alarm.mp3 */; };
+		D84BB96C2536554F001BAC53 /* UIView+pulsate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB96B2536554F001BAC53 /* UIView+pulsate.swift */; };
 		D87C144B252E1648008B3871 /* AlarmVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87C144A252E1648008B3871 /* AlarmVM.swift */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +120,7 @@
 		D84BB961252F8EE8001BAC53 /* DreamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamTableViewCell.swift; sourceTree = "<group>"; };
 		D84BB967253295DC001BAC53 /* DreamVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamVM.swift; sourceTree = "<group>"; };
 		D84BB9692532BEE0001BAC53 /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
+		D84BB96B2536554F001BAC53 /* UIView+pulsate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+pulsate.swift"; sourceTree = "<group>"; };
 		D87C144A252E1648008B3871 /* AlarmVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -262,6 +264,7 @@
 			children = (
 				6A021C3725339DCA0052AB7C /* Styling */,
 				6A021C0A25328B140052AB7C /* UIView+addSubviews.swift */,
+				D84BB96B2536554F001BAC53 /* UIView+pulsate.swift */,
 				6A021C31253337550052AB7C /* UIView+constrain.swift */,
 				D6EBEB03246C79B500CC227C /* UIViewController+presentAlert.swift */,
 				D6D7629B246F5B3600EF2E17 /* UIView+IBBorder.swift */,
@@ -455,6 +458,7 @@
 				D6701810246C2A210029FE3F /* BorderedTextField.swift in Sources */,
 				D841E894252BA023003B3456 /* AlarmTableViewCell.swift in Sources */,
 				D69BC4B8246B46FB00C1CBA3 /* AudioRecorderHelperUIDelegate.swift in Sources */,
+				D84BB96C2536554F001BAC53 /* UIView+pulsate.swift in Sources */,
 				D69BC4C1246B5F8400C1CBA3 /* DreamRecorderErrorDelegate.swift in Sources */,
 				D6701814246C558A0029FE3F /* AccessibleText.swift in Sources */,
 				D6D7629E24703AB800EF2E17 /* UITextView+EdgeInsets.swift in Sources */,

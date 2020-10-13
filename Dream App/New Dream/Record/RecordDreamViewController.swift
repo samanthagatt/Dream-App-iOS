@@ -36,6 +36,15 @@ final class RecordDreamViewController: UIViewController, AudioRecorderHelperUIDe
         recordDreamView.recordingState = .initial
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupView()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        recordDreamView.circleView.layer.cornerRadius = recordDreamView.circleView.frame.height * 0.50
+    }
+    
 }
 
 // MARK: Alert Controllers
@@ -108,5 +117,17 @@ extension RecordDreamViewController {
     }
     func audioRecorderHelperWasDeniedMicrophoneAccess() {
         presentMicDeniedAlert()
+    }
+}
+
+// MARK: Audio Recorder Helper Delegate
+private extension RecordDreamViewController {
+    func setupView(){
+        view.addSubviews(recordDreamView.circleView)
+        view.sendSubviewToBack(recordDreamView.circleView)
+        recordDreamView.circleView.constrainCenter(to: recordDreamView.recordButton)
+       // recordDreamView.circleView.constrainSize(width: 350, height: 300)
+        recordDreamView.circleView.constrainWidth(to: recordDreamView.recordButton, constant: 32)
+        recordDreamView.circleView.constrainHeight(to: recordDreamView.recordButton, constant: 32)
     }
 }

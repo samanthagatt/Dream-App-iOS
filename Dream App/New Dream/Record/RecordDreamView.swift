@@ -39,6 +39,14 @@ final class RecordDreamView: UIView {
         recordingState = .stopped
         recorderHelper?.stopRecording()
     }
+    
+    // MARK: Subviews
+    let circleView = UIView().addStyling(
+        backgroundColor: .darkBackground,
+        cornerRadius: 10,
+        borderWidth: 1,
+        borderColor: .primaryPurple
+    )
 }
 
 // MARK: RecordingState Enum
@@ -64,6 +72,8 @@ extension RecordDreamView {
         timeLabel.text = "Record"
         recordButton.isEnabled = true
         recordButton.alpha = 1
+        buttonImage.alpha = 1
+        circleView.layer.removeAllAnimations()
     }
     private func updateViewsForRecording() {
         recordingStateLabel.text = "Recording..."
@@ -73,6 +83,7 @@ extension RecordDreamView {
         doneButton.isEnabled = false
         // Makes button invisible but keeps it in stack view
         doneButton.alpha = 0
+        circleView.pulsate()
     }
     private func updateViewsForPaused() {
         recordingStateLabel.text = "Paused"
@@ -82,11 +93,13 @@ extension RecordDreamView {
         doneButton.isEnabled = true
         // Makes sure button is visible
         doneButton.alpha = 1
+        circleView.layer.removeAllAnimations()
     }
     private func disableRecordButton() {
         recordButton.isEnabled = false
         recordButton.alpha = 0.6
         buttonImage.alpha = 0.6
+        circleView.layer.removeAllAnimations()
     }
     private func updateViewsOnRecordingStateChange() {
         switch recordingState {
