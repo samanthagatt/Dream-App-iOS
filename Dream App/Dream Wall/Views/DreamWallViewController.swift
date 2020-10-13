@@ -61,7 +61,7 @@ extension DreamWallViewController {
                dreamWallTableView.reloadData()
            } else {
                isSearching = true
-            filteredDreams = DreamViewModel.shared.dreamArray.filter({$0.title.lowercased().contains(searchBar.text?.lowercased() ?? "")})
+            filteredDreams = DreamViewModel.shared.dreamArray.filter({$0.title.lowercased().contains(searchBar.text?.lowercased() ?? "") || $0.description.lowercased().contains(searchBar.text?.lowercased() ?? "")})
                dreamWallTableView.reloadData()
            }
     }
