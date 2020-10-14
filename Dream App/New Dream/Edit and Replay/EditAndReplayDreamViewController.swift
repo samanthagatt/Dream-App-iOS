@@ -13,6 +13,7 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
     // MARK: Interface Builder
     @IBOutlet var editAndReplayDreamView: EditAndReplayDreamView!
     
+    @IBOutlet weak var saveButton: UIButton!
     @IBAction func dismissKeyboard(_ sender: Any) {
         editAndReplayDreamView.endEditing(true)
     }
@@ -26,13 +27,17 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         if let title = editAndReplayDreamView.titleField.text, !title.isEmpty {
-            let dream = Dream(title: title, description: editAndReplayDreamView.descriptionField.text, date: Date(), identifier: UUID().uuidString, recordingURL: dreamURL)
-            DreamViewModel.shared.saveDream(dream: dream)
+            if let dream = dream {
+                // Update dream
+            } else {
+                // New dream
+                let dream = Dream(title: title, description: editAndReplayDreamView.descriptionField.text, date: Date(), identifier: UUID().uuidString, recordingURL: dreamURL)
+                DreamViewModel.shared.saveDream(dream: dream)
+            }
              _ = self.tabBarController?.selectedIndex = 0
         } else {
             presentRecordingErrorAlert()
         }
-        
     }
     
     // MARK: Properties
@@ -81,14 +86,9 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
         editAndReplayDreamView.scrollView.contentInset
     }()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-      //  navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        saveButton.layer.cornerRadius = 6
         editAndReplayDreamView.descriptionField.multilineDelegate = self
         // So the lazy var is forced to load while the correct content inset is set (without keyboard showing)
         // Hacky way to avoid optional
@@ -103,6 +103,7 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
                        selector: #selector(removeKeyboardContentInset(_:)),
                        name: UIResponder.keyboardWillHideNotification,
                        object: nil)
+        loadElements()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -175,6 +176,8 @@ extension EditAndReplayDreamViewController {
 
 private extension EditAndReplayDreamViewController {
     func loadElements(){
+        guard let _ = dream else { return }
+        saveButton.setTitle("Update", for: .normal)
         
     }
 }

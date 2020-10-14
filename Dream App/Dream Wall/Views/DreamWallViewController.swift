@@ -28,7 +28,6 @@ class DreamWallViewController: UIViewController, UISearchBarDelegate {
         super.viewWillAppear(true)
         reloadData()
     }
-    
 }
 
 // TableView
@@ -58,7 +57,6 @@ extension DreamWallViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: Prepare for Segue
  extension DreamWallViewController {
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if let indexPath = dreamWallTableView.indexPathForSelectedRow{
             guard let detailVC = segue.destination as? EditAndReplayDreamViewController else { return }
             if isSearching {
@@ -67,7 +65,6 @@ extension DreamWallViewController: UITableViewDelegate, UITableViewDataSource {
                 detailVC.dream = DreamViewModel.shared.dreamArray[indexPath.row]
             }
         }
-        
      }
  }
 

@@ -43,6 +43,7 @@ final class BorderedTextField: UITextField  {
         let foregroundAttr = NSAttributedString.Key.foregroundColor
         let foregroundColor = UIColor.white.withAlphaComponent(0.7)
         self.attributedPlaceholder = NSAttributedString(string: placeholder ?? "", attributes:[foregroundAttr: foregroundColor])
+        self.tintColor = .primaryPurple
     }
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
