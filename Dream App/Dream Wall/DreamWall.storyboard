@@ -11,7 +11,6 @@
         <!--Dream Wall-->
         <scene sceneID="CFm-Ga-Hx2">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Uuz-8Z-phx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="Mdf-on-lY1" customClass="DreamWallViewController" customModule="Dream_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ps6-Fk-qJq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -111,6 +110,7 @@
                                             <outlet property="cellView" destination="gwW-07-05Z" id="nLy-3s-Twu"/>
                                             <outlet property="dateLabel" destination="XYW-Rc-qkZ" id="QbD-fJ-TZB"/>
                                             <outlet property="titleLabel" destination="d1B-uT-6y6" id="6L3-HU-Foh"/>
+                                            <segue destination="t1S-p7-2Ih" kind="show" identifier="dreamWallToEdit" id="z7i-6N-3IN"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -138,8 +138,19 @@
                         <outlet property="searchBar" destination="jnT-qS-I98" id="qLL-P9-9hT"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uuz-8Z-phx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="984.05797101449286" y="81.696428571428569"/>
+        </scene>
+        <!--EditAndReplayDream-->
+        <scene sceneID="BIG-33-3qb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EditAndReplayDream" id="t1S-p7-2Ih" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="tjZ-17-WjY"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yK8-tz-SWz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1492" y="125"/>
         </scene>
     </scenes>
     <resources>

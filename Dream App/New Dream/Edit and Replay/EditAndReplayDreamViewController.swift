@@ -35,15 +35,16 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
         
     }
     
-    
     // MARK: Properties
     
     // This dream object is passed when the user selects dream from dreamWallVC
     var dream : Dream? {
         didSet {
-            
+            if !isViewLoaded { return }
+            loadElements()
         }
     }
+    
     /// URL to the recorded dream
     var dreamURL: URL? {
         didSet {
@@ -82,7 +83,7 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+      //  navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func viewDidLoad() {
@@ -168,5 +169,12 @@ extension EditAndReplayDreamViewController {
         editAndReplayDreamView.playButton.isSelected = false
         editAndReplayDreamView.timeLabel.text = timeIntervalFormatter.string(from: duration) ?? "00:00"
         editAndReplayDreamView.scrubber.value = 0
+    }
+    
+}
+
+private extension EditAndReplayDreamViewController {
+    func loadElements(){
+        
     }
 }

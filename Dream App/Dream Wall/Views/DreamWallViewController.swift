@@ -28,6 +28,7 @@ class DreamWallViewController: UIViewController, UISearchBarDelegate {
         super.viewWillAppear(true)
         reloadData()
     }
+    
 }
 
 // TableView
@@ -38,7 +39,7 @@ extension DreamWallViewController: UITableViewDelegate, UITableViewDataSource {
         if isSearching {
             return filteredDreams.count
         } else {
-        return DreamViewModel.shared.dreamArray.count
+            return DreamViewModel.shared.dreamArray.count
         }
     }
     
@@ -47,23 +48,40 @@ extension DreamWallViewController: UITableViewDelegate, UITableViewDataSource {
         if isSearching {
             cell.dream = filteredDreams[indexPath.row]
         } else {
-          cell.dream = DreamViewModel.shared.dreamArray[indexPath.row]
+            cell.dream = DreamViewModel.shared.dreamArray[indexPath.row]
         }
         return cell
     }
 }
 
+ 
+// MARK: Prepare for Segue
+ extension DreamWallViewController {
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let indexPath = dreamWallTableView.indexPathForSelectedRow{
+            guard let detailVC = segue.destination as? EditAndReplayDreamViewController else { return }
+            if isSearching {
+                detailVC.dream = filteredDreams[indexPath.row]
+            } else {
+                detailVC.dream = DreamViewModel.shared.dreamArray[indexPath.row]
+            }
+        }
+        
+     }
+ }
+
 // SearchBar
 extension DreamWallViewController {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text == "" {
-               isSearching = false
-               dreamWallTableView.reloadData()
-           } else {
-               isSearching = true
+            isSearching = false
+            dreamWallTableView.reloadData()
+        } else {
+            isSearching = true
             filteredDreams = DreamViewModel.shared.dreamArray.filter({$0.title.lowercased().contains(searchBar.text?.lowercased() ?? "") || $0.description.lowercased().contains(searchBar.text?.lowercased() ?? "")})
-               dreamWallTableView.reloadData()
-           }
+            dreamWallTableView.reloadData()
+        }
     }
 }
 
