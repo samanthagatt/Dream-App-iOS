@@ -28,23 +28,23 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
     @IBAction func saveButtonTapped(_ sender: Any) {
         if let title = editAndReplayDreamView.titleField.text, !title.isEmpty {
             if let dream = dream {
-                // Update dream
                 let dream = Dream(title: title, description: editAndReplayDreamView.descriptionField.text, date: dream.date, identifier: dream.identifier, recordingURL: dream.recordingURL)
                 DreamViewModel.shared.updateDream(dream: dream)
             } else {
-                // New dream
                 let dream = Dream(title: title, description: editAndReplayDreamView.descriptionField.text, date: Date(), identifier: UUID().uuidString, recordingURL: dreamURL)
                 DreamViewModel.shared.saveDream(dream: dream)
             }
-             _ = self.tabBarController?.selectedIndex = 0
+            if self.tabBarController?.selectedIndex == 0 {
+                 navigationController?.popViewController(animated: true)
+            } else {
+            _ = self.tabBarController?.selectedIndex = 0
+            }
         } else {
             presentRecordingErrorAlert()
         }
     }
     
     // MARK: Properties
-    
-    // This dream object is passed when the user selects dream from dreamWallVC
     var dream : Dream? {
         didSet {
             if !isViewLoaded { return }
@@ -109,7 +109,7 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-         navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     deinit {
@@ -118,7 +118,7 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
     
     @objc func addKeyboardContentInset(_ notification: Notification) {
         if let frameValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-
+            
             kbSize = frameValue.cgRectValue.size
             guard let kbSize = kbSize else { return }
             // Adds 16 points of padding plus the keyboard height minus the height of the view below the textfield
@@ -139,7 +139,7 @@ extension EditAndReplayDreamViewController {
     private func presentRecordingErrorAlert() {
         let dismissAction = UIAlertAction(title: "Dismiss",
                                           style: .destructive) { _ in
-            self.dismiss(animated: true)
+                                            self.dismiss(animated: true)
         }
         presentAlert(for: "Missing Dream Title",
                      message: "Please add title to save dream",
