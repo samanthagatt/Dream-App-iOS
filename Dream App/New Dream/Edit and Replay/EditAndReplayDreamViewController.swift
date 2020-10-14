@@ -29,6 +29,8 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
         if let title = editAndReplayDreamView.titleField.text, !title.isEmpty {
             if let dream = dream {
                 // Update dream
+                let dream = Dream(title: title, description: editAndReplayDreamView.descriptionField.text, date: dream.date, identifier: dream.identifier, recordingURL: dream.recordingURL)
+                DreamViewModel.shared.updateDream(dream: dream)
             } else {
                 // New dream
                 let dream = Dream(title: title, description: editAndReplayDreamView.descriptionField.text, date: Date(), identifier: UUID().uuidString, recordingURL: dreamURL)
@@ -176,8 +178,9 @@ extension EditAndReplayDreamViewController {
 
 private extension EditAndReplayDreamViewController {
     func loadElements(){
-        guard let _ = dream else { return }
+        guard let dream = dream else { return }
         saveButton.setTitle("Update", for: .normal)
-        
+        editAndReplayDreamView.titleField.text = dream.title
+        editAndReplayDreamView.descriptionField.text = dream.description
     }
 }

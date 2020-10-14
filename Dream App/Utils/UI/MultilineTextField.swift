@@ -43,7 +43,7 @@ class MultilineTextField: AccessibleTextView, UITextViewDelegate {
         isEditable = true
         isScrollEnabled = false
         startingColor = textColor ?? .black
-        self.tintColor = .primaryPurple
+        tintColor = .primaryPurple
     }
     private func setPlaceholder() {
         if text.isEmpty {

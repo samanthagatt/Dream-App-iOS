@@ -96,7 +96,7 @@
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                 <real key="value" value="6"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Describe your dream in text"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Describe your dream in text.."/>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="insetLeft">
                                                                 <real key="value" value="8"/>
                                                             </userDefinedRuntimeAttribute>
