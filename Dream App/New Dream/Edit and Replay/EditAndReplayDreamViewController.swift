@@ -35,9 +35,9 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
                 DreamViewModel.shared.saveDream(dream: dream)
             }
             if self.tabBarController?.selectedIndex == 0 {
-                 navigationController?.popViewController(animated: true)
+                navigationController?.popViewController(animated: true)
             } else {
-            _ = self.tabBarController?.selectedIndex = 0
+                _ = self.tabBarController?.selectedIndex = 0
             }
         } else {
             presentRecordingErrorAlert()
