@@ -8,12 +8,6 @@
 
 import Foundation
 
-//struct Alarm : Codable, Equatable {
-//    let date : Date
-//    var isOn : Bool = true
-//    let identifier : String
-//}
-
 class Alarm : Codable, Equatable {
     let date : Date
     var isOn : Bool

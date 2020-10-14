@@ -28,7 +28,7 @@ class DreamViewModel {
     }
     
     func updateDream(dream : Dream){
-        guard var oldDream = savedDreams[dream.identifier] else { return }
+        guard let oldDream = savedDreams[dream.identifier] else { return }
         oldDream.title = dream.title
         oldDream.description = dream.description
         saveToPersistence()

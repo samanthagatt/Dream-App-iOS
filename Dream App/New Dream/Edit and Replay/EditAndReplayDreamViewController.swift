@@ -13,6 +13,7 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
     // MARK: Interface Builder
     @IBOutlet var editAndReplayDreamView: EditAndReplayDreamView!
     
+    @IBOutlet weak var saveButton: UIButton!
     @IBAction func dismissKeyboard(_ sender: Any) {
         editAndReplayDreamView.endEditing(true)
     }
@@ -26,24 +27,31 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         if let title = editAndReplayDreamView.titleField.text, !title.isEmpty {
-            let dream = Dream(title: title, description: editAndReplayDreamView.descriptionField.text, date: Date(), identifier: UUID().uuidString, recordingURL: dreamURL)
-            DreamViewModel.shared.saveDream(dream: dream)
-             _ = self.tabBarController?.selectedIndex = 0
+            if let dream = dream {
+                let dream = Dream(title: title, description: editAndReplayDreamView.descriptionField.text, date: dream.date, identifier: dream.identifier, recordingURL: dream.recordingURL)
+                DreamViewModel.shared.updateDream(dream: dream)
+            } else {
+                let dream = Dream(title: title, description: editAndReplayDreamView.descriptionField.text, date: Date(), identifier: UUID().uuidString, recordingURL: dreamURL)
+                DreamViewModel.shared.saveDream(dream: dream)
+            }
+            if self.tabBarController?.selectedIndex == 0 {
+                navigationController?.popViewController(animated: true)
+            } else {
+                _ = self.tabBarController?.selectedIndex = 0
+            }
         } else {
             presentRecordingErrorAlert()
         }
-        
     }
-    
     
     // MARK: Properties
-    
-    // This dream object is passed when the user selects dream from dreamWallVC
     var dream : Dream? {
         didSet {
-            
+            if !isViewLoaded { return }
+            loadElements()
         }
     }
+    
     /// URL to the recorded dream
     var dreamURL: URL? {
         didSet {
@@ -80,14 +88,9 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
         editAndReplayDreamView.scrollView.contentInset
     }()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        saveButton.layer.cornerRadius = 6
         editAndReplayDreamView.descriptionField.multilineDelegate = self
         // So the lazy var is forced to load while the correct content inset is set (without keyboard showing)
         // Hacky way to avoid optional
@@ -102,10 +105,11 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
                        selector: #selector(removeKeyboardContentInset(_:)),
                        name: UIResponder.keyboardWillHideNotification,
                        object: nil)
+        loadElements()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-         navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     deinit {
@@ -114,7 +118,7 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
     
     @objc func addKeyboardContentInset(_ notification: Notification) {
         if let frameValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-
+            
             kbSize = frameValue.cgRectValue.size
             guard let kbSize = kbSize else { return }
             // Adds 16 points of padding plus the keyboard height minus the height of the view below the textfield
@@ -135,7 +139,7 @@ extension EditAndReplayDreamViewController {
     private func presentRecordingErrorAlert() {
         let dismissAction = UIAlertAction(title: "Dismiss",
                                           style: .destructive) { _ in
-            self.dismiss(animated: true)
+                                            self.dismiss(animated: true)
         }
         presentAlert(for: "Missing Dream Title",
                      message: "Please add title to save dream",
@@ -168,5 +172,15 @@ extension EditAndReplayDreamViewController {
         editAndReplayDreamView.playButton.isSelected = false
         editAndReplayDreamView.timeLabel.text = timeIntervalFormatter.string(from: duration) ?? "00:00"
         editAndReplayDreamView.scrubber.value = 0
+    }
+    
+}
+
+private extension EditAndReplayDreamViewController {
+    func loadElements(){
+        guard let dream = dream else { return }
+        saveButton.setTitle("Update", for: .normal)
+        editAndReplayDreamView.titleField.text = dream.title
+        editAndReplayDreamView.descriptionField.text = dream.description
     }
 }
