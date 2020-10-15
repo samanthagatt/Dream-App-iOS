@@ -21,7 +21,7 @@
                                 <rect key="frame" x="20" y="44" width="374" height="701"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Wkx-el-bnB">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="331"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="315"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add some more details about your dream you think you might want to remember." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5B7-HB-dm4" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="49.5"/>
@@ -30,7 +30,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Wiu-KT-8vo" userLabel="Title StackView">
-                                                <rect key="frame" x="0.0" y="73.5" width="374" height="72.5"/>
+                                                <rect key="frame" x="0.0" y="73.5" width="374" height="56.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOP-Zb-n21" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="25"/>
@@ -39,7 +39,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Give your dream a title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="epc-KT-uQJ" customClass="BorderedTextField" customModule="Dream_App" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="33" width="374" height="39.5"/>
+                                                        <rect key="frame" x="0.0" y="33" width="374" height="23.5"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -70,7 +70,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UT9-BZ-wnU" userLabel="Description StackView">
-                                                <rect key="frame" x="0.0" y="170" width="374" height="161"/>
+                                                <rect key="frame" x="0.0" y="154" width="374" height="161"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vu8-JG-Mv6" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="25"/>
@@ -148,7 +148,7 @@
                                                 </connections>
                                             </button>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="VAX-So-atS">
-                                                <rect key="frame" x="36" y="0.0" width="268.5" height="23"/>
+                                                <rect key="frame" x="36" y="0.0" width="270" height="23"/>
                                                 <color key="minimumTrackTintColor" name="primaryPurple"/>
                                                 <color key="thumbTintColor" name="primaryPurple"/>
                                                 <connections>
@@ -158,7 +158,7 @@
                                                 </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jui-E1-m3q" customClass="MonoDigitLabel" customModule="Dream_App" customModuleProvider="target">
-                                                <rect key="frame" x="318.5" y="0.0" width="47.5" height="22"/>
+                                                <rect key="frame" x="320" y="0.0" width="46" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
