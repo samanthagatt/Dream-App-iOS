@@ -74,7 +74,7 @@ private extension SetAlarmViewController {
     func constrainViews() {
         // alarmView
         alarmView.constrainCenter(to: view)
-        alarmView.constrainSize(width: 350, height: 300)
+        alarmView.constrainSize(width: 275, height: 300)
         // alarmName
         alarmName.constrainCenterX(to: alarmView)
         alarmName.constrainTop(toTopOf: alarmView, offset: 30)

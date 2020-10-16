@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xyD-Iw-pci">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xyD-Iw-pci">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="bIX-jq-uiq">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="bIX-jq-uiq">
                                 <rect key="frame" x="37.5" y="56.5" width="300" height="514"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="dR8-IP-IJF">
@@ -59,13 +60,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the above button to begin recording your dream. Press again to pause." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIx-U6-CwY" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
-                                        <rect key="frame" x="7" y="355" width="286.5" height="74"/>
+                                        <rect key="frame" x="16" y="355" width="268" height="74"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vtC-4T-XXu" customClass="RoundedButton" customModule="Dream_App" customModuleProvider="target">
-                                        <rect key="frame" x="7" y="465" width="286.5" height="49"/>
+                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vtC-4T-XXu" customClass="RoundedButton" customModule="Dream_App" customModuleProvider="target">
+                                        <rect key="frame" x="6" y="465" width="288" height="49"/>
                                         <color key="backgroundColor" name="primaryPurple"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -84,7 +85,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="vtC-4T-XXu" firstAttribute="width" secondItem="JIx-U6-CwY" secondAttribute="width" id="sqQ-SM-kzk"/>
+                                    <constraint firstItem="vtC-4T-XXu" firstAttribute="width" secondItem="JIx-U6-CwY" secondAttribute="width" constant="20" id="sqQ-SM-kzk"/>
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mic.fill" catalog="system" highlightedImage="pause" translatesAutoresizingMaskIntoConstraints="NO" id="b0i-Za-6Aj">
@@ -95,6 +96,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="9X8-g7-S0Y"/>
                         <color key="backgroundColor" name="darkBackground"/>
                         <constraints>
                             <constraint firstItem="b0i-Za-6Aj" firstAttribute="centerX" secondItem="hAw-fS-f0y" secondAttribute="centerX" id="7Ml-pi-jM5"/>
@@ -105,7 +107,6 @@
                             <constraint firstItem="b0i-Za-6Aj" firstAttribute="centerY" secondItem="hAw-fS-f0y" secondAttribute="centerY" id="VMh-Xq-zEH"/>
                             <constraint firstItem="bIX-jq-uiq" firstAttribute="centerX" secondItem="9X8-g7-S0Y" secondAttribute="centerX" id="Zhr-L1-qzN"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="9X8-g7-S0Y"/>
                         <connections>
                             <outlet property="buttonImage" destination="b0i-Za-6Aj" id="rdj-TQ-8uF"/>
                             <outlet property="descriptionLabel" destination="JIx-U6-CwY" id="joQ-XV-nxE"/>
@@ -135,6 +136,14 @@
             <point key="canvasLocation" x="1492" y="125"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="hAw-fS-f0y">
+            <size key="intrinsicContentSize" width="30" height="34"/>
+        </designable>
+        <designable name="vtC-4T-XXu">
+            <size key="intrinsicContentSize" width="46" height="49"/>
+        </designable>
+    </designables>
     <resources>
         <image name="mic.fill" catalog="system" width="108" height="128"/>
         <image name="pause" catalog="system" width="88" height="128"/>
