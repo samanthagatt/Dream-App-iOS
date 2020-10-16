@@ -22,6 +22,7 @@ class DreamWallViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        hideKeyboardWhenTappedAround()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +52,7 @@ extension DreamWallViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
+    
 }
 
  

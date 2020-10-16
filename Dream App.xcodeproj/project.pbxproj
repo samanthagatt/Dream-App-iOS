@@ -16,6 +16,7 @@
 		6A021C32253337550052AB7C /* UIView+constrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A021C31253337550052AB7C /* UIView+constrain.swift */; };
 		6A2A76F92533B0950023000E /* UIColor+themeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2A76F82533B0950023000E /* UIColor+themeColors.swift */; };
 		6A2A76FD2533B0AA0023000E /* UIFont+themeFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2A76FC2533B0AA0023000E /* UIFont+themeFonts.swift */; };
+		B9083CFC253944C300DA4DE4 /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9083CFB253944C300DA4DE4 /* UIViewController+extension.swift */; };
 		D65A2AF9242A4F3E00E3326E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65A2AF8242A4F3E00E3326E /* AppDelegate.swift */; };
 		D65A2AFB242A4F3E00E3326E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65A2AFA242A4F3E00E3326E /* SceneDelegate.swift */; };
 		D65A2AFD242A4F3E00E3326E /* RecordDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65A2AFC242A4F3E00E3326E /* RecordDreamViewController.swift */; };
@@ -74,6 +75,7 @@
 		6A021C31253337550052AB7C /* UIView+constrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+constrain.swift"; sourceTree = "<group>"; };
 		6A2A76F82533B0950023000E /* UIColor+themeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+themeColors.swift"; sourceTree = "<group>"; };
 		6A2A76FC2533B0AA0023000E /* UIFont+themeFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+themeFonts.swift"; sourceTree = "<group>"; };
+		B9083CFB253944C300DA4DE4 /* UIViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
 		D65A2AF5242A4F3E00E3326E /* Dream App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dream App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65A2AF8242A4F3E00E3326E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D65A2AFA242A4F3E00E3326E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				D6EBEB03246C79B500CC227C /* UIViewController+presentAlert.swift */,
 				D6D7629B246F5B3600EF2E17 /* UIView+IBBorder.swift */,
 				D6D7629D24703AB800EF2E17 /* UITextView+EdgeInsets.swift */,
+				B9083CFB253944C300DA4DE4 /* UIViewController+extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				D84BB95E252F8E69001BAC53 /* DreamWallViewController.swift in Sources */,
 				6A021C1725328D230052AB7C /* UIButton+style.swift in Sources */,
 				6A2A76F92533B0950023000E /* UIColor+themeColors.swift in Sources */,
+				B9083CFC253944C300DA4DE4 /* UIViewController+extension.swift in Sources */,
 				6A021C1225328BBA0052AB7C /* UITextField+style.swift in Sources */,
 				D670180E246B91C80029FE3F /* EditAndReplayDreamViewController.swift in Sources */,
 				D84BB962252F8EE8001BAC53 /* DreamTableViewCell.swift in Sources */,
