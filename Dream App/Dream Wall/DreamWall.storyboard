@@ -133,7 +133,13 @@
                             <constraint firstItem="2mM-sf-aQg" firstAttribute="top" secondItem="jnT-qS-I98" secondAttribute="bottom" id="wwr-Tm-nxq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Dream Wall" id="TqZ-gB-t5k"/>
+                    <navigationItem key="navigationItem" title="Dream Wall" id="TqZ-gB-t5k">
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="cpz-gg-xUu">
+                            <connections>
+                                <action selector="newAlarmButtonTapped:" destination="Mdf-on-lY1" id="HVr-rq-qhq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dreamWallTableView" destination="2mM-sf-aQg" id="L0G-DZ-jE1"/>
                         <outlet property="searchBar" destination="jnT-qS-I98" id="qLL-P9-9hT"/>
@@ -156,6 +162,7 @@
     </scenes>
     <resources>
         <image name="moon.fill" catalog="system" width="128" height="121"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="darkBackground">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

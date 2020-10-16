@@ -13,6 +13,9 @@ import UIKit
 class DreamWallViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var dreamWallTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBAction func newAlarmButtonTapped(_ sender: Any) {
+        _ = self.tabBarController?.selectedIndex = 1
+    }
     
     // Properties
     var filteredDreams: [Dream] = []
