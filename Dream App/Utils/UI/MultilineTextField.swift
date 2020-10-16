@@ -44,6 +44,7 @@ class MultilineTextField: AccessibleTextView, UITextViewDelegate {
         isScrollEnabled = false
         startingColor = textColor ?? .black
         tintColor = .primaryPurple
+        textColor = .white
     }
     private func setPlaceholder() {
         if text.isEmpty {
@@ -56,6 +57,7 @@ class MultilineTextField: AccessibleTextView, UITextViewDelegate {
             text = ""
             textColor = startingColor
         }
+        textColor = .white
     }
     
 // TODO: Think of another way to do all this below

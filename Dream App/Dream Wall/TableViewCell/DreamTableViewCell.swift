@@ -13,6 +13,7 @@ class DreamTableViewCell: UITableViewCell {
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var titleLabel: AccessibleLabel!
     @IBOutlet weak var dateLabel: AccessibleLabel!
+    @IBOutlet weak var detailLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +29,7 @@ class DreamTableViewCell: UITableViewCell {
         didSet {
             guard let dream = dream else { return }
             titleLabel.text = dream.title
+           // detailLabel.text = dream.description
             let dateFormmatter = DateFormatter()
             dateFormmatter.dateStyle = .medium
             dateFormmatter.timeStyle = .short
