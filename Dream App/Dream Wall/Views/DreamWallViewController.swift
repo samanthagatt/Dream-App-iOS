@@ -16,12 +16,11 @@ class DreamWallViewController: UIViewController, UISearchBarDelegate {
     @IBAction func newAlarmButtonTapped(_ sender: Any) {
         _ = self.tabBarController?.selectedIndex = 1
     }
-    
-    // Properties
+    // MARK: - Properties
     var filteredDreams: [Dream] = []
     var isSearching = false
     
-    // Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -34,7 +33,7 @@ class DreamWallViewController: UIViewController, UISearchBarDelegate {
     }
 }
 
-// TableView
+// MARK: -TableView
 extension DreamWallViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -75,7 +74,7 @@ extension DreamWallViewController: UITableViewDelegate, UITableViewDataSource {
      }
  }
 
-// SearchBar
+// MARK: - SearchBar
 extension DreamWallViewController {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text == "" {
@@ -89,7 +88,7 @@ extension DreamWallViewController {
     }
 }
 
-// Private func
+// MARK: - Private func
 private extension DreamWallViewController {
     func reloadData(){
         DreamViewModel.shared.loadFromPersistence()
@@ -98,7 +97,7 @@ private extension DreamWallViewController {
     
     func setupView(){
         dreamWallTableView.separatorStyle = .none
-        searchBar.tintColor = #colorLiteral(red: 0.4254588485, green: 0.3910192549, blue: 0.9995513558, alpha: 1)
+        searchBar.tintColor = .primaryPurple
         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
         textFieldInsideSearchBar?.textColor = .white
         searchBar.delegate = self
