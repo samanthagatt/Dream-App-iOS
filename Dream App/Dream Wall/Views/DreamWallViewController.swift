@@ -35,7 +35,6 @@ class DreamWallViewController: UIViewController, UISearchBarDelegate {
 extension DreamWallViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         if isSearching {
             return filteredDreams.count
         } else {
@@ -53,6 +52,9 @@ extension DreamWallViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        92
+    }
 }
 
  
