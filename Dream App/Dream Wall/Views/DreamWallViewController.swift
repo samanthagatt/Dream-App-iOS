@@ -55,6 +55,7 @@ extension DreamWallViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+       // 92
         92
     }
 }
