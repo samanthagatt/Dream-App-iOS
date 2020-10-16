@@ -10,21 +10,15 @@ import UIKit
 
 final class EditAndReplayDreamViewController: UIViewController, UITextViewDelegate, AudioPlayerHelperUIDelegate {
     
-    // MARK: Interface Builder
+    // MARK: - Interface Builder -
     @IBOutlet var editAndReplayDreamView: EditAndReplayDreamView!
-    
     @IBOutlet weak var saveButton: UIButton!
     @IBAction func dismissKeyboard(_ sender: Any) {
         editAndReplayDreamView.endEditing(true)
     }
-    
     @IBAction func deleteButtonTapped(_ sender: Any) {
-        if let dream = dream {
-            DreamViewModel.shared.deleteDream(dream: dream)
-        }
-        navigationController?.popViewController(animated: true)
+        presentDeleteAlert()
     }
-    
     @IBAction func saveButtonTapped(_ sender: Any) {
         if let title = editAndReplayDreamView.titleField.text, !title.isEmpty {
             if let dream = dream {
@@ -44,7 +38,7 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
         }
     }
     
-    // MARK: Properties
+    // MARK: - Properties -
     var dream : Dream? {
         didSet {
             if !isViewLoaded { return }
@@ -83,11 +77,13 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
         formatting.allowedUnits = [.minute, .second]
         return formatting
     }()
+    
     private var kbSize: CGSize?
     private lazy var originalContentInsets: UIEdgeInsets = {
         editAndReplayDreamView.scrollView.contentInset
     }()
     
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         saveButton.layer.cornerRadius = 6
@@ -115,8 +111,11 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
-    @objc func addKeyboardContentInset(_ notification: Notification) {
+}
+
+// MARK: - Objc/Keyboard
+@objc extension EditAndReplayDreamViewController {
+     func addKeyboardContentInset(_ notification: Notification) {
         if let frameValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             
             kbSize = frameValue.cgRectValue.size
@@ -128,15 +127,16 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
         }
     }
     
-    @objc func removeKeyboardContentInset(_ notification: Notification) {
+    func removeKeyboardContentInset(_ notification: Notification) {
         kbSize = nil
         editAndReplayDreamView.scrollView.contentInset = originalContentInsets
         // if you have the scroll indicator visible you can reset its insets too
     }
 }
 
-extension EditAndReplayDreamViewController {
-    private func presentRecordingErrorAlert() {
+// MARK: - Alerts -
+private extension EditAndReplayDreamViewController {
+    func presentRecordingErrorAlert() {
         let dismissAction = UIAlertAction(title: "Dismiss",
                                           style: .destructive) { _ in
                                             self.dismiss(animated: true)
@@ -145,9 +145,37 @@ extension EditAndReplayDreamViewController {
                      message: "Please add title to save dream",
                      actions: dismissAction)
     }
+    
+    func presentDeleteAlert() {
+        let deleteAction = UIAlertAction(title: "Delete",
+                                         style: .default) { (_) in
+                                            if let dream = self.dream {
+                                                DreamViewModel.shared.deleteDream(dream: dream)
+                                            }
+                                            self.navigationController?.popViewController(animated: true)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+        presentAlert(for: "Delete Dream?",
+                     message: "Your dream will be parmanently erased from memory",
+                     actions: deleteAction, cancelAction)
+    }
+    
+    func presentGoingBackAkert() {
+        let deleteAction = UIAlertAction(title: "Delete",
+                                         style: .default) { (_) in
+                                            if let dream = self.dream {
+                                                DreamViewModel.shared.deleteDream(dream: dream)
+                                            }
+                                            self.navigationController?.popViewController(animated: true)
+        }
+        let cancelAction = UIAlertAction(title: "Ok", style: .default)
+        presentAlert(for: "Save Dream",
+                     message: "Please save your dream before leaving so your dream will not be deleted",
+                     actions: deleteAction, cancelAction)
+    }
 }
 
-// MARK: Audio Player Helper UI Delegate
+// MARK: - Audio Player Helper UI Delegate
 extension EditAndReplayDreamViewController {
     func audioPlayerHelper(_ audioPlayerHelper: AudioPlayerHelper, loadedAudio duration: TimeInterval?, successfully flag: Bool) {
         loadViewIfNeeded()
@@ -176,6 +204,7 @@ extension EditAndReplayDreamViewController {
     
 }
 
+ // MARK: - Functions -
 private extension EditAndReplayDreamViewController {
     func loadElements(){
         guard let dream = dream else { return }
