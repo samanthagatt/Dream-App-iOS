@@ -159,20 +159,6 @@ private extension EditAndReplayDreamViewController {
                      message: "Your dream will be parmanently erased from memory",
                      actions: deleteAction, cancelAction)
     }
-    
-    func presentGoingBackAkert() {
-        let deleteAction = UIAlertAction(title: "Delete",
-                                         style: .default) { (_) in
-                                            if let dream = self.dream {
-                                                DreamViewModel.shared.deleteDream(dream: dream)
-                                            }
-                                            self.navigationController?.popViewController(animated: true)
-        }
-        let cancelAction = UIAlertAction(title: "Ok", style: .default)
-        presentAlert(for: "Save Dream",
-                     message: "Please save your dream before leaving so your dream will not be deleted",
-                     actions: deleteAction, cancelAction)
-    }
 }
 
 // MARK: - Audio Player Helper UI Delegate
