@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="bIX-jq-uiq">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="bIX-jq-uiq">
                                 <rect key="frame" x="37.5" y="56.5" width="300" height="514"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="dR8-IP-IJF">
@@ -60,13 +60,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the above button to begin recording your dream. Press again to pause." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIx-U6-CwY" customClass="AccessibleLabel" customModule="Dream_App" customModuleProvider="target">
-                                        <rect key="frame" x="7" y="355" width="286.5" height="74"/>
+                                        <rect key="frame" x="16" y="355" width="268" height="74"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" alpha="0.0" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vtC-4T-XXu" customClass="RoundedButton" customModule="Dream_App" customModuleProvider="target">
-                                        <rect key="frame" x="7" y="465" width="286.5" height="49"/>
+                                        <rect key="frame" x="6" y="465" width="288" height="49"/>
                                         <color key="backgroundColor" name="primaryPurple"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -85,7 +85,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="vtC-4T-XXu" firstAttribute="width" secondItem="JIx-U6-CwY" secondAttribute="width" id="sqQ-SM-kzk"/>
+                                    <constraint firstItem="vtC-4T-XXu" firstAttribute="width" secondItem="JIx-U6-CwY" secondAttribute="width" constant="20" id="sqQ-SM-kzk"/>
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mic.fill" catalog="system" highlightedImage="pause" translatesAutoresizingMaskIntoConstraints="NO" id="b0i-Za-6Aj">
