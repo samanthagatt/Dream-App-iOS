@@ -28,7 +28,7 @@ class SetAlarmViewController: UIViewController {
     private let datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
         if #available(iOS 14, *) {
-            datePicker.preferredDatePickerStyle = .wheels
+            // datePicker.preferredDatePickerStyle = .wheels
         }
         datePicker.setValue(UIColor.white, forKeyPath: "textColor")
         datePicker.datePickerMode = .time

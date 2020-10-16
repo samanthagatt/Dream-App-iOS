@@ -44,7 +44,7 @@ final class RecordDreamView: UIView {
     let circleView = UIView().addStyling(
         backgroundColor: .darkBackground,
         cornerRadius: 10,
-        borderWidth: 1,
+        borderWidth: 2,
         borderColor: .primaryPurple
     )
 }
