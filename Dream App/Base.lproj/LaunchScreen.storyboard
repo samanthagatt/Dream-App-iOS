@@ -15,18 +15,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dream Logo" translatesAutoresizingMaskIntoConstraints="NO" id="zUs-F0-2XV">
-                                <rect key="frame" x="44.5" y="285.5" width="325" height="325"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dream Logo Gradient" translatesAutoresizingMaskIntoConstraints="NO" id="VO3-nj-fte">
+                                <rect key="frame" x="20" y="258.5" width="374" height="379"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="325" id="7pb-6t-yNM"/>
-                                    <constraint firstAttribute="width" constant="325" id="WqX-Nd-Byx"/>
+                                    <constraint firstAttribute="height" constant="379" id="VBp-ho-Gce"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="zUs-F0-2XV" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="5zK-Or-nzA"/>
-                            <constraint firstItem="zUs-F0-2XV" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ek9-O9-FAy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VO3-nj-fte" secondAttribute="trailing" constant="20" id="FxH-WX-BzN"/>
+                            <constraint firstItem="VO3-nj-fte" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Sub-Ez-ESl"/>
+                            <constraint firstItem="VO3-nj-fte" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="YNQ-28-W7I"/>
+                            <constraint firstItem="VO3-nj-fte" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="q2T-dl-xmP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -37,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Dream Logo" width="512" height="512"/>
+        <image name="Dream Logo Gradient" width="512" height="512"/>
     </resources>
 </document>
