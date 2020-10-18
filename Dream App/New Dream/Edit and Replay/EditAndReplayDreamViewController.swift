@@ -31,7 +31,7 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
             if self.tabBarController?.selectedIndex == 0 {
                 navigationController?.popViewController(animated: true)
             } else {
-                _ = self.tabBarController?.selectedIndex = 0
+                self.tabBarController?.selectedIndex = 0
             }
         } else {
             presentRecordingErrorAlert()
@@ -51,15 +51,14 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
         didSet {
             guard let url = dreamURL else { return }
             audioPlayerHelper.load(url: url)
-            speechToTextHelper.transcribe(audio: url) { result in
-                
-                switch result {
-                case .success(let text):
-                    print("Text", text)
-                case .failure(let error):
-                    print("Error:", error)
-                }
-            }
+//            speechToTextHelper.transcribe(audio: url) { result in
+//                switch result {
+//                case .success(let text):
+//                    print("Text", text)
+//                case .failure(let error):
+//                    print("Error:", error)
+//                }
+//            }
         }
     }
     
@@ -102,6 +101,7 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
                        name: UIResponder.keyboardWillHideNotification,
                        object: nil)
         loadElements()
+        editAndReplayDreamView.audioPlayerHelper = audioPlayerHelper
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -161,7 +161,7 @@ private extension EditAndReplayDreamViewController {
     }
 }
 
-// MARK: - Audio Player Helper UI Delegate
+// MARK: - Audio Player Helper UI Delegate -
 extension EditAndReplayDreamViewController {
     func audioPlayerHelper(_ audioPlayerHelper: AudioPlayerHelper, loadedAudio duration: TimeInterval?, successfully flag: Bool) {
         loadViewIfNeeded()
@@ -192,7 +192,7 @@ extension EditAndReplayDreamViewController {
 
  // MARK: - Functions -
 private extension EditAndReplayDreamViewController {
-    func loadElements(){
+    func loadElements() {
         guard let dream = dream else { return }
         saveButton.setTitle("Update", for: .normal)
         editAndReplayDreamView.titleField.text = dream.title

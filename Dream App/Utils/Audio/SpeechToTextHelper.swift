@@ -18,13 +18,27 @@ extension TranscriptionError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .userDenied:
-            return NSLocalizedString("Description of user denied", comment: "Authorization to transcribe speech to text was denied. You can change this in your settings.")
+            return NSLocalizedString(
+                "Description of user denied",
+                comment: "Authorization to transcribe speech to text was denied." +
+                    "You can change this in your settings."
+            )
         case .deviceRestricted:
-            return NSLocalizedString("Description of device restriction", comment: "Your device is restsricted from transcribing speech to text.")
+            return NSLocalizedString(
+                "Description of device restriction",
+                comment: "Your device is restsricted from transcribing speech to text."
+            )
         case .unknownAuthorization:
-            return NSLocalizedString("Description of unknown authorization", comment: "Transcription from speech to text has not been authorized.")
+            return NSLocalizedString(
+                "Description of unknown authorization",
+                comment: "Transcription from speech to text has not been authorized."
+            )
         case .errorOccurred(error: let error):
-            return NSLocalizedString("Description of transcription error", comment: "An error occurred while transcribing audio file.\("\nError: ", error?.localizedDescription)")
+            return NSLocalizedString(
+                "Description of transcription error",
+                comment: "An error occurred while transcribing audio file." +
+                    "\("\nError: ", error?.localizedDescription)"
+            )
         }
     }
 }
@@ -42,47 +56,57 @@ enum TranscriptionResult {
 ///
 /// - Note: Make sure to add `NSSpeechRecognitionUsageDescription` to plist
 /// (e.g. `$(PRODUCT_NAME) needs your permission to use speech recognition so we can transcribe your audio files into text`)
-struct SpeechToTextHelper {
-    private func transcribeAudio(url: URL, _ completion: @escaping (TranscriptionResult) -> Void) {
-        let recognizer = SFSpeechRecognizer()
-        let request = SFSpeechURLRecognitionRequest(url: url)
-        
-        recognizer?.recognitionTask(with: request, resultHandler: { (result, error) in
-            guard let result = result else {
-                completion(.failure(.errorOccurred(error: error)))
-                return
+class SpeechToTextHelper {
+    private let recognizer = SFSpeechRecognizer()
+    private var recognitionTask: SFSpeechRecognitionTask?
+    private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
+    private let audioEngine = AVAudioEngine()
+}
+
+extension SpeechToTextHelper {
+    func startSession() throws {
+        if let recognitionTask = recognitionTask {
+            recognitionTask.cancel()
+            self.recognitionTask = nil
+        }
+
+        let session = AVAudioSession.sharedInstance()
+        try session.setCategory(.record)
+
+        recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
+        guard let recognitionRequest = recognitionRequest else {
+            throw TranscriptionError.errorOccurred(error: nil)
+        }
+
+        recognitionRequest.shouldReportPartialResults = true
+
+        recognitionTask = recognizer?.recognitionTask(
+            with: recognitionRequest
+        ) { [weak self] result, error in
+
+            var finished = false
+
+            if let result = result {
+                print(result.bestTranscription.formattedString)
+                finished = result.isFinal
             }
-            if result.isFinal {
-                let bestResult = result.bestTranscription.formattedString
-                completion(.success(text: bestResult))
-            }
-        })
-    }
-    
-    /// Transcribes audio file at url containing speech into text
-    /// - parameter url: URL pointing to the audio file to transcribe
-    /// - parameter completion: Completion handler that will be called when transcription is complete
-    /// - parameter result: Instance of the `TranscriptionResult` enum referring to whether or not the transcription was successful
-    func transcribe(audio url: URL, _ completion: @escaping (_ result: TranscriptionResult) -> Void) {
-        // Request authorization every time
-        // If authorization status has already been determined it won't prompt the user
-        // Using a struct so no need to capture weak self since it's not being passed by reference
-        SFSpeechRecognizer.requestAuthorization { status in
-            // Move back to main thread so you can update UI after without worrying
-            DispatchQueue.main.async {
-                switch status {
-                    // Should not be undetermined after requesting authorization
-                    case .notDetermined: ()
-                    case .denied:
-                        completion(.failure(.userDenied))
-                    case .restricted:
-                        completion(.failure(.deviceRestricted))
-                    case .authorized:
-                        self.transcribeAudio(url: url, completion)
-                    @unknown default:
-                        completion(.failure(.unknownAuthorization))
-                }
+
+            if error != nil || finished {
+                self?.audioEngine.stop()
+                self?.audioEngine.inputNode.removeTap(onBus: 0)
+
+                self?.recognitionRequest = nil
+                self?.recognitionTask = nil
             }
         }
+
+        let recordingFormat = audioEngine.inputNode.outputFormat(forBus: 0)
+        audioEngine.inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, _ in
+
+            self.recognitionRequest?.append(buffer)
+        }
+
+        audioEngine.prepare()
+        try audioEngine.start()
     }
 }
