@@ -61,7 +61,7 @@ extension DreamWallViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
  
-// MARK: Prepare for Segue
+// MARK: - Prepare for Segue -
  extension DreamWallViewController {
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let indexPath = dreamWallTableView.indexPathForSelectedRow{
@@ -75,7 +75,7 @@ extension DreamWallViewController: UITableViewDelegate, UITableViewDataSource {
      }
  }
 
-// MARK: - SearchBar
+// MARK: - SearchBar -
 extension DreamWallViewController {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text == "" {
