@@ -22,10 +22,22 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
     @IBAction func saveButtonTapped(_ sender: Any) {
         if let title = editAndReplayDreamView.titleField.text, !title.isEmpty {
             if let dream = dream {
-                let dream = Dream(title: title, description: editAndReplayDreamView.descriptionField.text, date: dream.date, identifier: dream.identifier, recordingURL: dream.recordingURL)
+                let dream = Dream(
+                    title: title,
+                    description: editAndReplayDreamView.descriptionField.text,
+                    date: dream.date,
+                    identifier: dream.identifier,
+                    recordingURL: dream.recordingURL
+                )
                 DreamViewModel.shared.updateDream(dream: dream)
             } else {
-                let dream = Dream(title: title, description: editAndReplayDreamView.descriptionField.text, date: Date(), identifier: UUID().uuidString, recordingURL: dreamURL)
+                let dream = Dream(
+                    title: title,
+                    description: editAndReplayDreamView.descriptionField.text,
+                    date: Date(),
+                    identifier: UUID().uuidString,
+                    recordingURL: dreamURL
+                )
                 DreamViewModel.shared.saveDream(dream: dream)
             }
             if self.tabBarController?.selectedIndex == 0 {
@@ -100,8 +112,8 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
                        selector: #selector(removeKeyboardContentInset(_:)),
                        name: UIResponder.keyboardWillHideNotification,
                        object: nil)
-        loadElements()
         editAndReplayDreamView.audioPlayerHelper = audioPlayerHelper
+        loadElements()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -197,5 +209,6 @@ private extension EditAndReplayDreamViewController {
         saveButton.setTitle("Update", for: .normal)
         editAndReplayDreamView.titleField.text = dream.title
         editAndReplayDreamView.descriptionField.text = dream.description
+        dreamURL = dream.recordingURL
     }
 }
