@@ -221,7 +221,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="mjv-DI-a87">
                         <barButtonItem key="rightBarButtonItem" title="Delete" id="Dqt-GW-D6u">
-                            <color key="tintColor" red="0.86794098984771573" green="0.86794098984771573" blue="0.86794098984771573" alpha="0.79861408390410971" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="1" green="0.38838668842380475" blue="0.32046094993958141" alpha="0.82272046232876717" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="deleteButtonTapped:" destination="NfO-hZ-nZf" id="2TU-KC-hu0"/>
                             </connections>
