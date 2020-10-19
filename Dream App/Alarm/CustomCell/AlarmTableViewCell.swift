@@ -20,6 +20,7 @@ class AlarmTableViewCell: UITableViewCell {
         super.awakeFromNib()
         setupViews()
         constrainViews()
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -38,6 +39,7 @@ class AlarmTableViewCell: UITableViewCell {
             timeLabel.text = hour
             amLabel.text = symbol
             switchToggle.isOn = alarm.isOn
+            viewSwitch(mySwitch: switchToggle)
         }
     }
     
@@ -62,8 +64,12 @@ class AlarmTableViewCell: UITableViewCell {
         
         addSubview(cellView)
         addSubview(timeLabel)
-       // backgroundColor = .red
     }
+    
+    override func layoutSubviews() {
+            super.layoutSubviews()
+            // do your thing
+        }
     
     func constrainViews(){
         //ContrainViews
@@ -90,10 +96,18 @@ class AlarmTableViewCell: UITableViewCell {
     @objc func switchChanged(mySwitch: UISwitch) {
         guard let alarm = alarm else { return }
         AlarmViewModel.shared.updateAlarm(alarm: alarm)
+        viewSwitch(mySwitch: mySwitch)
+    }
+    
+    @objc func viewSwitch(mySwitch : UISwitch){
         if mySwitch.isOn {
             addNotification()
+            timeLabel.alpha = 1
+            amLabel.alpha = 1
         } else {
             removeNotification()
+            timeLabel.alpha = 0.5
+            amLabel.alpha = 0.5
         }
     }
 }
