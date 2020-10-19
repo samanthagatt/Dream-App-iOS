@@ -41,9 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                    myTabBar.selectedIndex = 1 //Selecting tab here
                    
             }
-            // TODO: implement your logic
-            // just don't forget to dispatch UI stuff on main thread
-        
     }
 
     
