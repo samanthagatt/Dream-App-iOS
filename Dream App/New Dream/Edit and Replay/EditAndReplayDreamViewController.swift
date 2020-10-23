@@ -22,23 +22,20 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
     @IBAction func saveButtonTapped(_ sender: Any) {
         if let title = editAndReplayDreamView.titleField.text, !title.isEmpty {
             if let dream = dream {
-                let dream = Dream(
+                dreamViewModel?.updateDream(
+                    id: dream.identifier,
                     title: title,
-                    description: editAndReplayDreamView.descriptionField.text,
-                    date: dream.date,
-                    identifier: dream.identifier,
-                    recordingURL: dream.recordingURL
+                    description: editAndReplayDreamView.descriptionField.text
                 )
-                DreamViewModel.shared.updateDream(dream: dream)
             } else {
                 let dream = Dream(
                     title: title,
                     description: editAndReplayDreamView.descriptionField.text,
                     date: Date(),
                     identifier: UUID().uuidString,
-                    recordingURL: dreamURL
+                    recordingName: dreamURL?.lastPathComponent
                 )
-                DreamViewModel.shared.saveDream(dream: dream)
+                dreamViewModel?.create(dream: dream)
             }
             if self.tabBarController?.selectedIndex == 0 {
                 navigationController?.popViewController(animated: true)
@@ -51,37 +48,26 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
     }
     
     // MARK: - Properties -
+    var dreamViewModel: DreamViewModel?
     var dream : Dream? {
         didSet {
             if !isViewLoaded { return }
             loadElements()
         }
     }
-    
     /// URL to the recorded dream
     var dreamURL: URL? {
         didSet {
             guard let url = dreamURL else { return }
             audioPlayerHelper.load(url: url)
-//            speechToTextHelper.transcribe(audio: url) { result in
-//                switch result {
-//                case .success(let text):
-//                    print("Text", text)
-//                case .failure(let error):
-//                    print("Error:", error)
-//                }
-//            }
         }
     }
-    
-    let speechToTextHelper = SpeechToTextHelper()
     private lazy var audioPlayerHelper: AudioPlayerHelper = {
         AudioPlayerHelper(uiDelegate: self,
                           errorDelegate: DreamPlayerErrorDelegate(),
                           useTimer: true)
     }()
-    
-    private lazy var timeIntervalFormatter: DateComponentsFormatter = {
+    private static var timeIntervalFormatter: DateComponentsFormatter = {
         let formatting = DateComponentsFormatter()
         formatting.unitsStyle = .positional // 00:00  mm:ss
         formatting.zeroFormattingBehavior = .pad
@@ -94,7 +80,7 @@ final class EditAndReplayDreamViewController: UIViewController, UITextViewDelega
         editAndReplayDreamView.scrollView.contentInset
     }()
     
-    // MARK: - LifeCycle
+    // MARK: - LifeCycle -
     override func viewDidLoad() {
         super.viewDidLoad()
         saveButton.layer.cornerRadius = 6
@@ -159,12 +145,14 @@ private extension EditAndReplayDreamViewController {
     }
     
     func presentDeleteAlert() {
-        let deleteAction = UIAlertAction(title: "Delete",
-                                         style: .default) { (_) in
-                                            if let dream = self.dream {
-                                                DreamViewModel.shared.deleteDream(dream: dream)
-                                            }
-                                            self.navigationController?.popViewController(animated: true)
+        let deleteAction = UIAlertAction(
+            title: "Delete",
+            style: .default
+        ) { [weak self] _ in
+            if let dream = self?.dream {
+                self?.dreamViewModel?.deleteDream(id: dream.identifier)
+            }
+            self?.navigationController?.popViewController(animated: true)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .default)
         presentAlert(for: "Delete Dream?",
@@ -178,7 +166,7 @@ extension EditAndReplayDreamViewController {
     func audioPlayerHelper(_ audioPlayerHelper: AudioPlayerHelper, loadedAudio duration: TimeInterval?, successfully flag: Bool) {
         loadViewIfNeeded()
         editAndReplayDreamView.playButton.isEnabled = true
-        editAndReplayDreamView.timeLabel.text = timeIntervalFormatter.string(from: duration ?? 0) ?? "00:00"
+        editAndReplayDreamView.timeLabel.text = Self.timeIntervalFormatter.string(from: duration ?? 0) ?? "00:00"
         editAndReplayDreamView.scrubber.minimumValue = 0
         editAndReplayDreamView.scrubber.maximumValue = Float(duration ?? 0)
     }
@@ -187,16 +175,16 @@ extension EditAndReplayDreamViewController {
     }
     func audioPlayerHelper(_ audioPlayerHelper: AudioPlayerHelper, timerCalledAt currentTime: TimeInterval, duration: TimeInterval) {
         let timeLeft = round(duration) - currentTime
-        editAndReplayDreamView.timeLabel.text = timeIntervalFormatter.string(from: timeLeft) ?? "00:00"
+        editAndReplayDreamView.timeLabel.text = Self.timeIntervalFormatter.string(from: timeLeft) ?? "00:00"
         editAndReplayDreamView.scrubber.value = Float(currentTime)
     }
     func audioPlayerHelper(_ audioPlayerHelper: AudioPlayerHelper, didScrubTo currentTime: TimeInterval, duration: TimeInterval) {
         let timeLeft = round(duration) - currentTime
-        editAndReplayDreamView.timeLabel.text = timeIntervalFormatter.string(from: timeLeft) ?? "00:00"
+        editAndReplayDreamView.timeLabel.text = Self.timeIntervalFormatter.string(from: timeLeft) ?? "00:00"
     }
     func audioPlayerHelper(_ audioPlayerHelper: AudioPlayerHelper, didFinishPlaying duration: TimeInterval) {
         editAndReplayDreamView.playButton.isSelected = false
-        editAndReplayDreamView.timeLabel.text = timeIntervalFormatter.string(from: duration) ?? "00:00"
+        editAndReplayDreamView.timeLabel.text = Self.timeIntervalFormatter.string(from: duration) ?? "00:00"
         editAndReplayDreamView.scrubber.value = 0
     }
     
@@ -209,6 +197,12 @@ private extension EditAndReplayDreamViewController {
         saveButton.setTitle("Update", for: .normal)
         editAndReplayDreamView.titleField.text = dream.title
         editAndReplayDreamView.descriptionField.text = dream.description
-        dreamURL = dream.recordingURL
+        guard let url = FileManager.default
+                .urls(for: .documentDirectory, in: .allDomainsMask).first?
+                .appendingPathComponent(dream.recordingName ?? "") else {
+            dreamURL = nil
+            return
+        }
+        dreamURL = url
     }
 }

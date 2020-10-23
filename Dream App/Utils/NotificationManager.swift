@@ -17,8 +17,16 @@ class AlarmNotofications {
         content.title = "RECORD YOUR DREAM!"
         content.sound  = UNNotificationSound(named: UNNotificationSoundName(rawValue: "alarm.mp3"))
         content.body = "You set an alarm to record your dream. If you don't record, you have a 90% chance of forgetting."
+
+       var dateComponents = DateComponents()
+       dateComponents.hour = Calendar.current.component(.hour, from: date)
+       dateComponents.minute = Calendar.current.component(.minute, from: date)
+       dateComponents.second = Calendar.current.component(.minute, from: date)
+       
+        let trigger = UNCalendarNotificationTrigger(
+            dateMatching: dateComponents,
+            repeats: true)
         
-        let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date), repeats: true)
         let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request) { (error) in
             if error != nil {
