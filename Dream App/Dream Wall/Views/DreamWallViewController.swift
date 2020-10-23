@@ -22,7 +22,7 @@ class DreamWallViewController: UIViewController, UISearchBarDelegate {
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()   
         setupView()
         hideKeyboardWhenTappedAround()
     }

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mdf-on-lY1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mdf-on-lY1">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -121,7 +120,6 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="aiz-on-YMq"/>
                         <color key="backgroundColor" name="darkBackground"/>
                         <constraints>
                             <constraint firstItem="jnT-qS-I98" firstAttribute="leading" secondItem="aiz-on-YMq" secondAttribute="leading" id="AYT-GC-b1X"/>
@@ -132,6 +130,7 @@
                             <constraint firstItem="aiz-on-YMq" firstAttribute="bottom" secondItem="2mM-sf-aQg" secondAttribute="bottom" id="LRj-xx-ZM5"/>
                             <constraint firstItem="2mM-sf-aQg" firstAttribute="top" secondItem="jnT-qS-I98" secondAttribute="bottom" id="wwr-Tm-nxq"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="aiz-on-YMq"/>
                     </view>
                     <navigationItem key="navigationItem" title="Dreams" id="TqZ-gB-t5k">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="cpz-gg-xUu">
