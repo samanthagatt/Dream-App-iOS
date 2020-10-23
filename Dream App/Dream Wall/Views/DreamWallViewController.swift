@@ -125,7 +125,7 @@ private extension DreamWallViewController {
     }
     
     func hideDreamLabel(){
-        if DreamViewModel.shared.dreamArray.count == 0 {
+        if dreamViewModel?.dreamArray.count == 0 {
             noDataView.isHidden = false
         } else {
             noDataView.isHidden = true
