@@ -8,11 +8,13 @@
 
 import UIKit
 
-final class RecordDreamViewController: UIViewController, AudioRecorderHelperUIDelegate {
+final class RecordDreamViewController: UIViewController, AudioRecorderHelperUIDelegate, DreamViewModelContainable {
     
+    // MARK: - Properties -
+    var dreamViewModel: DreamViewModel?
     /// How long an audio recording can be
     private let timeLimit = 300.0
-    lazy var audioRecorderHelper: AudioRecorderHelper = {
+    private lazy var audioRecorderHelper: AudioRecorderHelper = {
         AudioRecorderHelper(uiDelegate: self,
                             errorDelegate: DreamRecorderErrorDelegate(),
                             timeLimit: timeLimit,
@@ -20,34 +22,40 @@ final class RecordDreamViewController: UIViewController, AudioRecorderHelperUIDe
                             timerInterval: 0.08)
     }()
     
+    // MARK: - Interface Builder -
     @IBOutlet var recordDreamView: RecordDreamView! {
         didSet {
             recordDreamView.recorderHelper = audioRecorderHelper
         }
     }
     
+    // MARK: - Methods -
+    private func setupView() {
+        view.addSubviews(recordDreamView.circleView)
+        view.sendSubviewToBack(recordDreamView.circleView)
+        recordDreamView.circleView.constrainCenter(to: recordDreamView.recordButton)
+        recordDreamView.circleView.constrainWidth(to: recordDreamView.recordButton, constant: 10)
+        recordDreamView.circleView.constrainHeight(to: recordDreamView.recordButton, constant: 10)
+    }
     private func performShowRecordingDetailSegue(url: URL) {
         performSegue(withIdentifier: "showRecordingDetail", sender: url)
     }
     
-  // MARK: Life Cycle
+  // MARK: - Life Cycle -
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         recordDreamView.recordingState = .initial
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
-    
     override func viewDidLayoutSubviews() {
         recordDreamView.circleView.layer.cornerRadius = recordDreamView.circleView.frame.height * 0.50
     }
-    
 }
 
-// MARK: Alert Controllers
+// MARK: - Alert Controllers -
 extension RecordDreamViewController {
     private func presentMicDeniedAlert() {
         let settingsAction = UIAlertAction(title: "Open Settings",
@@ -80,18 +88,19 @@ extension RecordDreamViewController {
     }
 }
 
-// MARK: Prepare for Segue
+// MARK: - Prepare for Segue -
 extension RecordDreamViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showRecordingDetail" {
             guard let url = sender as? URL,
                 let destVC = segue.destination as? EditAndReplayDreamViewController else { return }
             destVC.dreamURL = url
+            destVC.dreamViewModel = dreamViewModel
         }
     }
 }
 
-// MARK: Audio Recorder Helper Delegate
+// MARK: - Audio Recorder Helper Delegate -
 extension RecordDreamViewController {
     func audioRecorderHelper(_ audiRecorderHelper: AudioRecorderHelper, recordingChanged isRecording: Bool) {
         recordDreamView.recordingState = isRecording ? .recording : .paused
@@ -117,16 +126,5 @@ extension RecordDreamViewController {
     }
     func audioRecorderHelperWasDeniedMicrophoneAccess() {
         presentMicDeniedAlert()
-    }
-}
-
-// MARK: Audio Recorder Helper Delegate
-private extension RecordDreamViewController {
-    func setupView(){
-        view.addSubviews(recordDreamView.circleView)
-        view.sendSubviewToBack(recordDreamView.circleView)
-        recordDreamView.circleView.constrainCenter(to: recordDreamView.recordButton)
-        recordDreamView.circleView.constrainWidth(to: recordDreamView.recordButton, constant: 10)
-        recordDreamView.circleView.constrainHeight(to: recordDreamView.recordButton, constant: 10)
     }
 }

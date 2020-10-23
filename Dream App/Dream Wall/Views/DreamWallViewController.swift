@@ -10,50 +10,51 @@ import UIKit
 
 
 
-class DreamWallViewController: UIViewController, UISearchBarDelegate {
+class DreamWallViewController: UIViewController, UISearchBarDelegate, DreamViewModelContainable {
     @IBOutlet weak var dreamWallTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBAction func newAlarmButtonTapped(_ sender: Any) {
-        _ = self.tabBarController?.selectedIndex = 1
+        _ = tabBarController?.selectedIndex = 1
     }
-    // MARK: - Properties
+    // MARK: - Properties -
+    var dreamViewModel: DreamViewModel? {
+        didSet {
+            print(dreamViewModel ?? "No dream view model")
+        }
+    }
     var filteredDreams: [Dream] = []
     var isSearching = false
     
-    // MARK: - Lifecycle
+    // MARK: - Lifecycle -
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         hideKeyboardWhenTappedAround()
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         reloadData()
     }
 }
 
-// MARK: -TableView
+// MARK: - TableView -
 extension DreamWallViewController: UITableViewDelegate, UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearching {
             return filteredDreams.count
         } else {
-            return DreamViewModel.shared.dreamArray.count
+            return dreamViewModel?.dreamArray.count ?? 0
         }
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "dreamCell", for: indexPath) as? DreamTableViewCell else { return UITableViewCell() }
         if isSearching {
             cell.dream = filteredDreams[indexPath.row]
         } else {
-            cell.dream = DreamViewModel.shared.dreamArray[indexPath.row]
+            cell.dream = dreamViewModel?.dreamArray[indexPath.row]
         }
         return cell
     }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
        // 92
         92
@@ -66,10 +67,11 @@ extension DreamWallViewController: UITableViewDelegate, UITableViewDataSource {
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let indexPath = dreamWallTableView.indexPathForSelectedRow{
             guard let detailVC = segue.destination as? EditAndReplayDreamViewController else { return }
+            detailVC.dreamViewModel = dreamViewModel
             if isSearching {
                 detailVC.dream = filteredDreams[indexPath.row]
             } else {
-                detailVC.dream = DreamViewModel.shared.dreamArray[indexPath.row]
+                detailVC.dream = dreamViewModel?.dreamArray[indexPath.row]
             }
         }
      }
@@ -83,20 +85,22 @@ extension DreamWallViewController {
             dreamWallTableView.reloadData()
         } else {
             isSearching = true
-            filteredDreams = DreamViewModel.shared.dreamArray.filter({$0.title.lowercased().contains(searchBar.text?.lowercased() ?? "") || $0.description.lowercased().contains(searchBar.text?.lowercased() ?? "")})
+            filteredDreams = dreamViewModel?.dreamArray.filter {
+                $0.title.lowercased().contains(searchBar.text?.lowercased() ?? "") ||
+                    $0.description.lowercased().contains(searchBar.text?.lowercased() ?? "")
+            } ?? []
             dreamWallTableView.reloadData()
         }
     }
 }
 
-// MARK: - Private func
+// MARK: - Private Methods -
 private extension DreamWallViewController {
-    func reloadData(){
-        DreamViewModel.shared.loadFromPersistence()
+    func reloadData() {
+        dreamViewModel?.loadFromPersistence()
         dreamWallTableView.reloadData()
     }
-    
-    func setupView(){
+    func setupView() {
         dreamWallTableView.separatorStyle = .none
         searchBar.tintColor = .primaryPurple
         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
