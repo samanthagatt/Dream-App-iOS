@@ -30,7 +30,16 @@ class DreamWallViewController: UIViewController, UISearchBarDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         reloadData()
+        hideDreamLabel()
     }
+    
+    // MARK: - Subviews
+    private let noDataView = UILabel().style(
+        text: "No Dreams",
+        font: .avenirNext(ofSize: 25, isBold: false),
+        textColor: .lightGray,
+        textAlignment: .center
+    )
 }
 
 // MARK: -TableView
@@ -55,15 +64,15 @@ extension DreamWallViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       // 92
+        // 92
         92
     }
 }
 
- 
+
 // MARK: - Prepare for Segue -
- extension DreamWallViewController {
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+extension DreamWallViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let indexPath = dreamWallTableView.indexPathForSelectedRow{
             guard let detailVC = segue.destination as? EditAndReplayDreamViewController else { return }
             if isSearching {
@@ -72,8 +81,8 @@ extension DreamWallViewController: UITableViewDelegate, UITableViewDataSource {
                 detailVC.dream = DreamViewModel.shared.dreamArray[indexPath.row]
             }
         }
-     }
- }
+    }
+}
 
 // MARK: - SearchBar -
 extension DreamWallViewController {
@@ -102,6 +111,21 @@ private extension DreamWallViewController {
         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
         textFieldInsideSearchBar?.textColor = .white
         searchBar.delegate = self
+        view.addSubviews(noDataView)
+        constrainViews()
+    }
+    
+    func constrainViews(){
+        noDataView.constrainCenterX(to:view)
+        noDataView.constrainCenterY(to:view)
+    }
+    
+    func hideDreamLabel(){
+        if DreamViewModel.shared.dreamArray.count == 0 {
+            noDataView.isHidden = false
+        } else {
+            noDataView.isHidden = true
+        }
     }
 }
 

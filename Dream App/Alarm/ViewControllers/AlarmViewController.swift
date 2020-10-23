@@ -10,8 +10,32 @@ import UIKit
 
 class AlarmViewController: UIViewController {
     
+    // MARK: - IBOutlets
     @IBOutlet weak var alarmTableView: UITableView!
+    @IBAction func newAlarmButtonTapped(_ sender: Any) {
+        let vc = SetAlarmViewController()
+        vc.modalTransitionStyle   = .crossDissolve;
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.completion = { date, identifier in
+            DispatchQueue.main.async {
+                self.navigationController?.popToRootViewController(animated: true)
+                self.hideAlarmLabel()
+                AlarmNotofications.shared.sendNotification(with: date, id: identifier)
+            }
+        }
+        self.present(vc, animated: true, completion: nil)
+    }
     
+    // MARK: - Properties
+    private let noDataView = UILabel().style(
+        text: "No Alarms",
+        font: .avenirNext(ofSize: 25, isBold: false),
+        textColor: .lightGray,
+        textAlignment: .center
+    )
+    
+    
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem?.title = "Alarm"
@@ -23,27 +47,11 @@ class AlarmViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         setupView()
-    }
-    
-    private func setupView(){
-        AlarmViewModel.shared.loadFromPersistence()
-    }
-    
-    @IBAction func newAlarmButtonTapped(_ sender: Any) {
-        let vc = SetAlarmViewController()
-        vc.modalTransitionStyle   = .crossDissolve;
-        vc.modalPresentationStyle = .overCurrentContext
-        vc.completion = { date, identifier in
-            DispatchQueue.main.async {
-                self.navigationController?.popToRootViewController(animated: true)
-                self.alarmTableView.reloadData()
-                AlarmNotofications.shared.sendNotification(with: date, id: identifier)
-            }
-        }
-        self.present(vc, animated: true, completion: nil)
+        hideAlarmLabel()
     }
 }
 
+// MARK: - TableView
 extension AlarmViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return AlarmViewModel.shared.alarmArray.count
@@ -62,12 +70,34 @@ extension AlarmViewController: UITableViewDelegate, UITableViewDataSource {
             AlarmNotofications.shared.removeNotification(with: alarm.identifier)
             AlarmViewModel.shared.deleteAlarm(alarm: alarm)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            alarmTableView.reloadData()
+            hideAlarmLabel()
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         95
     }
+}
+
+// MARK: - Private func
+private extension AlarmViewController {
+    func setupView(){
+        AlarmViewModel.shared.loadFromPersistence()
+        view.addSubviews(noDataView)
+        constrainViews()
+    }
     
+    func constrainViews(){
+        noDataView.constrainCenterX(to:view)
+        noDataView.constrainCenterY(to:view)
+    }
+    
+    func hideAlarmLabel(){
+        alarmTableView.reloadData()
+        if AlarmViewModel.shared.alarmArray.count == 0 {
+            noDataView.isHidden = false
+        } else {
+            noDataView.isHidden = true
+        }
+    }
 }
