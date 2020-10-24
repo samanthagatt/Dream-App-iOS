@@ -15,14 +15,14 @@ final class RecordDreamViewController: UIViewController, AudioRecorderHelperUIDe
     /// How long an audio recording can be
     private let timeLimit = 300.0
     private lazy var audioRecorderHelper: AudioRecorderHelper = {
-        AudioRecorderHelper(uiDelegate: self,
-                            errorDelegate: DreamRecorderErrorDelegate(),
-                            timeLimit: timeLimit,
-                            useTimer: true,
-                            timerInterval: 0.08)
+        AudioRecorderHelper(
+            uiDelegate: self,
+            errorDelegate: DreamRecorderErrorDelegate(),
+            timeLimit: timeLimit,
+            useTimer: true,
+            timerInterval: 0.08
+        )
     }()
-    
-    // MARK: - Interface Builder -
     @IBOutlet var recordDreamView: RecordDreamView! {
         didSet {
             recordDreamView.recorderHelper = audioRecorderHelper
@@ -58,33 +58,45 @@ final class RecordDreamViewController: UIViewController, AudioRecorderHelperUIDe
 // MARK: - Alert Controllers -
 extension RecordDreamViewController {
     private func presentMicDeniedAlert() {
-        let settingsAction = UIAlertAction(title: "Open Settings",
-                                           style: .default) { (_) in
+        let settingsAction = UIAlertAction(
+            title: "Open Settings",
+            style: .default
+        ) { (_) in
             guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
             UIApplication.shared.open(settingsURL)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .default)
-        presentAlert(for: "Microphone Access Denied",
-                     message: "Please allow this app to use your microphone so you can record your dreams!",
-                     actions: settingsAction, cancelAction)
+        presentAlert(
+            for: "Microphone Access Denied",
+            message: "Please allow this app to use your microphone so you can record your dreams!",
+            actions: settingsAction, cancelAction
+        )
     }
     private func presentRecordingStoppedAlert(url: URL) {
-        let continueAction = UIAlertAction(title: "Continue",
-                                           style: .default) { _ in
+        let continueAction = UIAlertAction(
+            title: "Continue",
+            style: .default
+        ) { _ in
             self.performShowRecordingDetailSegue(url: url)
         }
-        presentAlert(for: "You've reached your time limit",
-                     message: "Your recording can only be \(timeLimit) seconds long",
-                     actions: continueAction)
+        presentAlert(
+            for: "You've reached your time limit",
+            message: "Your recording can only be \(timeLimit) seconds long",
+            actions: continueAction
+        )
     }
     private func presentRecordingErrorAlert() {
-        let dismissAction = UIAlertAction(title: "Dismiss",
-                                          style: .destructive) { _ in
+        let dismissAction = UIAlertAction(
+            title: "Dismiss",
+            style: .destructive
+        ) { _ in
             self.dismiss(animated: true)
         }
-        presentAlert(for: "An error occurred",
-                     message: "Your recording could not be saved",
-                     actions: dismissAction)
+        presentAlert(
+            for: "An error occurred",
+            message: "Your recording could not be saved",
+            actions: dismissAction
+        )
     }
 }
 
@@ -102,13 +114,23 @@ extension RecordDreamViewController {
 
 // MARK: - Audio Recorder Helper Delegate -
 extension RecordDreamViewController {
-    func audioRecorderHelper(_ audiRecorderHelper: AudioRecorderHelper, recordingChanged isRecording: Bool) {
+    func audioRecorderHelper(
+        _ audiRecorderHelper: AudioRecorderHelper,
+        recordingChanged isRecording: Bool
+    ) {
         recordDreamView.recordingState = isRecording ? .recording : .paused
     }
-    func audioRecorderHelper(_ audiRecorderHelper: AudioRecorderHelper, timerCalled currentTime: TimeInterval) {
+    func audioRecorderHelper(
+        _ audiRecorderHelper: AudioRecorderHelper,
+        timerCalled currentTime: TimeInterval
+    ) {
         recordDreamView.updateTimeLabel(currentTime: currentTime)
     }
-    func audioRecorderHelper(_ audiRecorderHelper: AudioRecorderHelper, didFinishRecording url: URL, successfully flag: Bool) {
+    func audioRecorderHelper(
+        _ audiRecorderHelper: AudioRecorderHelper,
+        didFinishRecording url: URL,
+        successfully flag: Bool
+    ) {
         // If unsuccessful
         if !flag {
             presentRecordingErrorAlert()

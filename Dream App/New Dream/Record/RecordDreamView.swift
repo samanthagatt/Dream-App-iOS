@@ -14,8 +14,19 @@ final class RecordDreamView: UIView {
     var recordingState: RecordingState = .initial {
         didSet {
             updateViewsOnRecordingStateChange()
+            switch recordingState {
+            case .initial:
+                break
+            case .recording:
+                transcriptionHelper.startTranscribing(completion: {
+                    print($0)
+                })
+            case .paused, .stopped:
+                transcriptionHelper.stopTranscribing()
+            }
         }
     }
+    let transcriptionHelper = SpeechToTextHelper()
     private lazy var timeIntervalFormatter: DateComponentsFormatter = {
         let formatting = DateComponentsFormatter()
         formatting.unitsStyle = .positional // 00:00  mm:ss

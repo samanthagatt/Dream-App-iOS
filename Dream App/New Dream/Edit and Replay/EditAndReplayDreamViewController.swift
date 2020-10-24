@@ -8,7 +8,8 @@
 
 import UIKit
 
-final class EditAndReplayDreamViewController: UIViewController, UITextViewDelegate, AudioPlayerHelperUIDelegate {
+final class EditAndReplayDreamViewController:
+    UIViewController, UITextViewDelegate, AudioPlayerHelperUIDelegate {
     
     // MARK: - Interface Builder -
     @IBOutlet var editAndReplayDreamView: EditAndReplayDreamView!
