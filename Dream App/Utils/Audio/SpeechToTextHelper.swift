@@ -99,7 +99,7 @@ extension SpeechToTextHelper {
         }
         let session = AVAudioSession.sharedInstance()
         do {
-            try session.setCategory(.record, mode: .measurement, options: .duckOthers)
+            try session.setCategory(.playAndRecord, mode: .measurement, options: .duckOthers)
             try session.setActive(true, options: .notifyOthersOnDeactivation)
         } catch {
             completion(.failure(.errorOccurred(error: error)))

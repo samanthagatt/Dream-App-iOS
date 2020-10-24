@@ -114,6 +114,11 @@ final class AudioRecorderHelper: NSObject, AVAudioRecorderDelegate {
     }
     /// Checks user's permission for app to use device's microphone
     private func requestPermissionAndStartRecording() {
+        do {
+           try AVAudioSession.sharedInstance().setCategory(.playAndRecord)
+        } catch {
+            print(error.localizedDescription)
+        }
         switch AVAudioSession.sharedInstance().recordPermission {
             case .undetermined:
                 // Request recording permission the first time they try to record something
