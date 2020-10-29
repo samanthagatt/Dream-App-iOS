@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NfO-hZ-nZf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NfO-hZ-nZf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -19,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ux-gW-rGP">
-                                <rect key="frame" x="20" y="44" width="374" height="701"/>
+                                <rect key="frame" x="20" y="60" width="374" height="685"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Wkx-el-bnB">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="331"/>
@@ -149,7 +148,7 @@
                                                 </connections>
                                             </button>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="VAX-So-atS">
-                                                <rect key="frame" x="36" y="0.0" width="270" height="23"/>
+                                                <rect key="frame" x="36" y="0.0" width="268.5" height="23"/>
                                                 <color key="minimumTrackTintColor" name="primaryPurple"/>
                                                 <color key="thumbTintColor" name="primaryPurple"/>
                                                 <connections>
@@ -159,7 +158,7 @@
                                                 </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jui-E1-m3q" customClass="MonoDigitLabel" customModule="Dream_App" customModuleProvider="target">
-                                                <rect key="frame" x="320" y="0.0" width="46" height="22"/>
+                                                <rect key="frame" x="318.5" y="0.0" width="47.5" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -178,7 +177,7 @@
                                     <constraint firstItem="ubv-8e-rt5" firstAttribute="width" secondItem="Xlj-8d-Ibd" secondAttribute="width" constant="-32" id="pi0-uV-qrf"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IG1-bb-EXO">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IG1-bb-EXO">
                                 <rect key="frame" x="20" y="807" width="374" height="45"/>
                                 <color key="backgroundColor" red="0.41960784309999999" green="0.3921568627" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -193,7 +192,6 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="Oqu-Pa-KU9"/>
                         <color key="backgroundColor" name="darkBackground"/>
                         <gestureRecognizers/>
                         <constraints>
@@ -203,11 +201,12 @@
                             <constraint firstItem="Xlj-8d-Ibd" firstAttribute="leading" secondItem="Oqu-Pa-KU9" secondAttribute="leading" constant="8" id="D9A-qt-90n"/>
                             <constraint firstItem="Xlj-8d-Ibd" firstAttribute="top" secondItem="0ux-gW-rGP" secondAttribute="bottom" id="dOZ-aD-Tmt"/>
                             <constraint firstItem="Oqu-Pa-KU9" firstAttribute="trailing" secondItem="IG1-bb-EXO" secondAttribute="trailing" constant="20" id="h9I-ml-4QE"/>
-                            <constraint firstItem="0ux-gW-rGP" firstAttribute="top" secondItem="Oqu-Pa-KU9" secondAttribute="top" id="jpT-c5-4JC"/>
+                            <constraint firstItem="0ux-gW-rGP" firstAttribute="top" secondItem="Oqu-Pa-KU9" secondAttribute="top" constant="16" id="jpT-c5-4JC"/>
                             <constraint firstItem="IG1-bb-EXO" firstAttribute="bottom" secondItem="Oqu-Pa-KU9" secondAttribute="bottom" constant="-10" id="r6W-Kh-n6x"/>
                             <constraint firstItem="Xlj-8d-Ibd" firstAttribute="trailing" secondItem="Oqu-Pa-KU9" secondAttribute="trailing" constant="-8" id="usU-ja-gqQ"/>
                             <constraint firstItem="IG1-bb-EXO" firstAttribute="top" secondItem="Xlj-8d-Ibd" secondAttribute="bottom" constant="8" symbolic="YES" id="zjy-hs-CHF"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="Oqu-Pa-KU9"/>
                         <connections>
                             <outlet property="descriptionField" destination="hK7-wK-QLO" id="qba-ps-o9G"/>
                             <outlet property="playButton" destination="9pe-19-q7s" id="qTf-5o-cme"/>
@@ -242,21 +241,10 @@
             <point key="canvasLocation" x="2718.840579710145" y="124.55357142857142"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="9pe-19-q7s">
-            <size key="intrinsicContentSize" width="17.5" height="22"/>
-        </designable>
-        <designable name="epc-KT-uQJ">
-            <size key="intrinsicContentSize" width="191.5" height="39.5"/>
-        </designable>
-        <designable name="jui-E1-m3q">
-            <size key="intrinsicContentSize" width="46" height="20.5"/>
-        </designable>
-    </designables>
     <resources>
         <image name="pause.fill" catalog="system" width="116" height="128"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
-        <image name="speaker.slash.fill" catalog="system" width="124" height="128"/>
+        <image name="speaker.slash.fill" catalog="system" width="128" height="124"/>
         <namedColor name="darkBackground">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
