@@ -69,7 +69,10 @@ extension SpeechToTextHelper {
     /// is complete
     /// - parameter result: Instance of the `TranscriptionResult` enum referring to whether or
     /// not the transcription was successful
-    func startTranscribing(completion: @escaping (_ result: TranscriptionResult) -> Void) {
+    func startTranscribing(
+        onlyFinal: Bool = false,
+        completion: @escaping (_ result: TranscriptionResult) -> Void
+    ) {
         // Request authorization every time
         // If authorization status has already been determined it won't prompt the user
         SFSpeechRecognizer.requestAuthorization { [weak self] status in
@@ -83,7 +86,7 @@ extension SpeechToTextHelper {
                 case .restricted:
                     completion(.failure(.deviceRestricted))
                 case .authorized:
-                    self?.startSession(completion)
+                    self?.startSession(onlyFinal, completion: completion)
                 @unknown default:
                     completion(.failure(.unknownAuthorization))
                 }
@@ -92,10 +95,11 @@ extension SpeechToTextHelper {
     }
     /// https://developer.apple.com/documentation/speech/recognizing_speech_in_live_audio
     private func startSession(
-        _ completion: @escaping (_ result: TranscriptionResult) -> Void
+        _ onlyFinal: Bool = false,
+        completion: @escaping (_ result: TranscriptionResult) -> Void
     ) {
         if let recognitionTask = recognitionTask {
-            recognitionTask.cancel()
+            recognitionTask.finish()
         }
         let session = AVAudioSession.sharedInstance()
         do {
@@ -122,7 +126,10 @@ extension SpeechToTextHelper {
             with: recognitionRequest
         ) { [weak self] result, error in
             if let result = result {
-                completion(.success(text: result.bestTranscription.formattedString))
+                if (onlyFinal && result.isFinal) || !onlyFinal {
+                    completion(.success(text: result.bestTranscription.formattedString))
+                }
+                
             }
             if error != nil || result?.isFinal ?? false {
                 self?.audioEngine.stop()
