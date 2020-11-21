@@ -86,7 +86,7 @@ extension RecordDreamView {
     
     private func updateForNewRecord() {
         buttonImage.isHighlighted = false
-        descriptionLabel.text = "Press the above button to begin recording your dream. Press again to pause."
+        descriptionLabel.text = "Tap the above button to begin recording your dream. Press again to pause."
         doneButton.isEnabled = false
         doneButton.alpha = 0
         recordingStateLabel.text = ""
@@ -100,7 +100,7 @@ extension RecordDreamView {
         recordingStateLabel.text = "Recording..."
         // Changes image to pause
         buttonImage.isHighlighted = true
-        descriptionLabel.text = "Press the button above to pause recording, a button will appear when you are done."
+        descriptionLabel.text = "Tap the button above to pause recording, a button will appear when you are done."
         doneButton.isEnabled = false
         // Makes button invisible but keeps it in stack view
         doneButton.alpha = 0
@@ -110,7 +110,7 @@ extension RecordDreamView {
         recordingStateLabel.text = "Paused"
         // Changes image to mic.fill
         buttonImage.isHighlighted = false
-        descriptionLabel.text = "Press the button above to continue recording, or the button below if you are done."
+        descriptionLabel.text = "Tap the button above to continue recording, or the button below if you are done."
         doneButton.isEnabled = true
         // Makes sure button is visible
         doneButton.alpha = 1
