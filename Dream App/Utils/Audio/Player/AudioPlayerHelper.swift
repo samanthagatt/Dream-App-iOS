@@ -59,6 +59,12 @@ final class AudioPlayerHelper: NSObject, AVAudioPlayerDelegate {
         
         super.init()
         setupNotifications()
+        
+        do {
+            try AVAudioSession.sharedInstance().overrideOutputAudioPort(.speaker)
+        } catch {
+            errorDelegate?.audioRecorderHelper(self, overrideAudioOutputDidFailWith: error)
+        }
     }
     deinit {
         cancelTimerIfNeeded()

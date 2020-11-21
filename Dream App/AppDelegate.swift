@@ -32,18 +32,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         completionHandler([.alert, .badge, .sound])
     }
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-       
-            DispatchQueue.main.async {
-                guard let window = UIApplication.shared.keyWindow else { return }
-
-                let myTabBar = window.rootViewController as! UITabBarController // Getting Tab Bar
-                   myTabBar.selectedIndex = 1 //Selecting tab here
-                   
-            }
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        didReceive response: UNNotificationResponse,
+        withCompletionHandler completionHandler: @escaping () -> Void
+    ) {
+        DispatchQueue.main.async {
+            guard let window = UIApplication.shared.windows.filter({
+                $0.isKeyWindow
+            }).first else { return }
+            
+            let myTabBar = window.rootViewController as! UITabBarController // Getting Tab Bar
+            myTabBar.selectedIndex = 1 //Selecting tab here
+            
+        }
     }
-
-    
-    
 }
-

@@ -8,6 +8,11 @@
 
 import UIKit
 
+struct RecordedDream {
+    var url: URL
+    var text: String?
+}
+
 final class RecordDreamViewController: UIViewController, AudioRecorderHelperUIDelegate, DreamViewModelContainable {
     
     // MARK: - Properties -
@@ -37,8 +42,8 @@ final class RecordDreamViewController: UIViewController, AudioRecorderHelperUIDe
         recordDreamView.circleView.constrainWidth(to: recordDreamView.recordButton, constant: 10)
         recordDreamView.circleView.constrainHeight(to: recordDreamView.recordButton, constant: 10)
     }
-    private func performShowRecordingDetailSegue(url: URL) {
-        performSegue(withIdentifier: "showRecordingDetail", sender: url)
+    private func performShowRecordingDetailSegue(dream: RecordedDream) {
+        performSegue(withIdentifier: "showRecordingDetail", sender: dream)
     }
     
   // MARK: - Life Cycle -
@@ -76,8 +81,11 @@ extension RecordDreamViewController {
         let continueAction = UIAlertAction(
             title: "Continue",
             style: .default
-        ) { _ in
-            self.performShowRecordingDetailSegue(url: url)
+        ) { [weak self] _ in
+            self?.performShowRecordingDetailSegue(dream: RecordedDream(
+                url: url,
+                text: self?.recordDreamView.transcribedText ?? "self is nil"
+            ))
         }
         presentAlert(
             for: "You've reached your time limit",
@@ -104,9 +112,10 @@ extension RecordDreamViewController {
 extension RecordDreamViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showRecordingDetail" {
-            guard let url = sender as? URL,
+            guard let recordedDream = sender as? RecordedDream,
                 let destVC = segue.destination as? EditAndReplayDreamViewController else { return }
-            destVC.dreamURL = url
+            destVC.dreamURL = recordedDream.url
+            destVC.transcribedText = recordedDream.text
             destVC.dreamViewModel = dreamViewModel
         }
     }
@@ -143,8 +152,12 @@ extension RecordDreamViewController {
                 return
             }
             // User pushed done button and recording finished successfully
-            performShowRecordingDetailSegue(url: url)
+            performShowRecordingDetailSegue(dream: RecordedDream(
+                url: url,
+                text: recordDreamView.transcribedText
+            ))
         }
+        recordDreamView.fullText = []
     }
     func audioRecorderHelperWasDeniedMicrophoneAccess() {
         presentMicDeniedAlert()
