@@ -63,6 +63,13 @@ final class EditAndReplayDreamViewController:
             audioPlayerHelper.load(url: url)
         }
     }
+    var transcribedText: String? {
+        didSet {
+            if let text = transcribedText {
+                editAndReplayDreamView.descriptionField.text = text
+            }
+        }
+    }
     private lazy var audioPlayerHelper: AudioPlayerHelper = {
         AudioPlayerHelper(uiDelegate: self,
                           errorDelegate: DreamPlayerErrorDelegate(),
