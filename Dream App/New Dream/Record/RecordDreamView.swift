@@ -14,25 +14,25 @@ final class RecordDreamView: UIView {
     var recordingState: RecordingState = .initial {
         didSet {
             updateViewsOnRecordingStateChange()
-            switch recordingState {
-            case .initial:
-                break
-            case .recording:
-                transcriptionHelper.startTranscribing(onlyFinal: true) { [weak self] result in
-                    switch result {
-                    case .success(text: let text):
-                        self?.fullText.append(text)
-//                        print(self?.transcribedText ?? "no self")
-                    case .failure(let error):
-                        print(error)
-                    }
-                }
-            case .paused, .stopped:
-                transcriptionHelper.stopTranscribing()
-            }
+//            switch recordingState {
+//            case .initial:
+//                break
+//            case .recording:
+//                transcriptionHelper.startTranscribing(onlyFinal: true) { [weak self] result in
+//                    switch result {
+//                    case .success(text: let text):
+//                        self?.fullText.append(text)
+//                        // print(self?.transcribedText ?? "no self")
+//                    case .failure(let error):
+//                        print(error)
+//                    }
+//                }
+//            case .paused, .stopped:
+//                transcriptionHelper.stopTranscribing()
+//            }
         }
     }
-    let transcriptionHelper = SpeechToTextHelper()
+//    let transcriptionHelper = SpeechToTextHelper()
     var fullText: [String] = []
     var transcribedText: String {
         fullText.joined(separator: " ")

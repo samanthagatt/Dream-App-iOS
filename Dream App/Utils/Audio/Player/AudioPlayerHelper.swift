@@ -73,6 +73,7 @@ final class AudioPlayerHelper: NSObject, AVAudioPlayerDelegate {
     
     // MARK: - Internal Methods
     private func resumePlaying() {
+        audioPlayer?.volume = 1
         audioPlayer?.play()
         uiDelegate?.audioPlayerHelper(self, playingChanged: isPlaying)
         startTimerIfNeeded()
