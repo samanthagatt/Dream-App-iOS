@@ -20,6 +20,7 @@ final class AudioPlayerHelper: NSObject, AVAudioPlayerDelegate {
     private var audioPlayer: AVAudioPlayer? {
         didSet {
             audioPlayer?.delegate = self
+            audioPlayer?.volume = 1
         }
     }
     /// URL to load and play
@@ -61,7 +62,9 @@ final class AudioPlayerHelper: NSObject, AVAudioPlayerDelegate {
         setupNotifications()
         
         do {
-            try AVAudioSession.sharedInstance().overrideOutputAudioPort(.speaker)
+            try
+             AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+            try    AVAudioSession.sharedInstance().overrideOutputAudioPort(.speaker)
         } catch {
             errorDelegate?.audioRecorderHelper(self, overrideAudioOutputDidFailWith: error)
         }
@@ -73,7 +76,6 @@ final class AudioPlayerHelper: NSObject, AVAudioPlayerDelegate {
     
     // MARK: - Internal Methods
     private func resumePlaying() {
-        audioPlayer?.volume = 1
         audioPlayer?.play()
         uiDelegate?.audioPlayerHelper(self, playingChanged: isPlaying)
         startTimerIfNeeded()
