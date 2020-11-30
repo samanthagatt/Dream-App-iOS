@@ -62,8 +62,7 @@ final class AudioPlayerHelper: NSObject, AVAudioPlayerDelegate {
         setupNotifications()
         
         do {
-            try
-             AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+            try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default, options: [])
             try    AVAudioSession.sharedInstance().overrideOutputAudioPort(.speaker)
         } catch {
             errorDelegate?.audioRecorderHelper(self, overrideAudioOutputDidFailWith: error)
