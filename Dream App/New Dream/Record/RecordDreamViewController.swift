@@ -115,7 +115,7 @@ extension RecordDreamViewController {
             guard let recordedDream = sender as? RecordedDream,
                 let destVC = segue.destination as? EditAndReplayDreamViewController else { return }
             destVC.dreamURL = recordedDream.url
-            destVC.transcribedText = recordedDream.text
+           // destVC.transcribedText = recordedDream.text
             destVC.dreamViewModel = dreamViewModel
         }
     }
