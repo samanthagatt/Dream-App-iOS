@@ -73,7 +73,9 @@ extension DreamWallViewController: UITableViewDelegate, UITableViewDataSource {
             if isSearching {
                 let dream = filteredDreams[indexPath.row]
                 dreamViewModel?.deleteDream(id: dream.identifier)
+                filteredDreams.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
+                
             } else {
                 guard let dream = dreamViewModel?.dreamArray[indexPath.row] else { return }
                 dreamViewModel?.deleteDream(id: dream.identifier)
