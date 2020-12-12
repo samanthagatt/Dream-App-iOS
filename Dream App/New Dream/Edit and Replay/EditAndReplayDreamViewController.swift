@@ -164,7 +164,7 @@ private extension EditAndReplayDreamViewController {
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .default)
         presentAlert(for: "Delete Dream?",
-                     message: "Your dream will be parmanently erased from memory",
+                     message: "Your dream will be permanently erased from memory",
                      actions: deleteAction, cancelAction)
     }
 }
