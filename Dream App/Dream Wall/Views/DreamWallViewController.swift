@@ -65,9 +65,23 @@ extension DreamWallViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        // 92
         92
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if isSearching {
+                let dream = filteredDreams[indexPath.row]
+                dreamViewModel?.deleteDream(id: dream.identifier)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            } else {
+                guard let dream = dreamViewModel?.dreamArray[indexPath.row] else { return }
+                dreamViewModel?.deleteDream(id: dream.identifier)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        }
+    }
+    
 }
 
 
