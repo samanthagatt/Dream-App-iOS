@@ -36,10 +36,19 @@ final class RecordDreamView: UIView {
     @IBOutlet weak var buttonImage: UIImageView!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var doneButton: UIButton!
+    @IBOutlet weak var skipRecordButton: UIButton!
     
     @IBAction private func toggleRecording(_ sender: UIButton) {
         recorderHelper?.toggleRecording()
     }
+    
+    @IBAction func skiprecordButtonTapped(_ sender: UIButton) {
+//         doneButton.isEnabled = true
+//         recordingState = .stopped
+         //recorderHelper?.stopRecording()
+       
+    }
+    
     @IBAction private func saveRecording(_ sender: UIButton) {
         recordingState = .stopped
         recorderHelper?.stopRecording()
@@ -80,7 +89,9 @@ extension RecordDreamView {
         buttonImage.alpha = 1
         circleView.layer.removeAllAnimations()
     }
+    
     private func updateViewsForRecording() {
+        skipRecordButton.isHidden = true
         recordingStateLabel.text = "Recording..."
         // Changes image to pause
         buttonImage.isHighlighted = true
@@ -109,6 +120,7 @@ extension RecordDreamView {
     private func updateViewsOnRecordingStateChange() {
         switch recordingState {
         case .initial:
+            skipRecordButton.isHidden = false
             break
         case .recording:
             transcriptionHelper.startTranscribing(onlyFinal: true) { [weak self] result in

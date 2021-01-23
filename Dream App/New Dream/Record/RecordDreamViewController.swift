@@ -9,7 +9,7 @@
 import UIKit
 
 struct RecordedDream {
-    var url: URL
+    var url: URL?
     var text: String?
 }
 
@@ -45,6 +45,11 @@ final class RecordDreamViewController: UIViewController, AudioRecorderHelperUIDe
     private func performShowRecordingDetailSegue(dream: RecordedDream) {
         performSegue(withIdentifier: "showRecordingDetail", sender: dream)
     }
+    
+    @IBAction func skipRecordButtonTapped(_ sender: Any) {
+        performShowRecordingDetailSegue(dream: RecordedDream(url: nil, text: nil))
+    }
+    
     
   // MARK: - Life Cycle -
     override func viewWillAppear(_ animated: Bool) {
