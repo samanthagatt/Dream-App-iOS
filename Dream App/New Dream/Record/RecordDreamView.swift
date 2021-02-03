@@ -16,7 +16,7 @@ final class RecordDreamView: UIView {
             updateViewsOnRecordingStateChange()
         }
     }
-    let transcriptionHelper = SpeechToTextHelper()
+//    let transcriptionHelper = SpeechToTextHelper()
     var fullText: [String] = []
     var transcribedText: String {
         fullText.joined(separator: " ")
@@ -123,17 +123,19 @@ extension RecordDreamView {
             skipRecordButton.isHidden = false
             break
         case .recording:
-            transcriptionHelper.startTranscribing(onlyFinal: true) { [weak self] result in
-                switch result {
-                case .success(text: let text):
-                    self?.fullText.append(text)
-                // print(self?.transcribedText ?? "no self")
-                case .failure(let error):
-                    print(error)
-                }
-            }
+//            transcriptionHelper.startTranscribing(onlyFinal: true) { [weak self] result in
+//                switch result {
+//                case .success(text: let text):
+//                    self?.fullText.append(text)
+//                // print(self?.transcribedText ?? "no self")
+//                case .failure(let error):
+//                    print(error)
+//                }
+//            }
+            break
         case .paused, .stopped:
-            transcriptionHelper.stopTranscribing()
+//            transcriptionHelper.stopTranscribing()
+            break
         }
         switch recordingState {
         case .recording:
