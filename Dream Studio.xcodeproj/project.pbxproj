@@ -17,6 +17,7 @@
 		6A2A76F92533B0950023000E /* UIColor+themeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2A76F82533B0950023000E /* UIColor+themeColors.swift */; };
 		6A2A76FD2533B0AA0023000E /* UIFont+themeFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2A76FC2533B0AA0023000E /* UIFont+themeFonts.swift */; };
 		6A47C24E2542697800006E0E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A47C24D2542697800006E0E /* MainTabBarController.swift */; };
+		9470F91C676C60ECC06DEC0D /* Pods_Dream_Studio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1771E5D0BCA0A865279AB1 /* Pods_Dream_Studio.framework */; };
 		B9083CFC253944C300DA4DE4 /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9083CFB253944C300DA4DE4 /* UIViewController+extension.swift */; };
 		D65A2AF9242A4F3E00E3326E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65A2AF8242A4F3E00E3326E /* AppDelegate.swift */; };
 		D65A2AFB242A4F3E00E3326E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65A2AFA242A4F3E00E3326E /* SceneDelegate.swift */; };
@@ -62,6 +63,7 @@
 		D84BB968253295DC001BAC53 /* DreamVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB967253295DC001BAC53 /* DreamVM.swift */; };
 		D84BB96A2532BEE0001BAC53 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D84BB9692532BEE0001BAC53 /* alarm.mp3 */; };
 		D84BB96C2536554F001BAC53 /* UIView+pulsate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB96B2536554F001BAC53 /* UIView+pulsate.swift */; };
+		D84BF3FC25CB282000C32FF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D84BF3FB25CB282000C32FF1 /* GoogleService-Info.plist */; };
 		D87C144B252E1648008B3871 /* AlarmVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87C144A252E1648008B3871 /* AlarmVM.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,7 +78,10 @@
 		6A2A76F82533B0950023000E /* UIColor+themeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+themeColors.swift"; sourceTree = "<group>"; };
 		6A2A76FC2533B0AA0023000E /* UIFont+themeFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+themeFonts.swift"; sourceTree = "<group>"; };
 		6A47C24D2542697800006E0E /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		9333DD10095CFC10AA3E12C0 /* Pods-Dream Studio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dream Studio.release.xcconfig"; path = "Target Support Files/Pods-Dream Studio/Pods-Dream Studio.release.xcconfig"; sourceTree = "<group>"; };
+		9FECC796E02B565E37C6DB04 /* Pods-Dream Studio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dream Studio.debug.xcconfig"; path = "Target Support Files/Pods-Dream Studio/Pods-Dream Studio.debug.xcconfig"; sourceTree = "<group>"; };
 		B9083CFB253944C300DA4DE4 /* UIViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
+		BE1771E5D0BCA0A865279AB1 /* Pods_Dream_Studio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dream_Studio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65A2AF5242A4F3E00E3326E /* Dream Studio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dream Studio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65A2AF8242A4F3E00E3326E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D65A2AFA242A4F3E00E3326E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +128,7 @@
 		D84BB967253295DC001BAC53 /* DreamVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamVM.swift; sourceTree = "<group>"; };
 		D84BB9692532BEE0001BAC53 /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
 		D84BB96B2536554F001BAC53 /* UIView+pulsate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+pulsate.swift"; sourceTree = "<group>"; };
+		D84BF3FB25CB282000C32FF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D87C144A252E1648008B3871 /* AlarmVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,12 +137,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9470F91C676C60ECC06DEC0D /* Pods_Dream_Studio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0601CCE72B23DC555E8E314C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE1771E5D0BCA0A865279AB1 /* Pods_Dream_Studio.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6A021C3725339DCA0052AB7C /* Styling */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,11 +166,23 @@
 			path = Styling;
 			sourceTree = "<group>";
 		};
+		C271FF5136039635AF8C8552 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9FECC796E02B565E37C6DB04 /* Pods-Dream Studio.debug.xcconfig */,
+				9333DD10095CFC10AA3E12C0 /* Pods-Dream Studio.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D65A2AEC242A4F3E00E3326E = {
 			isa = PBXGroup;
 			children = (
 				D65A2AF7242A4F3E00E3326E /* Dream App */,
 				D65A2AF6242A4F3E00E3326E /* Products */,
+				C271FF5136039635AF8C8552 /* Pods */,
+				0601CCE72B23DC555E8E314C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -184,6 +211,7 @@
 				D65A2B01242A4F4400E3326E /* Assets.xcassets */,
 				D65A2B03242A4F4400E3326E /* LaunchScreen.storyboard */,
 				D65A2B06242A4F4400E3326E /* Info.plist */,
+				D84BF3FB25CB282000C32FF1 /* GoogleService-Info.plist */,
 			);
 			path = "Dream App";
 			sourceTree = "<group>";
@@ -384,9 +412,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D65A2B09242A4F4400E3326E /* Build configuration list for PBXNativeTarget "Dream Studio" */;
 			buildPhases = (
+				5F0EAD8B28677332D0429B02 /* [CP] Check Pods Manifest.lock */,
 				D65A2AF1242A4F3E00E3326E /* Sources */,
 				D65A2AF2242A4F3E00E3326E /* Frameworks */,
 				D65A2AF3242A4F3E00E3326E /* Resources */,
+				5B05DC1877CC37A3E21D472A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -436,6 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D65A2B05242A4F4400E3326E /* LaunchScreen.storyboard in Resources */,
+				D84BF3FC25CB282000C32FF1 /* GoogleService-Info.plist in Resources */,
 				D6D762AF24733AEE00EF2E17 /* Main.storyboard in Resources */,
 				D6D762AD247339E000EF2E17 /* EditAndReplayDream.storyboard in Resources */,
 				D65A2B02242A4F4400E3326E /* Assets.xcassets in Resources */,
@@ -446,6 +477,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5B05DC1877CC37A3E21D472A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dream Studio/Pods-Dream Studio-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dream Studio/Pods-Dream Studio-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dream Studio/Pods-Dream Studio-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5F0EAD8B28677332D0429B02 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dream Studio-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D65A2AF1242A4F3E00E3326E /* Sources */ = {
@@ -644,6 +717,7 @@
 		};
 		D65A2B0A242A4F4400E3326E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FECC796E02B565E37C6DB04 /* Pods-Dream Studio.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				CODE_SIGN_STYLE = Automatic;
@@ -664,6 +738,7 @@
 		};
 		D65A2B0B242A4F4400E3326E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9333DD10095CFC10AA3E12C0 /* Pods-Dream Studio.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				CODE_SIGN_STYLE = Automatic;
