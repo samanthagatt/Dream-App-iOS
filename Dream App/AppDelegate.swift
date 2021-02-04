@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         docRef.getDocument { (documentSnapShot, error) in
             guard let docuSnapshot = documentSnapShot, documentSnapShot?.exists ?? false else { return }
-            let dictionaryData = docuSnapshot.data()
+            guard let dictionaryData = docuSnapshot.data() else { return }
             print(dictionaryData)
         }
         
