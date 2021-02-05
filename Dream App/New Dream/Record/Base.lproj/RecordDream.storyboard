@@ -95,13 +95,13 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxx-DC-DQA">
-                                <rect key="frame" x="170" y="581" width="35" height="36"/>
+                                <rect key="frame" x="131.5" y="607" width="112" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="Gnz-1t-FTT"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="17"/>
-                                <state key="normal" title="SKIP">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="15"/>
+                                <state key="normal" title="SKIP RECORDING">
+                                    <color key="titleColor" name="primaryPurple"/>
                                 </state>
                                 <connections>
                                     <action selector="skipRecordButtonTapped:" destination="xyD-Iw-pci" eventType="touchUpInside" id="cBF-vA-bso"/>
@@ -118,7 +118,7 @@
                             <constraint firstItem="b0i-Za-6Aj" firstAttribute="width" secondItem="hAw-fS-f0y" secondAttribute="width" multiplier="3:7" id="KGh-RM-h2e"/>
                             <constraint firstItem="hAw-fS-f0y" firstAttribute="width" secondItem="9X8-g7-S0Y" secondAttribute="width" multiplier="1:2" id="QDf-13-h2c"/>
                             <constraint firstItem="b0i-Za-6Aj" firstAttribute="centerY" secondItem="hAw-fS-f0y" secondAttribute="centerY" id="VMh-Xq-zEH"/>
-                            <constraint firstItem="9X8-g7-S0Y" firstAttribute="bottom" secondItem="zxx-DC-DQA" secondAttribute="bottom" constant="50" id="WjL-8h-BuD"/>
+                            <constraint firstItem="9X8-g7-S0Y" firstAttribute="bottom" secondItem="zxx-DC-DQA" secondAttribute="bottom" constant="24" id="WjL-8h-BuD"/>
                             <constraint firstItem="bIX-jq-uiq" firstAttribute="centerX" secondItem="9X8-g7-S0Y" secondAttribute="centerX" id="Zhr-L1-qzN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9X8-g7-S0Y"/>
