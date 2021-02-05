@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -65,6 +65,9 @@
 		D84BB96C2536554F001BAC53 /* UIView+pulsate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BB96B2536554F001BAC53 /* UIView+pulsate.swift */; };
 		D84BF3FC25CB282000C32FF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D84BF3FB25CB282000C32FF1 /* GoogleService-Info.plist */; };
 		D87C144B252E1648008B3871 /* AlarmVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87C144A252E1648008B3871 /* AlarmVM.swift */; };
+		D8A563E225CB99A90014C99B /* DictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A563E125CB99A90014C99B /* DictionaryViewController.swift */; };
+		D8A563E425CC62BE0014C99B /* DictionaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A563E325CC62BE0014C99B /* DictionaryTableViewCell.swift */; };
+		D8A563E625CCA5020014C99B /* DictionaryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A563E525CCA5020014C99B /* DictionaryVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +133,9 @@
 		D84BB96B2536554F001BAC53 /* UIView+pulsate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+pulsate.swift"; sourceTree = "<group>"; };
 		D84BF3FB25CB282000C32FF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D87C144A252E1648008B3871 /* AlarmVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVM.swift; sourceTree = "<group>"; };
+		D8A563E125CB99A90014C99B /* DictionaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewController.swift; sourceTree = "<group>"; };
+		D8A563E325CC62BE0014C99B /* DictionaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryTableViewCell.swift; sourceTree = "<group>"; };
+		D8A563E525CCA5020014C99B /* DictionaryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +178,6 @@
 				9FECC796E02B565E37C6DB04 /* Pods-Dream Studio.debug.xcconfig */,
 				9333DD10095CFC10AA3E12C0 /* Pods-Dream Studio.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -206,6 +211,7 @@
 				D6D762B024733B8500EF2E17 /* Dream Wall */,
 				D69BC4C4246B69C100C1CBA3 /* New Dream */,
 				D841E890252B983E003B3456 /* Alarm */,
+				D8A563E025CB911C0014C99B /* Dictionary */,
 				D6D762AE24733AEE00EF2E17 /* Main.storyboard */,
 				6A47C24D2542697800006E0E /* MainTabBarController.swift */,
 				D65A2B01242A4F4400E3326E /* Assets.xcassets */,
@@ -405,6 +411,16 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		D8A563E025CB911C0014C99B /* Dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				D8A563E125CB99A90014C99B /* DictionaryViewController.swift */,
+				D8A563E325CC62BE0014C99B /* DictionaryTableViewCell.swift */,
+				D8A563E525CCA5020014C99B /* DictionaryVM.swift */,
+			);
+			path = Dictionary;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -536,6 +552,7 @@
 				D84BB96C2536554F001BAC53 /* UIView+pulsate.swift in Sources */,
 				D69BC4C1246B5F8400C1CBA3 /* DreamRecorderErrorDelegate.swift in Sources */,
 				6A47C24E2542697800006E0E /* MainTabBarController.swift in Sources */,
+				D8A563E425CC62BE0014C99B /* DictionaryTableViewCell.swift in Sources */,
 				D6701814246C558A0029FE3F /* AccessibleText.swift in Sources */,
 				D6D7629E24703AB800EF2E17 /* UITextView+EdgeInsets.swift in Sources */,
 				D69BC4BA246B471300C1CBA3 /* AudioRecorderStartingError.swift in Sources */,
@@ -565,6 +582,7 @@
 				D6D1A737246ADAA800119418 /* CustomStringInterpolation.swift in Sources */,
 				D6EBEB04246C79B500CC227C /* UIViewController+presentAlert.swift in Sources */,
 				D841E896252BBBAD003B3456 /* SetAlarmViewController.swift in Sources */,
+				D8A563E225CB99A90014C99B /* DictionaryViewController.swift in Sources */,
 				D6D762A92472E76F00EF2E17 /* AudioPlayerHelperErrorDelegate.swift in Sources */,
 				D84BB95C252EB625001BAC53 /* Dream.swift in Sources */,
 				D65A2AF9242A4F3E00E3326E /* AppDelegate.swift in Sources */,
@@ -573,6 +591,7 @@
 				D6D76294246DFC5E00EF2E17 /* MultilineTextField.swift in Sources */,
 				D6EBEB02246C760100CC227C /* MonoDigitLabel.swift in Sources */,
 				D65A2AFB242A4F3E00E3326E /* SceneDelegate.swift in Sources */,
+				D8A563E625CCA5020014C99B /* DictionaryVM.swift in Sources */,
 				6A021C2F25329DB00052AB7C /* UITextView+style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
