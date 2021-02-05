@@ -68,6 +68,7 @@
 		D8A563E225CB99A90014C99B /* DictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A563E125CB99A90014C99B /* DictionaryViewController.swift */; };
 		D8A563E425CC62BE0014C99B /* DictionaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A563E325CC62BE0014C99B /* DictionaryTableViewCell.swift */; };
 		D8A563E625CCA5020014C99B /* DictionaryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A563E525CCA5020014C99B /* DictionaryVM.swift */; };
+		D8A563E825CD9C680014C99B /* DictionaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A563E725CD9C680014C99B /* DictionaryDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,6 +137,7 @@
 		D8A563E125CB99A90014C99B /* DictionaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewController.swift; sourceTree = "<group>"; };
 		D8A563E325CC62BE0014C99B /* DictionaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryTableViewCell.swift; sourceTree = "<group>"; };
 		D8A563E525CCA5020014C99B /* DictionaryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryVM.swift; sourceTree = "<group>"; };
+		D8A563E725CD9C680014C99B /* DictionaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -417,6 +419,7 @@
 				D8A563E125CB99A90014C99B /* DictionaryViewController.swift */,
 				D8A563E325CC62BE0014C99B /* DictionaryTableViewCell.swift */,
 				D8A563E525CCA5020014C99B /* DictionaryVM.swift */,
+				D8A563E725CD9C680014C99B /* DictionaryDetailViewController.swift */,
 			);
 			path = Dictionary;
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				D841E892252B9863003B3456 /* AlarmViewController.swift in Sources */,
 				D84A5892252A6527006FDE19 /* OnboardingViewController.swift in Sources */,
 				D87C144B252E1648008B3871 /* AlarmVM.swift in Sources */,
+				D8A563E825CD9C680014C99B /* DictionaryDetailViewController.swift in Sources */,
 				D65A2AFD242A4F3E00E3326E /* RecordDreamViewController.swift in Sources */,
 				6A021C0F25328B400052AB7C /* UILabel+style.swift in Sources */,
 				D841E89B252D1185003B3456 /* NotificationManager.swift in Sources */,
