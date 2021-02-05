@@ -69,6 +69,7 @@
 		D8A563E425CC62BE0014C99B /* DictionaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A563E325CC62BE0014C99B /* DictionaryTableViewCell.swift */; };
 		D8A563E625CCA5020014C99B /* DictionaryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A563E525CCA5020014C99B /* DictionaryVM.swift */; };
 		D8A563E825CD9C680014C99B /* DictionaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A563E725CD9C680014C99B /* DictionaryDetailViewController.swift */; };
+		D8A563EA25CDB39D0014C99B /* DreamDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A563E925CDB39D0014C99B /* DreamDictionary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,6 +139,7 @@
 		D8A563E325CC62BE0014C99B /* DictionaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryTableViewCell.swift; sourceTree = "<group>"; };
 		D8A563E525CCA5020014C99B /* DictionaryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryVM.swift; sourceTree = "<group>"; };
 		D8A563E725CD9C680014C99B /* DictionaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDetailViewController.swift; sourceTree = "<group>"; };
+		D8A563E925CDB39D0014C99B /* DreamDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamDictionary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -420,6 +422,7 @@
 				D8A563E325CC62BE0014C99B /* DictionaryTableViewCell.swift */,
 				D8A563E525CCA5020014C99B /* DictionaryVM.swift */,
 				D8A563E725CD9C680014C99B /* DictionaryDetailViewController.swift */,
+				D8A563E925CDB39D0014C99B /* DreamDictionary.swift */,
 			);
 			path = Dictionary;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				6A021C0825328ADB0052AB7C /* UIView+addStyling.swift in Sources */,
 				D6D27CDC2468625F00B7AF8F /* RoundedViews.swift in Sources */,
 				D6D762AB2472EFD800EF2E17 /* DreamPlayerErrorDelegate.swift in Sources */,
+				D8A563EA25CDB39D0014C99B /* DreamDictionary.swift in Sources */,
 				D6701810246C2A210029FE3F /* BorderedTextField.swift in Sources */,
 				D841E894252BA023003B3456 /* AlarmTableViewCell.swift in Sources */,
 				D69BC4B8246B46FB00C1CBA3 /* AudioRecorderHelperUIDelegate.swift in Sources */,

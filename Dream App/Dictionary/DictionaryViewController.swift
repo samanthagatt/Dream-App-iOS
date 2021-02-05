@@ -99,3 +99,20 @@ extension DictionaryViewController {
         }
     }
 }
+
+// MARK: - Prepare for Segue -
+extension DictionaryViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let indexPath = dictionaryTableView.indexPathForSelectedRow{
+            guard let detailVC = segue.destination as? DictionaryDetailViewController else { return }
+            if isSearching {
+                 let text = Array(filteredDictionary.keys)[indexPath.row]
+                           let value = Array(filteredDictionary.values)[indexPath.row]
+                let dictionary = DreamDictionary(title: text, meaning: value as? String ?? "")
+                detailVC.dictionary = dictionary
+            } else {
+              return
+            }
+        }
+    }
+}
