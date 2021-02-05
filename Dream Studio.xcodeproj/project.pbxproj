@@ -418,13 +418,29 @@
 		D8A563E025CB911C0014C99B /* Dictionary */ = {
 			isa = PBXGroup;
 			children = (
-				D8A563E125CB99A90014C99B /* DictionaryViewController.swift */,
+				D8A563EC25CDC0310014C99B /* ViewController */,
+				D8A563EB25CDC0030014C99B /* Model */,
 				D8A563E325CC62BE0014C99B /* DictionaryTableViewCell.swift */,
 				D8A563E525CCA5020014C99B /* DictionaryVM.swift */,
-				D8A563E725CD9C680014C99B /* DictionaryDetailViewController.swift */,
-				D8A563E925CDB39D0014C99B /* DreamDictionary.swift */,
 			);
 			path = Dictionary;
+			sourceTree = "<group>";
+		};
+		D8A563EB25CDC0030014C99B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D8A563E925CDB39D0014C99B /* DreamDictionary.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D8A563EC25CDC0310014C99B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D8A563E125CB99A90014C99B /* DictionaryViewController.swift */,
+				D8A563E725CD9C680014C99B /* DictionaryDetailViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

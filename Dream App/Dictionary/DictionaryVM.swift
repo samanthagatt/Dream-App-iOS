@@ -10,5 +10,6 @@ import Foundation
 class DictionaryViewModel {
     
     static var dictionary  : [String : Any] = [String : Any]()
+    static var commonDreams  : [String : Any] = [String : Any]()
     
 }

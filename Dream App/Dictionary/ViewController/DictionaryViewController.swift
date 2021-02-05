@@ -42,11 +42,20 @@ private extension DictionaryViewController {
     
     func callAPI(){
         FirebaseApp.configure()
+        
         docRef = Firestore.firestore().document("DreamStudio/Dictionary")
         docRef.getDocument { (documentSnapShot, error) in
             guard let docuSnapshot = documentSnapShot, documentSnapShot?.exists ?? false else { return }
             guard let dictionaryData = docuSnapshot.data() else { return }
             DictionaryViewModel.dictionary = dictionaryData
+            self.dictionaryTableView.reloadData()
+        }
+        
+        docRef = Firestore.firestore().document("DreamStudio/Featured")
+        docRef.getDocument { (documentSnapShot, error) in
+            guard let docuSnapshot = documentSnapShot, documentSnapShot?.exists ?? false else { return }
+            guard let dictionaryData = docuSnapshot.data() else { return }
+            DictionaryViewModel.commonDreams = dictionaryData
             self.dictionaryTableView.reloadData()
         }
     }
@@ -58,7 +67,7 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
         if isSearching {
             return filteredDictionary.count
         } else {
-            return 0
+            return DictionaryViewModel.commonDreams.count
         }
     }
     
@@ -73,6 +82,11 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
             let value = Array(filteredDictionary.values)[indexPath.row]
             cell.wordTitle.text = text
             cell.wordMeaning.text = value as? String
+        } else {
+            let text = Array(DictionaryViewModel.commonDreams.keys)[indexPath.row]
+                       let value = Array(DictionaryViewModel.commonDreams.values)[indexPath.row]
+                       cell.wordTitle.text = text
+                       cell.wordMeaning.text = value as? String
         }
         return cell
     }
@@ -111,7 +125,10 @@ extension DictionaryViewController {
                 let dictionary = DreamDictionary(title: text, meaning: value as? String ?? "")
                 detailVC.dictionary = dictionary
             } else {
-              return
+                let text = Array(DictionaryViewModel.commonDreams.keys)[indexPath.row]
+                             let value = Array(DictionaryViewModel.commonDreams.values)[indexPath.row]
+                             let dictionary = DreamDictionary(title: text, meaning: value as? String ?? "")
+                             detailVC.dictionary = dictionary
             }
         }
     }
