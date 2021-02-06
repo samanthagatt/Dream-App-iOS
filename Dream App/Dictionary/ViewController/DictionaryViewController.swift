@@ -126,9 +126,9 @@ extension DictionaryViewController {
                 detailVC.dictionary = dictionary
             } else {
                 let text = Array(DictionaryViewModel.commonDreams.keys)[indexPath.row]
-                             let value = Array(DictionaryViewModel.commonDreams.values)[indexPath.row]
-                             let dictionary = DreamDictionary(title: text, meaning: value as? String ?? "")
-                             detailVC.dictionary = dictionary
+                let value = Array(DictionaryViewModel.commonDreams.values)[indexPath.row]
+                let dictionary = DreamDictionary(title: text, meaning: value as? String ?? "")
+                detailVC.dictionary = dictionary
             }
         }
     }
