@@ -37,9 +37,8 @@ class DictionaryDetailViewController: UIViewController {
     func loadElements(){
         guard let dictionary = dictionary else { return }
         wordTitle.text = dictionary.title
-        let t = dictionary.meaning.replacingOccurrences(of: "   ", with: "\n\n")
-        //let y = t.trimmingCharacters(in: .whitespacesAndNewlines)
-        wordMeaning.text = t
+        let text = dictionary.meaning.replacingOccurrences(of: "   ", with: "\n\n")
+        wordMeaning.text = text
     }
     
     func setupView(){
