@@ -23,6 +23,8 @@ class DictionaryViewController: UIViewController, UISearchBarDelegate {
         super.viewDidLoad()
         setupView()
         callAPI()
+        hideKeyboardWhenTappedAround()
+        self.dictionaryTableView.keyboardDismissMode = .onDrag
     }
 }
 

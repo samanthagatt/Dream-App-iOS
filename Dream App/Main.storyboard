@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z8u-dW-gJD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z8u-dW-gJD">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -47,6 +49,7 @@
                                 </state>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="ih2-gN-yG7"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="7c7-vx-aQb" firstAttribute="top" secondItem="RKu-3J-20p" secondAttribute="bottom" constant="50" id="2m0-el-kpd"/>
@@ -55,7 +58,6 @@
                             <constraint firstItem="ih2-gN-yG7" firstAttribute="bottom" secondItem="7c7-vx-aQb" secondAttribute="bottom" constant="45" id="RcW-Ve-4Hd"/>
                             <constraint firstItem="7c7-vx-aQb" firstAttribute="leading" secondItem="ih2-gN-yG7" secondAttribute="leading" constant="20" id="d3i-jb-JsZ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ih2-gN-yG7"/>
                     </view>
                     <connections>
                         <outlet property="getStartedButton" destination="7c7-vx-aQb" id="EPC-dz-fLf"/>
@@ -150,6 +152,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="iX5-AD-SYo"/>
                         <color key="backgroundColor" name="darkBackground"/>
                         <constraints>
                             <constraint firstItem="iX5-AD-SYo" firstAttribute="trailing" secondItem="7PJ-79-mdn" secondAttribute="trailing" id="5lI-mK-hHf"/>
@@ -157,7 +160,6 @@
                             <constraint firstItem="iX5-AD-SYo" firstAttribute="bottom" secondItem="7PJ-79-mdn" secondAttribute="bottom" id="W1b-Xg-pdM"/>
                             <constraint firstItem="7PJ-79-mdn" firstAttribute="top" secondItem="iX5-AD-SYo" secondAttribute="top" id="qkt-dx-Xox"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="iX5-AD-SYo"/>
                     </view>
                     <navigationItem key="navigationItem" title="Alarm" id="QTt-JU-UHx">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="gcM-kg-6bb">
@@ -279,6 +281,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="rXV-bo-eaP"/>
                         <color key="backgroundColor" name="darkBackground"/>
                         <constraints>
                             <constraint firstItem="rXV-bo-eaP" firstAttribute="trailing" secondItem="A4m-1m-PUy" secondAttribute="trailing" id="2co-FO-YjX"/>
@@ -289,7 +292,6 @@
                             <constraint firstItem="PP2-N6-duU" firstAttribute="leading" secondItem="rXV-bo-eaP" secondAttribute="leading" id="h1p-F2-cSc"/>
                             <constraint firstItem="A4m-1m-PUy" firstAttribute="top" secondItem="rXV-bo-eaP" secondAttribute="top" id="n9n-Pe-5ZO"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="rXV-bo-eaP"/>
                     </view>
                     <navigationItem key="navigationItem" title="Dictionary" id="9yn-ar-mRr"/>
                     <connections>
@@ -325,13 +327,13 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="Hfu-Ha-cjH"/>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="XsX-Cr-Ue4"/>
                         <color key="backgroundColor" name="darkBackground"/>
                         <constraints>
                             <constraint firstItem="XsX-Cr-Ue4" firstAttribute="trailing" secondItem="hZs-Hw-rXz" secondAttribute="trailing" constant="16" id="IL5-Yb-tBj"/>
                             <constraint firstItem="hZs-Hw-rXz" firstAttribute="leading" secondItem="XsX-Cr-Ue4" secondAttribute="leading" constant="16" id="VJI-rM-nrS"/>
                             <constraint firstItem="hZs-Hw-rXz" firstAttribute="top" secondItem="XsX-Cr-Ue4" secondAttribute="top" constant="20" id="Z4K-fB-7Es"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="XsX-Cr-Ue4"/>
                     </view>
                     <navigationItem key="navigationItem" id="gMo-0I-bN0"/>
                     <connections>
@@ -356,7 +358,7 @@
                         <color key="backgroundColor" name="darkBackground"/>
                         <color key="barTintColor" name="darkBackground"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" systemColor="labelColor"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -381,7 +383,7 @@
                         <color key="barTintColor" name="darkBackground"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
-                            <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" systemColor="labelColor"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -428,8 +430,8 @@
     <resources>
         <image name="alarm" catalog="system" width="124" height="128"/>
         <image name="alarm.fill" catalog="system" width="124" height="128"/>
-        <image name="book" catalog="system" width="128" height="101"/>
-        <image name="book.fill" catalog="system" width="128" height="100"/>
+        <image name="book" catalog="system" width="128" height="102"/>
+        <image name="book.fill" catalog="system" width="128" height="102"/>
         <image name="mic" catalog="system" width="108" height="128"/>
         <image name="mic.fill" catalog="system" width="108" height="128"/>
         <image name="moon" catalog="system" width="128" height="121"/>
@@ -440,5 +442,8 @@
         <namedColor name="primaryPurple">
             <color red="0.41800001263618469" green="0.39100000262260437" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

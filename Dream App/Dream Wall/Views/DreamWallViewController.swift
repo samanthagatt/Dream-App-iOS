@@ -30,6 +30,7 @@ class DreamWallViewController: UIViewController, UISearchBarDelegate, DreamViewM
         super.viewDidLoad()   
         setupView()
         hideKeyboardWhenTappedAround()
+        self.dreamWallTableView.keyboardDismissMode = .onDrag
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
