@@ -38,10 +38,10 @@ final class EditAndReplayDreamViewController:
                 )
                 dreamViewModel?.create(dream: dream)
             }
-            if self.tabBarController?.selectedIndex == 0 {
+            if self.tabBarController?.selectedIndex == TabViews.DreamView.rawValue {
                 navigationController?.popViewController(animated: true)
             } else {
-                self.tabBarController?.selectedIndex = 0
+                self.tabBarController?.selectedIndex = TabViews.DreamView.rawValue
             }
         } else {
             presentRecordingErrorAlert()
@@ -121,7 +121,7 @@ final class EditAndReplayDreamViewController:
 
 // MARK: - Objc/Keyboard -
 @objc extension EditAndReplayDreamViewController {
-     func addKeyboardContentInset(_ notification: Notification) {
+    func addKeyboardContentInset(_ notification: Notification) {
         if let frameValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             
             kbSize = frameValue.cgRectValue.size
@@ -145,7 +145,7 @@ private extension EditAndReplayDreamViewController {
     func presentRecordingErrorAlert() {
         let dismissAction = UIAlertAction(title: "Dismiss",
                                           style: .destructive) { _ in
-                                            self.dismiss(animated: true)
+            self.dismiss(animated: true)
         }
         presentAlert(for: "Missing Dream Title",
                      message: "Please add title to save dream",
@@ -198,7 +198,7 @@ extension EditAndReplayDreamViewController {
     
 }
 
- // MARK: - Functions -
+// MARK: - Functions -
 private extension EditAndReplayDreamViewController {
     func loadElements() {
         guard let dream = dream else { return }

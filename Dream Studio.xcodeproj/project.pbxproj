@@ -19,6 +19,7 @@
 		6A47C24E2542697800006E0E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A47C24D2542697800006E0E /* MainTabBarController.swift */; };
 		9470F91C676C60ECC06DEC0D /* Pods_Dream_Studio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1771E5D0BCA0A865279AB1 /* Pods_Dream_Studio.framework */; };
 		B9083CFC253944C300DA4DE4 /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9083CFB253944C300DA4DE4 /* UIViewController+extension.swift */; };
+		B95695EA25D4DA3000078A70 /* TabViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95695E925D4DA3000078A70 /* TabViews.swift */; };
 		D65A2AF9242A4F3E00E3326E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65A2AF8242A4F3E00E3326E /* AppDelegate.swift */; };
 		D65A2AFB242A4F3E00E3326E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65A2AFA242A4F3E00E3326E /* SceneDelegate.swift */; };
 		D65A2AFD242A4F3E00E3326E /* RecordDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65A2AFC242A4F3E00E3326E /* RecordDreamViewController.swift */; };
@@ -86,6 +87,7 @@
 		9333DD10095CFC10AA3E12C0 /* Pods-Dream Studio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dream Studio.release.xcconfig"; path = "Target Support Files/Pods-Dream Studio/Pods-Dream Studio.release.xcconfig"; sourceTree = "<group>"; };
 		9FECC796E02B565E37C6DB04 /* Pods-Dream Studio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dream Studio.debug.xcconfig"; path = "Target Support Files/Pods-Dream Studio/Pods-Dream Studio.debug.xcconfig"; sourceTree = "<group>"; };
 		B9083CFB253944C300DA4DE4 /* UIViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
+		B95695E925D4DA3000078A70 /* TabViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViews.swift; sourceTree = "<group>"; };
 		BE1771E5D0BCA0A865279AB1 /* Pods_Dream_Studio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dream_Studio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65A2AF5242A4F3E00E3326E /* Dream Studio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dream Studio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65A2AF8242A4F3E00E3326E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				D65A2AF8242A4F3E00E3326E /* AppDelegate.swift */,
 				D65A2AFA242A4F3E00E3326E /* SceneDelegate.swift */,
 				D84A5891252A6527006FDE19 /* OnboardingViewController.swift */,
+				B95695E925D4DA3000078A70 /* TabViews.swift */,
 				D6BA52F32469DE6A00166A7B /* Utils */,
 				D84BB95A252EB608001BAC53 /* Dream */,
 				D6D762B024733B8500EF2E17 /* Dream Wall */,
@@ -564,6 +567,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A021C0B25328B140052AB7C /* UIView+addSubviews.swift in Sources */,
+				B95695EA25D4DA3000078A70 /* TabViews.swift in Sources */,
 				D6F49EC52476CDF20037F755 /* SpeechToTextHelper.swift in Sources */,
 				6A021C0825328ADB0052AB7C /* UIView+addStyling.swift in Sources */,
 				D6D27CDC2468625F00B7AF8F /* RoundedViews.swift in Sources */,

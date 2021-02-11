@@ -14,7 +14,7 @@ class DreamWallViewController: UIViewController, UISearchBarDelegate, DreamViewM
     @IBOutlet weak var dreamWallTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBAction func newAlarmButtonTapped(_ sender: Any) {
-        _ = tabBarController?.selectedIndex = 1
+        _ = tabBarController?.selectedIndex = TabViews.RecordView.rawValue
     }
     // MARK: - Properties -
     var dreamViewModel: DreamViewModel? {
