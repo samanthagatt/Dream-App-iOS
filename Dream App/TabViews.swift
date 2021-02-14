@@ -9,8 +9,8 @@
 import Foundation
 
 enum TabViews : Int {
-case DictionaryView = 0
-case DreamView = 1
-case RecordView = 2
+case DreamView = 0
+case RecordView = 1
+case DictionaryView = 2
 case AlarmView = 3
 }

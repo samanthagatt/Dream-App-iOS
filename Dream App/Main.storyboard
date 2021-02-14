@@ -81,10 +81,10 @@
                         <color key="selectedImageTintColor" name="primaryPurple"/>
                     </tabBar>
                     <connections>
-                        <segue destination="ZuD-KY-Cho" kind="relationship" relationship="viewControllers" id="Pfj-rP-BIQ"/>
                         <segue destination="7ip-Bk-SmH" kind="relationship" relationship="viewControllers" id="kQg-Qj-hLe"/>
                         <segue destination="UGH-ce-TMY" kind="relationship" relationship="viewControllers" id="ygl-4i-0au"/>
-                        <segue destination="LEv-iw-w5b" kind="relationship" relationship="viewControllers" id="7MD-9X-Gny"/>
+                        <segue destination="ZuD-KY-Cho" kind="relationship" relationship="viewControllers" id="BET-0n-skz"/>
+                        <segue destination="LEv-iw-w5b" kind="relationship" relationship="viewControllers" id="ymF-RZ-jq2"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AtQ-rT-Ud6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
