@@ -14,7 +14,7 @@ class DreamWallViewController: UIViewController, UISearchBarDelegate, DreamViewM
     @IBOutlet weak var dreamWallTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBAction func newAlarmButtonTapped(_ sender: Any) {
-        _ = tabBarController?.selectedIndex = 1
+        _ = tabBarController?.selectedIndex = TabViews.RecordView.rawValue
     }
     // MARK: - Properties -
     var dreamViewModel: DreamViewModel? {
@@ -30,6 +30,7 @@ class DreamWallViewController: UIViewController, UISearchBarDelegate, DreamViewM
         super.viewDidLoad()   
         setupView()
         hideKeyboardWhenTappedAround()
+        self.dreamWallTableView.keyboardDismissMode = .onDrag
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -64,6 +65,7 @@ extension DreamWallViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         92
     }

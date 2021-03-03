@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z8u-dW-gJD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z8u-dW-gJD">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -47,6 +49,7 @@
                                 </state>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="ih2-gN-yG7"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="7c7-vx-aQb" firstAttribute="top" secondItem="RKu-3J-20p" secondAttribute="bottom" constant="50" id="2m0-el-kpd"/>
@@ -55,7 +58,6 @@
                             <constraint firstItem="ih2-gN-yG7" firstAttribute="bottom" secondItem="7c7-vx-aQb" secondAttribute="bottom" constant="45" id="RcW-Ve-4Hd"/>
                             <constraint firstItem="7c7-vx-aQb" firstAttribute="leading" secondItem="ih2-gN-yG7" secondAttribute="leading" constant="20" id="d3i-jb-JsZ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ih2-gN-yG7"/>
                     </view>
                     <connections>
                         <outlet property="getStartedButton" destination="7c7-vx-aQb" id="EPC-dz-fLf"/>
@@ -79,14 +81,15 @@
                         <color key="selectedImageTintColor" name="primaryPurple"/>
                     </tabBar>
                     <connections>
-                        <segue destination="7ip-Bk-SmH" kind="relationship" relationship="viewControllers" id="llo-4D-pBD"/>
-                        <segue destination="UGH-ce-TMY" kind="relationship" relationship="viewControllers" id="1Pq-nk-B1K"/>
-                        <segue destination="LEv-iw-w5b" kind="relationship" relationship="viewControllers" id="c49-FD-pah"/>
+                        <segue destination="7ip-Bk-SmH" kind="relationship" relationship="viewControllers" id="kQg-Qj-hLe"/>
+                        <segue destination="UGH-ce-TMY" kind="relationship" relationship="viewControllers" id="ygl-4i-0au"/>
+                        <segue destination="ZuD-KY-Cho" kind="relationship" relationship="viewControllers" id="BET-0n-skz"/>
+                        <segue destination="LEv-iw-w5b" kind="relationship" relationship="viewControllers" id="ymF-RZ-jq2"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AtQ-rT-Ud6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1159" y="-190"/>
+            <point key="canvasLocation" x="-1174" y="-556"/>
         </scene>
         <!--Alarm-->
         <scene sceneID="ymz-8R-cFF">
@@ -149,6 +152,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="iX5-AD-SYo"/>
                         <color key="backgroundColor" name="darkBackground"/>
                         <constraints>
                             <constraint firstItem="iX5-AD-SYo" firstAttribute="trailing" secondItem="7PJ-79-mdn" secondAttribute="trailing" id="5lI-mK-hHf"/>
@@ -156,7 +160,6 @@
                             <constraint firstItem="iX5-AD-SYo" firstAttribute="bottom" secondItem="7PJ-79-mdn" secondAttribute="bottom" id="W1b-Xg-pdM"/>
                             <constraint firstItem="7PJ-79-mdn" firstAttribute="top" secondItem="iX5-AD-SYo" secondAttribute="top" id="qkt-dx-Xox"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="iX5-AD-SYo"/>
                     </view>
                     <navigationItem key="navigationItem" title="Alarm" id="QTt-JU-UHx">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="gcM-kg-6bb">
@@ -210,35 +213,152 @@
             </objects>
             <point key="canvasLocation" x="475" y="-435"/>
         </scene>
-        <!--Calendar-->
+        <!--Dictionary-->
         <scene sceneID="i6L-ms-D3k">
             <objects>
-                <viewController id="gSS-KT-9jz" sceneMemberID="viewController">
+                <viewController title="Dictionary" id="gSS-KT-9jz" customClass="DictionaryViewController" customModule="Dream_Studio" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tC5-HM-hpm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" text="" placeholder="Enter Dream Symbol...." translatesAutoresizingMaskIntoConstraints="NO" id="A4m-1m-PUy">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="0RP-ee-1rM"/>
+                                </constraints>
+                                <color key="barTintColor" name="darkBackground"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PP2-N6-duU">
+                                <rect key="frame" x="0.0" y="44" width="414" height="681"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dictionaryCell" rowHeight="146" id="U15-Sy-eLu" customClass="DictionaryTableViewCell" customModule="Dream_Studio" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="146"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U15-Sy-eLu" id="eWg-Un-o6R">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="146"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LZY-QJ-SgU">
+                                                    <rect key="frame" x="20" y="13" width="374" height="125"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbB-pc-KZV">
+                                                            <rect key="frame" x="15" y="55" width="342" height="56"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <string key="text">To dream that you have a been sabotaged indicates that that there is something that you are ignoring or overlooking in your waking life. To dream that you....</string>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sabotage" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVT-Lh-nih">
+                                                            <rect key="frame" x="15" y="19" width="89" height="28"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                                            <color key="textColor" name="primaryPurple"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.1333333333" green="0.1450980392" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="LZY-QJ-SgU" firstAttribute="leading" secondItem="eWg-Un-o6R" secondAttribute="leading" constant="20" id="2yq-uI-k9L"/>
+                                                <constraint firstItem="LZY-QJ-SgU" firstAttribute="top" secondItem="eWg-Un-o6R" secondAttribute="top" constant="13" id="WL0-uz-47A"/>
+                                                <constraint firstAttribute="trailing" secondItem="LZY-QJ-SgU" secondAttribute="trailing" constant="20" id="wGM-rW-Y5g"/>
+                                                <constraint firstAttribute="bottom" secondItem="LZY-QJ-SgU" secondAttribute="bottom" constant="8" id="xwr-AU-9j6"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="darkBackground"/>
+                                        <connections>
+                                            <outlet property="cellView" destination="LZY-QJ-SgU" id="Qua-F3-rGP"/>
+                                            <outlet property="wordMeaning" destination="UbB-pc-KZV" id="EdP-l6-jul"/>
+                                            <outlet property="wordTitle" destination="FVT-Lh-nih" id="H3u-eC-IgF"/>
+                                            <segue destination="kcX-Jd-VXL" kind="show" id="fmX-et-yL8"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="rXV-bo-eaP"/>
+                        <color key="backgroundColor" name="darkBackground"/>
+                        <constraints>
+                            <constraint firstItem="rXV-bo-eaP" firstAttribute="trailing" secondItem="A4m-1m-PUy" secondAttribute="trailing" id="2co-FO-YjX"/>
+                            <constraint firstItem="A4m-1m-PUy" firstAttribute="leading" secondItem="rXV-bo-eaP" secondAttribute="leading" id="6xa-dM-aW9"/>
+                            <constraint firstItem="rXV-bo-eaP" firstAttribute="trailing" secondItem="PP2-N6-duU" secondAttribute="trailing" id="Vxm-7Q-koH"/>
+                            <constraint firstItem="PP2-N6-duU" firstAttribute="top" secondItem="A4m-1m-PUy" secondAttribute="bottom" id="brL-UD-PQD"/>
+                            <constraint firstItem="rXV-bo-eaP" firstAttribute="bottom" secondItem="PP2-N6-duU" secondAttribute="bottom" id="gPo-N6-HC1"/>
+                            <constraint firstItem="PP2-N6-duU" firstAttribute="leading" secondItem="rXV-bo-eaP" secondAttribute="leading" id="h1p-F2-cSc"/>
+                            <constraint firstItem="A4m-1m-PUy" firstAttribute="top" secondItem="rXV-bo-eaP" secondAttribute="top" id="n9n-Pe-5ZO"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Calendar" id="9yn-ar-mRr"/>
+                    <navigationItem key="navigationItem" title="Dictionary" id="9yn-ar-mRr"/>
+                    <connections>
+                        <outlet property="dictionaryTableView" destination="PP2-N6-duU" id="pQP-gF-njM"/>
+                        <outlet property="searchBar" destination="A4m-1m-PUy" id="zay-RT-kga"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GIm-Sc-BWz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="821.73913043478262" y="-1138.3928571428571"/>
         </scene>
-        <!--Calendar-->
+        <!--Dictionary Detail View Controller-->
+        <scene sceneID="fh5-iW-OFj">
+            <objects>
+                <viewController id="kcX-Jd-VXL" customClass="DictionaryDetailViewController" customModule="Dream_Studio" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MnC-vG-9Re">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sabotage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="hZs-Hw-rXz">
+                                <rect key="frame" x="16" y="20" width="382" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="k9D-se-gvt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="48"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IwA-Lr-ahy">
+                                <rect key="frame" x="20" y="136" width="374" height="569"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="WOK-ri-xgq"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Hfu-Ha-cjH"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="XsX-Cr-Ue4"/>
+                        <color key="backgroundColor" name="darkBackground"/>
+                        <constraints>
+                            <constraint firstItem="XsX-Cr-Ue4" firstAttribute="trailing" secondItem="hZs-Hw-rXz" secondAttribute="trailing" constant="16" id="IL5-Yb-tBj"/>
+                            <constraint firstItem="hZs-Hw-rXz" firstAttribute="leading" secondItem="XsX-Cr-Ue4" secondAttribute="leading" constant="16" id="VJI-rM-nrS"/>
+                            <constraint firstItem="hZs-Hw-rXz" firstAttribute="top" secondItem="XsX-Cr-Ue4" secondAttribute="top" constant="20" id="Z4K-fB-7Es"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gMo-0I-bN0"/>
+                    <connections>
+                        <outlet property="scrollView" destination="IwA-Lr-ahy" id="ylp-aO-QfY"/>
+                        <outlet property="wordTitle" destination="hZs-Hw-rXz" id="Waz-2n-ISU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p27-9n-Gci" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1539.1304347826087" y="-1143.0803571428571"/>
+        </scene>
+        <!--Dictionary-->
         <scene sceneID="R1d-OJ-WzS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZuD-KY-Cho" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Calendar" image="calendar" catalog="system" selectedImage="calendar" id="gUG-Z7-T69"/>
+                    <tabBarItem key="tabBarItem" title="Dictionary" image="book" catalog="system" selectedImage="book.fill" id="gUG-Z7-T69"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Dictionary" id="G3W-bj-CVf"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="SnM-g8-FzP">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="darkBackground"/>
                         <color key="barTintColor" name="darkBackground"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" systemColor="labelColor"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -263,7 +383,7 @@
                         <color key="barTintColor" name="darkBackground"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
-                            <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" systemColor="labelColor"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -310,7 +430,8 @@
     <resources>
         <image name="alarm" catalog="system" width="124" height="128"/>
         <image name="alarm.fill" catalog="system" width="124" height="128"/>
-        <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="book" catalog="system" width="128" height="102"/>
+        <image name="book.fill" catalog="system" width="128" height="102"/>
         <image name="mic" catalog="system" width="108" height="128"/>
         <image name="mic.fill" catalog="system" width="108" height="128"/>
         <image name="moon" catalog="system" width="128" height="121"/>
@@ -321,5 +442,8 @@
         <namedColor name="primaryPurple">
             <color red="0.41800001263618469" green="0.39100000262260437" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

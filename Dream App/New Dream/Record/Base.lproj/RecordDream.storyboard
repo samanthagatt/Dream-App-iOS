@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xyD-Iw-pci">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xyD-Iw-pci">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -64,7 +65,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vtC-4T-XXu" customClass="RoundedButton" customModule="Dream_Studio" customModuleProvider="target">
+                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vtC-4T-XXu" customClass="RoundedButton" customModule="Dream_Studio" customModuleProvider="target">
                                         <rect key="frame" x="6" y="465" width="288" height="49"/>
                                         <color key="backgroundColor" name="primaryPurple"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
@@ -94,14 +95,14 @@
                                     <constraint firstAttribute="width" secondItem="b0i-Za-6Aj" secondAttribute="height" multiplier="1:1" id="yy5-mU-m5Q"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxx-DC-DQA">
-                                <rect key="frame" x="170" y="581" width="35" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxx-DC-DQA">
+                                <rect key="frame" x="131.5" y="607" width="112" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="Gnz-1t-FTT"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="17"/>
-                                <state key="normal" title="SKIP">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="15"/>
+                                <state key="normal" title="SKIP RECORDING">
+                                    <color key="titleColor" name="primaryPurple"/>
                                 </state>
                                 <connections>
                                     <action selector="skipRecordButtonTapped:" destination="xyD-Iw-pci" eventType="touchUpInside" id="cBF-vA-bso"/>
@@ -109,6 +110,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="9X8-g7-S0Y"/>
                         <color key="backgroundColor" name="darkBackground"/>
                         <constraints>
                             <constraint firstItem="b0i-Za-6Aj" firstAttribute="centerX" secondItem="hAw-fS-f0y" secondAttribute="centerX" id="7Ml-pi-jM5"/>
@@ -118,10 +120,9 @@
                             <constraint firstItem="b0i-Za-6Aj" firstAttribute="width" secondItem="hAw-fS-f0y" secondAttribute="width" multiplier="3:7" id="KGh-RM-h2e"/>
                             <constraint firstItem="hAw-fS-f0y" firstAttribute="width" secondItem="9X8-g7-S0Y" secondAttribute="width" multiplier="1:2" id="QDf-13-h2c"/>
                             <constraint firstItem="b0i-Za-6Aj" firstAttribute="centerY" secondItem="hAw-fS-f0y" secondAttribute="centerY" id="VMh-Xq-zEH"/>
-                            <constraint firstItem="9X8-g7-S0Y" firstAttribute="bottom" secondItem="zxx-DC-DQA" secondAttribute="bottom" constant="50" id="WjL-8h-BuD"/>
+                            <constraint firstItem="9X8-g7-S0Y" firstAttribute="bottom" secondItem="zxx-DC-DQA" secondAttribute="bottom" constant="24" id="WjL-8h-BuD"/>
                             <constraint firstItem="bIX-jq-uiq" firstAttribute="centerX" secondItem="9X8-g7-S0Y" secondAttribute="centerX" id="Zhr-L1-qzN"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="9X8-g7-S0Y"/>
                         <connections>
                             <outlet property="buttonImage" destination="b0i-Za-6Aj" id="rdj-TQ-8uF"/>
                             <outlet property="descriptionLabel" destination="JIx-U6-CwY" id="joQ-XV-nxE"/>
