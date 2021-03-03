@@ -13,6 +13,7 @@ class DictionaryViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var dictionaryTableView: UITableView!
+    let activityView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
     
     // MARK: - Properties -
     var docRef : DocumentReference!
@@ -30,7 +31,17 @@ class DictionaryViewController: UIViewController, UISearchBarDelegate {
 
 // MARK: - Private Methods -
 private extension DictionaryViewController {
+    
+    func setupActivityIndicator() {
+        activityView.color = #colorLiteral(red: 0.4626066089, green: 0.3612137437, blue: 1, alpha: 1)
+        self.view.addSubview(activityView)
+        activityView.translatesAutoresizingMaskIntoConstraints = false
+        activityView.constrainTop(toBottomOf: searchBar, offset: 100)
+        activityView.constrainCenterX(to: dictionaryTableView)
+    }
+    
     func setupView(){
+        setupActivityIndicator()
         dictionaryTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         dictionaryTableView.dataSource = self
         dictionaryTableView.delegate = self
@@ -43,14 +54,15 @@ private extension DictionaryViewController {
     }
     
     func callAPI(){
+        activityView.startAnimating()
         FirebaseApp.configure()
-        
         docRef = Firestore.firestore().document("DreamStudio/Dictionary")
-        docRef.getDocument { (documentSnapShot, error) in
+        docRef.getDocument { [self] (documentSnapShot, error) in
             guard let docuSnapshot = documentSnapShot, documentSnapShot?.exists ?? false else { return }
             guard let dictionaryData = docuSnapshot.data() else { return }
             DictionaryViewModel.dictionary = dictionaryData
             self.dictionaryTableView.reloadData()
+            self.activityView.stopAnimating()
         }
         
         docRef = Firestore.firestore().document("DreamStudio/Featured")
